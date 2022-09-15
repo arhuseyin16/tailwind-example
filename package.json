@@ -15,6 +15,7 @@
     "watch:dev": "ng build --watch --configuration development",
     "watch:test": "ng build --watch --configuration test",
     "watch:prod": "ng build --watch --configuration production",
+    "compodoc": "npx compodoc -p tsconfig.doc.json -s",
     "test": "ng test"
   },
   "private": true,
@@ -28,6 +29,7 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "ng-zorro-antd": "^14.0.0",
+    "ngx-ui-loader": "^13.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
