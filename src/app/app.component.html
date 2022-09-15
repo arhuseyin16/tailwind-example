@@ -15,7 +15,7 @@
       <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
+            <a routerLink="/welcome">{{'welcome' | translate}}</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a>Monitor</a>
@@ -43,6 +43,9 @@
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></span>
         </span>
+        <nz-select [(ngModel)]="translateService.defaultLang" (ngModelChange)=switchLang($event)>
+          <nz-option *ngFor="let language of translateService.getLangs()" [nzValue]="language" [nzLabel]="language"></nz-option>
+        </nz-select>
       </div>
     </nz-header>
     <nz-content>
