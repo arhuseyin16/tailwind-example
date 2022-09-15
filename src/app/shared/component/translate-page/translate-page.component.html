@@ -1,0 +1,7 @@
+<nz-select [(ngModel)]="translateService.defaultLang" (ngModelChange)=switchLang($event)>
+  <nz-option *ngFor="let language of translateService.getLangs()" [nzValue]="language" [nzLabel]="language"></nz-option>
+</nz-select>
+
+
+
+

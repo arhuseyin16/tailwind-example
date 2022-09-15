@@ -1,4 +1,11 @@
 {
   "title": "Title",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "dashboard": "Dashboard",
+  "logout": "logout",
+  "username": "User Name",
+  "password": "Password",
+  "submit-login-btn": "Login",
+  "remember-me": "Remember Me",
+  "forgot-my-password": "Did you forget your password?"
 }

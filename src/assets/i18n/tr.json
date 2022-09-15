@@ -1,4 +1,12 @@
 {
   "title": "Başlık",
-  "welcome": "Hoşgeldiniz"
+  "welcome": "Hoşgeldiniz",
+  "dashboard": "Dashboard",
+  "logout": "Çıkış",
+  "username": "Kullanıcı Adı",
+  "password": "Şifre",
+  "submit-login-btn": "Giriş Yap",
+  "remember-me": "Beni Hatırla",
+  "forgot-my-password": "Şifreni mi Unuttun?"
+
 }
