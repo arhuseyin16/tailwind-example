@@ -17,14 +17,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { NzSelectModule } from "ng-zorro-antd/select";
 import { StoreModule } from "./store/store.module";
-import { AppleComponent } from './pages/apple/apple.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppleComponent
   ],
   imports: [
     BrowserModule,
