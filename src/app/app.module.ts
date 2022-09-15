@@ -16,6 +16,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { NzSelectModule } from "ng-zorro-antd/select";
+import { StoreModule } from "./store/store.module";
 
 registerLocaleData(en);
 
@@ -39,7 +40,8 @@ registerLocaleData(en);
         deps: [ HttpClient ]
       }
     } ),
-    NzSelectModule
+    NzSelectModule,
+    StoreModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
