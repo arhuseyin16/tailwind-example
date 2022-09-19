@@ -15,7 +15,8 @@ import {TranslatePageModule} from "../../shared/component/translate-page/transla
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {title: 'titles.login'}
   }
 ]
 

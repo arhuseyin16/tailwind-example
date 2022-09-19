@@ -14,6 +14,7 @@ import { IconsProviderModule } from './icons-provider.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { StoreModule } from "./store/store.module";
+import { NgxTranslateRoutesModule } from "ngx-translate-routes";
 
 registerLocaleData(en);
 
@@ -28,21 +29,27 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     AppRoutingModule,
     IconsProviderModule,
-    TranslateModule.forRoot( {
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
         useFactory: httpTranslateLoader,
-        deps: [ HttpClient ]
+        deps: [HttpClient]
       }
-    } ),
+    }),
+    NgxTranslateRoutesModule.forRoot({
+      enableRouteTranslate: false
+    }),
     StoreModule
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US }
+    {provide: NZ_I18N, useValue: en_US}
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http);

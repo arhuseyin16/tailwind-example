@@ -1,4 +1,7 @@
 {
+  "titles": {
+    "login": "Login"
+  },
   "title": "Title",
   "welcome": "Welcome",
   "dashboard": "Dashboard",

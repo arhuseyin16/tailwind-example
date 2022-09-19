@@ -12,14 +12,21 @@ export class TranslatePageComponent implements OnInit {
     public translateService: TranslateService
   ) {
     translateService.addLangs(['en', 'tr']);
-    translateService.setDefaultLang('en');
   }
 
   ngOnInit(): void {
+    const language = localStorage.getItem('language');
+    if(language === 'en') {
+      this.translateService.setDefaultLang('en');
+      localStorage.setItem('language', 'en');
+    } else {
+      this.translateService.setDefaultLang('tr');
+      localStorage.setItem('language', 'tr');
+    }
   }
 
   switchLang(lang: string) {
     this.translateService.use(lang);
+    localStorage.setItem('language', lang);
   }
-
 }

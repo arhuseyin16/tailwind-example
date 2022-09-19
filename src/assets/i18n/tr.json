@@ -1,4 +1,7 @@
 {
+  "titles": {
+    "login": "Giriş Yap"
+  },
   "title": "Başlık",
   "welcome": "Hoşgeldiniz",
   "dashboard": "Dashboard",
