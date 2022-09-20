@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
-import {NzLayoutModule} from "ng-zorro-antd/layout";
-import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
-import {NzIconModule} from "ng-zorro-antd/icon";
-import {NzMenuModule} from "ng-zorro-antd/menu";
-import {TranslateModule} from "@ngx-translate/core";
-import {PagesRoutes} from "./pages-routes";
-import {TranslatePageModule} from "../shared/component/translate-page/translate-page.module";
-
+import { NzLayoutModule } from "ng-zorro-antd/layout";
+import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
+import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzMenuModule } from "ng-zorro-antd/menu";
+import { TranslateModule } from "@ngx-translate/core";
+import { PagesRoutes } from "./pages-routes";
+import { TranslatePageModule } from "../shared/component/translate-page/translate-page.module";
 
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     CommonModule,
@@ -28,4 +27,5 @@ import {TranslatePageModule} from "../shared/component/translate-page/translate-
     TranslatePageModule
   ]
 })
-export class PagesModule { }
+export class PagesModule {
+}
