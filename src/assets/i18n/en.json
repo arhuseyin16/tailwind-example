@@ -3,9 +3,11 @@
   "welcome": "Welcome",
   "dashboard": "Dashboard",
   "logout": "logout",
+  "portalLoginTile": "PORTAL LOGIN",
+  "companyCode": "Company Code",
   "username": "User Name",
   "password": "Password",
   "submit-login-btn": "Login",
   "remember-me": "Remember Me",
-  "forgot-my-password": "Did you forget your password?"
+  "forgot-my-password": "I Forgot My Password"
 }
