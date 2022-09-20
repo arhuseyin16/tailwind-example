@@ -13,7 +13,14 @@
   position: relative;
   z-index: 10;
   min-height: 100vh;
-  box-shadow: 2px 0 6px rgba(0,21,41,.35);
+  box-shadow: rgb(129 129 129 / 10%) 0 0 14px 0;
+}
+.ant-layout-sider {
+  background: #fff !important;
+  box-shadow: rgb(129 129 129 / 10%) 0 0 14px 0;
+  border-bottom-right-radius: 100px;
+  border-top-right-radius: 100px !important;
+
 }
 
 .header-trigger {
@@ -34,8 +41,10 @@
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
-  background: #001529;
+  background: #fff;
   transition: all .3s;
+  border-top-right-radius: 100px !important;
+  box-shadow: rgb(129 129 129 / 10%) 0 0 14px 0;
 }
 
 .sidebar-logo img {
