@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
-import { LayoutComponent } from "../layout/layout.component";
+import { LayoutComponent } from "./layout/layout.component";
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { TranslatePageModule } from "../../shared/component/translate-page/translate-page.module";
 import { NzMenuModule } from "ng-zorro-antd/menu";
