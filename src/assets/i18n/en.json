@@ -1,6 +1,18 @@
 {
   "titles": {
-    "login": "Login"
+    "login": "Login",
+    "test": {
+      "hello": "Hello",
+      "car": {
+        "name": "BMW Station",
+        "model": "BMW",
+        "date": {
+          "day": "22",
+          "month": "12",
+          "year": "1996"
+        }
+      }
+    }
   },
   "title": "Title",
   "welcome": "Welcome",

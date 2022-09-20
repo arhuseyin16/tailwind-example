@@ -15,6 +15,10 @@ export const PagesRoutes: Routes = [
         loadChildren: () => import('./welcome/welcome.module').then(m => m.WelcomeModule)
       },
       {
+        path: 'translate-dashboard',
+        loadChildren: () => import('./translate-dashboard/translate-dashboard.module').then(m => m.TranslateDashboardModule)
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
