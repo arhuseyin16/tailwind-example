@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
 import { LayoutComponent } from "../layout/layout.component";
+import { NzLayoutModule } from "ng-zorro-antd/layout";
+import { TranslatePageModule } from "../../shared/component/translate-page/translate-page.module";
+import { NzMenuModule } from "ng-zorro-antd/menu";
+import { NzIconModule } from "ng-zorro-antd/icon";
+import { TranslateModule } from "@ngx-translate/core";
 
 const routes: Routes = [
   {
@@ -15,17 +20,24 @@ const routes: Routes = [
       },
       {
         path: 'transactions-dashboard',
-        loadChildren: () => import('./bank-transactions-dashboard/bank-transactions-dashboard.module').then(m => m.BankTransactionsDashboardModule)
+        loadChildren: () => import('./transactions-dashboard/transactions-dashboard.module').then(m => m.TransactionsDashboardModule)
       }
     ]
   }
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LayoutComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NzLayoutModule,
+    TranslatePageModule,
+    NzMenuModule,
+    NzIconModule,
+    TranslateModule
   ]
 })
 export class BankModule {
