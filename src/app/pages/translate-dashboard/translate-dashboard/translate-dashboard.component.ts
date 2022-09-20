@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslateDashboardService } from "../../../service/translate/translate-dashboard.service";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 
@@ -20,8 +20,7 @@ export class TranslateDashboardComponent implements OnInit, OnDestroy {
   searchValue = '';
   visible = false;
 
-  constructor(private translateDashboardService: TranslateDashboardService,
-              private changeDetectionRef: ChangeDetectorRef) { }
+  constructor(private translateDashboardService: TranslateDashboardService) { }
 
   ngOnInit(): void {
     this.getService();
@@ -34,14 +33,13 @@ export class TranslateDashboardComponent implements OnInit, OnDestroy {
         this.keys = []
         this.translatesTr = this.generateTranslateModel(trObject);
         this.translates.forEach(t => {
-          let trnslt = this.translatesTr.find(tr => tr.key === t.key);
+          let translationFound = this.translatesTr.find(tr => tr.key === t.key);
           this.globalTranslates.push({
             key: t.key,
             enValue: t.value,
-            trValue: trnslt ? trnslt.value : ''
+            trValue: translationFound ? translationFound.value : ''
           });
         });
-        console.log(this.globalTranslates);
         this.globalTranslatesOfDisplay = [...this.globalTranslates];
       });
     });

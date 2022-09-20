@@ -33,4 +33,5 @@ const routes: Routes = [
   ],
   providers: [TranslateDashboardService]
 })
-export class TranslateDashboardModule { }
+export class TranslateDashboardModule {
+}
