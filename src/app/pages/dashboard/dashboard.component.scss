@@ -1,0 +1,120 @@
+.dashboard {
+  width: 100%;
+  height: 100%;
+  padding: 50px 15px 0 10px;
+  background-color: #f5f5f5;
+
+  .module {
+    display: flex;
+    flex-wrap: wrap;
+
+    .module-list {
+      flex: 0 0 25%;
+      max-width: 25%;
+      padding: 0 15px;
+      margin-bottom: 30px;
+
+      .card {
+        position: relative;
+        border-radius: 20px;
+        box-shadow: 0 0 30px 0 rgba(129, 129, 129, 0.12);
+        background-color: #fff;
+        padding: 45px 0 35px 35px;
+        z-index: 0;
+        overflow: hidden;
+        cursor: pointer;
+        width: 100%;
+
+        &:before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          background: #2d64a0;;
+          height: calc(100%);
+          width: 14px;
+        }
+
+        &:hover {
+          background-image: linear-gradient(to left, #87bfad, #2d64a0);
+          .image {
+            display: none !important;
+          }
+          .light-image {
+            display: block !important;
+          }
+          .title {
+            color: #fff !important;
+          }
+          .icon {
+            color: #fff !important;
+          }
+        }
+
+        .module-image {
+          img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+
+            &.image {
+              display: block;
+            }
+
+            &.light-image {
+              display: none;
+            }
+          }
+        }
+
+        .module-title {
+          display: flex;
+          position: relative;
+
+          .title {
+            font-size: 22px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #2e65a1;
+          }
+
+          .icon {
+            font-size: 22px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #2e65a1;
+            justify-content: end;
+            display: flex;
+            padding: 7px 0 0 0;
+            position: absolute;
+            top: 0;
+            right: 45px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .module-list {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .module-list {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
