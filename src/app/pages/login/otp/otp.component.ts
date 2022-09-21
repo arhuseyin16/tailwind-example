@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class OtpComponent implements OnInit {
 
   otpForm = this.fb.group({
-    code: new FormControl('',[Validators.maxLength(10), Validators.required])
+    code: new FormControl('12345',[Validators.maxLength(10), Validators.required])
   });
 
   constructor(
@@ -22,7 +22,7 @@ export class OtpComponent implements OnInit {
   }
 
   otpClick(): void {
-    this.router.navigate(['/bank']);
+    this.router.navigate(['/dashboard']);
   }
 
 }
