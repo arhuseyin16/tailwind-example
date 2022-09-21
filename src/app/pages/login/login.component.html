@@ -1,47 +1,3 @@
-<!--<div class="bg-neutral-400 w-screen h-screen">
-  <div style="display: flex; justify-content: end">
-    <app-translate-page></app-translate-page>
-  </div>
-  <div class="flex">
-    <div class="logo w-1/2">
-      <img src="assets/img/logo.png" >
-    </div>
-    <div class="form w-1/3 mx-auto my-auto">
-      <nz-card class="rounded-lg">
-        <form [formGroup]="loginForm">
-          <div class="mt-2">
-            <label>{{'username' | translate}}</label>
-            <input class="rounded-lg" formControlName="username" nz-input placeholder="{{'username' | translate}}">
-          </div>
-          <div class="mt-8">
-            <label>{{'password' | translate}}</label>
-            <nz-input-group [nzSuffix]="suffixTemplate" class="rounded-lg" >
-              <input
-                [type]="passwordVisible ? 'text' : 'password'"
-                nz-input
-                placeholder="{{'password' | translate}}"
-               formControlName="password"
-              />
-            </nz-input-group>
-            <ng-template #suffixTemplate>
-               <span class="cursor-pointer" nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></span>
-            </ng-template>
-          </div>
-          <div class="mt-5">
-            <label nz-checkbox formControlName="checked">{{'remember-me' | translate}}</label>
-          </div>
-          <div class="mt-5">
-            <button nz-button nzType="default" nzBlock (click)="loginClick()">{{'submit-login-btn' | translate}}</button>
-          </div>
-          <div class="mt-5 text-center">
-            <label class="cursor-pointer">{{"forgot-my-password" | translate}}</label>
-          </div>
-        </form>
-      </nz-card>
-    </div>
-  </div>
-</div>-->
-
 <!--begin::Signin-->
 <div class="login-form login-signin">
   <div class="login-language">
@@ -49,86 +5,94 @@
   </div>
   <img class="login-banner" src="./assets/img/login-left-body.png" alt="Login Logo" />
   <!--begin::Form-->
-  <form class="form" [formGroup]="loginForm">
-    <div class="form-header">
-      <div class="header-title">{{"portalLoginTile" | translate}}</div>
-    </div>
-    <!--begin::Form group-->
-    <div class="form-group mt-5">
-      <label class="form-label">{{'companyCode' | translate}}</label>
-      <div class="form-position mt-2.5">
-        <div class="icon-input">
-          <span nz-icon nzType="setting" nzTheme="outline"></span>
-        </div>
-        <input class="rounded-lg"
-               type="text"
-               formControlName="companyCode"
-               nz-input>
+  <div class="form">
+    <app-otp *ngIf="isOtp"></app-otp>
+    <form [formGroup]="loginForm" *ngIf="!isOtp">
+      <div class="form-header">
+        <div class="header-title">{{"portalLoginTile" | translate}}</div>
       </div>
-    </div>
+      <!--begin::Form group-->
+      <div class="form-group mt-5">
+        <label class="form-label">{{'companyCode' | translate}}</label>
+        <div class="form-position mt-2.5">
+          <div class="icon-input">
+            <img src="assets/icon/login-company-icon.png" />
+          </div>
+          <input class="rounded-lg"
+                 onlyNumber
+                 type="text"
+                 formControlName="companyCode"
+                 nz-input>
+        </div>
+      </div>
 
-    <div class="form-group mt-5">
-      <label class="form-label">{{'username' | translate}}</label>
-      <div class="form-position mt-2.5">
-        <div class="icon-input">
-          <span nz-icon nzType="user" nzTheme="outline"></span>
+      <div class="form-group mt-5">
+        <label class="form-label">{{'username' | translate}}</label>
+        <div class="form-position mt-2.5">
+          <div class="icon-input">
+            <img src="assets/icon/login-user-icon.png" />
+          </div>
+          <input class="rounded-lg"
+                 type="text"
+                 formControlName="username"
+                 nz-input>
         </div>
-        <input class="rounded-lg"
-               type="text"
-               formControlName="username"
-               nz-input>
       </div>
-    </div>
-    <!--end::Form group-->
+      <!--end::Form group-->
 
-    <!--begin::Form group-->
-    <div class="form-group mt-5">
-      <label class="form-label">{{'password' | translate}}</label>
-      <div class="form-position mt-2.5">
-        <div class="icon-input">
-          <span nz-icon nzType="lock" nzTheme="outline"></span>
+      <!--begin::Form group-->
+      <div class="form-group mt-5">
+        <label class="form-label">{{'password' | translate}}</label>
+        <div class="form-position mt-2.5">
+          <div class="icon-input">
+            <img src="assets/icon/login-lock-icon.png" />
+          </div>
+          <nz-input-group [nzSuffix]="suffixTemplate" class="rounded-lg" >
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              nz-input
+              autocomplete="off"
+              formControlName="password"
+            />
+          </nz-input-group>
         </div>
-        <nz-input-group [nzSuffix]="suffixTemplate" class="rounded-lg" >
-          <input
-            [type]="passwordVisible ? 'text' : 'password'"
-            nz-input
-            autocomplete="off"
-            formControlName="password"
-          />
-        </nz-input-group>
-      </div>
-      <ng-template #suffixTemplate>
+        <ng-template #suffixTemplate>
         <span class="cursor-pointer"
               nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
               (click)="passwordVisible = !passwordVisible"
         ></span>
-      </ng-template>
-    </div>
-    <!--end::Form group-->
-
-    <!--begin::Action-->
-    <div class="form-group mt-6">
-      <button
-        type="submit"
-        class="btn loginBtn"
-        (click)="loginClick()"
-        [disabled]="loginForm.invalid"
-      >
-        {{'submit-login-btn' | translate}}
-      </button>
-    </div>
-    <!--end::Action-->
-
-    <div class="form-group mb-6 mt-4">
-      <div class="remember-me">
-        <label nz-checkbox formControlName="rememberMe">{{'remember-me' | translate}}</label>
+        </ng-template>
       </div>
-      <div class="forgot-my-password">
-        <a>{{"forgot-my-password" | translate}}</a>
+      <!--end::Form group-->
+
+      <!--begin::Action-->
+      <div class="form-group mt-6">
+        <button
+          type="submit"
+          class="btn loginBtn"
+          (click)="loginClick()"
+          [ngStyle]="loginForm.invalid ? {'cursor': 'no-drop'} : {'cursor': 'pointer'}"
+          [disabled]="loginForm.invalid"
+        >
+          {{'submit-login-btn' | translate}}
+        </button>
       </div>
-    </div>
-  </form>
+      <!--end::Action-->
+
+      <div class="form-group mb-6 mt-4">
+        <div class="remember-me">
+          <label nz-checkbox formControlName="rememberMe">{{'remember-me' | translate}}</label>
+        </div>
+        <div class="forgot-my-password">
+          <a>{{"forgot-my-password" | translate}}</a>
+        </div>
+      </div>
+    </form>
+  </div>
   <!--end::Form-->
+
+  <!---start:otp--->
+  <!---end:otp----->
 </div>
 <!--end::Signin-->
 

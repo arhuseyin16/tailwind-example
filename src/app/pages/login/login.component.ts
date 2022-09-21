@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('eho', Validators.required),
     rememberMe: new FormControl(true),
   });
+  isOtp = false;
 
   constructor(
     private fb: FormBuilder,
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  loginClick() {
-    this.router.navigate(['/dashboard']);
+  loginClick(): void {
+    this.isOtp = true;
+    // this.router.navigate(['/bank']);
   }
 }

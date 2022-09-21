@@ -11,6 +11,8 @@ import {NzWaveModule} from "ng-zorro-antd/core/wave";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
 import {TranslatePageModule} from "../../shared/component/translate-page/translate-page.module";
+import { OtpComponent } from './otp/otp.component';
+import {DirectiveModule} from "../../shared/directive/directive.module";
 
 const routes: Routes = [
   {
@@ -22,7 +24,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    OtpComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,8 @@ const routes: Routes = [
     TranslatePageModule,
     NzWaveModule,
     NzButtonModule,
-    NzCheckboxModule
+    NzCheckboxModule,
+    DirectiveModule
   ]
 })
 export class LoginModule { }

@@ -9,6 +9,7 @@
   "password": "Şifre",
   "submit-login-btn": "Giriş Yap",
   "remember-me": "Beni Hatırla",
-  "forgot-my-password": "Şifremi Unuttum"
-
+  "forgot-my-password": "Şifremi Unuttum",
+  "verify": "Doğrula",
+  "verification": "DOĞRULAMA"
 }
