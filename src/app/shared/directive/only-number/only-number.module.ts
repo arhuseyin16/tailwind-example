@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {OnlyNumberDirective} from "./only-number.directive";
+import { OnlyNumberDirective } from "./only-number.directive";
 
 
 
@@ -9,8 +9,6 @@ import {OnlyNumberDirective} from "./only-number.directive";
   imports: [
     CommonModule
   ],
-  exports: [
-    OnlyNumberDirective
-  ]
+  exports: [OnlyNumberDirective]
 })
-export class DirectiveModule { }
+export class OnlyNumberModule { }
