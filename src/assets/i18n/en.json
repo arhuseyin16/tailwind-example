@@ -9,5 +9,7 @@
   "password": "Password",
   "submit-login-btn": "Login",
   "remember-me": "Remember Me",
-  "forgot-my-password": "I Forgot My Password"
+  "forgot-my-password": "I Forgot My Password",
+  "verify": "Verify",
+  "verification": "VERİFİCATİON"
 }
