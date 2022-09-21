@@ -16,7 +16,49 @@
   box-shadow: rgb(129 129 129 / 10%) 0 0 14px 0;
 }
 
+.sidebar-menu-label {
+  @apply text-sidebarLabel ml-[9px] font-medium
+}
 
+.sidebar-base-menu-label {
+  @apply text-sidebarLabel font-medium
+}
+
+.sidebar-menu-title {
+  @apply text-sidebarTitle
+}
+
+.ml9-minus {
+  @apply -ml-[9px] #{!important};
+}
+
+.ml4-minus {
+  @apply -ml-[4px] #{!important};
+}
+
+.mt16 {
+  @apply mt-4 #{!important};
+}
+
+.mt14 {
+  @apply mt-3 #{!important};
+}
+
+.pl-15 {
+  @apply pl-[15px] #{!important};
+}
+
+.pl-50 {
+  @apply pl-[50px] #{!important};
+}
+
+.mb0 {
+  @apply mb-0 #{!important};
+}
+
+.align-items-baseline {
+  @apply items-baseline #{!important};
+}
 
 .ant-layout-sider {
   background: #fff !important;
@@ -28,7 +70,7 @@
 
 .header-trigger {
   cursor: pointer;
-  transition: all .10s,padding 0s;
+  transition: all .10s, padding 0s;
 }
 
 .trigger:hover {
@@ -60,7 +102,7 @@ nz-header {
   height: 64px;
   padding: 0;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
 }
 
 nz-content {

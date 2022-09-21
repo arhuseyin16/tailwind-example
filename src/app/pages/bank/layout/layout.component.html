@@ -13,35 +13,205 @@
       <div>
         <span class="cursor-pointer" (click)="isCollapsed = !isCollapsed">
           <div *ngIf="isCollapsed" class="absolute top-[71px] left-[92px] w-[43%] h-[30%]">
-                 <img  class="w-[50px] h-[50px]" src="assets/icon/sidebar-open-3x.png"
+                 <img  class="w-[50px] h-[50px]" src="assets/img/sidebar/sidebar-open-3x.png"
                       alt="sidebar-open">
           </div>
 
           <div *ngIf="!isCollapsed" class="absolute top-[71px] left-[303px] w-[30%] h-[30%]">
-                <img class="w-[50px] h-[50px]" src="assets/icon/sidebar-close-3x.png"
+                <img class="w-[50px] h-[50px]" src="assets/img/sidebar/sidebar-close-3x.png"
                      alt="sidebar-close">
           </div>
 
       </span>
       </div>
     </div>
-    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item>
-        <span nz-icon nzType="dashboard"></span>
-        <span routerLink="/dashboard">{{'dashboard' | translate}}</span>
+    <ul nz-menu nzTheme="light" nzMode="inline" class="pt-[23px]" [nzInlineCollapsed]="isCollapsed">
+
+      <li nz-menu-item class="mb0" [ngClass]="(!isCollapsed)?'pl-15':'pl-50'">
+        <span nz-icon class="w-[22px]">
+          <img  class="w-[22px] h-[22px]" src="assets/img/sidebar/dashboard-icon.svg"
+                alt="dashboard">
+        </span>
+        <span class="sidebar-menu-label" routerLink="/dashboard">{{'dashboard' | translate}}</span>
       </li>
-      <li nz-menu-item>
-        <span nz-icon nzType="logout"></span>
-        <span routerLink="/login">{{'logout' | translate}}</span>
+
+      <li nz-menu-item class="mt16 mb0" [ngClass]="(!isCollapsed)?'pl-15':'pl-50'">
+          <span class="w-[22px]" *ngIf="isCollapsed"  nz-icon nzType="ellipsis" nzTheme="outline"></span>
+       <!--   <img  class="w-[22px] h-[22px]" src="assets/img/sidebar/dashboard-icon.svg"
+                alt="dashboard">-->
+        <span class="sidebar-menu-title" *ngIf="!isCollapsed">{{'sidebar.bank-transactions' | translate}}</span>
       </li>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="cashStatus">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #cashStatus>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[19px]" src="assets/img/sidebar/wallet-icon.svg"
+                 alt="cash-status">
+        </span>
+        <span>{{'sidebar.cash-status' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="accountTransactionsSystem">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #accountTransactionsSystem>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[21px]" src="assets/img/sidebar/chart2-icon.svg"
+                 alt="account-transactions-system">
+        </span>
+        <span>{{'sidebar.account-transactions-system' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="otherReports">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #otherReports>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[21px]" src="assets/img/sidebar/file-icon.svg"
+                 alt="other-reports">
+        </span>
+        <span>{{'sidebar.other-reports' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="maintenanceScreens">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #maintenanceScreens>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[18px]" src="assets/img/sidebar/settings.svg"
+                 alt="maintenance-screens">
+        </span>
+        <span>{{'sidebar.maintenance-screens' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="financeScreens">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #financeScreens>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[23px]" src="assets/img/sidebar/profit.svg"
+                 alt="finance-screens">
+        </span>
+        <span>{{'sidebar.finance-screens' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="erpIntegrationProcesses">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #erpIntegrationProcesses>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[22px]" src="assets/img/sidebar/erp.svg"
+                 alt="erp-integration-processes">
+        </span>
+        <span>{{'sidebar.erp-integration-processes' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="syncManagement">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #syncManagement>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[22px]" src="assets/img/sidebar/synchronization.svg"
+                 alt="sync-management">
+        </span>
+        <span>{{'sidebar.sync-management' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="syncMaintenance">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #syncMaintenance>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[22px]" src="assets/img/sidebar/synchronization-1.svg"
+                 alt="sync-maintenance">
+        </span>
+        <span>{{'sidebar.sync-maintenance' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="syncControlReports">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #syncControlReports>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[27px]" src="assets/img/sidebar/report.svg"
+                 alt="sync-control-reports">
+        </span>
+        <span>{{'sidebar.sync-control-reports' | translate}}</span>
+      </ng-template>
+
+      <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="syncTransactionReports">
+        <ul>
+          <li nz-menu-item>option1</li>
+          <li nz-menu-item>option2</li>
+          <li nz-menu-item>option3</li>
+          <li nz-menu-item>option4</li>
+        </ul>
+      </li>
+      <ng-template #syncTransactionReports>
+        <span nz-icon class="w-[22px]">
+           <img  class="w-[22px] h-[27px]" src="assets/img/sidebar/analytics.svg"
+                 alt="sync-transaction-reports">
+        </span>
+        <span>{{'sidebar.sync-transaction-reports' | translate}}</span>
+      </ng-template>
+
     </ul>
   </nz-sider>
   <nz-layout>
-<!--    <nz-header>
-      <div class="app-header">
-        <app-translate-page></app-translate-page>
-      </div>
-    </nz-header>-->
+    <app-translate-page></app-translate-page>
+
+    <!--    <nz-header>
+          <div class="app-header">
+            <app-translate-page></app-translate-page>
+          </div>
+        </nz-header>-->
     <nz-content>
       <div class="inner-content">
         <router-outlet></router-outlet>

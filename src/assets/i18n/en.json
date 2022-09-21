@@ -11,5 +11,19 @@
   "remember-me": "Remember Me",
   "forgot-my-password": "I Forgot My Password",
   "verify": "Verify",
-  "verification": "VERİFİCATİON"
+  "verification": "VERİFİCATİON",
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "bank-transactions": "Bank Transactions",
+    "cash-status": "Cash Status",
+    "account-transactions-system": "Account Transactions Sys.",
+    "other-reports": "Other Reports",
+    "maintenance-screens": "Maintenance Screens",
+    "finance-screens": "Finance Screens",
+    "erp-integration-processes": "ERP Integration Processes",
+    "sync-management": "Sync Management",
+    "sync-maintenance": "Sync Maintenance",
+    "sync-control-reports": "Sync Control Reports",
+    "sync-transaction-reports": "Sync Transaction Reports"
+  }
 }
