@@ -12,13 +12,13 @@
       </div>
       <div>
         <span class="cursor-pointer" (click)="isCollapsed = !isCollapsed">
-          <div class="absolute top-[66px] left-[101px] w-[43%]">
-                 <img *ngIf="isCollapsed" class="w-[34px] h-[34px]" src="assets/svg/sidebar-open.svg"
+          <div *ngIf="isCollapsed" class="absolute top-[71px] left-[92px] w-[43%] h-[30%]">
+                 <img  class="w-[50px] h-[50px]" src="assets/icon/sidebar-open-3x.png"
                       alt="sidebar-open">
           </div>
 
-          <div class="absolute top-[66px] left-[312px] w-[10%]">
-                <img *ngIf="!isCollapsed" class="w-[34px] h-[34px]" src="assets/svg/sidebar-close.svg"
+          <div *ngIf="!isCollapsed" class="absolute top-[71px] left-[303px] w-[30%] h-[30%]">
+                <img class="w-[50px] h-[50px]" src="assets/icon/sidebar-close-3x.png"
                      alt="sidebar-close">
           </div>
 
