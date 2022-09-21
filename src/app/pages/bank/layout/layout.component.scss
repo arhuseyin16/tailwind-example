@@ -24,11 +24,8 @@
 }
 
 .header-trigger {
-  height: 64px;
-  padding: 20px 24px;
-  font-size: 20px;
   cursor: pointer;
-  transition: all .3s,padding 0s;
+  transition: all .10s,padding 0s;
 }
 
 .trigger:hover {
@@ -37,31 +34,17 @@
 
 .sidebar-logo {
   position: relative;
-  height: 64px;
-  padding-left: 24px;
+  height: 110px;
   overflow: hidden;
-  line-height: 64px;
+  padding-left: 16px;
+  padding-top: 40px;
   background: #fff;
-  transition: all .3s;
   border-top-right-radius: 100px !important;
-  box-shadow: rgb(129 129 129 / 10%) 0 0 14px 0;
 }
 
 .sidebar-logo img {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-  vertical-align: middle;
-}
-
-.sidebar-logo h1 {
-  display: inline-block;
-  margin: 0 0 0 20px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
-  vertical-align: middle;
+  height: 80px;
+  width: 80px;
 }
 
 nz-header {

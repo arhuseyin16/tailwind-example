@@ -2,31 +2,33 @@
   <nz-sider class="menu-sidebar"
             nzCollapsible
             nzWidth="332px"
+            [nzCollapsedWidth]="121"
             nzBreakpoint="md"
             [(nzCollapsed)]="isCollapsed"
             [nzTrigger]="null">
-    <div class="sidebar-logo">
-      <a [routerLink]="['/dashboard']">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>EHO</h1>
-      </a>
-    </div>
-    <div class="absolute top-2">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <span class="trigger"
-                  nz-icon
-                  [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></span>
-        </span>
+    <div>
+      <div class="sidebar-logo">
+        <img src="assets/icon/logo.png" alt="logo">
+      </div>
+      <div>
+        <span class="cursor-pointer" (click)="isCollapsed = !isCollapsed">
+          <div class="absolute top-[66px] left-[101px] w-[43%]">
+                 <img *ngIf="isCollapsed" class="w-[34px] h-[34px]" src="assets/svg/sidebar-open.svg"
+                      alt="sidebar-open">
+          </div>
+
+          <div class="absolute top-[66px] left-[312px] w-[10%]">
+                <img *ngIf="!isCollapsed" class="w-[34px] h-[34px]" src="assets/svg/sidebar-close.svg"
+                     alt="sidebar-close">
+          </div>
+
+      </span>
+      </div>
     </div>
     <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-menu-item>
         <span nz-icon nzType="dashboard"></span>
         <span routerLink="/dashboard">{{'dashboard' | translate}}</span>
-      </li>
-      <li nz-menu-item>
-        <span nz-icon nzType="home"></span>
-        <span routerLink="/welcome">{{'welcome' | translate}}</span>
       </li>
       <li nz-menu-item>
         <span nz-icon nzType="logout"></span>
@@ -35,11 +37,11 @@
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header>
+<!--    <nz-header>
       <div class="app-header">
         <app-translate-page></app-translate-page>
       </div>
-    </nz-header>
+    </nz-header>-->
     <nz-content>
       <div class="inner-content">
         <router-outlet></router-outlet>

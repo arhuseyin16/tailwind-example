@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+    <defs>
+        <filter id="iu8mr6hnwa" x="0" y="0" width="52" height="52" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g data-name="Group 95">
+        <g style="filter:url(#iu8mr6hnwa)">
+            <circle data-name="Ellipse 90" cx="17" cy="17" r="17" transform="translate(9 6)" style="fill:#fff"/>
+        </g>
+        <path data-name="Path 2677" d="m0 0 6 5.448L0 11.4" transform="rotate(180 14.25 14.25)" style="fill:none;stroke:#2d64a0;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px"/>
+    </g>
+</svg>
