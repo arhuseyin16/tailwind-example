@@ -3,10 +3,12 @@
   "welcome": "Hoşgeldiniz",
   "dashboard": "Dashboard",
   "logout": "Çıkış",
+  "portalLoginTile": "PORTAL GİRİŞ",
+  "companyCode": "Firma Kodu",
   "username": "Kullanıcı Adı",
   "password": "Şifre",
   "submit-login-btn": "Giriş Yap",
   "remember-me": "Beni Hatırla",
-  "forgot-my-password": "Şifreni mi Unuttun?"
+  "forgot-my-password": "Şifremi Unuttum"
 
 }

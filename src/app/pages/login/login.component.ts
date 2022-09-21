@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,9 +10,10 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
   passwordVisible = false;
   loginForm = this.fb.group({
-    username: [],
-    password: [],
-    checked: [true]
+    companyCode: new FormControl('12345', Validators.required),
+    username: new FormControl('eho', Validators.required),
+    password: new FormControl('eho', Validators.required),
+    rememberMe: new FormControl(true),
   });
 
   constructor(
