@@ -1,0 +1,45 @@
+.profile {
+  border-radius: 30px;
+  background-color: #2d639f;
+  padding: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+
+  .dropdown-style {
+    position: absolute;
+    top: 52px;
+    right: 15px;
+    z-index: 999;
+    padding: 12px 14px 12px 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 14px 0 rgba(167, 167, 167, 0.16);
+    background-color: #fff;
+    width: 230px;
+    height: 75px;
+
+    li {
+      font-size: 15px;
+      font-weight: 400;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+      padding: 3px;
+
+      &:hover {
+        background-color: #2d639f !important;
+        color: #ffffff !important;
+      }
+    }
+  }
+}

@@ -19,6 +19,12 @@
     "e-payment": "E Ödeme",
     "dbs": "DBS",
     "stock-finance": "Stok Finans",
-    "dashboard-view": "Dashboard Görünümü"
+    "dashboard-view": "Dashboard Görünümü",
+    "account-activities": "Hesap Hareketleri",
+    "bank-accounts": "Banka Hesapları"
+  },
+  "profile": {
+    "account": "Hesabım",
+    "logout": "Çıkış"
   }
 }
