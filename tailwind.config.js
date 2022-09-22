@@ -6,12 +6,19 @@ module.exports = {
   theme: {
     fontSize: {
       sidebarLabel: ['18px', 'normal'],
-      sidebarTitle: ['15px', 'normal']
+      sidebarTitle: ['15px', 'normal'],
+      borderWidth: {
+        '1': '1px'
+      }
     },
     fontFamily: {
       'poppins': ['Poppins'],
     },
-    extend: {},
+    extend: {
+      colors: {
+        'sapphire': '#2d64a0'
+      }
+    },
   },
   plugins: [],
 }

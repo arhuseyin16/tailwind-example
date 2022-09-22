@@ -6,7 +6,7 @@
 }
 
 .app-layout {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .menu-sidebar {
@@ -21,11 +21,36 @@
 }
 
 .sidebar-base-menu-label {
-  @apply text-sidebarLabel font-medium
+  @apply text-sidebarLabel font-medium #{!important}
+}
+
+:host ::ng-deep .ant-menu-item:hover {
+  @apply text-sapphire #{!important}
 }
 
 .sidebar-menu-title {
   @apply text-sidebarTitle
+}
+
+:host ::ng-deep .ant-menu-submenu-title:hover {
+  @apply text-sapphire #{!important};
+  img {
+    @apply stroke-sapphire #{!important};
+  }
+}
+
+:host ::ng-deep .ant-menu-submenu:hover > .ant-menu-submenu-title{
+  .ant-menu-submenu-arrow .ant-menu-submenu-arrow::before .ant-menu-submenu-arrow::after {
+    @apply ml-0.5 border w-[9px] bg-sapphire border-sapphire text-sapphire border-solid #{!important}
+  }
+}
+
+:host ::ng-deep .ant-menu-submenu-arrow::before {
+  @apply ml-0.5 border w-[9px] border-solid border-black #{!important}
+}
+
+:host ::ng-deep .ant-menu-submenu-arrow::after {
+  @apply border w-[9px] border-solid border-black #{!important}
 }
 
 .ml9-minus {
@@ -38,10 +63,6 @@
 
 .mt16 {
   @apply mt-4 #{!important};
-}
-
-.mt14 {
-  @apply mt-3 #{!important};
 }
 
 .pl-15 {
