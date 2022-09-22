@@ -11,5 +11,14 @@
   "remember-me": "Beni Hatırla",
   "forgot-my-password": "Şifremi Unuttum",
   "verify": "Doğrula",
-  "verification": "DOĞRULAMA"
+  "verification": "DOĞRULAMA",
+  "dashboard-header": {
+    "cash-flow": "Nakit Akışı",
+    "bank-transactions": "Banka İşlemleri",
+    "pos-process": "Pos İşlemleri",
+    "e-payment": "E Ödeme",
+    "dbs": "DBS",
+    "stock-finance": "Stok Finans",
+    "dashboard-view": "Dashboard Görünümü"
+  }
 }

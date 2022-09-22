@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
+import {NotificationService} from "../../shared/service/notification.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -6,49 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  @Input() moduleList: any;
 
-  moduleList = [
-    {
-      name: 'Nakit Akışı',
-      image: 'assets/img/dashboard/dashboard-nakit.png',
-      lightImage:'assets/img/dashboard/light-nakit.png',
-      url: '/'
-    },
-    {
-      name: 'Banka İşlemleri',
-      image: 'assets/img/dashboard/dashboard-bank.png',
-      lightImage:'assets/img/dashboard/light-bank.png',
-      url: '/'
-    },
-    {
-      name: 'Pos İşlemleri',
-      image: 'assets/img/dashboard/dashboard-pos.png',
-      lightImage:'assets/img/dashboard/light-pos.png',
-      url: '/'
-    },
-    {
-      name: 'E Ödeme',
-      image: 'assets/img/dashboard/dashboard-e-odeme.png',
-      lightImage:'assets/img/dashboard/light-e-odeme.png',
-      url: '/'
-    },
-    {
-      name: 'DBS',
-      image: 'assets/img/dashboard/dashboard-dbs.png',
-      lightImage:'assets/img/dashboard/light-dbs.png',
-      url: '/'
-    },
-    {
-      name: 'Stock Finans',
-      image: 'assets/img/dashboard/dashboard-stock.png',
-      lightImage:'assets/img/dashboard/light-stock.png',
-      url: '/'
-    },
-  ];
-
-  constructor() { }
+  constructor(
+    private router: Router,
+    private notificationService: NotificationService
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  goToModuleUrl(url: string) {
+    if (url === '/') {
+      this.notificationService.warning('UYARI', 'Çok Yakında Hizmetinizde:)))', 2000);
+      return;
+    }
+    this.router.navigate([url]);
   }
 
 }

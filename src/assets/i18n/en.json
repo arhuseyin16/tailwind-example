@@ -11,5 +11,14 @@
   "remember-me": "Remember Me",
   "forgot-my-password": "I Forgot My Password",
   "verify": "Verify",
-  "verification": "VERİFİCATİON"
+  "verification": "VERİFİCATİON",
+  "dashboard-header": {
+    "cash-flow": "Cash Flow",
+    "bank-transactions": "Bank Transactions",
+    "pos-process": "Pos Process",
+    "e-payment": "E Payment",
+    "dbs": "DBS",
+    "stock-finance": "Stock Finance",
+    "dashboard-view": "Dashboard View"
+  }
 }

@@ -56,11 +56,94 @@
 
   .filter-img {
     margin: 22px 30px 0 0;
+    position: relative;
 
     img {
       width: 25px;
       object-fit: contain;
       cursor: pointer;
+
+      &:hover {
+        background-color: #dbecff !important;
+      }
+    }
+
+    .card {
+      position: absolute;
+      width: 320px;
+      top: 34px;
+      right: 0;
+      border-radius: 5px;
+      box-shadow: 0 3px 14px 0 rgba(110, 110, 110, 0.16);
+      background-color: #fff;
+      z-index: 9999;
+
+      .card-title {
+        border-radius: 5px 5px 0 0;
+        background-color: #2d639f;
+        padding: 11px 0 12px 12px;
+        position: relative;
+
+        p {
+          font-size: 20px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #fff;
+        }
+
+        span {
+          position: absolute;
+          top: 8px;
+          right: 10px;
+          z-index: 999;
+          padding: 5px;
+          color: #fff;
+          font-size: 18px;
+          cursor: pointer;
+          border-radius: 30px;
+
+          &:hover {
+            background-color: #fff;
+            color: #2d639f;
+          }
+        }
+      }
+
+      .card-body {
+        padding: 5px 0 0 0;
+        ul {
+          li {
+            padding: 11px 12px 12px 12px;
+            span {
+              p {
+                font-size: 18px;
+                font-weight: 400;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: left;
+              }
+              .switch-flex {
+                display: flex;
+                justify-content: end;
+              }
+              nz-switch {
+                ::ng-deep .ant-switch {
+                  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(to right, #fff, #fff);
+                }
+                ::ng-deep .ant-switch-checked {
+                  background:  #2d64a0;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 
