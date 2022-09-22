@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TranslatePageComponent } from './translate-page.component';
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {FormsModule} from "@angular/forms";
+import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 
 
 
@@ -16,7 +17,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     NzSelectModule,
-    FormsModule
+    FormsModule,
+    NzDropDownModule
   ]
 })
 export class TranslatePageModule { }

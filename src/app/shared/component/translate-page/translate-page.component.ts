@@ -8,6 +8,11 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class TranslatePageComponent implements OnInit {
 
+  languageMeta = {
+    tr: {text: "Türkçe", flagImagePath: "assets/flags/language-tr.png"},
+    en: {text: "English", flagImagePath: "assets/flags/language-en.png"},
+  } as any;
+
   constructor(
     public translateService: TranslateService
   ) {
@@ -20,6 +25,7 @@ export class TranslatePageComponent implements OnInit {
 
   switchLang(lang: string) {
     this.translateService.use(lang);
+    this.translateService.setDefaultLang(lang);
   }
 
 }
