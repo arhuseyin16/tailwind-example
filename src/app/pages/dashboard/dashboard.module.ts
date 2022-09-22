@@ -11,6 +11,7 @@ import {NzNotificationService} from "ng-zorro-antd/notification";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import {FormsModule} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
+import {ProfileModule} from "../../shared/component/profile/profile.module";
 
 const routes: Routes = [
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
     NzIconModule,
     NzSwitchModule,
     FormsModule,
-    TranslateModule
+    TranslateModule,
+    ProfileModule
   ],
   providers: [
     NotificationService,

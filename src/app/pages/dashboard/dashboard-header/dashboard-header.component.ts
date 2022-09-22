@@ -9,6 +9,7 @@ export class DashboardHeaderComponent implements OnInit {
 
   moduleList: Array<any> = new Array<any>();
   dashboardView = false;
+  favoriteView = false;
   dashboardList = [
     {
       id: 1,

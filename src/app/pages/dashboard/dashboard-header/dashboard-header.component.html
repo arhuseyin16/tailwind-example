@@ -33,8 +33,14 @@
       </div>
     </div>
   </div>
-  <div class="favorite-img">
+  <div class="favorite-img" (click)="favoriteView = !favoriteView">
     <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
+    <div class="dropdown-favorite" *ngIf="favoriteView">
+      <ul>
+        <li>{{"dashboard-header.account-activities" | translate}}</li>
+        <li>{{"dashboard-header.bank-accounts" | translate}}</li>
+      </ul>
+    </div>
   </div>
   <div class="up-line"></div>
   <div class="language-selector">
@@ -42,7 +48,8 @@
   </div>
   <div class="up-line"></div>
   <div class="avatar">
-    <p>HA</p>
+<!--    <p>HA</p>-->
+    <app-profile></app-profile>
   </div>
 </div>
 <app-dashboard [moduleList]="moduleList"></app-dashboard>
