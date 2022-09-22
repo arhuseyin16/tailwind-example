@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -7,9 +7,73 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardHeaderComponent implements OnInit {
 
-  constructor() { }
+  moduleList: Array<any> = new Array<any>();
+  dashboardView = false;
+  dashboardList = [
+    {
+      id: 1,
+      name: 'dashboard-header.cash-flow',
+      image: 'assets/img/dashboard/dashboard-nakit.png',
+      lightImage:'assets/img/dashboard/light-nakit.png',
+      url: '/',
+      status: true
+    },
+    {
+      id: 2,
+      name: 'dashboard-header.bank-transactions',
+      image: 'assets/img/dashboard/dashboard-bank.png',
+      lightImage:'assets/img/dashboard/light-bank.png',
+      url: '/bank/transactions-dashboard',
+      status: true
+    },
+    {
+      id: 3,
+      name: 'dashboard-header.pos-process',
+      image: 'assets/img/dashboard/dashboard-pos.png',
+      lightImage:'assets/img/dashboard/light-pos.png',
+      url: '/',
+      status: true
+    },
+    {
+      id: 4,
+      name: 'dashboard-header.e-payment',
+      image: 'assets/img/dashboard/dashboard-e-odeme.png',
+      lightImage:'assets/img/dashboard/light-e-odeme.png',
+      url: '/',
+      status: true
+    },
+    {
+      id: 5,
+      name: 'dashboard-header.dbs',
+      image: 'assets/img/dashboard/dashboard-dbs.png',
+      lightImage:'assets/img/dashboard/light-dbs.png',
+      url: '/',
+      status: true
+    },
+    {
+      id: 6,
+      name: 'dashboard-header.stock-finance',
+      image: 'assets/img/dashboard/dashboard-stock.png',
+      lightImage:'assets/img/dashboard/light-stock.png',
+      url: '/',
+      status: true
+    },
+  ];
+
+  constructor() {
+    this.moduleList = Object.assign([], this.dashboardList);
+  }
 
   ngOnInit(): void {
+  }
+
+  change(): void {
+    this.moduleList = [];
+    this.dashboardList.forEach((row: any) => {
+      if (row.status) {
+        this.moduleList.push(row);
+      }
+    });
   }
 
 }
