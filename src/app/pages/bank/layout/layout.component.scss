@@ -6,7 +6,7 @@
 }
 
 .app-layout {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .menu-sidebar {
@@ -15,6 +15,76 @@
   min-height: 100vh;
   box-shadow: rgb(129 129 129 / 10%) 0 0 14px 0;
 }
+
+.sidebar-menu-label {
+  @apply text-sidebarLabel ml-[9px] font-medium
+}
+
+.sidebar-base-menu-label {
+  @apply text-sidebarLabel font-medium #{!important}
+}
+
+:host ::ng-deep .ant-menu-item:hover {
+  @apply text-sapphire #{!important}
+}
+
+.sidebar-menu-title {
+  @apply text-sidebarTitle
+}
+
+:host ::ng-deep .ant-menu-submenu-title:hover {
+  @apply text-sapphire #{!important};
+  img {
+    @apply stroke-sapphire #{!important};
+  }
+}
+
+:host ::ng-deep .ant-menu-submenu:hover > .ant-menu-submenu-title{
+  .ant-menu-submenu-arrow .ant-menu-submenu-arrow::before .ant-menu-submenu-arrow::after {
+    @apply ml-0.5 border w-[9px] bg-sapphire border-sapphire text-sapphire border-solid #{!important}
+  }
+}
+
+:host ::ng-deep .ant-menu-submenu-arrow::before {
+  @apply ml-0.5 border w-[9px] border-solid border-black #{!important}
+}
+
+:host ::ng-deep .ant-menu-submenu-arrow::after {
+  @apply border w-[9px] border-solid border-black #{!important}
+}
+
+.ml9-minus {
+  @apply -ml-[9px] #{!important};
+}
+
+.ml4-minus {
+  @apply -ml-[4px] #{!important};
+}
+
+.m0 {
+  @apply m-0 #{!important}
+}
+
+.mt16 {
+  @apply mt-4 #{!important};
+}
+
+.pl-15 {
+  @apply pl-[15px] #{!important};
+}
+
+.pl-50 {
+  @apply pl-[50px] #{!important};
+}
+
+.mb0 {
+  @apply mb-0 #{!important};
+}
+
+.align-items-baseline {
+  @apply items-baseline #{!important};
+}
+
 .ant-layout-sider {
   background: #fff !important;
   box-shadow: rgb(129 129 129 / 10%) 0 0 14px 0;
@@ -24,11 +94,8 @@
 }
 
 .header-trigger {
-  height: 64px;
-  padding: 20px 24px;
-  font-size: 20px;
   cursor: pointer;
-  transition: all .3s,padding 0s;
+  transition: all .10s, padding 0s;
 }
 
 .trigger:hover {
@@ -37,31 +104,16 @@
 
 .sidebar-logo {
   position: relative;
-  height: 64px;
-  padding-left: 24px;
+  height: 130px;
   overflow: hidden;
-  line-height: 64px;
+  padding-top: 40px;
   background: #fff;
-  transition: all .3s;
   border-top-right-radius: 100px !important;
-  box-shadow: rgb(129 129 129 / 10%) 0 0 14px 0;
 }
 
 .sidebar-logo img {
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-  vertical-align: middle;
-}
-
-.sidebar-logo h1 {
-  display: inline-block;
-  margin: 0 0 0 20px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
-  vertical-align: middle;
+  height: 106px;
+  width: 106px;
 }
 
 nz-header {
@@ -75,7 +127,7 @@ nz-header {
   height: 64px;
   padding: 0;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
 }
 
 nz-content {

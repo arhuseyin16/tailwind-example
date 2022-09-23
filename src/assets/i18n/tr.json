@@ -26,5 +26,19 @@
   "profile": {
     "account": "Hesabım",
     "logout": "Çıkış"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "bank-transactions": "Banka İşlemleri",
+    "cash-status": "Nakit Durumu",
+    "account-transactions-system": "Hesap Hareketleri Sistemi",
+    "other-reports": "Diğer Raporlar",
+    "maintenance-screens": "Bakım Ekranları",
+    "finance-screens": "Finans Ekranları",
+    "erp-integration-processes": "ERP Entegrasyon İşlemleri",
+    "sync-management": "Senkronizasyon Yönetimi",
+    "sync-maintenance": "Senkronizasyon Bakımları",
+    "sync-control-reports": "Senkronizasyon Kontrol Rap.",
+    "sync-transaction-reports": "Senkronizasyon İşlem Rap."
   }
 }
