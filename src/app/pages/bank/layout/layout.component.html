@@ -43,11 +43,14 @@
       </li>
 
       <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="cashStatus">
-        <ul>
-          <li nz-menu-item>option1</li>
+        <ul class="bg-white relative">
+    <!--      <div>
+          <div class="border border-solid border-silver" style="transform: translateX(-40%) translateY(-50%) rotate(-90deg);"></div>
+          </div>-->
+          <li nz-menu-item class="m0">option1</li>
           <li nz-menu-item>option2</li>
           <li nz-menu-item>option3</li>
-          <li nz-menu-item>option4</li>
+          <li nz-menu-item class="m0">option4</li>
         </ul>
       </li>
       <ng-template #cashStatus>
