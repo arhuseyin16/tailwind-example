@@ -7,16 +7,40 @@
       <div class="icon-input">
         <img src="../../../../assets/img/dashboard-header/input-search.png" />
       </div>
-      <input class="rounded-lg"
-             type="text"
-             nz-input>
+      <input class="rounded-lg" type="text" nz-input>
     </div>
   </div>
   <div class="filter-img">
-    <img src="../../../../assets/img/dashboard-header/dashboard-header-view.png" />
+    <img src="../../../../assets/img/dashboard-header/dashboard-header-view.png" (click)="dashboardView = !dashboardView" />
+    <div class="card" *ngIf="dashboardView">
+      <div class="card-title">
+        <p>{{"dashboard-header.dashboard-view" | translate}}</p>
+        <span (click)="dashboardView = !dashboardView">X</span>
+      </div>
+      <div class="card-body">
+        <ul *ngFor="let item of dashboardList">
+          <li class="flex">
+            <span class="basis-1/2">
+              <p>{{item.name | translate}}</p>
+            </span>
+            <span class="basis-1/2">
+              <span class="switch-flex">
+                <nz-switch [(ngModel)]="item.status" (ngModelChange)="change()"></nz-switch>
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="favorite-img">
+  <div class="favorite-img" (click)="favoriteView = !favoriteView">
     <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
+    <div class="dropdown-favorite" *ngIf="favoriteView">
+      <ul>
+        <li>{{"dashboard-header.account-activities" | translate}}</li>
+        <li>{{"dashboard-header.bank-accounts" | translate}}</li>
+      </ul>
+    </div>
   </div>
   <div class="up-line"></div>
   <div class="language-selector">
@@ -24,6 +48,8 @@
   </div>
   <div class="up-line"></div>
   <div class="avatar">
-    <p>HA</p>
+<!--    <p>HA</p>-->
+    <app-profile></app-profile>
   </div>
 </div>
+<app-dashboard [moduleList]="moduleList"></app-dashboard>

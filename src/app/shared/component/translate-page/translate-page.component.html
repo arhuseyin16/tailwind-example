@@ -1,6 +1,16 @@
-<nz-select [(ngModel)]="translateService.defaultLang" (ngModelChange)=switchLang($event)>
-  <nz-option *ngFor="let language of translateService.getLangs()" [nzValue]="language" [nzLabel]="language"></nz-option>
-</nz-select>
+<div class="language">
+  <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+    <img src="{{languageMeta[translateService.defaultLang].flagImagePath}}"
+         width="33px" alt="{{languageMeta[translateService.defaultLang].text}} /">
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu *ngFor="let language of translateService.getLangs()">
+      <li nz-menu-item (click)="switchLang(translateService.defaultLang === 'en' ? 'tr' : 'en')">
+        <img src="{{languageMeta[language].flagImagePath}}" width="33px" alt="{{languageMeta[language].text}} /">
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</div>
 
 
 
