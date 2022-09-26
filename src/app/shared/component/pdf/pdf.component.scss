@@ -1,0 +1,13 @@
+.pdf-page {
+
+  img {
+    width: 30px;
+    object-fit: contain;
+    cursor: pointer;
+
+    &:hover {
+      border-radius: 5px;
+      background-color: #dbecff;
+    }
+  }
+}

@@ -40,5 +40,15 @@
     "sync-maintenance": "Senkronizasyon Bakımları",
     "sync-control-reports": "Senkronizasyon Kontrol Rap.",
     "sync-transaction-reports": "Senkronizasyon İşlem Rap."
+  },
+  "header": {
+    "screen-refresh-time": "Ekran Yenileme Zamanı"
+  },
+  "transactions-dashboard": {
+    "buying": "Alış",
+    "sale": "Satış",
+    "money-input": "Para Girişi",
+    "money-out": "Para Çıkışı",
+    "balance-per-day": "Gün Başı Bakiye"
   }
 }

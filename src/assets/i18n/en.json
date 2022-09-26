@@ -40,5 +40,15 @@
     "sync-maintenance": "Sync Maintenance",
     "sync-control-reports": "Sync Control Reports",
     "sync-transaction-reports": "Sync Transaction Reports"
+  },
+  "header": {
+    "screen-refresh-time": "Screen Refresh Time"
+  },
+  "transactions-dashboard": {
+    "buying": "Buying",
+    "sale": "Sale",
+    "money-input": "Money Input",
+    "money-out": "Money Out",
+    "balance-per-day": "Balance Per Day"
   }
 }

@@ -1,0 +1,58 @@
+.money-flow {
+  padding: 20px 0 0 0;
+  .today-money {
+    display: flex;
+    flex-wrap: wrap;
+
+    .money-list {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+      padding: 13px;
+
+      .card {
+        border-radius: 20px;
+        box-shadow: 0 3px 14px 0 rgba(196, 196, 196, 0.16);
+        background-image: linear-gradient(to left, #87bfad, #2d64a0);
+
+        .item {
+          padding: 15px 15px 12px 0;
+
+          .label {
+            font-size: 18px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+          }
+
+          .value {
+            font-size: 25px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #fff;
+          }
+
+          .date {
+            font-size: 18px;
+            font-weight: 300;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: end;
+            color: #fff;
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
+}

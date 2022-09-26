@@ -1,0 +1,22 @@
+.left-right-text {
+  background-color: #2d64a0;
+  padding: 8px;
+
+  marquee {
+
+    span {
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #fff;
+
+      .textType {
+        font-weight: 100 !important;
+      }
+    }
+  }
+}
