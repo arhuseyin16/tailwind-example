@@ -39,7 +39,18 @@
     "sync-management": "Senkronizasyon Yönetimi",
     "sync-maintenance": "Senkronizasyon Bakımları",
     "sync-control-reports": "Senkronizasyon Kontrol Rap.",
-    "sync-transaction-reports": "Senkronizasyon İşlem Rap."
+    "sync-transaction-reports": "Senkronizasyon İşlem Rap.",
+    "account-activities": "Hesap Hareketleri",
+    "bank-accounts": "Banka Hesapları"
+  },
+  "bank-account": {
+    "companies": "Firmalar",
+    "branches": "Şubeler",
+    "account-types": "Hesap Türleri",
+    "balance": "Bakiye",
+    "currency-unit": "Para Birimi",
+    "inquire": "Sorgula",
+    "account": "Hesap"
   },
   "header": {
     "screen-refresh-time": "Ekran Yenileme Zamanı"
