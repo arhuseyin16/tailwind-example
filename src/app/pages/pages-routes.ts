@@ -12,5 +12,9 @@ export const PagesRoutes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    path: 'translate-dashboard',
+    loadChildren: () => import('./translate-dashboard/translate-dashboard.module').then(m => m.TranslateDashboardModule)
   }
 ]

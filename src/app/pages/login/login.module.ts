@@ -17,7 +17,8 @@ import { OnlyNumberModule } from "../../shared/directive/only-number/only-number
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {title: 'titles.login'}
   }
 ]
 

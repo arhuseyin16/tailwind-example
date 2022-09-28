@@ -1,4 +1,8 @@
 <div class="transactions-dashboard">
   <app-currency-flow-bar></app-currency-flow-bar>
-  <app-balance-summary-column></app-balance-summary-column>
+  <div class="grid pl-7 pt-11 lg:grid-cols-1 2xl:grid-cols-3">
+  <div *ngFor="let money of moneyList">
+      <app-balance-summary-column [summary]="money"></app-balance-summary-column>
+    </div>
+  </div>
 </div>

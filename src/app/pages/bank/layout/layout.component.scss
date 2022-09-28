@@ -18,11 +18,11 @@
 }
 
 .sidebar-menu-label {
-  @apply text-sidebarLabel ml-[9px] font-medium
+  @apply text-18 ml-[9px] font-medium
 }
 
 .sidebar-base-menu-label {
-  @apply text-sidebarLabel font-medium #{!important}
+  @apply text-18 font-medium #{!important}
 }
 
 :host ::ng-deep .ant-menu-item:hover {
@@ -30,7 +30,7 @@
 }
 
 .sidebar-menu-title {
-  @apply text-sidebarTitle
+  @apply text-15
 }
 
 :host ::ng-deep .ant-menu-submenu-title:hover {
@@ -125,7 +125,7 @@ nz-header {
 
 .app-header {
   @apply relative bg-cultured-earl;
-  padding: 36px 20px 0 20px;
+  padding: 36px 30px 0 28px;
 }
 
 .ant-layout-header {
