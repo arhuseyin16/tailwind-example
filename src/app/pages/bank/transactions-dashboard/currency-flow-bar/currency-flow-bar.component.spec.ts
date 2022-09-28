@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MoneyMarketComponent } from './money-market.component';
+import { CurrencyFlowBarComponent } from './currency-flow-bar.component';
 
 describe('MoneyMarketComponent', () => {
-  let component: MoneyMarketComponent;
-  let fixture: ComponentFixture<MoneyMarketComponent>;
+  let component: CurrencyFlowBarComponent;
+  let fixture: ComponentFixture<CurrencyFlowBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MoneyMarketComponent ]
+      declarations: [ CurrencyFlowBarComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MoneyMarketComponent);
+    fixture = TestBed.createComponent(CurrencyFlowBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

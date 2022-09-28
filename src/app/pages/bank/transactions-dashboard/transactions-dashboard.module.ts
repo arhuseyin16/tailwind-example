@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TransactionsDashboardComponent } from './transactions-dashboard.component';
 import { RouterModule, Routes } from "@angular/router";
-import { MoneyMarketComponent } from './money-market/money-market.component';
-import { MoneyFlowComponent } from './money-flow/money-flow.component';
+import { CurrencyFlowBarComponent } from './currency-flow-bar/currency-flow-bar.component';
+import { BalanceSummaryColumnComponent } from './balance-summary-column/balance-summary-column.component';
 import {TranslateModule} from "@ngx-translate/core";
 
 const routes: Routes = [
@@ -16,8 +16,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     TransactionsDashboardComponent,
-    MoneyMarketComponent,
-    MoneyFlowComponent
+    CurrencyFlowBarComponent,
+    BalanceSummaryColumnComponent
   ],
   imports: [
     CommonModule,

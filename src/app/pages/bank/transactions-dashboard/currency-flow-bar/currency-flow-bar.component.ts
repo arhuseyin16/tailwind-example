@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-money-market',
-  templateUrl: './money-market.component.html',
-  styleUrls: ['./money-market.component.scss']
+  selector: 'app-currency-flow-bar',
+  templateUrl: './currency-flow-bar.component.html',
+  styleUrls: ['./currency-flow-bar.component.scss']
 })
-export class MoneyMarketComponent implements OnInit {
+export class CurrencyFlowBarComponent implements OnInit {
 
   moneyList = [
     {

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-money-flow',
-  templateUrl: './money-flow.component.html',
-  styleUrls: ['./money-flow.component.scss']
+  selector: 'app-balance-summary-column',
+  templateUrl: './balance-summary-column.component.html',
+  styleUrls: ['./balance-summary-column.component.scss']
 })
-export class MoneyFlowComponent implements OnInit {
+export class BalanceSummaryColumnComponent implements OnInit {
 
   moneyList = [
     {

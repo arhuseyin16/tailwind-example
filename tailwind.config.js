@@ -17,7 +17,8 @@ module.exports = {
     extend: {
       colors: {
         'sapphire': '#2d64a0',
-        'silver': "#bfbfbf"
+        'silver': '#bfbfbf',
+        'cultured-earl': '#f5f5f5'
       }
     },
   },

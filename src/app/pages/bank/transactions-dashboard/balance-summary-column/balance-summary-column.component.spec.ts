@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MoneyFlowComponent } from './money-flow.component';
+import { BalanceSummaryColumnComponent } from './balance-summary-column.component';
 
 describe('MoneyFlowComponent', () => {
-  let component: MoneyFlowComponent;
-  let fixture: ComponentFixture<MoneyFlowComponent>;
+  let component: BalanceSummaryColumnComponent;
+  let fixture: ComponentFixture<BalanceSummaryColumnComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MoneyFlowComponent ]
+      declarations: [ BalanceSummaryColumnComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MoneyFlowComponent);
+    fixture = TestBed.createComponent(BalanceSummaryColumnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
