@@ -18,12 +18,40 @@ module.exports = {
     borderRadius: {
       '5px': '5px'
     },
+    screens: { 'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+
+      '3xl': '1900px',
+      // => @media (min-width: 1536px) { ... }
+    },
     extend: {
       colors: {
         'sapphire': '#2d64a0',
         'silver': '#bfbfbf',
         'cultured-earl': '#f5f5f5',
         'lapis-lazuli': '#2d639f'
+      },
+      gap: {
+        '30': '1.875rem',
+      },
+      padding: {
+        '30px': '30px',
+      },
+      margin: {
+        '25px': '25px',
+        '88px': '88px',
       }
     },
   },

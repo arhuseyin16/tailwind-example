@@ -5,7 +5,7 @@
   </a>
   <nz-dropdown-menu #menu="nzDropdownMenu">
     <ul nz-menu *ngFor="let language of translateService.getLangs()">
-      <li nz-menu-item (click)="switchLang(translateService.defaultLang === 'en' ? 'tr' : 'en')">
+      <li nz-menu-item (click)="switchLang(translateService.currentLang === 'en' ? 'tr' : 'en')">
         <img src="{{languageMeta[language].flagImagePath}}" width="33px" alt="{{languageMeta[language].text}} /">
       </li>
     </ul>
