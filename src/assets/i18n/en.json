@@ -39,7 +39,18 @@
     "sync-management": "Sync Management",
     "sync-maintenance": "Sync Maintenance",
     "sync-control-reports": "Sync Control Reports",
-    "sync-transaction-reports": "Sync Transaction Reports"
+    "sync-transaction-reports": "Sync Transaction Reports",
+    "account-activities": "Account Activities",
+    "bank-accounts": "Bank Accounts"
+  },
+  "bank-account": {
+    "companies": "Companies",
+    "branches": "Branches",
+    "account-types": "Account Types",
+    "balance": "Balance",
+    "currency-unit": "Currency Unit",
+    "inquire": "Inquire",
+    "account": "Account"
   },
   "header": {
     "screen-refresh-time": "Screen Refresh Time"

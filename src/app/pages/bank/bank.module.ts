@@ -28,6 +28,10 @@ const routes: Routes = [
       {
         path: 'transactions-dashboard',
         loadChildren: () => import('./transactions-dashboard/transactions-dashboard.module').then(m => m.TransactionsDashboardModule)
+      },
+      {
+        path: 'bank-account',
+        loadChildren: () => import('./bank-accounts/bank-accounts.module').then(m => m.BankAccountsModule)
       }
     ]
   }
