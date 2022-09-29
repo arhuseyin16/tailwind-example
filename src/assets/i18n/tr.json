@@ -75,6 +75,8 @@
     "sale": "Satış",
     "money-input": "Para Girişi",
     "money-out": "Para Çıkışı",
-    "balance-per-day": "Gün Başı Bakiye"
+    "balance-per-day": "Gün Başı Bakiye",
+    "balance-types": "Bakiye Türleri",
+    "account-types": "Hesap Türleri"
   }
 }

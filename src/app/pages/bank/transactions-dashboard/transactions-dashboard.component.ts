@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -23,6 +24,18 @@ export class TransactionsDashboardComponent implements OnInit {
       value: '4.434.545₺',
       date: null
     },
+  ];
+
+  currencies: NzSegmentedOptions = [
+    {label: 'TRY', value: 'TRY'},
+    {label: 'USD', value: 'USD'},
+    {label: 'EUR', value: 'EUR'},
+    {label: 'GBP', value: 'GBP'},
+    {label: 'CHF', value: 'CHF'},
+    {label: 'RUB', value: 'RUB'},
+    {label: 'AUD', value: 'AUD'},
+    {label: 'JFY', value: 'JFY'},
+    {label: 'AED', value: 'AED'},
   ];
 
   constructor() { }

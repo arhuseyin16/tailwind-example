@@ -7,7 +7,9 @@ module.exports = {
     fontSize: {
       '18': ['18px', 'normal'],
       '15': ['15px', 'normal'],
+      '14': ['14px', 'normal'],
       '25': ['25px', 'normal'],
+      '20': ['20px', '1.5rem'],
       borderWidth: {
         '1': '1px'
       }
@@ -16,9 +18,11 @@ module.exports = {
       'poppins': ['Poppins'],
     },
     borderRadius: {
-      '5px': '5px'
+      '5px': '5px',
+      '20px': '20px'
     },
-    screens: { 'sm': '640px',
+    screens: {
+      'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
       'md': '768px',
@@ -41,7 +45,9 @@ module.exports = {
         'sapphire': '#2d64a0',
         'silver': '#bfbfbf',
         'cultured-earl': '#f5f5f5',
-        'lapis-lazuli': '#2d639f'
+        'lapis-lazuli': '#2d639f',
+        'ghost-white': '#f5f6fe',
+        'eton-blue': '#87bfad'
       },
       gap: {
         '30': '1.875rem',
@@ -52,6 +58,12 @@ module.exports = {
       margin: {
         '25px': '25px',
         '88px': '88px',
+      },
+      boxShadow: {
+        'silver-halice-lg': '0 0 14px 0 rgba(173, 173, 173, 0.2);'
+      },
+      lineHeight: {
+        '47px': '2.9655 ',
       }
     },
   },

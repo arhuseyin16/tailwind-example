@@ -1,0 +1,12 @@
+:host ::ng-deep .ant-segmented-item-selected {
+  @apply bg-eton-blue text-white #{!important};
+}
+
+:host ::ng-deep .ant-segmented-item-label {
+  @apply min-h-[41px] leading-47px text-14 #{!important};
+}
+
+/*
+:host ::ng-deep .ant-segmented:not(.ant-segmented-disabled):hover, .ant-segmented:not(.ant-segmented-disabled):focus {
+  @apply
+}*/
