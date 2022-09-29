@@ -6,6 +6,7 @@ import {NzSelectModule} from "ng-zorro-antd/select";
 import {TranslateModule} from "@ngx-translate/core";
 import { BankListComponent } from './bank-list/bank-list.component';
 import { BankTableComponent } from './bank-table/bank-table.component';
+import { BankLineChartComponent } from './bank-list/bank-line-chart/bank-line-chart.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
   declarations: [
     BankAccountsComponent,
     BankListComponent,
-    BankTableComponent
+    BankTableComponent,
+    BankLineChartComponent
   ],
   imports: [
     CommonModule,

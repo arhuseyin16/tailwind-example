@@ -1,0 +1,133 @@
+.bank-list {
+  padding: 0 20px;
+
+  .line-chart {
+    margin-bottom: 90px;
+    position: relative;
+
+    .change-img {
+      position: absolute;
+      right: 0;
+      top: -7px;
+
+      img {
+        width: 55px;
+        height: 30px;
+        object-fit: contain;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .detail-list {
+    border-radius: 10px;
+    box-shadow: 0 3px 14px 0 rgba(121, 121, 121, 0.16);
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 30px;
+
+    .list-image {
+      padding: 6px 0 0 19px;
+
+      img {
+        width: 129px;
+        height: 50px;
+        object-fit: contain;
+      }
+    }
+
+    .account {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px 0 10px 13px;
+
+      .account-list {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0 15px;
+        margin-bottom: 30px;
+        border-right: solid 1px #b4b4b4;
+
+        .total-price {
+          font-size: 30px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.17;
+          letter-spacing: normal;
+          text-align: left;
+
+          .total {
+            font-weight: 500;
+            color: #000;
+          }
+          .money-type {
+            font-weight: bold;
+            color: #2d64a0;
+            padding: 0 0 0 10px;
+          }
+        }
+
+        .total-account {
+          padding: 10px 0 0 0;
+          position: relative;
+
+          .title {
+            font-size: 18px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.94;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000;
+          }
+
+          .error {
+            position: absolute;
+            right: 35px;
+            top: 16px;
+
+             img {
+               width: 24px;
+               height: 24px;
+               object-fit: contain;
+             }
+          }
+        }
+
+        .detail-process {
+          font-size: 18px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.94;
+          letter-spacing: normal;
+          text-align: left;
+          color: #2d64a0;
+          padding: 15px 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .account-list {
+    flex: 0 0 33.3% !important;
+    max-width: 33.3% !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .account-list {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .account-list {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}

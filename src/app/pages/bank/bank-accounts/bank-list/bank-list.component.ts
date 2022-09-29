@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class BankListComponent implements OnInit {
   @Input() bankList: any;
+  changeIcon = true;
 
   constructor() { }
 
