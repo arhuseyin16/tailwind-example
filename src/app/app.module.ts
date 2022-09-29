@@ -15,7 +15,12 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { StoreModule } from "./store/store.module";
 import { NgxTranslateRoutesModule } from "ngx-translate-routes";
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { FusionChartsModule } from "./shared/fusion-charts/fusioncharts.module";
 
+import * as CandyTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
 registerLocaleData(en);
 
 @NgModule({
@@ -29,6 +34,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     AppRoutingModule,
     IconsProviderModule,
+    FusionChartsModule.forRoot(FusionCharts, Charts, FusionTheme, CandyTheme),
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       useDefaultLang: true,
