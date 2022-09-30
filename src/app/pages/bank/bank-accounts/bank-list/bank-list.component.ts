@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-bank-list',
@@ -9,9 +10,14 @@ export class BankListComponent implements OnInit {
   @Input() bankList: any;
   changeIcon = true;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
+  detailUrl(child: any) {
+    this.router.navigate(['/bank/bank-account/detail'], { queryParams: { id: 1}});
+  }
 }
