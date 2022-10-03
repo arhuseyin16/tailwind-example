@@ -23,7 +23,24 @@ export class BankAccountDetailComponent implements OnInit {
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
           status: true,
+          expand: false,
           detail: [
+            {
+              creditLimit: null,
+              availableCreditLimit: null,
+              balance: '5.455029 TRY',
+              blockedBalance: '5.455029 TRY',
+              availableBalance: '5.455029 TRY',
+              creditAvailableBalance: '5.455029 TRY',
+            },
+            {
+              creditLimit: null,
+              availableCreditLimit: null,
+              balance: '5.455029 TRY',
+              blockedBalance: '5.455029 TRY',
+              availableBalance: '5.455029 TRY',
+              creditAvailableBalance: '5.455029 TRY',
+            },
             {
               creditLimit: null,
               availableCreditLimit: null,
@@ -44,6 +61,7 @@ export class BankAccountDetailComponent implements OnInit {
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
           status: true,
+          expand: false,
           detail: [
             {
               creditLimit: null,
@@ -65,6 +83,7 @@ export class BankAccountDetailComponent implements OnInit {
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
           status: false,
+          expand: false,
           detail: [
             {
               creditLimit: null,
@@ -86,6 +105,7 @@ export class BankAccountDetailComponent implements OnInit {
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
           status: true,
+          expand: false,
           detail: [
             {
               creditLimit: null,
@@ -107,6 +127,7 @@ export class BankAccountDetailComponent implements OnInit {
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
           status: false,
+          expand: false,
           detail: [
             {
               creditLimit: null,
@@ -128,6 +149,7 @@ export class BankAccountDetailComponent implements OnInit {
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
           status: true,
+          expand: false,
           detail: [
             {
               creditLimit: null,
@@ -149,6 +171,7 @@ export class BankAccountDetailComponent implements OnInit {
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
           status: false,
+          expand: false,
           detail: [
             {
               creditLimit: null,
@@ -164,50 +187,50 @@ export class BankAccountDetailComponent implements OnInit {
     };
   listOfColumn = [
     {
-      title: 'Tarih',
+      title: 'bank-account.date',
       compare: (a: any, b: any) => a.date - b.date,
       priority: 6
     },
     {
-      title: 'Tanım',
+      title: 'bank-account.definition',
       compare: (a: any, b: any) => a.definition - b.definition,
       priority: 5
     },
     {
-      title: 'Firma',
+      title: 'bank-account.company',
       compare: (a: any, b: any) => a.company - b.company,
       priority: 4
     },
     {
-      title: 'Şube',
+      title: 'bank-account.branch',
       compare: (a: any, b: any) => a.branch - b.branch,
       priority: 3
     },
     {
-      title: 'Hesap Türü',
+      title: 'bank-account.accountType',
       compare: (a: any, b: any) => a.accountType - b.accountType,
       priority: 2
     },
     {
-      title: 'Hesap Numarası',
+      title: 'bank-account.accountNo',
       compare: (a: any, b: any) => a.accountNo - b.accountNo,
       priority: 1
     },
     {
-      title: 'Bakiye',
+      title: 'bank-account.balance',
       compare: null,
       priority: false
     },
   ];
 
-  listChildDetail = [
-    { title: 'Kredi Limiti'},
-    { title: 'Kullanılabilir Kredi Limiti'},
-    { title: 'Bakiye'},
-    { title: 'Bloklu Bakiye'},
-    { title: 'Kullanılabilir Bakiye'},
-    { title: 'Kredili Kullanılabilir Bakiye'},
-  ]
+  listChildDetailColumn = [
+    { title: 'bank-account.creditLimit'},
+    { title: 'bank-account.availableCreditLimit'},
+    { title: 'bank-account.balance'},
+    { title: 'bank-account.blockedBalance'},
+    { title: 'bank-account.availableBalance'},
+    { title: 'bank-account.creditAvailableBalance'},
+  ];
   constructor(
     private activatedRoute: ActivatedRoute,
   ) {
@@ -216,7 +239,15 @@ export class BankAccountDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  rowDetail(id: number) {
+    this.detailList.list.map(row => {
+      if (row.id === id) {
+        row.expand = !row.expand;
+      } else {
+        row.expand = false;
+      }
+    });
+  }
 }
