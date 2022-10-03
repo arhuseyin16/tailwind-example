@@ -152,6 +152,24 @@ export class TransactionsDashboardComponent implements OnInit {
     }
   ]
 
+  accountTypes = [
+    {
+      label: "Vadeli",
+      value: "28504",
+      color: '#007ea7'
+    },
+    {
+      label: "Mevduat",
+      value: "14633",
+      color: '#87bfad'
+    },
+    {
+      label: "Blokeli",
+      value: "28715",
+      color: '#003249'
+    }
+  ]
+
   balanceTypeConfig = new FusionChartsConfig();
   accountTypeConfig = new FusionChartsConfig();
 
@@ -170,15 +188,22 @@ export class TransactionsDashboardComponent implements OnInit {
     this.balanceTypeConfig.legendNumRows = '3';
     this.balanceTypeConfig.legendNumColumns = '2';
     this.balanceTypeConfig.defaultCenterLabel = '389.477.778';
+    this.balanceTypeConfig.width = '100%';
+    this.balanceTypeConfig.height = '450';
+    this.balanceTypeConfig.pieRadius = '175';
+    this.balanceTypeConfig.doughnutRadius = '140'
   }
 
   createAccountTypeConfig() {
-    this.accountTypeConfig.data = this.balanceTypes;
+    this.accountTypeConfig.data = this.accountTypes;
     this.accountTypeConfig.numberSuffix = '₺';
     this.accountTypeConfig.legendPosition = 'bottom';
-    this.accountTypeConfig.legendNumRows = '2';
-    this.accountTypeConfig.legendNumColumns = '2';
-    this.accountTypeConfig.defaultCenterLabel = '389.477.778';
+    this.accountTypeConfig.legendNumRows = '1';
+    this.accountTypeConfig.legendNumColumns = '1';
+    this.accountTypeConfig.defaultCenterLabel = '2.474.394';
+    this.accountTypeConfig.width = '100%'
+    this.accountTypeConfig.height = '450'
+    this.accountTypeConfig.pieRadius = '150'
   }
 
 }

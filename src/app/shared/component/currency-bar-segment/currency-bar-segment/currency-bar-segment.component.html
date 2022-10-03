@@ -1,12 +1,4 @@
-<div *ngIf="currencies.length > 0">
+<div *ngIf="currencies.length > 0" [ngClass]="isVertical ? 'vertical' : 'horizontal'">
   <nz-segmented class="rounded-5px bg-ghost-white p-0 h-[41px]" nzSize="large" [nzOptions]="currencies"></nz-segmented>
 </div>
-<div class="ml-[-80px]">
-  <fusioncharts
-    width="1000"
-    height="550"
-    type="doughnut2d"
-    dataFormat="JSON"
-    [dataSource]="dataSource"
-  ></fusioncharts>
-</div>
+

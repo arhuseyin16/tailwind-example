@@ -10,3 +10,11 @@
 :host ::ng-deep .ant-segmented:not(.ant-segmented-disabled):hover, .ant-segmented:not(.ant-segmented-disabled):focus {
   @apply
 }*/
+
+.vertical {
+  @apply flex justify-center;
+}
+
+.horizontal {
+  @apply pl-[79px];
+}

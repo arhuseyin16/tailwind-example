@@ -7,6 +7,7 @@ import { BalanceSummaryColumnComponent } from './balance-summary-column/balance-
 import { TranslateModule } from "@ngx-translate/core";
 import { BalanceTypeComponent } from './balance-type/balance-type.component';
 import { CurrencyBarSegmentModule } from "../../../shared/component/currency-bar-segment/currency-bar-segment.module";
+import { FusionChartsModule } from "../../../shared/fusion-charts/fusioncharts.module";
 
 const routes: Routes = [
   {
@@ -22,12 +23,13 @@ const routes: Routes = [
     BalanceSummaryColumnComponent,
     BalanceTypeComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    TranslateModule,
-    CurrencyBarSegmentModule,
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        TranslateModule,
+        CurrencyBarSegmentModule,
+        FusionChartsModule,
+    ]
 })
 export class TransactionsDashboardModule {
 }
