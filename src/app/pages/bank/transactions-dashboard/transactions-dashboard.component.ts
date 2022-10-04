@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Store} from "@ngxs/store";
+import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
+import {TimerRefreshComponent} from "./timer-refresh/timer-refresh.component";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store) {
+    this.store.dispatch(new HeaderConfigAction('TimerRefreshComponent', null));
+  }
 
   ngOnInit(): void {
   }

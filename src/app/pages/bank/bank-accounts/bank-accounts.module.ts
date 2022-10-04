@@ -15,11 +15,11 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 const routes: Routes = [
   {
     path: '',
-    component: BankAccountsComponent
+    component: BankAccountsComponent,
   },
   {
     path: 'detail',
-    component: BankAccountDetailComponent
+    component: BankAccountDetailComponent,
   },
   {
     path: '',

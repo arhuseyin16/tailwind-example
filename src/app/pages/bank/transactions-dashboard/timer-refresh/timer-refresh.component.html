@@ -1,0 +1,18 @@
+<div class="flex">
+  <div class="leftSide-title">
+    {{"header.screen-refresh-time" | translate}}
+  </div>
+  <div class="leftSide-time ml-3">
+    <nz-input-number
+      [(ngModel)]="timerValue"
+      [nzMin]="0"
+      [nzMax]="60"
+      [nzStep]="1"
+      [nzFormatter]="formatterValue"
+      [nzParser]="parserValue"
+    ></nz-input-number>
+  </div>
+  <div class="leftSide-switch ml-3">
+    <nz-switch [(ngModel)]="switch"></nz-switch>
+  </div>
+</div>

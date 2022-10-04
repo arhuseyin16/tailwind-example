@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {Store} from "@ngxs/store";
+import {HeaderConfigAction} from "../../../../store/header-config/header-config.action";
+import {BankAccountDetailHeaderComponent} from "./bank-account-detail-header/bank-account-detail-header.component";
 
 @Component({
   selector: 'app-bank-account-detail',
@@ -233,10 +236,17 @@ export class BankAccountDetailComponent implements OnInit {
   ];
   constructor(
     private activatedRoute: ActivatedRoute,
+    private store: Store
   ) {
     this.activatedRoute.queryParams.pipe().subscribe(params => {
 
     });
+    const data = {
+      image: 'https://portaltest.netbt.com/portalApi/Images/netbtProducts/ebiletlogo.png',
+      account: 20,
+      moneyType: 'TRY'
+    }
+    this.store.dispatch(new HeaderConfigAction('BankAccountDetailHeaderComponent', data));
   }
 
   ngOnInit(): void {}
