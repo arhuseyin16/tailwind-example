@@ -33,6 +33,10 @@
       border-right: solid 0.5px #d3d3d3;
     }
 
+    ::ng-deep .ant-table-tbody > tr.child-table > td {
+      background-color: #f2f2f2;
+    }
+
     ::ng-deep .ant-table-column-sorter {
       color: #fff;
     }
@@ -84,35 +88,32 @@
           td {
             .last-colum-other {
               position: relative;
-              display: flex;
-
               .balance-value {
 
               }
 
-              .action-icon {
-                display: flex;
-                align-items: center;
-                margin-left: 15px;
+              .accordion-img {
+                cursor: pointer;
+                position: absolute;
+                top: 4px;
+                left: 105px;
 
-                .accordion-img {
-                  cursor: pointer;
-
-                  img {
-                    width: 15px;
-                    height: 15px;
-                    object-fit: contain;
-                  }
+                img {
+                  width: 15px;
+                  height: 15px;
+                  object-fit: contain;
                 }
+              }
 
-                .status-img {
-                  margin-left: 40px;
+              .status-img {
+                position: absolute;
+                top: 4px;
+                right: 49px;
 
-                  img {
-                    width: 15px;
-                    height: 15px;
-                    object-fit: contain;
-                  }
+                img {
+                  width: 15px;
+                  height: 15px;
+                  object-fit: contain;
                 }
               }
 

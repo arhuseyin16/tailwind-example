@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Store} from "@ngxs/store";
 import {HeaderConfigAction} from "../../../../store/header-config/header-config.action";
-import {BankAccountDetailHeaderComponent} from "./bank-account-detail-header/bank-account-detail-header.component";
+import {HeaderConfigModel} from "../../../../models/header-config-model";
 
 @Component({
   selector: 'app-bank-account-detail',
@@ -146,8 +146,8 @@ export class BankAccountDetailComponent implements OnInit {
           id: 6,
           date: '02.11.2018 15:57',
           definition: 'AK_TRY_01',
-          company: 'Firma A',
-          branch: 'Altunizade Ticari Şube',
+          company: 'Firma Y',
+          branch: 'Maltepe Ticari Şube',
           accountType: 'Genel',
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
@@ -169,7 +169,73 @@ export class BankAccountDetailComponent implements OnInit {
           date: '02.11.2018 15:57',
           definition: 'AK_TRY_01',
           company: 'Firma A',
-          branch: 'Altunizade Ticari Şube',
+          branch: 'Pendik Ticari Şube',
+          accountType: 'Genel',
+          accountNo: '1212-34343434-1233',
+          balance: '1.232.343 TL',
+          status: false,
+          expand: false,
+          detail: [
+            {
+              creditLimit: null,
+              availableCreditLimit: null,
+              balance: '5.455029 TRY',
+              blockedBalance: '5.455029 TRY',
+              availableBalance: '5.455029 TRY',
+              creditAvailableBalance: '5.455029 TRY',
+            }
+          ]
+        },
+        {
+          id: 8,
+          date: '02.11.2018 15:57',
+          definition: 'AK_TRY_01',
+          company: 'Firma A',
+          branch: 'Kadıköy Ticari Şube',
+          accountType: 'Genel',
+          accountNo: '1212-34343434-1233',
+          balance: '1.232.343 TL',
+          status: false,
+          expand: false,
+          detail: [
+            {
+              creditLimit: null,
+              availableCreditLimit: null,
+              balance: '5.455029 TRY',
+              blockedBalance: '5.455029 TRY',
+              availableBalance: '5.455029 TRY',
+              creditAvailableBalance: '5.455029 TRY',
+            }
+          ]
+        },
+        {
+          id: 9,
+          date: '02.11.2018 15:57',
+          definition: 'AK_TRY_01',
+          company: 'Firma B',
+          branch: 'Cekmeköy Ticari Şube',
+          accountType: 'Genel',
+          accountNo: '1212-34343434-1233',
+          balance: '1.232.343 TL',
+          status: false,
+          expand: false,
+          detail: [
+            {
+              creditLimit: null,
+              availableCreditLimit: null,
+              balance: '5.455029 TRY',
+              blockedBalance: '5.455029 TRY',
+              availableBalance: '5.455029 TRY',
+              creditAvailableBalance: '5.455029 TRY',
+            }
+          ]
+        },
+        {
+          id: 10,
+          date: '02.11.2018 15:57',
+          definition: 'AK_TRY_01',
+          company: 'Firma C',
+          branch: 'Balçık Ticari Şube',
           accountType: 'Genel',
           accountNo: '1212-34343434-1233',
           balance: '1.232.343 TL',
@@ -192,40 +258,46 @@ export class BankAccountDetailComponent implements OnInit {
     {
       title: 'bank-account.date',
       compare: (a: any, b: any) => a.date - b.date,
-      priority: 6
+      sort: true,
+      sortOrder: null
     },
     {
       title: 'bank-account.definition',
       compare: (a: any, b: any) => a.definition - b.definition,
-      priority: 5
+      sort: true,
+      sortOrder: null
     },
     {
       title: 'bank-account.company',
-      compare: (a: any, b: any) => a.company - b.company,
-      priority: 4
+      compare: (a: any, b: any) => a.company.localeCompare(b.company),
+      sort: true,
+      sortOrder: null
     },
     {
       title: 'bank-account.branch',
-      compare: (a: any, b: any) => a.branch - b.branch,
-      priority: 3
+      compare: (a: any, b: any) => a.branch.localeCompare(b.branch),
+      sort: true,
+      sortOrder: null
     },
     {
       title: 'bank-account.accountType',
       compare: (a: any, b: any) => a.accountType - b.accountType,
-      priority: 2
+      sort: true,
+      sortOrder: null
     },
     {
       title: 'bank-account.accountNo',
       compare: (a: any, b: any) => a.accountNo - b.accountNo,
-      priority: 1
+      sort: true,
+      sortOrder: null
     },
     {
       title: 'bank-account.balance',
       compare: null,
-      priority: false
+      sort: false,
+      sortOrder: null
     },
   ];
-
   listChildDetailColumn = [
     { title: 'bank-account.creditLimit'},
     { title: 'bank-account.availableCreditLimit'},
@@ -234,6 +306,7 @@ export class BankAccountDetailComponent implements OnInit {
     { title: 'bank-account.availableBalance'},
     { title: 'bank-account.creditAvailableBalance'},
   ];
+  headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   constructor(
     private activatedRoute: ActivatedRoute,
     private store: Store
@@ -241,12 +314,18 @@ export class BankAccountDetailComponent implements OnInit {
     this.activatedRoute.queryParams.pipe().subscribe(params => {
 
     });
-    const data = {
-      image: 'https://portaltest.netbt.com/portalApi/Images/netbtProducts/ebiletlogo.png',
-      account: 20,
-      moneyType: 'TRY'
-    }
-    this.store.dispatch(new HeaderConfigAction('BankAccountDetailHeaderComponent', data));
+    const dataObj = {
+        image: 'https://portaltest.netbt.com/portalApi/Images/netbtProducts/ebiletlogo.png',
+        account: 20,
+        moneyType: 'TRY'
+      }
+    this.headerConfig.push({
+      component: () => import('../bank-account-detail/bank-account-detail-header/bank-account-detail-header.component').then(it => it.BankAccountDetailHeaderComponent),
+      // component: BankAccountDetailHeaderComponent,
+      dataObj: dataObj
+    });
+
+    this.store.dispatch(new HeaderConfigAction(this.headerConfig));
   }
 
   ngOnInit(): void {}

@@ -1,14 +1,12 @@
-import {Component} from "@angular/core";
+import {HeaderConfigModel} from "../../models/header-config-model";
 
-export interface HeaderConfigModel {
-  component: any,
-  data: any
+export interface HeaderModel {
+  data: Array<HeaderConfigModel>;
 }
 
 export class HeaderConfigAction {
   static readonly type = '[headerConfig] HeaderConfigAction';
-  constructor(public component: any,
-              public data: any) {}
+  constructor(public data: Array<HeaderConfigModel>) {}
 }
 
 export class HeaderConfigClear {

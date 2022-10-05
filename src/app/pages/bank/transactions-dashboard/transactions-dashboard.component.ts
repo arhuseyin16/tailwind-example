@@ -4,6 +4,7 @@ import {HeaderConfigAction} from "../../../store/header-config/header-config.act
 import {TimerRefreshComponent} from "./timer-refresh/timer-refresh.component";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
 import { FusionChartsConfig } from "../../../models/shared/fusion-charts.config";
+import {HeaderConfigModel} from "../../../models/header-config-model";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -175,9 +176,14 @@ export class TransactionsDashboardComponent implements OnInit {
 
   balanceTypeConfig = new FusionChartsConfig();
   accountTypeConfig = new FusionChartsConfig();
+  headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
 
   constructor(private store: Store) {
-    this.store.dispatch(new HeaderConfigAction('TimerRefreshComponent', null));
+    this.headerConfig.push({
+      component: () => import('../transactions-dashboard/timer-refresh/timer-refresh.component').then(it => it.TimerRefreshComponent),
+      dataObj: null
+    });
+    this.store.dispatch(new HeaderConfigAction(this.headerConfig));
     this.createBalanceTypeConfig();
     this.createAccountTypeConfig();
   }
