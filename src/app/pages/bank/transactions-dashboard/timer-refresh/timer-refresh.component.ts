@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-timer-refresh',
   templateUrl: './timer-refresh.component.html',
-  styleUrls: ['./timer-refresh.component.scss']
+  styleUrls: ['./timer-refresh.component.scss'],
 })
 export class TimerRefreshComponent implements OnInit {
   switch = true;

@@ -31,15 +31,15 @@ export class TransactionsDashboardComponent implements OnInit {
   ];
 
   currencies: NzSegmentedOptions = [
-    {label: 'TRY', value: 'TRY'},
-    {label: 'USD', value: 'USD'},
-    {label: 'EUR', value: 'EUR'},
-    {label: 'GBP', value: 'GBP'},
-    {label: 'CHF', value: 'CHF'},
-    {label: 'RUB', value: 'RUB'},
-    {label: 'AUD', value: 'AUD'},
-    {label: 'JFY', value: 'JFY'},
-    {label: 'AED', value: 'AED'},
+    {label: 'TRY', value: 1},
+    {label: 'USD', value: 18.57},
+    {label: 'EUR', value: 18.43},
+    {label: 'GBP', value: 21.14},
+    {label: 'CHF', value: 18.87},
+    {label: 'RUB', value: 0.31},
+    {label: 'AUD', value: 12.00},
+    {label: 'JFY', value: 0.13},
+    {label: 'AED', value: 5.06},
   ];
 
   balanceTypes = [

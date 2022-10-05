@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import {
   BankAccountDetailHeaderComponent
 } from "../../bank-accounts/bank-account-detail/bank-account-detail-header/bank-account-detail-header.component";
@@ -20,7 +20,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   constructor(
     private router: Router,
-    private store: Store
+    private store: Store,
+    private cdref: ChangeDetectorRef
   ) {
 
   }
@@ -42,6 +43,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         } else {
           this.container.createComponent(TimerRefreshComponent);
         }
+        this.cdref.detectChanges();
       }
     });
   }

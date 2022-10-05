@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
 import { FusionChartsConfig } from "../../../../models/shared/fusion-charts.config";
 import FusionChartsEvent from "../../../../shared/fusion-charts/interfaces/FusionChartsEvent";
+import { CurrencyUtil } from "../../../../shared/util/currency.util";
 
 @Component({
   selector: 'app-balance-type',
@@ -15,6 +16,7 @@ export class BalanceTypeComponent implements OnInit {
   @Input() dataSourceConfig: FusionChartsConfig = new FusionChartsConfig();
   dataSource: any;
   chartObj: any;
+  defaultCurrency = 1;
   constructor() { }
 
   ngOnInit(): void {
@@ -65,12 +67,19 @@ export class BalanceTypeComponent implements OnInit {
   }
 
   selectedCurrency(currency: any) {
-    this.dataSourceConfig?.data?.forEach(d => d.value = d.value * 18);
-    console.log(this.dataSourceConfig.data);
+    const differentCurrency = currency.value > this.defaultCurrency ? currency.value / this.defaultCurrency : this.defaultCurrency / currency.value;
+    this.defaultCurrency = currency.value;
+    this.dataSource.chart.numberSuffix = CurrencyUtil.getCurrencyUtilByName(currency.label);
+    this.dataSourceConfig?.data?.forEach(d => d.value = d.value * Math.round(differentCurrency));
+    this.chartObj.setJSONData({
+      chart: this.dataSource.chart,
+      data: this.dataSourceConfig.data
+    })
   }
 
   initialized($event: any){
     this.chartObj = $event.chart; // saving chart instance
     console.log(this.chartObj);
+
   }
 }

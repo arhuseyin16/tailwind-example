@@ -11,7 +11,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { IconsProviderModule } from './icons-provider.module';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { StoreModule } from "./store/store.module";
 import { NgxTranslateRoutesModule } from "ngx-translate-routes";
@@ -21,6 +21,7 @@ import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import { FusionChartsModule } from "./shared/fusion-charts/fusioncharts.module";
 
 import * as CandyTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
+import { CustomMissingTranslationHandler } from "./shared/translate/custom-missing-translation-handler";
 registerLocaleData(en);
 
 @NgModule({
@@ -42,7 +43,8 @@ registerLocaleData(en);
         provide: TranslateLoader,
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
-      }
+      },
+      missingTranslationHandler: {provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler}
     }),
     NgxTranslateRoutesModule.forRoot({
       enableRouteTranslate: false
