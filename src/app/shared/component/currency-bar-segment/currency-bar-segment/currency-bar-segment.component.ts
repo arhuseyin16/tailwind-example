@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
 
 @Component({
@@ -12,7 +12,10 @@ export class CurrencyBarSegmentComponent implements OnInit {
 
   @Input() position: string = '';
 
+  @Output() selectedCurrencyEvent = new EventEmitter();
+
   isVertical = false;
+  selectedCurrency: any;
   constructor() {
 
   }
@@ -21,4 +24,7 @@ export class CurrencyBarSegmentComponent implements OnInit {
     this.isVertical = this.position === 'top' || this.position === 'bottom';
   }
 
+  changeCurrencyBar(index: any) {
+    this.selectedCurrencyEvent.emit(this.currencies[index]);
+  }
 }

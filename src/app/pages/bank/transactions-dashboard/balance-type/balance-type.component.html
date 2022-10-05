@@ -1,6 +1,6 @@
 <label class="text-20 text-black font-bold">{{title | translate}}</label>
 <div *ngIf= 'dataSourceConfig.legendPosition' class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px]">
-  <app-currency-bar-segment [currencies]="currencies" [position]="dataSourceConfig.legendPosition"></app-currency-bar-segment>
+  <app-currency-bar-segment [currencies]="currencies" [position]="dataSourceConfig.legendPosition" (selectedCurrencyEvent)="selectedCurrency($event)"></app-currency-bar-segment>
 
   <div *ngIf="dataSourceConfig?.width">
     <fusioncharts
@@ -10,7 +10,7 @@
       dataFormat="JSON"
       [dataSource]="dataSource"
       (legendItemClicked)="legendClicked($event)"
-      (dataUpdated)="dataUpdated($event)"
+      (initialized)="initialized($event)"
     ></fusioncharts>
   </div>
 </div>

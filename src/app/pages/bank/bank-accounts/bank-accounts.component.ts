@@ -22,7 +22,7 @@ export class BankAccountsComponent implements OnInit {
   ];
   bankList = [
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#dc4333',
       accountList: [
         {
@@ -63,7 +63,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#52b189',
       accountList: [
         {
@@ -104,7 +104,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#2c414a',
       accountList: [
         {
@@ -145,7 +145,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#2c6eaa',
       accountList: [
         {
@@ -186,7 +186,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#95d8da',
       accountList: [
         {
@@ -227,7 +227,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#0d3068',
       accountList: [
         {
@@ -268,7 +268,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#ee6f2d',
       accountList: [
         {
@@ -309,7 +309,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#be3a3a',
       accountList: [
         {
@@ -350,7 +350,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#681836',
       accountList: [
         {
@@ -391,7 +391,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#dc4333',
       accountList: [
         {
@@ -432,7 +432,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#52b189',
       accountList: [
         {
@@ -473,7 +473,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#2c414a',
       accountList: [
         {
@@ -514,7 +514,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#2c6eaa',
       accountList: [
         {
@@ -555,7 +555,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#95d8da',
       accountList: [
         {
@@ -596,7 +596,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#0d3068',
       accountList: [
         {
@@ -637,7 +637,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#ee6f2d',
       accountList: [
         {
@@ -678,7 +678,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#be3a3a',
       accountList: [
         {
@@ -719,7 +719,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#681836',
       accountList: [
         {
@@ -760,7 +760,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#95d8da',
       accountList: [
         {
@@ -801,7 +801,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#0d3068',
       accountList: [
         {
@@ -842,7 +842,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#ee6f2d',
       accountList: [
         {
@@ -883,7 +883,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#be3a3a',
       accountList: [
         {
@@ -924,7 +924,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
-      image: 'assets/img/bank-account/bank.png',
+      image: 'assets/img/bank-account/akbank.png',
       color: '#681836',
       accountList: [
         {

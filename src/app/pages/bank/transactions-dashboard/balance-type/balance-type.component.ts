@@ -14,16 +14,13 @@ export class BalanceTypeComponent implements OnInit {
   @Input() title = '';
   @Input() dataSourceConfig: FusionChartsConfig = new FusionChartsConfig();
   dataSource: any;
-
-
+  chartObj: any;
   constructor() { }
 
   ngOnInit(): void {
     if(this.dataSourceConfig) {
       this.dataSource = {
         chart: {
-          // caption: "Split of Revenue by Product Categories",
-          // subCaption: "Last year",
           numberPrefix: this.dataSourceConfig.numberPrefix,
           numberSuffix: this.dataSourceConfig.numberSuffix,
           bgColor: this.dataSourceConfig.bgColor,
@@ -47,7 +44,6 @@ export class BalanceTypeComponent implements OnInit {
           legendAllowDrag: this.dataSourceConfig.legendAllowDrag,
           enableMultiSlicing: this.dataSourceConfig.enableMultiSlicing,
           pieRadius: this.dataSourceConfig.pieRadius,
-         // plottooltext: '<b>$label</b><br><b>$value</b>',
           showPercentValues: '0',
           showPercentInTooltip: `0`,
         },
@@ -57,12 +53,10 @@ export class BalanceTypeComponent implements OnInit {
   }
 
   legendClicked(fusionChartsEvent: FusionChartsEvent) {
-    console.log(fusionChartsEvent);
     // @ts-ignore
     let label = fusionChartsEvent.dataObj.label;
     // @ts-ignore
     var index = this.dataSource.data.findIndex(d => d.label === label);
-    console.log(index);
     this.dataSource.data[index] = {
       ...this.dataSource.data[index],
       showLabel: '1',
@@ -70,7 +64,13 @@ export class BalanceTypeComponent implements OnInit {
     }
   }
 
-  dataUpdated(fusionChartsEvent: FusionChartsEvent) {
-    console.log(fusionChartsEvent);
+  selectedCurrency(currency: any) {
+    this.dataSourceConfig?.data?.forEach(d => d.value = d.value * 18);
+    console.log(this.dataSourceConfig.data);
+  }
+
+  initialized($event: any){
+    this.chartObj = $event.chart; // saving chart instance
+    console.log(this.chartObj);
   }
 }

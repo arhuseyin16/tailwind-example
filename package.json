@@ -35,6 +35,7 @@
     "@ngxs/storage-plugin": "^3.7.5",
     "@ngxs/store": "^3.7.5",
     "fusioncharts": "^3.19.0",
+    "keen-slider": "^6.8.2",
     "ng-zorro-antd": "^14.0.0",
     "ngx-translate-routes": "^1.4.1",
     "ngx-ui-loader": "^13.0.0",

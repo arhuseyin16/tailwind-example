@@ -1,0 +1,457 @@
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
+
+function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
+  return (slider) => {
+    function removeActive() {
+      slider.slides.forEach((slide) => {
+        slide.classList.remove("active")
+      })
+    }
+    function addActive(idx: number) {
+      slider.slides[idx].classList.add("active")
+    }
+
+    function addClickEvents() {
+      slider.slides.forEach((slide, idx) => {
+        slide.addEventListener("click", () => {
+          main.moveToIdx(idx)
+        })
+      })
+    }
+
+    slider.on("created", () => {
+      addActive(slider.track.details.rel)
+      addClickEvents()
+      main.on("animationStarted", (main) => {
+        removeActive()
+        const next = main.animator.targetIdx || 0
+        addActive(main.track.absToRel(next))
+        slider.moveToIdx(next)
+      })
+    })
+  }
+}
+@Component({
+  selector: 'app-bank-accounts',
+  templateUrl: './bank-accounts.component.html',
+  styleUrls: ['./bank-accounts.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
+  // @ts-ignore
+  @ViewChild("sliderRef") sliderRef: ElementRef<HTMLElement>;
+  // @ts-ignore
+  @ViewChild("thumbnailRef") thumbnailRef: ElementRef<HTMLElement>;
+
+  // @ts-ignore
+  slider: KeenSliderInstance = null
+  // @ts-ignore
+  thumbnailSlider: KeenSliderInstance = null
+
+  bankAccounts = [
+    {
+      iconPath: 'assets/img/bank-account/akbank.png',
+      title: 'Akbank',
+      information: [
+        {
+          accountNumber: '30',
+          value: '4033418',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '5',
+          value: '199611',
+          currency: 'USD'
+        },
+        {
+          accountNumber: '5',
+          value: '61997',
+          currency: 'EUR'
+        },
+        {
+          accountNumber: '1',
+          value: '61997',
+          currency: 'CHF'
+        },
+        {
+          accountNumber: '1',
+          value: '0',
+          currency: 'GBP'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/garanti.png',
+      title: 'Garanti',
+      information: [
+        {
+          accountNumber: '25',
+          value: '478523',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '12',
+          value: '23578',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/yapikredi.png',
+      title: 'Yapı Kredi',
+      information: [
+        {
+          accountNumber: '14',
+          value: '452479',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '4',
+          value: '7541',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/vakifbank.png',
+      title: 'VakıfBank',
+      information: [
+        {
+          accountNumber: '13',
+          value: '2587',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '135',
+          value: '879462',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/teb.png',
+      title: 'Teb',
+      information: [
+        {
+          accountNumber: '17',
+          value: '879842',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '21',
+          value: '987123',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/ziraatbankasi.png',
+      title: 'Ziraat Bankası',
+      information: [
+        {
+          accountNumber: '12',
+          value: '12313',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '56',
+          value: '345345',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/ingbank.png',
+      title: 'Ing Bank',
+      information: [
+        {
+          accountNumber: '6',
+          value: '3257',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '16',
+          value: '65789',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: '',
+      title: 'Deutsche',
+      information: [
+        {
+          accountNumber: '25',
+          value: '478523',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '12',
+          value: '23578',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/aktifbank.png',
+      title: 'AktifBank',
+      information: [
+        {
+          accountNumber: '3',
+          value: '12341',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '22',
+          value: '56224',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/albaraka.png',
+      title: 'Albarak',
+      information: [
+        {
+          accountNumber: '14',
+          value: '62112',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '23',
+          value: '131231',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/burganbank.png',
+      title: 'Burgan Bank',
+      information: [
+        {
+          accountNumber: '12',
+          value: '23421',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '3',
+          value: '1231',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/denizbank.png',
+      title: 'Deniz Bank',
+      information: [
+        {
+          accountNumber: '14',
+          value: '192837',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '26',
+          value: '213123',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/emlak-bank.png',
+      title: 'Emlak Bank',
+      information: [
+        {
+          accountNumber: '16',
+          value: '12141',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '32',
+          value: '2134234',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/fibabanka.png',
+      title: 'Fiba Banka',
+      information: [
+        {
+          accountNumber: '13',
+          value: '123123',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '14',
+          value: '12123',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/finansbank.png',
+      title: 'Finansbank',
+      information: [
+        {
+          accountNumber: '18',
+          value: '12837',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '19',
+          value: '784313',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/halkbankasi.png',
+      title: 'Halk Bank',
+      information: [
+        {
+          accountNumber: '7',
+          value: '13142',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '9',
+          value: '41231',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/hsbc.png',
+      title: 'HSBC',
+      information: [
+        {
+          accountNumber: '10',
+          value: '987918',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '11',
+          value: '1263981',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/isbankasi.png',
+      title: 'İş Bankası',
+      information: [
+        {
+          accountNumber: '14',
+          value: '73812',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '15',
+          value: '123691',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/odeabank.png',
+      title: 'Odeabank',
+      information: [
+        {
+          accountNumber: '20',
+          value: '129038',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '15',
+          value: '981723',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/icbc.png',
+      title: 'ICBC',
+      information: [
+        {
+          accountNumber: '22',
+          value: '18731',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '7',
+          value: '98127',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/turkiyefinans.png',
+      title: 'Türkiye Finans',
+      information: [
+        {
+          accountNumber: '12',
+          value: '219837',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '3',
+          value: '31231',
+          currency: 'USD'
+        }
+      ]
+    },
+    {
+      iconPath: 'assets/img/bank-account/abank.png',
+      title: 'Alternatif Bank',
+      information: [
+        {
+          accountNumber: '2',
+          value: '1231',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '5',
+          value: '17231',
+          currency: 'USD'
+        }
+      ]
+    },
+  ]
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
+
+
+
+  ngAfterViewInit() {
+    this.slider = new KeenSlider(this.sliderRef.nativeElement);
+    this.thumbnailSlider = new KeenSlider(
+      this.thumbnailRef.nativeElement,
+      {
+        initial: 0,
+        slides: {
+          perView: "auto",
+          spacing: 30,
+        }
+      },
+      [ThumbnailPlugin(this.slider)]
+    )
+  }
+
+  ngOnDestroy() {
+    if (this.slider) this.slider.destroy()
+    if (this.thumbnailSlider) this.thumbnailSlider.destroy()
+  }
+
+}

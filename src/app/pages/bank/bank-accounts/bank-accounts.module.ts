@@ -15,16 +15,19 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [
-    BankAccountsComponent,
-    BankListComponent,
-    BankTableComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NzSelectModule,
-    TranslateModule
-  ]
+    declarations: [
+        BankAccountsComponent,
+        BankListComponent,
+        BankTableComponent
+    ],
+    exports: [
+        BankAccountsComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        NzSelectModule,
+        TranslateModule
+    ]
 })
 export class BankAccountsModule { }

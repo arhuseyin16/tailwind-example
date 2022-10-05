@@ -77,6 +77,8 @@
     "money-out": "Money Out",
     "balance-per-day": "Balance Per Day",
     "balance-types": "Balance Types",
-    "account-types": "Account Types"
+    "account-types": "Account Types",
+    "bank-accounts": "Bank Accounts",
+    "detail": "Detail"
   }
 }

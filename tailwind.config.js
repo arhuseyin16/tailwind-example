@@ -9,6 +9,7 @@ module.exports = {
       '15': ['15px', 'normal'],
       '14': ['14px', 'normal'],
       '25': ['25px', 'normal'],
+      '20-normal': ['20px', 'normal'],
       '20': ['20px', '1.5rem'],
       borderWidth: {
         '1': '1px'
@@ -47,7 +48,9 @@ module.exports = {
         'cultured-earl': '#f5f5f5',
         'lapis-lazuli': '#2d639f',
         'ghost-white': '#f5f6fe',
-        'eton-blue': '#87bfad'
+        'eton-blue': '#87bfad',
+        'new-car': '#2457c3',
+        'prussian-blue': '#003249'
       },
       gap: {
         '30': '1.875rem',

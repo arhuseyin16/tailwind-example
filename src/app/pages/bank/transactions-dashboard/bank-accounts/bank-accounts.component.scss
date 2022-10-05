@@ -1,0 +1,64 @@
+[class^="number-slide"],
+[class*=" number-slide"] {
+  background: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-weight: 500;
+  height: 200px;
+  max-height: 100vh;
+}
+
+.number-slide1 {
+  background: transparent;
+  color: #000;
+  font-size: 30px;
+}
+
+.thumbnail .keen-slider__slide {
+  margin-top: 10px;
+  height: 116px;
+}
+.thumbnail .keen-slider__slide {
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 3px 14px 0 rgba(123, 123, 123, 0.16);
+}
+.thumbnail .keen-slider__slide.active {
+  border-radius: 5px;
+  box-shadow: 0 3px 14px 0 rgba(123, 123, 123, 0.16);
+  border: solid 2px #87bfad;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  fill: #003249;
+  cursor: pointer;
+}
+
+.arrow--left {
+  left: 5px;
+}
+
+.arrow--right {
+  left: auto;
+  right: 5px;
+}
+
+.arrow--disabled {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.min-width-full {
+  @apply min-w-full #{!important};
+}
+
+.max-width-full {
+  @apply max-w-full #{!important};
+}

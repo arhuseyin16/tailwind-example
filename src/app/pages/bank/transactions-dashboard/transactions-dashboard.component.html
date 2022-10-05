@@ -9,12 +9,22 @@
     </div>
 
     <div class="grid pt-[31px] gap-30 grid-cols-1 xl:grid-cols-3">
+
       <div class="col-span-2">
         <app-balance-type [dataSourceConfig]="balanceTypeConfig" [title]="'transactions-dashboard.balance-types'" [currencies]="currencies"></app-balance-type>
       </div>
+
       <div>
         <app-balance-type [dataSourceConfig]="accountTypeConfig" [title]="'transactions-dashboard.account-types'" [currencies]="currencies"></app-balance-type>
       </div>
+
+      <div class="col-span-2">
+        <app-bank-accounts></app-bank-accounts>
+      </div>
+
+      <div>test</div>
+
+
     </div>
 
   </div>

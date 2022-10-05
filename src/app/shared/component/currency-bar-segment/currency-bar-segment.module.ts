@@ -13,10 +13,10 @@ import { FusionChartsModule } from "../../fusion-charts/fusioncharts.module";
     exports: [
         CurrencyBarSegmentComponent
     ],
-  imports: [
-    CommonModule,
-    NzSegmentedModule,
-    FusionChartsModule
-  ]
+    imports: [
+        CommonModule,
+        NzSegmentedModule,
+        FusionChartsModule,
+    ]
 })
 export class CurrencyBarSegmentModule { }
