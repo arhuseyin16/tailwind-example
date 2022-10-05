@@ -65,7 +65,20 @@
     "balance": "Balance",
     "currency-unit": "Currency Unit",
     "inquire": "Inquire",
-    "account": "Account"
+    "account": "Account",
+    "detail": "Detail",
+    "date": "Date",
+    "definition": "Definition",
+    "company": "Company",
+    "branch": "Branch",
+    "accountType": "Account Type",
+    "accountNo": "Account No",
+    "total": "Total",
+    "creditLimit": "Credit Limit",
+    "availableCreditLimit": "Available Credit Limit",
+    "blockedBalance":  "Blocked Balance",
+    "availableBalance": "Available Balance",
+    "creditAvailableBalance": "Credit Available Balance"
   },
   "header": {
     "screen-refresh-time": "Screen Refresh Time"

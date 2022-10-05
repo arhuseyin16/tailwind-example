@@ -1,0 +1,85 @@
+<!--<app-bank-account-detail-header
+  [image]="detailList.image"
+  [moneyType]="detailList.moneyType"
+  [account]="detailList.account"
+></app-bank-account-detail-header>-->
+<div class="detail">
+  <div class="detail-table">
+    <nz-table #nestedTable [nzData]="detailList.list" [nzPageSize]="10">
+      <thead>
+      <tr>
+        <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">
+          {{ column.title | translate }}
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-template ngFor let-data let-index="index" [ngForOf]="nestedTable.data">
+        <tr [ngStyle]="{'background-color': index%2 ? '#fff' : '#f5f5f5' }">
+          <td>{{ data.date }}</td>
+          <td>{{ data.definition }}</td>
+          <td>{{ data.company }}</td>
+          <td>{{ data.branch }}</td>
+          <td>{{ data.accountType }}</td>
+          <td>{{ data.accountNo }}</td>
+          <td>
+            <div class="last-colum-other">
+              <div class="balance-value">
+                {{ data.balance }}
+              </div>
+              <div class="action-icon">
+                <div class="accordion-img">
+                  <img src="assets/img/bank-account/bank-detail-accordion.png" [ngStyle]="{'transform': data.expand ? 'rotate(180deg)' : 'rotate(0deg)'}" (click)="rowDetail(data.id)">
+                </div>
+                <div class="status-img">
+                  <img src="{{data.status ?
+               'assets/img/bank-account/bank-detail-sucsess.png' : 'assets/img/bank-account/bank-detail-error.png'}}">
+                </div>
+              </div>
+              <div class="other-img" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+                <img src="assets/img/bank-account/bank-detail-other.png">
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                  <ul nz-menu>
+                    <li nz-menu-item>Hesap Hareketlerini Göster</li>
+                  </ul>
+                </nz-dropdown-menu>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <!--child table start-->
+        <tr [nzExpand]="data.expand" class="test">
+          <nz-table class="child-detail" #childTable [nzData]="data.detail" nzSize="middle" [nzShowPagination]="false">
+            <thead>
+             <tr>
+              <th *ngFor="let column of listChildDetailColumn">
+                {{ column.title | translate}}
+              </th>
+             </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of childTable.data">
+                <td>{{data.creditLimit ? data.creditLimit : '-'}}</td>
+                <td>{{data.availableCreditLimit ? data.availableCreditLimit : '-'}}</td>
+                <td>{{data.balance}}</td>
+                <td>{{data.blockedBalance}}</td>
+                <td>{{data.availableBalance}}</td>
+                <td>{{data.creditAvailableBalance}}</td>
+              </tr>
+            </tbody>
+          </nz-table>
+       </tr>
+
+    <!--child table end-->
+
+    </ng-template>
+    </tbody>
+    <tfoot>
+    <tr class="total-row">
+      <th class="total-title" colspan="6">{{"bank-account.total" | translate}} :</th>
+      <td class="total-price">20000 TL</td>
+    </tr>
+    </tfoot>
+    </nz-table>
+  </div>
+</div>

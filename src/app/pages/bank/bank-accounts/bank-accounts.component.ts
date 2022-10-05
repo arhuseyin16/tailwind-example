@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HEIGHT_PX} from "../../../shared/constants/select-height-px";
+import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
+import {Store} from "@ngxs/store";
 
 @Component({
   selector: 'app-bank-accounts',
@@ -968,7 +970,9 @@ export class BankAccountsComponent implements OnInit {
 
   heightPx = HEIGHT_PX;
 
-  constructor() { }
+  constructor(private store: Store) {
+    this.store.dispatch(new HeaderConfigAction('TimerRefreshComponent', null));
+  }
 
   ngOnInit(): void {
   }

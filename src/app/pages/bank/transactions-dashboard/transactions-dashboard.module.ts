@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TransactionsDashboardComponent } from './transactions-dashboard.component';
 import { RouterModule, Routes } from "@angular/router";
+import { TimerRefreshComponent } from './timer-refresh/timer-refresh.component';
+import {NzInputNumberModule} from "ng-zorro-antd/input-number";
+import {NzSwitchModule} from "ng-zorro-antd/switch";
+import {FormsModule} from "@angular/forms";
 import { CurrencyFlowBarComponent } from './currency-flow-bar/currency-flow-bar.component';
 import { BalanceSummaryColumnComponent } from './balance-summary-column/balance-summary-column.component';
 import { TranslateModule } from "@ngx-translate/core";
@@ -21,6 +25,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     TransactionsDashboardComponent,
+    TimerRefreshComponent,
     CurrencyFlowBarComponent,
     BalanceSummaryColumnComponent,
     BalanceTypeComponent,
@@ -30,10 +35,12 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     TranslateModule,
+    NzInputNumberModule,
+    NzSwitchModule,
+    FormsModule,
     CurrencyBarSegmentModule,
     FusionChartsModule,
     NzTableModule,
   ]
 })
-export class TransactionsDashboardModule {
-}
+export class TransactionsDashboardModule { }

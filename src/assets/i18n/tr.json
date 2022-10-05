@@ -65,7 +65,20 @@
     "balance": "Bakiye",
     "currency-unit": "Para Birimi",
     "inquire": "Sorgula",
-    "account": "Hesap"
+    "account": "Hesap",
+    "detail": "Detay",
+    "date": "Tarih",
+    "definition": "Tanım",
+    "company": "Firma",
+    "branch": "Şube",
+    "accountType": "Hesap Türü",
+    "accountNo": "Hesap Numarası",
+    "total": "Toplam",
+    "creditLimit": "Kredi Limiti",
+    "availableCreditLimit": "Kullanılabilir Kredi Limiti",
+    "blockedBalance":  "Bloklu Bakiye",
+    "availableBalance": "Kullanılabilir Bakiye",
+    "creditAvailableBalance": "Kredili Kullanılabilir Bakiye"
   },
   "header": {
     "screen-refresh-time": "Ekran Yenileme Zamanı"

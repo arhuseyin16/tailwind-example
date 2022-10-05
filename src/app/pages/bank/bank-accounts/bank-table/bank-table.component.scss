@@ -38,6 +38,7 @@
           .data-table {
             position: relative;
             padding: 4px;
+            cursor: pointer;
 
             span {
               font-size: 16px;
@@ -67,5 +68,19 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 1024px) {
+  .bank-list {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .bank-list {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 }

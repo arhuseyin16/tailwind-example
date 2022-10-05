@@ -1,10 +1,15 @@
 import {NgxsDevtoolsOptions} from "@ngxs/devtools-plugin";
 import {environment} from "../../environments/environment";
 import {NgxsConfig} from "@ngxs/store/src/symbols";
+import {HeaderConfigState} from "./header-config/header-config.state";
 
-export const STATES_MODULES = [];
+export const STATES_MODULES = [
+  HeaderConfigState
+];
 
-export const STORAGE_MODULES = {};
+export const STORAGE_MODULES = {
+  key: ['headerConfig']
+};
 
 export const OPTIONS_CONFIG: Partial<NgxsConfig> = {
   /**

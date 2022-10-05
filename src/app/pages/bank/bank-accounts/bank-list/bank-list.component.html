@@ -1,1 +1,31 @@
-<p>bank-list works!</p>
+<div class="bank-list">
+  <div class="line-chart">
+    <app-bank-line-chart [change]="changeIcon"></app-bank-line-chart>
+    <div class="change-img">
+      <img (click)="changeIcon = !changeIcon" src="{{!changeIcon ? 'assets/img/bank-account/bank-rate.png' : 'assets/img/bank-account/bank-tl.png'}}">
+    </div>
+  </div>
+  <div class="detail-list" *ngFor="let item of bankList">
+    <div class="list-image">
+      <img src="{{item.image}}">
+    </div>
+    <div class="account">
+      <div class="account-list" *ngFor="let child of item.accountList; let i = index;">
+        <div class="total-price">
+          <span class="total">{{child.price}}</span><span class="money-type">{{child.moneyType}}</span>
+        </div>
+        <div class="total-account">
+          <div class="title">
+            {{child.account}} {{"bank-account.account" | translate}}
+          </div>
+          <div class="error" *ngIf="i%2">
+            <img src="assets/img/bank-account/bank-list-error.png">
+          </div>
+        </div>
+        <div class="detail-process" (click)="detailUrl(child)">
+          {{"bank-account.detail" | translate}} >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="general-line">
+  <div [ngStyle]="{'width': item.rate + '%' }" *ngFor="let item of newLine">
+    <div class="styles-line" [ngStyle]="{'background-color': item.color, 'width': '100%'}">
+      -
+      <div class="rate-view">
+        <div class="price">
+          {{item.total | number : '1.2-2'}} {{' ' + item.moneyType}}
+        </div>
+        <div class="rate" [ngStyle]="{'color': item.color}">
+          {{change ? '%' + item.rate : item.moneyType}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
