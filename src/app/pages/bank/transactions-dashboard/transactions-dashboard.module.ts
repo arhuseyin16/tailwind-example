@@ -15,6 +15,7 @@ import { FusionChartsModule } from "../../../shared/fusion-charts/fusioncharts.m
 import { BankAccountsComponent } from './bank-accounts/bank-accounts.component';
 import { NzTableModule } from "ng-zorro-antd/table";
 import { SwiperModule } from "swiper/angular";
+import { CurrenciesSummariesComponent } from './currencies-summaries/currencies-summaries.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     CurrencyFlowBarComponent,
     BalanceSummaryColumnComponent,
     BalanceTypeComponent,
-    BankAccountsComponent
+    BankAccountsComponent,
+    CurrenciesSummariesComponent
   ],
     imports: [
         CommonModule,

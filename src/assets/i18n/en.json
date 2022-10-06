@@ -93,6 +93,8 @@
     "account-types": "Account Types",
     "bank-accounts": "Bank Accounts",
     "detail": "Detail",
-    "account": "Account"
+    "account": "Account",
+    "currency-totals": "Currency Totals",
+    "currency-conversion": "Currency Conversion"
   }
 }

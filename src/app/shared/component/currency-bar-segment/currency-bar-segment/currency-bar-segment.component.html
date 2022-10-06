@@ -1,4 +1,4 @@
-<div *ngIf="currencies.length > 0" [ngClass]="isVertical ? 'vertical' : 'horizontal'">
-  <nz-segmented class="rounded-5px bg-ghost-white p-0 h-[41px]" nzSize="large" [nzOptions]="currencies" (nzValueChange)="changeCurrencyBar($event)"></nz-segmented>
+<div *ngIf="segments.length > 0" [ngClass]="isVertical ? 'vertical' : 'horizontal'">
+  <nz-segmented class="rounded-5px bg-ghost-white p-0 h-[41px]" nzSize="large" [nzOptions]="segments" (nzValueChange)="changeCurrencyBar($event)"></nz-segmented>
 </div>
 

@@ -93,6 +93,8 @@
     "account-types": "Hesap Türleri",
     "bank-accounts": "Banka Hesapları",
     "detail": "Detay",
-    "account": "Hesap"
+    "account": "Hesap",
+    "currency-totals": "Döviz Toplamları",
+    "currency-conversion": "Döviz Dönüşümleri"
   }
 }

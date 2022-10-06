@@ -8,7 +8,7 @@ import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/t
 })
 export class CurrencyBarSegmentComponent implements OnInit {
 
-  @Input() currencies: NzSegmentedOptions = new Array<NzSegmentedOption | string | number>();
+  @Input() segments: NzSegmentedOptions = new Array<NzSegmentedOption | string | number>();
 
   @Input() position: string = '';
 
@@ -25,6 +25,6 @@ export class CurrencyBarSegmentComponent implements OnInit {
   }
 
   changeCurrencyBar(index: any) {
-    this.selectedCurrencyEvent.emit(this.currencies[index]);
+    this.selectedCurrencyEvent.emit(this.segments[index]);
   }
 }
