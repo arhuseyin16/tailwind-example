@@ -1,32 +1,32 @@
 <div class="container-fluid">
   <div class="bank-filter-form">
-    <div class="form-element p-1">
+    <div class="form-element p-1 pr-4">
       <label>{{'bank-account.companies' | translate}}</label>
-      <nz-select nzShowSearch nzAllowClear nzMode="multiple" [nzOptionHeightPx]="heightPx">
+      <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzSize]="'large'" nzMode="multiple" [nzOptionHeightPx]="heightPx">
         <nz-option *ngFor="let item of listOption" [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
       </nz-select>
     </div>
-    <div class="form-element p-1">
+    <div class="form-element p-1 pr-4">
       <label>{{'bank-account.branches' | translate}}</label>
-      <nz-select nzShowSearch nzAllowClear [nzOptionHeightPx]="heightPx">
+      <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzSize]="'large'" nzMode="multiple" [nzOptionHeightPx]="heightPx">
       <nz-option *ngFor="let item of listOption" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
       </nz-select>
     </div>
-    <div class="form-element p-1">
+    <div class="form-element p-1 pr-4">
       <label>{{'bank-account.account-types' | translate}}</label>
-      <nz-select nzShowSearch nzAllowClear [nzOptionHeightPx]="heightPx">
+      <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzSize]="'large'" nzMode="multiple" [nzOptionHeightPx]="heightPx">
         <nz-option *ngFor="let item of listOption" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
       </nz-select>
     </div>
-    <div class="form-element p-1">
+    <div class="form-element p-1 pr-4">
       <label>{{'bank-account.balance' | translate}}</label>
-      <nz-select nzShowSearch nzAllowClear [nzOptionHeightPx]="heightPx">
+      <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzSize]="'large'" nzMode="multiple" [nzOptionHeightPx]="heightPx">
         <nz-option *ngFor="let item of listOption" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
       </nz-select>
     </div>
-    <div class="form-element p-1">
+    <div class="form-element p-1 pr-4">
       <label>{{'bank-account.currency-unit' | translate}}</label>
-      <nz-select nzShowSearch nzAllowClear [nzOptionHeightPx]="heightPx">
+      <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzSize]="'large'" nzMode="multiple" [nzOptionHeightPx]="heightPx">
         <nz-option *ngFor="let item of listOption" [nzLabel]="item.name" [nzValue]="item.name"></nz-option>
       </nz-select>
     </div>
