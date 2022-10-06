@@ -1,61 +1,17 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild
-} from '@angular/core';
-import KeenSlider, { KeenSliderInstance, KeenSliderPlugin } from "keen-slider";
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation, } from '@angular/core';
+import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper";
+import { SwiperOptions } from "swiper/types";
 
-function ThumbnailPlugin(main: KeenSliderInstance): KeenSliderPlugin {
-  return (slider) => {
-    function removeActive() {
-      slider.slides.forEach((slide) => {
-        slide.classList.remove("active")
-      })
-    }
-    function addActive(idx: number) {
-      slider.slides[idx].classList.add("active")
-    }
-
-    function addClickEvents() {
-      slider.slides.forEach((slide, idx) => {
-        slide.addEventListener("click", () => {
-          main.moveToIdx(idx)
-        })
-      })
-    }
-
-    slider.on("created", () => {
-      addActive(slider.track.details.rel)
-      addClickEvents()
-      main.on("animationStarted", (main) => {
-        removeActive()
-        const next = main.animator.targetIdx || 0
-        addActive(main.track.absToRel(next))
-        slider.moveToIdx(next)
-      })
-    })
-  }
-}
+// install Swiper modules
+SwiperCore.use([FreeMode, Navigation, Thumbs]);
 @Component({
   selector: 'app-bank-accounts',
   templateUrl: './bank-accounts.component.html',
   styleUrls: ['./bank-accounts.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
-  // @ts-ignore
-  @ViewChild("sliderRef") sliderRef: ElementRef<HTMLElement>;
-  // @ts-ignore
-  @ViewChild("thumbnailRef") thumbnailRef: ElementRef<HTMLElement>;
-
-  // @ts-ignore
-  slider: KeenSliderInstance = null
-  // @ts-ignore
-  thumbnailSlider: KeenSliderInstance = null
+  thumbsSwiper: any;
 
   bankAccounts = [
     {
@@ -426,6 +382,42 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
   ]
+  swiperConfig: SwiperOptions = {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    freeMode: true,
+    breakpoints: {
+      1: {
+        spaceBetween: 1,
+        slidesPerView: 1
+      },
+      640: {
+        spaceBetween: 1,
+        slidesPerView: 2
+      },
+      768: {
+        spaceBetween: 1,
+        slidesPerView: 3
+      },
+      1024: {
+        spaceBetween: 1,
+        slidesPerView: 5
+      },
+      1280: {
+        spaceBetween: 1,
+        slidesPerView: 4
+      },
+      1440: {
+        spaceBetween: 1,
+        slidesPerView: 5
+      },
+      1640: {
+        spaceBetween: 30,
+        slidesPerView: 6
+      }
+    }
+  };
+
   constructor() {
   }
 
@@ -433,25 +425,9 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
-
   ngAfterViewInit() {
-    this.slider = new KeenSlider(this.sliderRef.nativeElement);
-    this.thumbnailSlider = new KeenSlider(
-      this.thumbnailRef.nativeElement,
-      {
-        initial: 0,
-        slides: {
-          perView: "auto",
-          spacing: 30,
-        }
-      },
-      [ThumbnailPlugin(this.slider)]
-    )
   }
 
   ngOnDestroy() {
-    if (this.slider) this.slider.destroy()
-    if (this.thumbnailSlider) this.thumbnailSlider.destroy()
   }
-
 }

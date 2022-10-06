@@ -14,6 +14,7 @@ import { CurrencyBarSegmentModule } from "../../../shared/component/currency-bar
 import { FusionChartsModule } from "../../../shared/fusion-charts/fusioncharts.module";
 import { BankAccountsComponent } from './bank-accounts/bank-accounts.component';
 import { NzTableModule } from "ng-zorro-antd/table";
+import { SwiperModule } from "swiper/angular";
 
 const routes: Routes = [
   {
@@ -31,16 +32,17 @@ const routes: Routes = [
     BalanceTypeComponent,
     BankAccountsComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    TranslateModule,
-    NzInputNumberModule,
-    NzSwitchModule,
-    FormsModule,
-    CurrencyBarSegmentModule,
-    FusionChartsModule,
-    NzTableModule,
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        TranslateModule,
+        NzInputNumberModule,
+        NzSwitchModule,
+        FormsModule,
+        CurrencyBarSegmentModule,
+        FusionChartsModule,
+        NzTableModule,
+        SwiperModule,
+    ]
 })
 export class TransactionsDashboardModule { }

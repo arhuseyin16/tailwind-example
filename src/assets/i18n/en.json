@@ -92,6 +92,7 @@
     "balance-types": "Balance Types",
     "account-types": "Account Types",
     "bank-accounts": "Bank Accounts",
-    "detail": "Detail"
+    "detail": "Detail",
+    "account": "Account"
   }
 }

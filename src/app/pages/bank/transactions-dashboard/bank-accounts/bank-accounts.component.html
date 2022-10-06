@@ -7,61 +7,52 @@
   </div>
 </div>
 <div class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px]">
-    <div class="keen-slider thumbnail" #thumbnailRef>
-      <div class="keen-slider__slide number-slide1" style="min-width: 115px; max-width: 115px"
-           *ngFor="let account of bankAccounts">
-        <img *ngIf="account.iconPath" [src]="account.iconPath" width="93" height="52">
-        <span class="text-14" *ngIf="!account.iconPath">{{account.title}}</span>
-      </div>
-      <div class="keen-slider__slide number-slide1" style="min-width: 115px; max-width: 115px; display: none"></div>
-      <svg
-        [ngClass]="
-      'arrow arrow--left '
-    "
-        (click)="slider.prev()"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
-        />
-      </svg>
-      <svg
-        *ngIf="slider"
-        [ngClass]="
-      'arrow arrow--right'
 
-    "
-        (click)="slider.next()"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-      >
-        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/>
-      </svg>
-    </div>
+  <div class="px-[26px] pb-[30px] max-w-full min-width-full">
 
+    <swiper
+      [config]="swiperConfig"
+      class="mySwiper"
+      style="--swiper-navigation-color: #000;--swiper-pagination-color: #000"
+      [navigation]="true"
+      [loop]="true"
+      [thumbs]="{ swiper: thumbsSwiper }"
 
-  <div class="keen-slider py-[30px] px-[47px]" #sliderRef>
-    <div *ngFor="let account of bankAccounts;let i = index"
-         class="keen-slider__slide number-slide1">
-      {{1}}
-<!--      <nz-table #accounts [nzData]="bankAccounts" [nzFrontPagination]="false">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Address</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let acc of accounts.data[i].information">
-          <td>{{acc.accountNumber}}</td>
-          <td>{{acc.value}}</td>
-          <td>{{acc.currency}}</td>
-        </tr>
-        </tbody>
-      </nz-table>-->
-    </div>
+    >
+      <ng-template swiperSlide *ngFor="let accounts of bankAccounts">
+        <div class="swiper-slide-box">
+
+          <img *ngIf="accounts.iconPath" [src]="accounts.iconPath"/>
+          <div class="flex justify-center items-center h-full">
+            <span *ngIf="!accounts.iconPath"> {{accounts.title}}</span>
+          </div>
+        </div>
+
+      </ng-template>
+    </swiper>
+
+    <swiper
+      (swiper)="thumbsSwiper = $event"
+      [spaceBetween]="10"
+      [loop]="true"
+      class="mySwiper2"
+    >
+      <ng-template swiperSlide *ngFor="let accouts of bankAccounts; let i = index">
+        <nz-table class="w-[95%]" nzSize="small" #basicTable [nzData]="bankAccounts[i].information" [nzFrontPagination]="false"
+                  [nzShowPagination]="false">
+          <thead>
+          </thead>
+          <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td class="text-18">{{ data.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
+            <td class="text-right text-18">{{ data.value |  number: '2.2' }}   <span
+              class="font-bold">{{data.currency }}</span></td>
+          </tr>
+          </tbody>
+        </nz-table>
+      </ng-template>
+
+    </swiper>
   </div>
 
 

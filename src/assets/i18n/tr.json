@@ -92,6 +92,7 @@
     "balance-types": "Bakiye Türleri",
     "account-types": "Hesap Türleri",
     "bank-accounts": "Banka Hesapları",
-    "detail": "Detay"
+    "detail": "Detay",
+    "account": "Hesap"
   }
 }

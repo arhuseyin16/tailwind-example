@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.headerConfig$?.subscribe(state => {
       this.container.clear();
-      console.log(state);
       if (state.component) {
         if (state.data) {
           const componentRef = this.container.createComponent(BankAccountDetailHeaderComponent);

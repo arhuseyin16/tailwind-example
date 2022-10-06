@@ -36,11 +36,9 @@
             ],
             "styles": [
               "src/theme.less",
-              "src/styles.scss",
-              "node_modules/keen-slider/keen-slider.min.css"
+              "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/keen-slider/keen-slider.js"
             ]
           },
           "configurations": {

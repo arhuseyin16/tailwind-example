@@ -79,7 +79,7 @@ export class BalanceTypeComponent implements OnInit {
 
   initialized($event: any){
     this.chartObj = $event.chart; // saving chart instance
-    console.log(this.chartObj);
+   // console.log(this.chartObj);
 
   }
 }
