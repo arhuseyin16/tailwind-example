@@ -1,18 +1,6 @@
 {
   "titles": {
-    "login": "Giriş Yap",
-    "test": {
-      "hello": "Merhaba",
-      "car": {
-        "name": "BMW İstasyon",
-        "model": "BMW",
-        "date": {
-          "day": "22",
-          "month": "12",
-          "year": "1996"
-        }
-      }
-    }
+    "login": "Giriş Yap"
   },
   "title": "Başlık",
   "welcome": "Hoşgeldiniz",

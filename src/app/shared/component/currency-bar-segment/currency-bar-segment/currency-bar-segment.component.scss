@@ -11,10 +11,14 @@
   @apply
 }*/
 
-.vertical {
+.center {
   @apply flex justify-center;
 }
 
-.horizontal {
-  @apply pl-[79px];
+.start {
+  @apply flex justify-start;
+}
+
+.end {
+  @apply flex justify-end;
 }

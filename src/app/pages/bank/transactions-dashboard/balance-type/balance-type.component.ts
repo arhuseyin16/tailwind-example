@@ -3,6 +3,8 @@ import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/t
 import { FusionChartsConfig } from "../../../../models/shared/fusion-charts.config";
 import FusionChartsEvent from "../../../../shared/fusion-charts/interfaces/FusionChartsEvent";
 import { CurrencyUtil } from "../../../../shared/util/currency.util";
+import { SegmentPositionEnum } from "../../../../shared/component/currency-bar-segment/segment-position.enum";
+import { SegmentBarConfig } from "../../../../shared/component/currency-bar-segment/segment-bar.config";
 
 @Component({
   selector: 'app-balance-type',
@@ -14,10 +16,15 @@ export class BalanceTypeComponent implements OnInit {
   @Input() currencies: NzSegmentedOptions = new Array<NzSegmentedOption | string | number>();
   @Input() title = '';
   @Input() dataSourceConfig: FusionChartsConfig = new FusionChartsConfig();
+  @Input() segmentBarConfig: SegmentBarConfig | undefined;
+
   dataSource: any;
   chartObj: any;
   defaultCurrency = 1;
-  constructor() { }
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
     if(this.dataSourceConfig) {
@@ -79,7 +86,7 @@ export class BalanceTypeComponent implements OnInit {
 
   initialized($event: any){
     this.chartObj = $event.chart; // saving chart instance
-   // console.log(this.chartObj);
-
   }
+
+
 }

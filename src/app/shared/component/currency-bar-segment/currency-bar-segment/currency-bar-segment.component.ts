@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
+import { SegmentPositionEnum } from "../segment-position.enum";
+import { SegmentBarConfig } from "../segment-bar.config";
 
 @Component({
   selector: 'app-currency-bar-segment',
@@ -8,23 +9,21 @@ import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/t
 })
 export class CurrencyBarSegmentComponent implements OnInit {
 
-  @Input() segments: NzSegmentedOptions = new Array<NzSegmentedOption | string | number>();
-
-  @Input() position: string = '';
+  @Input() segmentBarConfig: SegmentBarConfig | undefined;
 
   @Output() selectedCurrencyEvent = new EventEmitter();
 
-  isVertical = false;
-  selectedCurrency: any;
-  constructor() {
+  SegmentPositionEnum = SegmentPositionEnum;
 
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.isVertical = this.position === 'top' || this.position === 'bottom';
   }
 
   changeCurrencyBar(index: any) {
-    this.selectedCurrencyEvent.emit(this.segments[index]);
+    if (this.segmentBarConfig) {
+      this.selectedCurrencyEvent.emit(this.segmentBarConfig.data[index]);
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import { TranslateService } from "@ngx-translate/core";
+import { SegmentPositionEnum } from "../../../../shared/component/currency-bar-segment/segment-position.enum";
+import { SegmentBarConfig } from "../../../../shared/component/currency-bar-segment/segment-bar.config";
 
 @Component({
   selector: 'app-currencies-summaries',
@@ -9,14 +10,29 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class CurrenciesSummariesComponent implements OnInit {
 
-  titles: NzSegmentedOptions = [
-    {label: this.translateService.instant('transactions-dashboard.currency-totals'), value: 1},
-    {label: this.translateService.instant('transactions-dashboard.currency-conversion'), value: 2},
-  ];
+  data: NzSegmentedOptions = [];
 
-  constructor(private translateService: TranslateService) { }
+  segmentBarConfig = new SegmentBarConfig();
+
+  constructor() {
+      this.data = [
+        {label: 'Döviz Toplamları', value: 1},
+        {label: 'Döviz Dönüşüm', value: 2},
+      ];
+      this.segmentBarConfigInitialize();
+  }
 
   ngOnInit(): void {
+  }
+
+  segmentBarConfigInitialize() {
+    this.segmentBarConfig = new SegmentBarConfig();
+    this.segmentBarConfig.width = '100%';
+    this.segmentBarConfig.data = this.data;
+    this.segmentBarConfig.block = true;
+    this.segmentBarConfig.position = SegmentPositionEnum.CENTER;
+    this.segmentBarConfig.paddingLeft = 60;
+    this.segmentBarConfig.paddingRight = 60;
   }
 
 }
