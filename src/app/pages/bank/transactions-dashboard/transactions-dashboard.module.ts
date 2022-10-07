@@ -10,7 +10,7 @@ import { CurrencyFlowBarComponent } from './currency-flow-bar/currency-flow-bar.
 import { BalanceSummaryColumnComponent } from './balance-summary-column/balance-summary-column.component';
 import { TranslateModule } from "@ngx-translate/core";
 import { BalanceTypeComponent } from './balance-type/balance-type.component';
-import { CurrencyBarSegmentModule } from "../../../shared/component/currency-bar-segment/currency-bar-segment.module";
+import { SegmentBarModule } from "../../../shared/component/segment-bar/segment-bar.module";
 import { FusionChartsModule } from "../../../shared/fusion-charts/fusioncharts.module";
 import { BankAccountsComponent } from './bank-accounts/bank-accounts.component';
 import { NzTableModule } from "ng-zorro-antd/table";
@@ -41,7 +41,7 @@ const routes: Routes = [
         NzInputNumberModule,
         NzSwitchModule,
         FormsModule,
-        CurrencyBarSegmentModule,
+        SegmentBarModule,
         FusionChartsModule,
         NzTableModule,
         SwiperModule,

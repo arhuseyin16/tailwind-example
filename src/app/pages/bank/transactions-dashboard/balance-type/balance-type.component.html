@@ -1,11 +1,11 @@
 <label class="text-20 text-black font-bold">{{title | translate}}</label>
 <div *ngIf="currencies.length > 0" class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px]">
-  <app-currency-bar-segment [segmentBarConfig]="segmentBarConfig" (selectedCurrencyEvent)="selectedCurrency($event)"></app-currency-bar-segment>
+  <app-segment-bar [segmentBarConfig]="segmentBarConfig" (selectedSegmentEvent)="selectedCurrency($event)"></app-segment-bar>
 
-  <div *ngIf="dataSourceConfig?.width">
+  <div *ngIf="fusionChartsConfig?.width">
     <fusioncharts
-      width="{{dataSourceConfig.width}}"
-      height="{{dataSourceConfig.height}}"
+      width="{{fusionChartsConfig.width}}"
+      height="{{fusionChartsConfig.height}}"
       type="doughnut2d"
       dataFormat="JSON"
       [dataSource]="dataSource"

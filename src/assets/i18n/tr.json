@@ -83,6 +83,10 @@
     "detail": "Detay",
     "account": "Hesap",
     "currency-totals": "Döviz Toplamları",
-    "currency-conversion": "Döviz Dönüşümleri"
+    "currency-conversion": "Döviz Dönüşümleri",
+    "currency-type": "Döviz Türü",
+    "total": "Toplam",
+    "bank": "Banka",
+    "amount": "Tutar"
   }
 }

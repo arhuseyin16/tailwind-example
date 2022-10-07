@@ -4,8 +4,8 @@ import {HeaderConfigAction} from "../../../store/header-config/header-config.act
 import {TimerRefreshComponent} from "./timer-refresh/timer-refresh.component";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
 import { FusionChartsConfig } from "../../../models/shared/fusion-charts.config";
-import { SegmentPositionEnum } from "../../../shared/component/currency-bar-segment/segment-position.enum";
-import { SegmentBarConfig } from "../../../shared/component/currency-bar-segment/segment-bar.config";
+import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segment-position.enum";
+import { SegmentBarConfig } from "../../../shared/component/segment-bar/segment-bar.config";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -155,7 +155,7 @@ export class TransactionsDashboardComponent implements OnInit {
       value: "23578",
       color: '#ca2d25'
     }
-  ]
+  ];
 
   accountTypes = [
     {
@@ -173,7 +173,38 @@ export class TransactionsDashboardComponent implements OnInit {
       value: "28715",
       color: '#003249'
     }
-  ]
+  ];
+
+  currencyTotals = [
+    {
+      label: "TRY",
+      value: "389477778"
+    },
+    {
+      label: "USD",
+      value: "4901916"
+    },
+    {
+      label: "EUR",
+      value: "5781477"
+    },
+    {
+      label: "CHF",
+      value: "78693"
+    },
+    {
+      label: "GBP",
+      value: "58769"
+    },
+    {
+      label: "JPY",
+      value: "317098"
+    },
+    {
+      label: "AUD",
+      value: "0"
+    },
+  ];
 
   balanceTypeConfig = new FusionChartsConfig();
   accountTypeConfig = new FusionChartsConfig();
@@ -226,8 +257,8 @@ export class TransactionsDashboardComponent implements OnInit {
       this.segmentBarConfigForAccountType.data = this.currencies;
       this.segmentBarConfigForAccountType.position = SegmentPositionEnum.CENTER;
       this.segmentBarConfigForAccountType.block = true;
-      this.segmentBarConfigForAccountType.paddingLeft = 60;
-      this.segmentBarConfigForAccountType.paddingRight = 60;
+      this.segmentBarConfigForAccountType.paddingLeft = 27;
+      this.segmentBarConfigForAccountType.paddingRight = 27;
       this.segmentBarConfigForAccountType.width = '100%'
   }
 

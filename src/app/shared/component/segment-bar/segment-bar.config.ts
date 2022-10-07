@@ -8,4 +8,5 @@ export class SegmentBarConfig {
   paddingRight: number = 0;
   width: string = 'auto';
   data: NzSegmentedOptions = new Array<NzSegmentedOption | string | number>();
+  className: string = '';
 }

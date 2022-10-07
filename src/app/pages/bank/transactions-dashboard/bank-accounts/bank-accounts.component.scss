@@ -111,7 +111,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: none;
+  object-fit: contain;
 }
 
 .swiper-slide-box {
@@ -124,6 +124,13 @@
 
 nz-table {
   border-radius: 5px;
-
   box-shadow: 0 3px 14px 0 rgba(126, 126, 126, 0.16);
+}
+
+.currency-total-table-td {
+  @apply border-0 border-transparent text-18 px-7 #{!important};
+}
+
+.background-anti-flash-white {
+  @apply bg-anti-flash-white #{!important};
 }

@@ -8,6 +8,7 @@ module.exports = {
       '18': ['18px', 'normal'],
       '15': ['15px', 'normal'],
       '14': ['14px', 'normal'],
+      '13': ['13px', 'normal'],
       '25': ['25px', 'normal'],
       '20-normal': ['20px', 'normal'],
       '20': ['20px', '1.5rem'],
@@ -50,7 +51,10 @@ module.exports = {
         'ghost-white': '#f5f6fe',
         'eton-blue': '#87bfad',
         'new-car': '#2457c3',
-        'prussian-blue': '#003249'
+        'prussian-blue': '#003249',
+        'gray-x11': '#b9b9b9',
+        'anti-flash-white': '#f2f2f2',
+        'american-silver': '#d1d1d1'
       },
       gap: {
         '30': '1.875rem',
@@ -66,7 +70,7 @@ module.exports = {
         'silver-halice-lg': '0 0 14px 0 rgba(173, 173, 173, 0.2);'
       },
       lineHeight: {
-        '47px': '2.9655 ',
+        '47px': '2.9655',
       }
     },
   },

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CurrencyBarSegmentComponent } from './currency-bar-segment.component';
+import { SegmentBarComponent } from './segment-bar.component';
 
 describe('CurrencyBarSegmentComponent', () => {
-  let component: CurrencyBarSegmentComponent;
-  let fixture: ComponentFixture<CurrencyBarSegmentComponent>;
+  let component: SegmentBarComponent;
+  let fixture: ComponentFixture<SegmentBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CurrencyBarSegmentComponent ]
+      declarations: [ SegmentBarComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CurrencyBarSegmentComponent);
+    fixture = TestBed.createComponent(SegmentBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

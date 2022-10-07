@@ -3,8 +3,7 @@ import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/t
 import { FusionChartsConfig } from "../../../../models/shared/fusion-charts.config";
 import FusionChartsEvent from "../../../../shared/fusion-charts/interfaces/FusionChartsEvent";
 import { CurrencyUtil } from "../../../../shared/util/currency.util";
-import { SegmentPositionEnum } from "../../../../shared/component/currency-bar-segment/segment-position.enum";
-import { SegmentBarConfig } from "../../../../shared/component/currency-bar-segment/segment-bar.config";
+import { SegmentBarConfig } from "../../../../shared/component/segment-bar/segment-bar.config";
 
 @Component({
   selector: 'app-balance-type',
@@ -15,7 +14,7 @@ export class BalanceTypeComponent implements OnInit {
 
   @Input() currencies: NzSegmentedOptions = new Array<NzSegmentedOption | string | number>();
   @Input() title = '';
-  @Input() dataSourceConfig: FusionChartsConfig = new FusionChartsConfig();
+  @Input() fusionChartsConfig: FusionChartsConfig = new FusionChartsConfig();
   @Input() segmentBarConfig: SegmentBarConfig | undefined;
 
   dataSource: any;
@@ -27,36 +26,36 @@ export class BalanceTypeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.dataSourceConfig) {
+    if(this.fusionChartsConfig) {
       this.dataSource = {
         chart: {
-          numberPrefix: this.dataSourceConfig.numberPrefix,
-          numberSuffix: this.dataSourceConfig.numberSuffix,
-          bgColor: this.dataSourceConfig.bgColor,
-          showLegend: this.dataSourceConfig.showLegend,
-          defaultCenterLabel: this.dataSourceConfig.defaultCenterLabel,
-          centerLabel: this.dataSourceConfig.centerLabel,
+          numberPrefix: this.fusionChartsConfig.numberPrefix,
+          numberSuffix: this.fusionChartsConfig.numberSuffix,
+          bgColor: this.fusionChartsConfig.bgColor,
+          showLegend: this.fusionChartsConfig.showLegend,
+          defaultCenterLabel: this.fusionChartsConfig.defaultCenterLabel,
+          centerLabel: this.fusionChartsConfig.centerLabel,
           centerLabelBold: `1`,
-          decimals: this.dataSourceConfig.decimal,
-          doughnutRadius: this.dataSourceConfig.doughnutRadius,
+          decimals: this.fusionChartsConfig.decimal,
+          doughnutRadius: this.fusionChartsConfig.doughnutRadius,
           theme: `fusion`,
-          legendIconScale: this.dataSourceConfig.legendIconScale,
-          legendNumRows: this.dataSourceConfig.legendNumRows,
-          legendNumColumns: this.dataSourceConfig.legendNumColumns,
-          legendPosition: this.dataSourceConfig.legendPosition,
-          decimalSeparator: this.dataSourceConfig.decimalSeparator,
-          thousandSeparator: this.dataSourceConfig.thousandSeparator,
-          labelFontSize: this.dataSourceConfig.labelFontSize,
-          showLabels: this.dataSourceConfig.showLabels,
-          showValues: this.dataSourceConfig.showValues,
-          plotHighlightEffect: this.dataSourceConfig.plotHighlightEffect,
-          legendAllowDrag: this.dataSourceConfig.legendAllowDrag,
-          enableMultiSlicing: this.dataSourceConfig.enableMultiSlicing,
-          pieRadius: this.dataSourceConfig.pieRadius,
+          legendIconScale: this.fusionChartsConfig.legendIconScale,
+          legendNumRows: this.fusionChartsConfig.legendNumRows,
+          legendNumColumns: this.fusionChartsConfig.legendNumColumns,
+          legendPosition: this.fusionChartsConfig.legendPosition,
+          decimalSeparator: this.fusionChartsConfig.decimalSeparator,
+          thousandSeparator: this.fusionChartsConfig.thousandSeparator,
+          labelFontSize: this.fusionChartsConfig.labelFontSize,
+          showLabels: this.fusionChartsConfig.showLabels,
+          showValues: this.fusionChartsConfig.showValues,
+          plotHighlightEffect: this.fusionChartsConfig.plotHighlightEffect,
+          legendAllowDrag: this.fusionChartsConfig.legendAllowDrag,
+          enableMultiSlicing: this.fusionChartsConfig.enableMultiSlicing,
+          pieRadius: this.fusionChartsConfig.pieRadius,
           showPercentValues: '0',
           showPercentInTooltip: `0`,
         },
-        data: this.dataSourceConfig.data
+        data: this.fusionChartsConfig.data
       }
     }
   }
@@ -77,10 +76,10 @@ export class BalanceTypeComponent implements OnInit {
     const differentCurrency = currency.value > this.defaultCurrency ? currency.value / this.defaultCurrency : this.defaultCurrency / currency.value;
     this.defaultCurrency = currency.value;
     this.dataSource.chart.numberSuffix = CurrencyUtil.getCurrencyUtilByName(currency.label);
-    this.dataSourceConfig?.data?.forEach(d => d.value = d.value * Math.round(differentCurrency));
+    this.fusionChartsConfig?.data?.forEach(d => d.value = d.value * Math.round(differentCurrency));
     this.chartObj.setJSONData({
       chart: this.dataSource.chart,
-      data: this.dataSourceConfig.data
+      data: this.fusionChartsConfig.data
     })
   }
 

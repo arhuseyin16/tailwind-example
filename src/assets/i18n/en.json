@@ -83,6 +83,10 @@
     "detail": "Detail",
     "account": "Account",
     "currency-totals": "Currency Totals",
-    "currency-conversion": "Currency Conversion"
+    "currency-conversion": "Currency Conversion",
+    "currency-type": "Currency Type",
+    "total": "Total",
+    "bank": "Bank",
+    "amount": "Amount"
   }
 }

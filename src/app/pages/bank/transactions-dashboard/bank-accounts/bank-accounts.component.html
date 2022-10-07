@@ -8,7 +8,7 @@
 </div>
 <div class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px]">
 
-  <div class="px-[26px] pb-[30px] max-w-full min-width-full">
+  <div class="px-[26px] max-w-full min-width-full">
 
     <swiper
       [config]="swiperConfig"
@@ -43,9 +43,9 @@
           <thead>
           </thead>
           <tbody>
-          <tr *ngFor="let data of basicTable.data">
-            <td class="text-18">{{ data.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
-            <td class="text-right text-18">{{ data.value |  number: '2.2' }}   <span
+          <tr *ngFor="let data of basicTable.data;let i  = index">
+            <td class="currency-total-table-td " [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
+            <td class="currency-total-table-td text-right" [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.value |  number: '2.2' }}   <span
               class="font-bold">{{data.currency }}</span></td>
           </tr>
           </tbody>

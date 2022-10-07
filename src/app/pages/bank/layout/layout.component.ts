@@ -8,7 +8,7 @@ import { TranslateService } from "@ngx-translate/core";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent implements OnInit {
-  isCollapsed = false;
+  isCollapsed = true;
 
   constructor(
     public translateService: TranslateService
