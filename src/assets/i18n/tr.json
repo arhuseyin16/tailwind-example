@@ -81,7 +81,8 @@
     "creditAvailableBalance": "Kredili Kullanılabilir Bakiye"
   },
   "header": {
-    "screen-refresh-time": "Ekran Yenileme Zamanı"
+    "screen-refresh-time": "Ekran Yenileme Zamanı",
+    "send": "Gönder"
   },
   "transactions-dashboard": {
     "buying": "Alış",

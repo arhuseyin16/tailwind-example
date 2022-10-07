@@ -81,7 +81,8 @@
     "creditAvailableBalance": "Credit Available Balance"
   },
   "header": {
-    "screen-refresh-time": "Screen Refresh Time"
+    "screen-refresh-time": "Screen Refresh Time",
+    "send": "Send"
   },
   "transactions-dashboard": {
     "buying": "Buying",
