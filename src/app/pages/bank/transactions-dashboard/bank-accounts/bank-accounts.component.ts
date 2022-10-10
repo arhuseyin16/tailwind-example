@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation, } from '@angular/core';
 import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper";
 import { SwiperOptions } from "swiper/types";
+import { Store } from "@ngxs/store";
+import { SidebarState } from "../../../../store/sidebar/sidebar.state";
 
 // install Swiper modules
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
@@ -418,10 +420,39 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   };
 
-  constructor() {
+  constructor(private store: Store) {
   }
 
   ngOnInit(): void {
+    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => {
+      this.swiperConfigChange(isCollapse);
+    });
+  }
+
+  swiperConfigChange(isCollapse: boolean) {
+    if (isCollapse) {
+      this.swiperConfig = {
+        ...this.swiperConfig,
+        breakpoints: {
+          ...this.swiperConfig.breakpoints,
+          1640: {
+            spaceBetween: 30,
+            slidesPerView: 7
+          }
+        }
+      }
+    } else {
+      this.swiperConfig = {
+        ...this.swiperConfig,
+        breakpoints: {
+          ...this.swiperConfig.breakpoints,
+          1640: {
+            spaceBetween: 30,
+            slidesPerView: 6
+          }
+        }
+      }
+    }
   }
 
 

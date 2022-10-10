@@ -19,7 +19,6 @@ export class SegmentBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.segmentBarConfig);
   }
 
   changeSegmentBar(index: any) {

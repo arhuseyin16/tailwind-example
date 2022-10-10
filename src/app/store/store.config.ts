@@ -2,13 +2,15 @@ import {NgxsDevtoolsOptions} from "@ngxs/devtools-plugin";
 import {environment} from "../../environments/environment";
 import {NgxsConfig} from "@ngxs/store/src/symbols";
 import {HeaderConfigState} from "./header-config/header-config.state";
+import { SidebarState } from "./sidebar/sidebar.state";
 
 export const STATES_MODULES = [
-  HeaderConfigState
+  HeaderConfigState,
+  SidebarState
 ];
 
 export const STORAGE_MODULES = {
-  key: ['headerConfig']
+  key: ['headerConfig', 'sidebar']
 };
 
 export const OPTIONS_CONFIG: Partial<NgxsConfig> = {
