@@ -40,7 +40,11 @@
   },
   "profile": {
     "account": "Hesabım",
-    "logout": "Çıkış"
+    "logout": "Çıkış",
+    "settings": "Ayarlar"
+  },
+  "favorite": {
+    "add-favorite-transactions": "Favori İşlemlere Ekle"
   },
   "sidebar": {
     "dashboard": "Dashboard",

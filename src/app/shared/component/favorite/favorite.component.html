@@ -1,9 +1,14 @@
-<div class="favorite-img" (click)="favoriteView = !favoriteView">
+<div class="favorite-img" (click)="favoriteImageClick()">
   <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
   <div class="dropdown-favorite" *ngIf="favoriteView">
     <ul>
-      <li>option 1</li>
-      <li>option 2</li>
+      <li class="favorite">{{"favorite.add-favorite-transactions" | translate}}
+        <span>
+          <nz-switch [(ngModel)]="favoritePage" (ngModelChange)="change()"></nz-switch>
+        </span>
+      </li>
+      <li class="option" (click)="favoriteView = !favoriteView">option 1</li>
+      <li class="option" (click)="favoriteView = !favoriteView">option 2</li>
     </ul>
   </div>
 </div>

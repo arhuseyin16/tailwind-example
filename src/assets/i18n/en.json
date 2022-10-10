@@ -40,7 +40,11 @@
   },
   "profile": {
     "account": "Account",
-    "logout": "Logout"
+    "logout": "Logout",
+    "settings": "Settings"
+  },
+  "favorite": {
+    "add-favorite-transactions": "Add Favorite Transactions"
   },
   "sidebar": {
     "dashboard": "Dashboard",

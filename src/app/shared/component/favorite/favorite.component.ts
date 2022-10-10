@@ -7,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoriteComponent implements OnInit {
   favoriteView = false;
+  favoritePage = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  change() {
+    this.favoriteView = !this.favoriteView;
+  }
+
+  favoriteImageClick() {
+    this.favoriteView = !this.favoriteView;
+  }
 }
