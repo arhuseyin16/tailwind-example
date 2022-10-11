@@ -26,9 +26,9 @@ export class HeaderConfigState {
   }
 
   @Action(HeaderConfigClear)
-  getClearPrimCurrency(ctx: StateContext<HeaderModel>) {
+  getClearHeaderConfig(ctx: StateContext<HeaderModel>) {
     ctx.patchState({
       data: []
-    })
+    });
   }
 }

@@ -3,7 +3,9 @@ import {HEIGHT_PX} from "../../../shared/constants/select-height-px";
 import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
 import {Store} from "@ngxs/store";
 import {HeaderConfigModel} from "../../../models/header-config-model";
-import {TimerRefreshComponent} from "../transactions-dashboard/timer-refresh/timer-refresh.component";
+import {Router} from "@angular/router";
+import {FavoriteAction} from "../../../store/favorite/favorite.action";
+import {FavoriteStateModel} from "../../../models/favorite-state.model";
 
 @Component({
   selector: 'app-bank-accounts',
@@ -972,14 +974,20 @@ export class BankAccountsComponent implements OnInit {
 
   heightPx = HEIGHT_PX;
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
+  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private router: Router) {
     this.headerConfig.push({
       component: () => import('../transactions-dashboard/timer-refresh/timer-refresh.component').then(it => it.TimerRefreshComponent),
       dataObj: null
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
+    this.favoriteModel = {
+      name: 'Banka Hesapları',
+      url: this.router.url
+    }
+    this.store.dispatch(new FavoriteAction(this.favoriteModel));
   }
 
   ngOnInit(): void {

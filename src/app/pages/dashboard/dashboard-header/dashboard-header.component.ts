@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {Store} from "@ngxs/store";
+import {FavoriteListStateModel} from "../../../models/favorite-state.model";
+import {FavoriteListState} from "../../../store/favorite/favorite-list.state";
 
 @Component({
   selector: 'app-dashboard-header',
@@ -10,6 +13,7 @@ export class DashboardHeaderComponent implements OnInit {
   moduleList: Array<any> = new Array<any>();
   dashboardView = false;
   favoriteView = false;
+  favoriteList: FavoriteListStateModel[] = [];
   dashboardList = [
     {
       id: 1,
@@ -61,8 +65,9 @@ export class DashboardHeaderComponent implements OnInit {
     },
   ];
 
-  constructor() {
+  constructor(private store: Store) {
     this.moduleList = Object.assign([], this.dashboardList);
+    this.favoriteList = this.store.selectSnapshot(FavoriteListState.getFavorite).list;
   }
 
   ngOnInit(): void {

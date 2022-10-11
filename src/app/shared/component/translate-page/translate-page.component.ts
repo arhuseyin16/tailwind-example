@@ -32,6 +32,7 @@ export class TranslatePageComponent implements OnInit {
 
   switchLang(lang: string) {
     this.translateService.use(lang);
+    this.translateService.defaultLang = lang
     localStorage.setItem('language', lang);
   }
 }

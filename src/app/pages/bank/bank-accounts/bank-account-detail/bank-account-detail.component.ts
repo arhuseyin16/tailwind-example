@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from "@ngxs/store";
 import {HeaderConfigAction} from "../../../../store/header-config/header-config.action";
 import {HeaderConfigModel} from "../../../../models/header-config-model";
+import {FavoriteStateModel} from "../../../../models/favorite-state.model";
+import {FavoriteAction} from "../../../../store/favorite/favorite.action";
 
 @Component({
   selector: 'app-bank-account-detail',
@@ -307,9 +309,11 @@ export class BankAccountDetailComponent implements OnInit {
     { title: 'bank-account.creditAvailableBalance'},
   ];
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
+  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
   constructor(
     private activatedRoute: ActivatedRoute,
-    private store: Store
+    private store: Store,
+    private router: Router
   ) {
     this.activatedRoute.queryParams.pipe().subscribe(params => {
 
@@ -321,11 +325,11 @@ export class BankAccountDetailComponent implements OnInit {
       }
     this.headerConfig.push({
       component: () => import('../bank-account-detail/bank-account-detail-header/bank-account-detail-header.component').then(it => it.BankAccountDetailHeaderComponent),
-      // component: BankAccountDetailHeaderComponent,
       dataObj: dataObj
     });
-
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
+    //favorite
+    this.store.dispatch(new FavoriteAction({}));
   }
 
   ngOnInit(): void {}

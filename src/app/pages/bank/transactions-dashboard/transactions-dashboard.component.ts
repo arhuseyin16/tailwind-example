@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngxs/store";
 import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
-import {TimerRefreshComponent} from "./timer-refresh/timer-refresh.component";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
 import { FusionChartsConfig } from "../../../models/shared/fusion-charts.config";
 import {HeaderConfigModel} from "../../../models/header-config-model";
+import {FavoriteStateModel} from "../../../models/favorite-state.model";
+import {FavoriteAction} from "../../../store/favorite/favorite.action";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -177,13 +179,19 @@ export class TransactionsDashboardComponent implements OnInit {
   balanceTypeConfig = new FusionChartsConfig();
   accountTypeConfig = new FusionChartsConfig();
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
+  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private router: Router) {
     this.headerConfig.push({
       component: () => import('../transactions-dashboard/timer-refresh/timer-refresh.component').then(it => it.TimerRefreshComponent),
       dataObj: null
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
+    this.favoriteModel = {
+      name: 'İşlem Hareketleri',
+      url: this.router.url
+    }
+    this.store.dispatch(new FavoriteAction(this.favoriteModel));
     this.createBalanceTypeConfig();
     this.createAccountTypeConfig();
   }
