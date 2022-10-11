@@ -225,7 +225,9 @@ export class TransactionsDashboardComponent implements OnInit {
   createBalanceTypeConfig() {
     this.balanceTypeConfig.data = this.balanceTypes;
     this.balanceTypeConfig.numberSuffix = '₺';
-    this.balanceTypeConfig.legendPosition = 'right';
+    this.balanceTypeConfig.legendPosition = 'absolute';
+    this.balanceTypeConfig.legendXPosition = '690';
+    this.balanceTypeConfig.legendYPosition = '70';
     this.balanceTypeConfig.legendNumRows = '3';
     this.balanceTypeConfig.legendNumColumns = '2';
     this.balanceTypeConfig.defaultCenterLabel = '389.477.778';

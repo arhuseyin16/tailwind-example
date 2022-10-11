@@ -26,6 +26,16 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
           currency: 'TRY'
         },
         {
+          accountNumber: '30',
+          value: '4033418',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '30',
+          value: '4033418',
+          currency: 'TRY'
+        },
+        {
           accountNumber: '5',
           value: '199611',
           currency: 'USD'

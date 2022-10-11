@@ -43,6 +43,8 @@ export class BalanceTypeComponent implements OnInit {
           legendNumRows: this.fusionChartsConfig.legendNumRows,
           legendNumColumns: this.fusionChartsConfig.legendNumColumns,
           legendPosition: this.fusionChartsConfig.legendPosition,
+          legendXPosition: this.fusionChartsConfig.legendXPosition,
+          legendYPosition: this.fusionChartsConfig.legendYPosition,
           decimalSeparator: this.fusionChartsConfig.decimalSeparator,
           thousandSeparator: this.fusionChartsConfig.thousandSeparator,
           labelFontSize: this.fusionChartsConfig.labelFontSize,
@@ -57,6 +59,7 @@ export class BalanceTypeComponent implements OnInit {
         },
         data: this.fusionChartsConfig.data
       }
+      console.log(this.dataSource);
     }
   }
 

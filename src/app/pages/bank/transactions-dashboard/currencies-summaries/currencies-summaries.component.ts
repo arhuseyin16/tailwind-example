@@ -427,7 +427,6 @@ export class CurrenciesSummariesComponent implements OnInit {
     this.currenciesSegmentBarConfig.paddingLeft = 27;
     this.currenciesSegmentBarConfig.paddingRight = 27;
     this.currenciesSegmentBarConfig.data = this.currencies;
-    console.log(this.currenciesSegmentBarConfig);
 
   }
 

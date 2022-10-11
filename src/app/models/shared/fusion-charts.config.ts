@@ -3,6 +3,8 @@ export class FusionChartsConfig {
   numberPrefix?: string = ''; //
   numberSuffix?: string = '';
   legendPosition?: string = 'bottom'; // bottom, top, top-left, top-right, bottom-left, bottom-right, left, left-top, left-bottom, right, right-top, right-bottom Grafik altındaki label pozisyonu
+  legendXPosition?: string = '0';
+  legendYPosition?: string = '0';
   legendNumRows?: string = '3'; // Satır adedi
   legendNumColumns?: string = '2'; // Kolon adedi
   defaultCenterLabel?: string; // chart ortasında ki yazı
