@@ -6,6 +6,8 @@ import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
 import { FusionChartsConfig } from "../../../models/shared/fusion-charts.config";
 import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segment-position.enum";
 import { SegmentBarConfig } from "../../../shared/component/segment-bar/segment-bar.config";
+import {SidebarState} from "../../../store/sidebar/sidebar.state";
+import {ChartConfigUpdated} from "../../../store/chart/chart.action";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -224,29 +226,43 @@ export class TransactionsDashboardComponent implements OnInit {
 
   createBalanceTypeConfig() {
     this.balanceTypeConfig.data = this.balanceTypes;
-    this.balanceTypeConfig.numberSuffix = '₺';
-    this.balanceTypeConfig.legendPosition = 'absolute';
-    this.balanceTypeConfig.legendXPosition = '690';
-    this.balanceTypeConfig.legendYPosition = '70';
-    this.balanceTypeConfig.legendNumRows = '3';
-    this.balanceTypeConfig.legendNumColumns = '2';
-    this.balanceTypeConfig.defaultCenterLabel = '389.477.778';
-    this.balanceTypeConfig.width = '100%';
-    this.balanceTypeConfig.height = '450';
-    this.balanceTypeConfig.pieRadius = '175';
-    this.balanceTypeConfig.doughnutRadius = '140'
+    this.balanceTypeConfig.chart.numberSuffix = '₺';
+    this.balanceTypeConfig.chart.legendPosition = 'absolute';
+    this.balanceTypeConfig.chart.legendYPosition = '80';
+    this.balanceTypeConfig.chart.legendNumRows = '3';
+    this.balanceTypeConfig.chart.legendNumColumns = '2';
+    this.balanceTypeConfig.chart.defaultCenterLabel = '389.477.778';
+    this.balanceTypeConfig.chart.width = '100%';
+    this.balanceTypeConfig.chart.height = '450';
+    this.balanceTypeConfig.chart.pieRadius = '175';
+    this.balanceTypeConfig.chart.doughnutRadius = '140'
+    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse =>{
+      let chartLeftMargin;
+      let legendXPosition;
+      if (!isCollapse) {
+         chartLeftMargin = -400;
+         legendXPosition = '690';
+        this.balanceTypeConfig = {...this.balanceTypeConfig, chart: {...this.balanceTypeConfig.chart, chartLeftMargin, legendXPosition}}
+      } else {
+         chartLeftMargin = -550;
+         legendXPosition = '800'
+        this.balanceTypeConfig = {...this.balanceTypeConfig, chart: {...this.balanceTypeConfig.chart, chartLeftMargin, legendXPosition}}
+      }
+      this.store.dispatch(new ChartConfigUpdated(this.balanceTypeConfig));
+    });
   }
 
   createAccountTypeConfig() {
     this.accountTypeConfig.data = this.accountTypes;
-    this.accountTypeConfig.numberSuffix = '₺';
-    this.accountTypeConfig.legendPosition = 'bottom';
-    this.accountTypeConfig.legendNumRows = '1';
-    this.accountTypeConfig.legendNumColumns = '1';
-    this.accountTypeConfig.defaultCenterLabel = '2.474.394';
-    this.accountTypeConfig.width = '100%'
-    this.accountTypeConfig.height = '450'
-    this.accountTypeConfig.pieRadius = '150'
+    this.accountTypeConfig.chart.numberSuffix = '₺';
+    this.accountTypeConfig.chart.legendPosition = 'bottom';
+    this.accountTypeConfig.chart.legendNumRows = '1';
+    this.accountTypeConfig.chart.legendNumColumns = '1';
+    this.accountTypeConfig.chart.defaultCenterLabel = '2.474.394';
+    this.accountTypeConfig.chart.width = '100%';
+    this.accountTypeConfig.chart.height = '450';
+    this.accountTypeConfig.chart.pieRadius = '150';
+    this.store.dispatch(new ChartConfigUpdated(this.accountTypeConfig));
   }
 
   segmentBarConfigInitializeForBalanceType() {

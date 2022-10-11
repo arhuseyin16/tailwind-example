@@ -2,13 +2,14 @@
 <div *ngIf="currencies.length > 0" class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px]">
   <app-segment-bar [segmentBarConfig]="segmentBarConfig" (selectedSegmentEvent)="selectedCurrency($event)"></app-segment-bar>
 
-  <div *ngIf="fusionChartsConfig?.width">
+  <div *ngIf="fusionChartsConfig.data.length > 0">
     <fusioncharts
-      width="{{fusionChartsConfig.width}}"
-      height="{{fusionChartsConfig.height}}"
+      width="{{fusionChartsConfig.chart.width}}"
+      height="{{fusionChartsConfig.chart.height}}"
       type="doughnut2d"
       dataFormat="JSON"
-      [dataSource]="dataSource"
+      [id]="'chart-'+ fusionChartsConfig.data.length"
+      [dataSource]="fusionChartsConfig"
       (legendItemClicked)="legendClicked($event)"
       (initialized)="initialized($event)"
     ></fusioncharts>

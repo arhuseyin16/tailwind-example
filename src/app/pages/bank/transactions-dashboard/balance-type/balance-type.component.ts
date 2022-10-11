@@ -4,6 +4,9 @@ import { FusionChartsConfig } from "../../../../models/shared/fusion-charts.conf
 import FusionChartsEvent from "../../../../shared/fusion-charts/interfaces/FusionChartsEvent";
 import { CurrencyUtil } from "../../../../shared/util/currency.util";
 import { SegmentBarConfig } from "../../../../shared/component/segment-bar/segment-bar.config";
+import {Store} from "@ngxs/store";
+import {SidebarState} from "../../../../store/sidebar/sidebar.state";
+import {ChartState} from "../../../../store/chart/chart.state";
 
 @Component({
   selector: 'app-balance-type',
@@ -17,73 +20,98 @@ export class BalanceTypeComponent implements OnInit {
   @Input() fusionChartsConfig: FusionChartsConfig = new FusionChartsConfig();
   @Input() segmentBarConfig: SegmentBarConfig | undefined;
 
-  dataSource: any;
   chartObj: any;
   defaultCurrency = 1;
+  previousLegendItem = {};
 
-  constructor() {
+  constructor(private store: Store) {
 
   }
 
   ngOnInit(): void {
     if(this.fusionChartsConfig) {
-      this.dataSource = {
-        chart: {
-          numberPrefix: this.fusionChartsConfig.numberPrefix,
-          numberSuffix: this.fusionChartsConfig.numberSuffix,
-          bgColor: this.fusionChartsConfig.bgColor,
-          showLegend: this.fusionChartsConfig.showLegend,
-          defaultCenterLabel: this.fusionChartsConfig.defaultCenterLabel,
-          centerLabel: this.fusionChartsConfig.centerLabel,
-          centerLabelBold: `1`,
-          decimals: this.fusionChartsConfig.decimal,
-          doughnutRadius: this.fusionChartsConfig.doughnutRadius,
-          theme: `fusion`,
-          legendIconScale: this.fusionChartsConfig.legendIconScale,
-          legendNumRows: this.fusionChartsConfig.legendNumRows,
-          legendNumColumns: this.fusionChartsConfig.legendNumColumns,
-          legendPosition: this.fusionChartsConfig.legendPosition,
-          legendXPosition: this.fusionChartsConfig.legendXPosition,
-          legendYPosition: this.fusionChartsConfig.legendYPosition,
-          decimalSeparator: this.fusionChartsConfig.decimalSeparator,
-          thousandSeparator: this.fusionChartsConfig.thousandSeparator,
-          labelFontSize: this.fusionChartsConfig.labelFontSize,
-          showLabels: this.fusionChartsConfig.showLabels,
-          showValues: this.fusionChartsConfig.showValues,
-          plotHighlightEffect: this.fusionChartsConfig.plotHighlightEffect,
-          legendAllowDrag: this.fusionChartsConfig.legendAllowDrag,
-          enableMultiSlicing: this.fusionChartsConfig.enableMultiSlicing,
-          pieRadius: this.fusionChartsConfig.pieRadius,
-          showPercentValues: '0',
-          showPercentInTooltip: `0`,
-        },
-        data: this.fusionChartsConfig.data
-      }
-      console.log(this.dataSource);
+      this.store.select(ChartState.getChartConfig).subscribe(config => {
+        if(this.chartObj && this.chartObj.id === 'chart' + this.fusionChartsConfig.data.length) {
+          this.chartObj.setJSONData(config.chartConfig);
+        }
+      });
     }
   }
 
   legendClicked(fusionChartsEvent: FusionChartsEvent) {
+    let updateItem: any;
+    let previousItem: any;
     // @ts-ignore
     let label = fusionChartsEvent.dataObj.label;
     // @ts-ignore
-    var index = this.dataSource.data.findIndex(d => d.label === label);
-    this.dataSource.data[index] = {
-      ...this.dataSource.data[index],
-      showLabel: '1',
-      showValue: '1'
+    if(this.previousLegendItem.label) {
+      // @ts-ignore
+      if(label === this.previousLegendItem.label) {
+        updateItem = {
+          ...this.previousLegendItem,
+          showLabel: '0',
+          showValue: '0',
+          isSliced: '1'
+        }
+        delete updateItem.showLabel;
+        delete updateItem.showValue;
+      } else {
+        const newItem = this.fusionChartsConfig.data.find(d => d.label === label);
+        updateItem = {
+          ...newItem,
+          showLabel: '1',
+          showValue: '1',
+          isSliced: '0',
+        };
+        previousItem = {
+          ...this.previousLegendItem,
+          showValue: '0',
+          isSliced: '1'
+        };
+        delete previousItem.showLabel;
+        delete previousItem.showValue;
+        delete previousItem.isSliced;
+        this.previousLegendItem = newItem;
+      }
+    } else {
+      this.previousLegendItem = this.fusionChartsConfig.data.find(d => d.label === label);
+      updateItem = {
+        ...this.previousLegendItem,
+        showLabel: '1',
+        showValue: '1',
+        isSliced: '0',
+        legendLabel: '$label'
+      }
+    }
+
+    const data = this.fusionChartsConfig.data.map((item) => {
+      if(item.label === label) {
+        return updateItem;
+      }
+      if(previousItem && item.label === previousItem.label) {
+        return previousItem;
+      }
+      return item;
+    });
+    console.log(data);
+    this.fusionChartsConfig = {...this.fusionChartsConfig, data}
+    if(this.chartObj && this.chartObj.id === `chart-${this.fusionChartsConfig.data.length}`) {
+      this.chartObj.setJSONData(this.fusionChartsConfig);
     }
   }
 
   selectedCurrency(currency: any) {
     const differentCurrency = currency.value > this.defaultCurrency ? currency.value / this.defaultCurrency : this.defaultCurrency / currency.value;
     this.defaultCurrency = currency.value;
-    this.dataSource.chart.numberSuffix = CurrencyUtil.getCurrencyUtilByName(currency.label);
-    this.fusionChartsConfig?.data?.forEach(d => d.value = d.value * Math.round(differentCurrency));
-    this.chartObj.setJSONData({
-      chart: this.dataSource.chart,
-      data: this.fusionChartsConfig.data
-    })
+   /* if(this.fusionChartsConfig) {
+      this.fusionChartsConfig.chart.numberSuffix = CurrencyUtil.getCurrencyUtilByName(currency.label);
+      this.fusionChartsConfig?.data?.forEach(d => d.value = d.value * Math.round(differentCurrency));
+      this.chartObj.setJSONData({
+        chart: this.fusionChartsConfig.chart,
+        data: this.fusionChartsConfig.data
+      });
+    }*/
+
   }
 
   initialized($event: any){

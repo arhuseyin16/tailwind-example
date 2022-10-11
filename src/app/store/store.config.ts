@@ -3,14 +3,16 @@ import {environment} from "../../environments/environment";
 import {NgxsConfig} from "@ngxs/store/src/symbols";
 import {HeaderConfigState} from "./header-config/header-config.state";
 import { SidebarState } from "./sidebar/sidebar.state";
+import {ChartState} from "./chart/chart.state";
 
 export const STATES_MODULES = [
   HeaderConfigState,
-  SidebarState
+  SidebarState,
+  ChartState
 ];
 
 export const STORAGE_MODULES = {
-  key: ['headerConfig', 'sidebar']
+  key: ['headerConfig', 'sidebar', 'chart']
 };
 
 export const OPTIONS_CONFIG: Partial<NgxsConfig> = {
