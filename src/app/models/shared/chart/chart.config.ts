@@ -21,7 +21,7 @@ export class ChartConfig{
   pieRadius?: string = '50'; // chart kolon genişliği
   showLabels?: string =  '0'; // 0 | 1 // label hide/show özelliği
   showValues?: string =  '0 '; // 0 | 1 // value hide/show özelliği
-  legendAllowDrag?: string = '0'; // 0 | 1 // legend drag and drop özelliğini kontrol etmek
+  legendAllowDrag?: string = '1'; // 0 | 1 // legend drag and drop özelliğini kontrol etmek
   enableMultiSlicing?: string = '0'; // 0 | 1 // legend üzerinden multi item seçme özelliği
   plotHighlightEffect?: string = '' // fadeout|anchorBgColor=ff0000|color=#7f7f7f, anchorBgAlpha=50
   chartLeftMargin?: number = 0;
@@ -30,4 +30,9 @@ export class ChartConfig{
   showPercentValues?: string = '0';
   showPercentInTooltip?: string = '0';
   theme?: string = 'fusion';
+  smartLineColor?: string = '#000';
+  smartLineThickness?: string = '1';
+  smartLineAlpha?: string = '100';
+  isSmartLineSlanted?: string = '1';
+  skipOverlapLabels?: string = '1';
 }

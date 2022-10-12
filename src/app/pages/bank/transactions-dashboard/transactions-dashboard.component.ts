@@ -3,11 +3,12 @@ import {Store} from "@ngxs/store";
 import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
 import {TimerRefreshComponent} from "./timer-refresh/timer-refresh.component";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import { FusionChartsConfig } from "../../../models/shared/fusion-charts.config";
+import { FusionChartsConfig } from "../../../models/shared/chart/fusion-charts.config";
 import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segment-position.enum";
 import { SegmentBarConfig } from "../../../shared/component/segment-bar/segment-bar.config";
 import {SidebarState} from "../../../store/sidebar/sidebar.state";
 import {ChartConfigUpdated} from "../../../store/chart/chart.action";
+import { ChartDataModel } from "../../../models/shared/chart/chart-data.model";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -46,118 +47,7 @@ export class TransactionsDashboardComponent implements OnInit {
     {label: 'AED', value: 5.06},
   ];
 
-  balanceTypes = [
-    {
-      label: "Deutsche Bank",
-      value: "28504",
-      color: '#52b189'
-    },
-    {
-      label: "Akbank",
-      value: "14633",
-      color: '#dc4333'
-    },
-    {
-      label: "Aktif Bank",
-      value: "28715",
-      color: '#2c414a'
-    },
-    {
-      label: "Albarak Türk",
-      value: "4910",
-      color: '#c32f31'
-    },
-    {
-      label: "Alternatif Bank",
-      value: "14826",
-      color: '#681836'
-    },
-    {
-      label: "Burgan Bank",
-      value: "71628",
-      color: '#2c6eaa'
-    },
-    {
-      label: "Denizbank",
-      value: "49110",
-      color: '#95d8da'
-    },
-    {
-      label: "Emlak Katılım",
-      value: "5489",
-      color: '#52b189'
-    },
-    {
-      label: "Fibabank",
-      value: "68128",
-      color: '#70a14c'
-    },
-    {
-      label: "Finansbank",
-      value: "23874",
-      color: '#3c1040'
-    },
-    {
-      label: "Garanti",
-      value: "12781",
-      color: '#8bb64b'
-    },
-    {
-      label: "Halkbank",
-      value: "23871",
-      color: '#0d3068'
-    },
-    {
-      label: "HSBC",
-      value: "2319",
-      color: '#ed6e33'
-    },
-    {
-      label: "ING Bank",
-      value: "84261",
-      color: '#ee6f2d'
-    },
-    {
-      label: "İş Bankası",
-      value: "3278",
-      color: '#1f367c'
-    },
-    {
-      label: "Odeabank",
-      value: "47523",
-      color: '#36434c'
-    },
-    {
-      label: "TEB",
-      value: "9657",
-      color: '#4ba471'
-    },
-    {
-      label: "Tekstil",
-      value: "7452",
-      color: '#be3a3a'
-    },
-    {
-      label: "Türkiye Finans",
-      value: "52148",
-      color: '#f5f5f5'
-    },
-    {
-      label: "Vakıfbank",
-      value: "65897",
-      color: '#f5b43f'
-    },
-    {
-      label: "Yapıkredi",
-      value: "21478",
-      color: '#194a8b'
-    },
-    {
-      label: "Ziraatbankası",
-      value: "23578",
-      color: '#ca2d25'
-    }
-  ];
+  balanceTypes = new Array<ChartDataModel>();
 
   accountTypes = [
     {
@@ -215,6 +105,118 @@ export class TransactionsDashboardComponent implements OnInit {
   segmentBarConfigForAccountType = new SegmentBarConfig();
   constructor(private store: Store) {
     this.store.dispatch(new HeaderConfigAction('TimerRefreshComponent', null));
+    this.balanceTypes =   [
+      {
+        label: "Deutsche Bank",
+        value: "28504",
+        color: '#52b189'
+      },
+      {
+        label: "Akbank",
+        value: "14633",
+        color: '#dc4333'
+      },
+      {
+        label: "Aktif Bank",
+        value: "28715",
+        color: '#2c414a'
+      },
+      {
+        label: "Albarak Türk",
+        value: "4910",
+        color: '#c32f31'
+      },
+      {
+        label: "Alternatif Bank",
+        value: "14826",
+        color: '#681836'
+      },
+      {
+        label: "Burgan Bank",
+        value: "71628",
+        color: '#2c6eaa'
+      },
+      {
+        label: "Denizbank",
+        value: "49110",
+        color: '#95d8da'
+      },
+      {
+        label: "Emlak Katılım",
+        value: "5489",
+        color: '#52b189'
+      },
+      {
+        label: "Fibabank",
+        value: "68128",
+        color: '#70a14c'
+      },
+      {
+        label: "Finansbank",
+        value: "23874",
+        color: '#3c1040'
+      },
+      {
+        label: "Garanti",
+        value: "12781",
+        color: '#8bb64b'
+      },
+      {
+        label: "Halkbank",
+        value: "23871",
+        color: '#0d3068'
+      },
+      {
+        label: "HSBC",
+        value: "2319",
+        color: '#ed6e33'
+      },
+      {
+        label: "ING Bank",
+        value: "84261",
+        color: '#ee6f2d'
+      },
+      {
+        label: "İş Bankası",
+        value: "3278",
+        color: '#1f367c'
+      },
+      {
+        label: "Odeabank",
+        value: "47523",
+        color: '#36434c'
+      },
+      {
+        label: "TEB",
+        value: "9657",
+        color: '#4ba471'
+      },
+      {
+        label: "Tekstil",
+        value: "7452",
+        color: '#be3a3a'
+      },
+      {
+        label: "Türkiye Finans",
+        value: "52148",
+        color: '#f5f5f5'
+      },
+      {
+        label: "Vakıfbank",
+        value: "65897",
+        color: '#f5b43f'
+      },
+      {
+        label: "Yapıkredi",
+        value: "21478",
+        color: '#194a8b'
+      },
+      {
+        label: "Ziraatbankası",
+        value: "23578",
+        color: '#ca2d25'
+      }
+    ];
     this.createBalanceTypeConfig();
     this.createAccountTypeConfig();
     this.segmentBarConfigInitializeForAccountType();

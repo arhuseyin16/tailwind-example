@@ -1,12 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import { FusionChartsConfig } from "../../../../models/shared/fusion-charts.config";
-import FusionChartsEvent from "../../../../shared/fusion-charts/interfaces/FusionChartsEvent";
-import { CurrencyUtil } from "../../../../shared/util/currency.util";
+import { FusionChartsConfig } from "../../../../models/shared/chart/fusion-charts.config";
 import { SegmentBarConfig } from "../../../../shared/component/segment-bar/segment-bar.config";
 import {Store} from "@ngxs/store";
-import {SidebarState} from "../../../../store/sidebar/sidebar.state";
 import {ChartState} from "../../../../store/chart/chart.state";
+import { ChartDataModel } from "../../../../models/shared/chart/chart-data.model";
 
 @Component({
   selector: 'app-balance-type',
@@ -22,7 +20,7 @@ export class BalanceTypeComponent implements OnInit {
 
   chartObj: any;
   defaultCurrency = 1;
-  previousLegendItem = {};
+ // previousLegendItem?: ChartDataModel = new ChartDataModel();
 
   constructor(private store: Store) {
 
@@ -35,55 +33,71 @@ export class BalanceTypeComponent implements OnInit {
           this.chartObj.setJSONData(config.chartConfig);
         }
       });
+      console.log(this.fusionChartsConfig);
     }
   }
+/*  legendClicked(fusionChartsEvent: FusionChartsEvent) {
+    if(this.chartObj && this.chartObj.id === `chart-${this.fusionChartsConfig.data.length}`) {
 
-  legendClicked(fusionChartsEvent: FusionChartsEvent) {
-    let updateItem: any;
-    let previousItem: any;
+      let updateItem: ChartDataModel;
+    let previousItem: ChartDataModel;
     // @ts-ignore
     let label = fusionChartsEvent.dataObj.label;
-    // @ts-ignore
+
+      // @ts-ignore
     if(this.previousLegendItem.label) {
       // @ts-ignore
       if(label === this.previousLegendItem.label) {
-        updateItem = {
-          ...this.previousLegendItem,
-          showLabel: '0',
-          showValue: '0',
-          isSliced: '1'
+        if(this.previousLegendItem) {
+          updateItem = {
+            label: this.previousLegendItem.label,
+            value: this.previousLegendItem.value,
+            color: this.previousLegendItem.color,
+            showLabel: '0',
+            showValue: '0',
+            isSliced: '1'
+          }
         }
-        delete updateItem.showLabel;
-        delete updateItem.showValue;
+
       } else {
-        const newItem = this.fusionChartsConfig.data.find(d => d.label === label);
-        updateItem = {
-          ...newItem,
-          showLabel: '1',
-          showValue: '1',
-          isSliced: '0',
-        };
-        previousItem = {
-          ...this.previousLegendItem,
-          showValue: '0',
-          isSliced: '1'
-        };
-        delete previousItem.showLabel;
-        delete previousItem.showValue;
-        delete previousItem.isSliced;
+        const newItem  = this.fusionChartsConfig.data.find(d => d.label === label);
+        if(newItem) {
+          updateItem = {
+            label: newItem.label,
+            value: newItem.value,
+            color: newItem.color,
+            showLabel: '1',
+            showValue: '1',
+            isSliced: '0',
+          };
+        }
+
+        if(this.previousLegendItem) {
+          previousItem = {
+            label: this.previousLegendItem.label,
+            value: this.previousLegendItem.value,
+            color: this.previousLegendItem.color,
+            showValue: '0',
+            showLabel: '0',
+            isSliced: '1'
+          };
+        }
+
         this.previousLegendItem = newItem;
       }
     } else {
       this.previousLegendItem = this.fusionChartsConfig.data.find(d => d.label === label);
-      updateItem = {
-        ...this.previousLegendItem,
-        showLabel: '1',
-        showValue: '1',
-        isSliced: '0',
-        legendLabel: '$label'
+      if(this.previousLegendItem) {
+        updateItem = {
+          isSliced: '0',
+          showLabel: '1',
+          showValue: '1',
+          value: this.previousLegendItem.value,
+          color: this.previousLegendItem.color,
+          label: this.previousLegendItem.label
+        }
       }
     }
-
     const data = this.fusionChartsConfig.data.map((item) => {
       if(item.label === label) {
         return updateItem;
@@ -93,12 +107,10 @@ export class BalanceTypeComponent implements OnInit {
       }
       return item;
     });
-    console.log(data);
     this.fusionChartsConfig = {...this.fusionChartsConfig, data}
-    if(this.chartObj && this.chartObj.id === `chart-${this.fusionChartsConfig.data.length}`) {
       this.chartObj.setJSONData(this.fusionChartsConfig);
     }
-  }
+  }*/
 
   selectedCurrency(currency: any) {
     const differentCurrency = currency.value > this.defaultCurrency ? currency.value / this.defaultCurrency : this.defaultCurrency / currency.value;

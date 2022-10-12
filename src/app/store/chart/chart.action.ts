@@ -1,4 +1,4 @@
-import {FusionChartsConfig} from "../../models/shared/fusion-charts.config";
+import {FusionChartsConfig} from "../../models/shared/chart/fusion-charts.config";
 
 export interface ChartStateModel {
   chartConfig: FusionChartsConfig;

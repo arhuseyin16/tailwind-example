@@ -1,6 +1,6 @@
 import {ChartConfigUpdated, ChartStateModel} from "./chart.action";
 import {Action, Selector, State, StateContext} from "@ngxs/store";
-import {FusionChartsConfig} from "../../models/shared/fusion-charts.config";
+import {FusionChartsConfig} from "../../models/shared/chart/fusion-charts.config";
 import {Injectable} from "@angular/core";
 
 @State<ChartStateModel> ({
