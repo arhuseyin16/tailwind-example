@@ -28,6 +28,7 @@ export class FavoriteComponent implements OnInit, AfterViewInit {
       this.statePage = state.model;
       this.favoriteList = this.store.selectSnapshot(FavoriteListState.getFavorite).list;
       if (state.model && this.favoriteList.length > 0) {
+        this.favoritePage = false;
         this.favoriteList.map(row => {
           if (row.url === state.model.url) {
             this.favoritePage = true;

@@ -329,7 +329,11 @@ export class BankAccountDetailComponent implements OnInit {
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
     //favorite
-    this.store.dispatch(new FavoriteAction({}));
+    this.favoriteModel = {
+      name: 'Banka Hesapları Detay',
+      url: this.router.url
+    }
+    this.store.dispatch(new FavoriteAction(this.favoriteModel));
   }
 
   ngOnInit(): void {}
