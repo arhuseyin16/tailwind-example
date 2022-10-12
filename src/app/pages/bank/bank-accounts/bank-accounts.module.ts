@@ -13,6 +13,7 @@ import {NzTableModule} from "ng-zorro-antd/table";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
+import {NzCustomSelectModule} from "../../../shared/component/nz-select/nz-custom-select.module";
 
 const routes: Routes = [
   {
@@ -48,7 +49,8 @@ const routes: Routes = [
     NzDropDownModule,
     ReactiveFormsModule,
     NzCheckboxModule,
-    FormsModule
+    FormsModule,
+    NzCustomSelectModule
   ]
 })
 export class BankAccountsModule { }

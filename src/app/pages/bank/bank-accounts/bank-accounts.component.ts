@@ -1005,6 +1005,10 @@ export class BankAccountsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get companiesFormControl(): FormControl {
+    return this.bankFilterForm.controls.companies;
+  }
+
   bankViewChange(type: string) {
     if (type === 'bankTable') {
       this.bankTableHidden = true;
@@ -1046,5 +1050,9 @@ export class BankAccountsComponent implements OnInit {
         }
       });
     });
+  }
+
+  onSubmit() {
+    console.log(this.bankFilterForm.value);
   }
 }
