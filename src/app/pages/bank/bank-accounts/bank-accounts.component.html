@@ -2,7 +2,7 @@
   <div class="bank-filter-form">
     <div class="form-element p-1 pr-4">
       <label>{{'bank-account.companies' | translate}}</label>
-      <nz-select nzShowSearch nzAllowClear [nzDropdownMatchSelectWidth]="false" [nzShowArrow]="true" [nzSize]="'large'" nzMode="multiple" [nzOptionHeightPx]="heightPx">
+      <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzSize]="'large'" nzMode="multiple" [nzOptionHeightPx]="heightPx">
         <nz-option *ngFor="let item of listOption" [nzLabel]="item.name" [nzValue]="item.id"></nz-option>
       </nz-select>
     </div>
