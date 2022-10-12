@@ -6,6 +6,7 @@ import {HeaderConfigModel} from "../../../models/header-config-model";
 import {Router} from "@angular/router";
 import {FavoriteAction} from "../../../store/favorite/favorite.action";
 import {FavoriteStateModel} from "../../../models/favorite-state.model";
+import {FormBuilder, FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-bank-accounts',
@@ -17,14 +18,14 @@ export class BankAccountsComponent implements OnInit {
   bankTableHidden = true;
   size = 5;
   listOption = [
-    {id: 1, name: 'xyz'},
-    {id: 2, name: 'abc'},
-    {id: 3, name: 'klm'},
-    {id: 4, name: 'fvt'},
-    {id: 5, name: 'asd'},
-    {id: 6, name: 'ghj'},
-    {id: 7, name: 'çöm'},
-    {id: 8, name: 'ıyo'},
+    {id: 1, name: 'xyz', status: false},
+    {id: 2, name: 'abc', status: false},
+    {id: 3, name: 'klm', status: false},
+    {id: 4, name: 'fvt', status: false},
+    {id: 5, name: 'asd', status: false},
+    {id: 6, name: 'ghj', status: false},
+    {id: 7, name: 'çöm', status: false},
+    {id: 8, name: 'ıyo', status: false},
   ];
   bankList = [
     {
@@ -970,14 +971,25 @@ export class BankAccountsComponent implements OnInit {
         },
       ]
     },
-  ]
+  ];
+  status = false;
+
+  bankFilterForm = this.fb.group({
+    companies: new FormControl([]),
+    branches: new FormControl([]),
+    accountTypes: new FormControl([]),
+    balance: new FormControl([]),
+    currencyUnit: new FormControl([]),
+  });
 
   heightPx = HEIGHT_PX;
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
-
-  constructor(private store: Store, private router: Router) {
+  constructor(
+    private store: Store,
+    private router: Router,
+    private fb: FormBuilder) {
     this.headerConfig.push({
       component: () => import('../transactions-dashboard/timer-refresh/timer-refresh.component').then(it => it.TimerRefreshComponent),
       dataObj: null
@@ -1001,5 +1013,38 @@ export class BankAccountsComponent implements OnInit {
       this.bankListHidden = true;
       this.bankTableHidden = false;
     }
+  }
+
+  checkboxChange(id: number, e: any, type: string, formControl: any) {
+    let list = [] as any;
+    this.listOption.map((x, index) => {
+      if (x.id === id) {
+        if (e) {
+          list.push(...formControl, id);
+        } else {
+          formControl.forEach((m: any, i: number) => {
+            if (m === id) {
+              formControl.splice(i, 1);
+            }
+          });
+          list.push(...formControl);
+        }
+        x.status = e;
+        this.bankFilterForm.get(type)?.setValue(list);
+      }
+    });
+  }
+
+  selectChange(event: any) {
+    this.listOption.forEach((row: any) => {
+      row.status = false;
+    });
+    event.forEach((e: any) => {
+      this.listOption.forEach((row: any) => {
+        if (e === row.id) {
+          row.status = true;
+        }
+      });
+    });
   }
 }
