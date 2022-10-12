@@ -3,16 +3,6 @@
   <app-segment-bar [segmentBarConfig]="segmentBarConfig" (selectedSegmentEvent)="selectedCurrency($event)"></app-segment-bar>
 
   <div *ngIf="fusionChartsConfig.data.length > 0">
-    <fusioncharts
-      width="{{fusionChartsConfig.chart.width}}"
-      height="{{fusionChartsConfig.chart.height}}"
-      type="doughnut2d"
-      dataFormat="JSON"
-      [id]="'chart-'+ fusionChartsConfig.data.length"
-      [dataSource]="fusionChartsConfig"
-      (initialized)="initialized($event)"
-    ></fusioncharts>
+    <app-doughnut-chart [fusionChartsConfig]="fusionChartsConfig"></app-doughnut-chart>
   </div>
 </div>
-
-

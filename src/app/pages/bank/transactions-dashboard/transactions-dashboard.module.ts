@@ -11,11 +11,11 @@ import { BalanceSummaryColumnComponent } from './balance-summary-column/balance-
 import { TranslateModule } from "@ngx-translate/core";
 import { BalanceTypeComponent } from './balance-type/balance-type.component';
 import { SegmentBarModule } from "../../../shared/component/segment-bar/segment-bar.module";
-import { FusionChartsModule } from "../../../shared/fusion-charts/fusioncharts.module";
 import { BankAccountsComponent } from './bank-accounts/bank-accounts.component';
 import { NzTableModule } from "ng-zorro-antd/table";
 import { SwiperModule } from "swiper/angular";
 import { CurrenciesSummariesComponent } from './currencies-summaries/currencies-summaries.component';
+import { DoughnutChartModule } from "../../../shared/component/chart/doughnut-chart/doughnut-chart.module";
 
 const routes: Routes = [
   {
@@ -42,9 +42,9 @@ const routes: Routes = [
         NzSwitchModule,
         FormsModule,
         SegmentBarModule,
-        FusionChartsModule,
         NzTableModule,
         SwiperModule,
+        DoughnutChartModule,
     ]
 })
 export class TransactionsDashboardModule { }

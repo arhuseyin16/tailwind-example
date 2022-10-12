@@ -18,7 +18,7 @@ export class ChartConfig{
   showLegend?: string = '1'; // 0 | 1 // legend' hide/show özelliği
   width: string = '100'; // chart genişiliği
   height: string = '100'; // chart yüksekliği
-  pieRadius?: string = '50'; // chart kolon genişliği
+  pieRadius?: string = '50';
   showLabels?: string =  '0'; // 0 | 1 // label hide/show özelliği
   showValues?: string =  '0 '; // 0 | 1 // value hide/show özelliği
   legendAllowDrag?: string = '1'; // 0 | 1 // legend drag and drop özelliğini kontrol etmek
@@ -30,9 +30,4 @@ export class ChartConfig{
   showPercentValues?: string = '0';
   showPercentInTooltip?: string = '0';
   theme?: string = 'fusion';
-  smartLineColor?: string = '#000';
-  smartLineThickness?: string = '1';
-  smartLineAlpha?: string = '100';
-  isSmartLineSlanted?: string = '1';
-  skipOverlapLabels?: string = '1';
 }
