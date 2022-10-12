@@ -6,9 +6,9 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./bank-account-detail-header.component.scss']
 })
 export class BankAccountDetailHeaderComponent implements OnInit {
-  @Input() image: any;
-  @Input() moneyType: any;
-  @Input() account: any;
+  @Input() image?: any;
+  @Input() moneyType?: any;
+  @Input() account?: any;
 
   constructor() { }
 

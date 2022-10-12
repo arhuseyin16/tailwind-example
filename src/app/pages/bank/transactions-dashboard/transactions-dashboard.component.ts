@@ -3,12 +3,16 @@ import {Store} from "@ngxs/store";
 import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
 import {TimerRefreshComponent} from "./timer-refresh/timer-refresh.component";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import { FusionChartsConfig } from "../../../models/shared/chart/fusion-charts.config";
 import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segment-position.enum";
 import { SegmentBarConfig } from "../../../shared/component/segment-bar/segment-bar.config";
 import {SidebarState} from "../../../store/sidebar/sidebar.state";
 import {ChartConfigUpdated} from "../../../store/chart/chart.action";
 import { ChartDataModel } from "../../../models/shared/chart/chart-data.model";
+import {HeaderConfigModel} from "../../../models/header-config-model";
+import {FavoriteStateModel} from "../../../models/favorite-state.model";
+import {FavoriteAction} from "../../../store/favorite/favorite.action";
+import {Router} from "@angular/router";
+import { FusionChartsConfig } from "../../../models/shared/chart/fusion-charts.config";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -100,12 +104,22 @@ export class TransactionsDashboardComponent implements OnInit {
 
   balanceTypeConfig = new FusionChartsConfig();
   accountTypeConfig = new FusionChartsConfig();
+  headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
+  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
   segmentBarConfigForBalanceType = new SegmentBarConfig();
   segmentBarConfigForAccountType = new SegmentBarConfig();
-  constructor(private store: Store) {
-    this.store.dispatch(new HeaderConfigAction('TimerRefreshComponent', null));
-    this.balanceTypes =   [
+  constructor(private store: Store, private router: Router) {
+    this.headerConfig.push({
+      component: () => import('../transactions-dashboard/timer-refresh/timer-refresh.component').then(it => it.TimerRefreshComponent),
+      dataObj: null
+    });
+    this.store.dispatch(new HeaderConfigAction(this.headerConfig));
+    this.favoriteModel = {
+      name: 'İşlem Hareketleri',
+      url: this.router.url
+    }
+    this.store.dispatch(new FavoriteAction(this.favoriteModel)); this.balanceTypes =   [
       {
         label: "Deutsche Bank",
         value: "28504",

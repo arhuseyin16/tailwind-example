@@ -28,7 +28,11 @@
   },
   "profile": {
     "account": "Hesabım",
-    "logout": "Çıkış"
+    "logout": "Çıkış",
+    "settings": "Ayarlar"
+  },
+  "favorite": {
+    "add-favorite-transactions": "Favori İşlemlere Ekle"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -69,7 +73,8 @@
     "creditAvailableBalance": "Kredili Kullanılabilir Bakiye"
   },
   "header": {
-    "screen-refresh-time": "Ekran Yenileme Zamanı"
+    "screen-refresh-time": "Ekran Yenileme Zamanı",
+    "send": "Gönder"
   },
   "transactions-dashboard": {
     "buying": "Alış",

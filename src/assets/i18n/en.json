@@ -28,7 +28,11 @@
   },
   "profile": {
     "account": "Account",
-    "logout": "Logout"
+    "logout": "Logout",
+    "settings": "Settings"
+  },
+  "favorite": {
+    "add-favorite-transactions": "Add Favorite Transactions"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -69,7 +73,8 @@
     "creditAvailableBalance": "Credit Available Balance"
   },
   "header": {
-    "screen-refresh-time": "Screen Refresh Time"
+    "screen-refresh-time": "Screen Refresh Time",
+    "send": "Send"
   },
   "transactions-dashboard": {
     "buying": "Buying",

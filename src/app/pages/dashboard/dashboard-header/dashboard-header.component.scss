@@ -2,6 +2,7 @@
   max-height: 132px;
   padding: 11px 10px 10px 20px;
   border-bottom: solid 1px #2d639f;
+  background-color: #fff;
 
   .eho-img {
     margin: 0 53.5% 0 0;
@@ -172,7 +173,7 @@
       box-shadow: 0 0 14px 0 rgba(167, 167, 167, 0.16);
       background-color: #fff;
       width: 230px;
-      height: 75px;
+      height: auto;
 
       li {
         font-size: 15px;

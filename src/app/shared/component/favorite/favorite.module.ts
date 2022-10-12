@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FavoriteComponent } from './favorite.component';
+import {TranslateModule} from "@ngx-translate/core";
+import {NzSwitchModule} from "ng-zorro-antd/switch";
+import {FormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -11,8 +15,12 @@ import { FavoriteComponent } from './favorite.component';
   exports: [
     FavoriteComponent
   ],
-  imports: [
-    CommonModule
-  ]
+    imports: [
+        CommonModule,
+        TranslateModule,
+        NzSwitchModule,
+        FormsModule,
+        RouterModule
+    ]
 })
 export class FavoriteModule { }

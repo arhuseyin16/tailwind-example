@@ -11,6 +11,8 @@ import { BankAccountDetailComponent } from './bank-account-detail/bank-account-d
 import { BankAccountDetailHeaderComponent } from './bank-account-detail/bank-account-detail-header/bank-account-detail-header.component';
 import {NzTableModule} from "ng-zorro-antd/table";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
 
 const routes: Routes = [
   {
@@ -37,13 +39,16 @@ const routes: Routes = [
     BankAccountDetailComponent,
     BankAccountDetailHeaderComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        NzSelectModule,
-        TranslateModule,
-        NzTableModule,
-        NzDropDownModule
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    NzSelectModule,
+    TranslateModule,
+    NzTableModule,
+    NzDropDownModule,
+    ReactiveFormsModule,
+    NzCheckboxModule,
+    FormsModule
+  ]
 })
 export class BankAccountsModule { }
