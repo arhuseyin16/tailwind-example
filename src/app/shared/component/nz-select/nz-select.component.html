@@ -4,8 +4,8 @@
   </div>
   <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="controlName?.length === 1 ? 1 : 0"
              [nzMaxTagPlaceholder]="controlName?.length === 1 ? null : branches"
-             (ngModelChange)="selectChange($event)" ngDefaultControl id="{{formControlName}}"
-             [nzSize]="'large'" nzMode="multiple" formControlName="{{formControlName}}" [nzOptionHeightPx]="heightPx">
+             (ngModelChange)="selectChange($event)" [nzSize]="'large'"
+             nzMode="multiple" formControlName="{{formControlName}}" [nzOptionHeightPx]="heightPx">
     <nz-option *ngFor="let item of optionList" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
       <label style="padding-right: 10px" nz-checkbox
              (ngModelChange)="checkboxChange(item.id, $event, formControlName, controlName)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">

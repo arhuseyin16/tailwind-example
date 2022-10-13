@@ -5,6 +5,7 @@ import {HeaderConfigAction} from "../../../../store/header-config/header-config.
 import {HeaderConfigModel} from "../../../../models/header-config-model";
 import {FavoriteStateModel} from "../../../../models/favorite-state.model";
 import {FavoriteAction} from "../../../../store/favorite/favorite.action";
+import {PAGE_SIZE} from "../../../../shared/constants/table-page-size";
 
 @Component({
   selector: 'app-bank-account-detail',
@@ -308,6 +309,7 @@ export class BankAccountDetailComponent implements OnInit {
     { title: 'bank-account.availableBalance'},
     { title: 'bank-account.creditAvailableBalance'},
   ];
+  pageSize = PAGE_SIZE;
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
   constructor(

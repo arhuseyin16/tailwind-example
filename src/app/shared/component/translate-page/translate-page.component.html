@@ -3,7 +3,7 @@
     <img src="{{languageMeta[translateService.defaultLang].flagImagePath}}"
          width="33px" alt="{{languageMeta[translateService.defaultLang].text}} /">
   </a>
-  <nz-dropdown-menu #menu="nzDropdownMenu">
+  <nz-dropdown-menu class="language-dropdown" #menu="nzDropdownMenu">
     <ul nz-menu *ngFor="let language of translateService.getLangs()">
       <li nz-menu-item (click)="switchLang(translateService.currentLang === 'en' ? 'tr' : 'en')">
         <img src="{{languageMeta[language].flagImagePath}}" width="33px" alt="{{languageMeta[language].text}} /">
