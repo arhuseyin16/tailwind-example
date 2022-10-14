@@ -20,6 +20,7 @@
 ::ng-deep .profile-ul.ant-dropdown-menu {
   padding: 8px 0 8px 0;
   border-radius: 5px;
+  width: 230px;
 }
 ::ng-deep .profile-li.ant-dropdown-menu-item {
   font-size: 15px;
@@ -36,8 +37,4 @@
     background-color: #2d639f !important;
     color: #ffffff !important;
   }
-}
-
-::ng-deep .ant-dropdown.ng-trigger.ng-trigger-slideMotion.ng-tns-c92-1.ng-star-inserted {
-  width: 200px;
 }

@@ -1,4 +1,14 @@
 <div class="detail">
+  <div class="detail-header">
+    <div class="account-total">
+      20 Hesap
+    </div>
+    <div class="option-select">
+      <nz-select nzAllowClear [nzSize]="'large'" nzPlaceHolder="Dışa Aktar">
+        <nz-option nzValue="excel" nzLabel="Excel'e Aktar"></nz-option>
+      </nz-select>
+    </div>
+  </div>
   <div class="detail-table">
     <nz-table
       #nestedTable
@@ -75,9 +85,8 @@
     </tbody>
     <tfoot>
     <tr class="total-row">
-      <th class="total-title" colspan="5"></th>
-      <td class="total-account">{{"bank-account.account" | translate}} : 30</td>
-      <td class="total-price">{{"bank-account.total" | translate}} : 20000 TL</td>
+      <th class="total-title" colspan="6"></th>
+      <td class="total-price">{{"bank-account.total" | translate}} :   1.619.887,04 TL</td>
     </tr>
     </tfoot>
     </nz-table>
