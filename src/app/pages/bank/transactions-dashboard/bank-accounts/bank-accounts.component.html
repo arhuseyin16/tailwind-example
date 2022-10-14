@@ -13,11 +13,7 @@
     <swiper
       [config]="swiperConfig"
       class="mySwiper"
-      style="--swiper-navigation-color: #000;--swiper-pagination-color: #000"
-      [navigation]="true"
-      [loop]="true"
-      [thumbs]="{ swiper: thumbsSwiper }"
-
+      (swiper)="thumbsSwiper = $event"
     >
       <ng-template swiperSlide *ngFor="let accounts of bankAccounts">
         <div class="swiper-slide-box">
@@ -32,10 +28,12 @@
     </swiper>
 
     <swiper
-      (swiper)="thumbsSwiper = $event"
       [spaceBetween]="10"
+      style="--swiper-navigation-color: #000;--swiper-pagination-color: #000"
+      [navigation]="true"
       [loop]="true"
       class="mySwiper2"
+      [thumbs]="{ swiper: thumbsSwiper }"
     >
       <ng-template swiperSlide *ngFor="let accouts of bankAccounts; let i = index">
         <nz-table class="w-[95%]" nzSize="small" #basicTable [nzData]="bankAccounts[i].information" [nzFrontPagination]="false"

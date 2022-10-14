@@ -5,5 +5,6 @@
   dataFormat="JSON"
   [id]="'chart-'+ fusionChartsConfig.data.length"
   [dataSource]="fusionChartsConfig"
+  (legendItemClicked)="legendClicked($event)"
   (initialized)="initialized($event)"
 ></fusioncharts>

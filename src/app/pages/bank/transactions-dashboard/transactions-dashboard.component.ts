@@ -119,7 +119,8 @@ export class TransactionsDashboardComponent implements OnInit {
       name: 'İşlem Hareketleri',
       url: this.router.url
     }
-    this.store.dispatch(new FavoriteAction(this.favoriteModel)); this.balanceTypes =   [
+    this.store.dispatch(new FavoriteAction(this.favoriteModel));
+    this.balanceTypes =   [
       {
         label: "Deutsche Bank",
         value: "28504",

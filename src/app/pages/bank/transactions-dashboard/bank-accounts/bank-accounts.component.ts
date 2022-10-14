@@ -398,6 +398,8 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
     slidesPerView: 'auto',
     spaceBetween: 30,
     freeMode: true,
+    loop: true,
+    watchSlidesProgress: true,
     breakpoints: {
       1: {
         spaceBetween: 1,
