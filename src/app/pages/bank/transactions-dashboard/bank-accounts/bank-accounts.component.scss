@@ -43,14 +43,14 @@
 }
 
 .mySwiper2 {
-  // height: 80%;
+  height: auto;
   width: 100%;
 }
 
 .mySwiper {
-  height: 20%;
+  height: auto;
   box-sizing: border-box;
-  padding: 10px 20px;
+  padding: 10px 55px;
 }
 
 .mySwiper .swiper-slide {
@@ -58,34 +58,32 @@
   height: 100%;
   opacity: 1;
 }
-
-.mySwiper .swiper-button-prev {
-  left: 0;
-  height: 100%;
-  top: auto;
-  bottom: 0;
+.mySwiper2 .swiper-button-prev {
+  top: 0;
   background: white;
-  align-items: center;
-  justify-content: start;
   width: 55px;
-
+  height: 100%;
+  align-items: start;
+  justify-content: start;
+  padding-top: 85px;
+  padding-left: 19px;
+  left: 0;
   &::after {
     font-size: 21px;
     font-weight: bold;
   }
 }
 
-.mySwiper .swiper-button-next {
-  right: 0;
-  height: 100%;
-  top: auto;
-  bottom: 0;
+.mySwiper2 .swiper-button-next {
+  top: 0;
   background: white;
-  align-items: center;
-  justify-content: end;
-  padding-right: 5px;
   width: 55px;
-
+  height: 100%;
+  align-items: start;
+  justify-content: end;
+  padding-top: 85px;
+  padding-right: 19px;
+  right: 0;
   &::after {
     font-size: 21px;
     font-weight: bold;

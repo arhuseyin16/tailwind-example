@@ -3,6 +3,7 @@ import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper";
 import { SwiperOptions } from "swiper/types";
 import { Store } from "@ngxs/store";
 import { SidebarState } from "../../../../store/sidebar/sidebar.state";
+import Swiper from "swiper";
 
 // install Swiper modules
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
@@ -20,6 +21,16 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       iconPath: 'assets/img/bank-account/akbank.png',
       title: 'Akbank',
       information: [
+        {
+          accountNumber: '30',
+          value: '4033418',
+          currency: 'TRY'
+        },
+        {
+          accountNumber: '30',
+          value: '4033418',
+          currency: 'TRY'
+        },
         {
           accountNumber: '30',
           value: '4033418',
@@ -472,5 +483,9 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+  }
+
+  transitionStart(event: [swiper: Swiper]) {
+    console.log(event);
   }
 }

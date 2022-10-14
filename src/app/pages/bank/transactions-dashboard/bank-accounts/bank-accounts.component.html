@@ -8,11 +8,12 @@
 </div>
 <div class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px] h-full">
 
-  <div class="px-[26px] max-w-full min-width-full">
+  <div class="px-[26px] max-w-full min-width-full relative">
 
     <swiper
       [config]="swiperConfig"
       class="mySwiper"
+      style="position: absolute; left: 0"
       (swiper)="thumbsSwiper = $event"
     >
       <ng-template swiperSlide *ngFor="let accounts of bankAccounts">
@@ -25,26 +26,27 @@
         </div>
 
       </ng-template>
+
     </swiper>
 
     <swiper
       [spaceBetween]="10"
-      style="--swiper-navigation-color: #000;--swiper-pagination-color: #000"
+      style="--swiper-navigation-color: #000;--swiper-pagination-color: #000; position: absolute; left: 0; padding-top: 130px;"
       [navigation]="true"
       [loop]="true"
       class="mySwiper2"
       [thumbs]="{ swiper: thumbsSwiper }"
     >
-      <ng-template swiperSlide *ngFor="let accouts of bankAccounts; let i = index">
-        <nz-table class="w-[95%]" nzSize="small" #basicTable [nzData]="bankAccounts[i].information" [nzFrontPagination]="false"
+      <ng-template swiperSlide *ngFor="let accounts of bankAccounts; let i = index">
+        <nz-table class="w-[95%]" nzSize="small" #accountTable [nzData]="accounts.information" [nzScroll]="{ y: '300px' }" [nzFrontPagination]="false"
                   [nzShowPagination]="false">
           <thead>
           </thead>
           <tbody>
-          <tr *ngFor="let data of basicTable.data;let i  = index">
-            <td class="currency-total-table-td " [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
-            <td class="currency-total-table-td text-right" [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.value |  number: '2.2' }}   <span
-              class="font-bold">{{data.currency }}</span></td>
+          <tr *ngFor="let account of accountTable.data;let i  = index">
+            <td class="currency-total-table-td " [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
+            <td class="currency-total-table-td text-right" [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.value |  number: '2.2' }}   <span
+              class="font-bold">{{account.currency }}</span></td>
           </tr>
           </tbody>
         </nz-table>
