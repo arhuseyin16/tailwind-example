@@ -13,7 +13,7 @@ import { ChartDataModel } from "../../../../models/shared/chart/chart-data.model
 export class DoughnutChartComponent implements OnInit {
 
   @Input() fusionChartsConfig: FusionChartsConfig = new FusionChartsConfig();
-  chartObj: any;
+  chartRef: any;
   previousLegendItem?: ChartDataModel = new ChartDataModel();
 
   constructor(private store: Store) { }
@@ -21,21 +21,20 @@ export class DoughnutChartComponent implements OnInit {
   ngOnInit(): void {
     if (this.fusionChartsConfig) {
       this.store.select(ChartState.getChartConfig).subscribe(config => {
-        if (this.chartObj && this.chartObj.id === 'chart' + this.fusionChartsConfig.data.length) {
-          this.chartObj.setJSONData(config.chartConfig);
+        if (this.chartRef && this.chartRef.id === 'chart' + this.fusionChartsConfig.data.length) {
+          this.chartRef.setJSONData(config.chartConfig);
         }
       });
     }
   }
 
   initialized($event: any) {
-    this.chartObj = $event.chart; // saving chart instance
+    this.chartRef = $event.chart; // saving chart instance
   }
 
   legendClicked(fusionChartsEvent: FusionChartsEvent) {
-    let chartData = this.chartObj.getJSONData();
-    if (this.chartObj && this.chartObj.id === `chart-${this.fusionChartsConfig.data.length}`) {
-
+    let virtualChartRef = Object.assign({}, this.chartRef.getJSONData());
+    if (this.chartRef && this.chartRef.id === `chart-${this.fusionChartsConfig.data.length}`) {
       let updateItem: ChartDataModel;
       let previousItem: ChartDataModel;
       // @ts-ignore
@@ -57,7 +56,7 @@ export class DoughnutChartComponent implements OnInit {
           }
 
         } else {
-          const newItem = chartData.data.find((d: any) => d.label === label);
+          const newItem = virtualChartRef.data.find((d: any) => d.label === label);
           if (newItem) {
             updateItem = {
               label: newItem.label,
@@ -83,7 +82,7 @@ export class DoughnutChartComponent implements OnInit {
           this.previousLegendItem = newItem;
         }
       } else {
-        this.previousLegendItem = chartData.data.find((d: any) => d.label === label);
+        this.previousLegendItem = virtualChartRef.data.find((d: any) => d.label === label);
         if (this.previousLegendItem) {
           updateItem = {
             isSliced: '0',
@@ -95,18 +94,28 @@ export class DoughnutChartComponent implements OnInit {
           }
         }
       }
-      let data = chartData.data.map((item: any) => {
+      virtualChartRef.data = virtualChartRef.data.map((item: any) => {
         if (item.label === label) {
           return updateItem;
         }
         if (previousItem && item.label === previousItem.label) {
           return previousItem;
         }
+
+        if(item.issliced) {
+          item = {
+            isSliced: item.issliced,
+            showLabel: item.showlabel,
+            showValue: item.showvalue,
+            value: item.value,
+            color: item.color,
+            label: item.label
+          }
+        }
         return item;
       });
-      chartData.data = data;
-      console.log(chartData);
-      this.chartObj.setJSONData(chartData);
+      console.log(virtualChartRef);
+      this.chartRef.setJSONData(virtualChartRef);
     }
   }
 

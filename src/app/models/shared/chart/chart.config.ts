@@ -30,4 +30,5 @@ export class ChartConfig{
   showPercentValues?: string = '0';
   showPercentInTooltip?: string = '0';
   theme?: string = 'fusion';
+  interactiveLegend?: boolean = true;
 }
