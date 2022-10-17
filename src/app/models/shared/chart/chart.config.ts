@@ -10,6 +10,7 @@ export class ChartConfig{
   doughnutRadius?: string = '110'; // chart kalınlığı,
   bgColor?: string = '#ffffff' // background rengi
   centerLabel?: string = '$label: $value' // chart ortasındaki yazı
+  plottooltext?: string = '$value'
   decimal?: string = '2';
   labelFontSize?: string = '16'; // label font büyüklüğü
   decimalSeparator?: string = ','; // Value'daki decimal seperatörü
@@ -21,7 +22,7 @@ export class ChartConfig{
   pieRadius?: string = '50';
   showLabels?: string =  '0'; // 0 | 1 // label hide/show özelliği
   showValues?: string =  '0 '; // 0 | 1 // value hide/show özelliği
-  legendAllowDrag?: string = '1'; // 0 | 1 // legend drag and drop özelliğini kontrol etmek
+  legendAllowDrag?: string = '0'; // 0 | 1 // legend drag and drop özelliğini kontrol etmek
   enableMultiSlicing?: string = '0'; // 0 | 1 // legend üzerinden multi item seçme özelliği
   plotHighlightEffect?: string = '' // fadeout|anchorBgColor=ff0000|color=#7f7f7f, anchorBgAlpha=50
   chartLeftMargin?: number = 0;
@@ -30,5 +31,5 @@ export class ChartConfig{
   showPercentValues?: string = '0';
   showPercentInTooltip?: string = '0';
   theme?: string = 'fusion';
-  interactiveLegend?: boolean = true;
+  interactiveLegend?: boolean = false;
 }

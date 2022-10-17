@@ -33,30 +33,26 @@ export class DoughnutChartComponent implements OnInit {
   }
 
   legendClicked(fusionChartsEvent: FusionChartsEvent) {
-    let virtualChartRef = Object.assign({}, this.chartRef.getJSONData());
     if (this.chartRef && this.chartRef.id === `chart-${this.fusionChartsConfig.data.length}`) {
+      let virtualChartRefData = Object.assign({}, this.chartRef.getJSONData());
       let updateItem: ChartDataModel;
       let previousItem: ChartDataModel;
       // @ts-ignore
       let label = fusionChartsEvent.dataObj.label;
 
       // @ts-ignore
-      if (this.previousLegendItem.label) {
+      if (this.previousLegendItem) {
         // @ts-ignore
         if (label === this.previousLegendItem.label) {
-          if (this.previousLegendItem) {
-            updateItem = {
-              label: this.previousLegendItem.label,
-              value: this.previousLegendItem.value,
-              color: this.previousLegendItem.color,
-              showLabel: '0',
-              showValue: '0',
-              isSliced: '1'
-            }
+          updateItem = {
+            label: this.previousLegendItem.label,
+            value: this.previousLegendItem.value,
+            color: this.previousLegendItem.color,
+            showLabel: this.previousLegendItem.showLabel === '1' ? '0' : '1',
+            showValue: this.previousLegendItem.showValue === '1' ? '0' : '1',
           }
-
         } else {
-          const newItem = virtualChartRef.data.find((d: any) => d.label === label);
+          const newItem = virtualChartRefData.data.find((d: any) => d.label === label);
           if (newItem) {
             updateItem = {
               label: newItem.label,
@@ -64,7 +60,6 @@ export class DoughnutChartComponent implements OnInit {
               color: newItem.color,
               showLabel: '1',
               showValue: '1',
-              isSliced: '0',
             };
           }
 
@@ -75,17 +70,15 @@ export class DoughnutChartComponent implements OnInit {
               color: this.previousLegendItem.color,
               showValue: '0',
               showLabel: '0',
-              isSliced: '1'
             };
           }
-
-          this.previousLegendItem = newItem;
+          // @ts-ignore
+          this.previousLegendItem = updateItem;
         }
       } else {
-        this.previousLegendItem = virtualChartRef.data.find((d: any) => d.label === label);
+        this.previousLegendItem = virtualChartRefData.data.find((d: any) => d.label === label);
         if (this.previousLegendItem) {
           updateItem = {
-            isSliced: '0',
             showLabel: '1',
             showValue: '1',
             value: this.previousLegendItem.value,
@@ -94,29 +87,75 @@ export class DoughnutChartComponent implements OnInit {
           }
         }
       }
-      virtualChartRef.data = virtualChartRef.data.map((item: any) => {
+      virtualChartRefData.data = virtualChartRefData.data.map((item: any) => {
         if (item.label === label) {
           return updateItem;
         }
         if (previousItem && item.label === previousItem.label) {
           return previousItem;
         }
+        return item;
+      });
+      console.log(virtualChartRefData);
+      this.chartRef.setJSONData(virtualChartRefData);
+    }
+  }
 
-        if(item.issliced) {
-          item = {
-            isSliced: item.issliced,
-            showLabel: item.showlabel,
-            showValue: item.showvalue,
-            value: item.value,
-            color: item.color,
-            label: item.label
-          }
+  legendItemRollOver(fusionChartsEvent: FusionChartsEvent) {
+    console.log(fusionChartsEvent);
+    if (this.chartRef && this.chartRef.id === `chart-${this.fusionChartsConfig.data.length}`) {
+      let virtualChartRef = Object.assign({}, this.chartRef.getJSONData());
+      let updateItem: ChartDataModel;
+      // @ts-ignore
+      let label = fusionChartsEvent.dataObj.label;
+
+      const newItem = virtualChartRef.data.find((d: any) => d.label === label);
+      if (newItem) {
+        updateItem = {
+          label: newItem.label,
+          value: newItem.value,
+          color: newItem.color,
+          showLabel: '1',
+          showValue: '1',
+        };
+        this.previousLegendItem = updateItem;
+      }
+
+      virtualChartRef.data = virtualChartRef.data.map((item: any) => {
+        if (item.label === label) {
+          return updateItem;
         }
         return item;
       });
-      console.log(virtualChartRef);
       this.chartRef.setJSONData(virtualChartRef);
     }
   }
 
+  legendItemRollOut(fusionChartsEvent: FusionChartsEvent) {
+    if (this.chartRef && this.chartRef.id === `chart-${this.fusionChartsConfig.data.length}`) {
+      let virtualChartRef = Object.assign({}, this.chartRef.getJSONData());
+      let updateItem: ChartDataModel;
+      // @ts-ignore
+      let label = fusionChartsEvent.dataObj.label;
+
+      const newItem = virtualChartRef.data.find((d: any) => d.label === label);
+      if (newItem) {
+        updateItem = {
+          label: newItem.label,
+          value: newItem.value,
+          color: newItem.color,
+          showLabel: '0',
+          showValue: '0',
+        };
+      }
+
+      virtualChartRef.data = virtualChartRef.data.map((item: any) => {
+        if (item.label === label) {
+          return updateItem;
+        }
+        return item;
+      });
+      this.chartRef.setJSONData(virtualChartRef);
+    }
+  }
 }
