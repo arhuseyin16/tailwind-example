@@ -1,6 +1,22 @@
 <div class="detail">
+  <div class="detail-header">
+    <div class="account-total">
+      20 Hesap
+    </div>
+    <div class="option-select">
+      <nz-select nzAllowClear [nzSize]="'large'" nzPlaceHolder="Dışa Aktar">
+        <nz-option nzValue="excel" nzLabel="Excel'e Aktar"></nz-option>
+      </nz-select>
+    </div>
+  </div>
   <div class="detail-table">
-    <nz-table #nestedTable [nzData]="detailList.list" [nzPageSize]="10">
+    <nz-table
+      #nestedTable
+      [nzData]="detailList.list"
+      [nzPageSize]="10"
+      [nzShowSizeChanger]="true"
+      [nzPageSizeOptions]="pageSize"
+    >
       <thead>
       <tr>
         <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortOrder]="column.sortOrder">
@@ -69,8 +85,8 @@
     </tbody>
     <tfoot>
     <tr class="total-row">
-      <th class="total-title" colspan="6">{{"bank-account.total" | translate}} :</th>
-      <td class="total-price">20000 TL</td>
+      <th class="total-title" colspan="6"></th>
+      <td class="total-price">{{"bank-account.total" | translate}} :   1.619.887,04 TL</td>
     </tr>
     </tfoot>
     </nz-table>

@@ -1,1 +1,1 @@
-export const HEIGHT_PX = 20;
+export const HEIGHT_PX = 15;

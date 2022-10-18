@@ -1,10 +1,10 @@
-<div class="profile" (click)="modal = !modal">
-  {{avatar}}
-  <div class="dropdown-style" *ngIf="modal">
-      <ul>
-        <li>{{"profile.account" | translate}}</li>
-        <li>{{"profile.settings" | translate}}</li>
-        <li routerLink="/login">{{"profile.logout" | translate}}</li>
-      </ul>
-  </div>
+<div class="profile" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+    {{avatar}}
+  <nz-dropdown-menu class="profile-dropdown"  #menu="nzDropdownMenu">
+    <ul class="profile-ul" nz-menu>
+      <li class="profile-li" nz-menu-item>{{"profile.account" | translate}}</li>
+      <li class="profile-li" nz-menu-item>{{"profile.settings" | translate}}</li>
+      <li class="profile-li" nz-menu-item routerLink="/login">{{"profile.logout" | translate}}</li>
+    </ul>
+  </nz-dropdown-menu>
 </div>

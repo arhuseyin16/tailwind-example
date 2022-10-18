@@ -8,6 +8,8 @@
           <nz-switch [(ngModel)]="favoritePage" (ngModelChange)="change()"></nz-switch>
         </span>
       </li>
+    </ul>
+    <ul class="option-ul" [ngStyle]="favoriteList.length > 3 ? {'overflow': 'auto', 'height': '120px'} : null">
       <li class="option" (click)="favoriteView = !favoriteView" routerLink="{{item.url}}" *ngFor="let item of favoriteList">
         {{item?.name}}
       </li>

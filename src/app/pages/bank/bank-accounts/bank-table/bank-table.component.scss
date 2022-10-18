@@ -17,6 +17,7 @@
 
         .bank-header {
           display: flex;
+          padding-left: 10px;
 
           .bank-image {
 
@@ -37,7 +38,7 @@
 
           .data-table {
             position: relative;
-            padding: 4px;
+            padding: 4px 4px 4px 14px;
             cursor: pointer;
 
             span {

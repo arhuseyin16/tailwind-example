@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <form class="bank-filter-form" [formGroup]="bankFilterForm">
-    <div class="form-element p-1 pr-4">
+   <div class="form-element p-1 pr-4">
      <div class="pb-3">
        <label>{{'bank-account.companies' | translate}}</label>
      </div>
@@ -17,8 +17,22 @@
       <ng-template #companies>
         <p>{{bankFilterForm.value.companies?.length}} adet seçili</p>
       </ng-template>
+     <!--<app-nz-select
+       [fg]="bankFilterForm"
+       [controlName]="bankFilterForm.value.companies"
+       [formControlName]="'companies'"
+       [optionList]="listOption"
+       [label]="'Firmalar'"
+     ></app-nz-select>-->
     </div>
     <div class="form-element p-1 pr-4">
+      <!--<app-nz-select
+        [fg]="bankFilterForm"
+        [controlName]="bankFilterForm.value.branches"
+        [formControlName]="'branches'"
+        [optionList]="listOption"
+        [label]="'Şubeler'"
+      ></app-nz-select>-->
       <div class="pb-3">
         <label>{{'bank-account.branches' | translate}}</label>
       </div>
@@ -37,6 +51,13 @@
       </ng-template>
     </div>
     <div class="form-element p-1 pr-4">
+      <!--<app-nz-select
+        [fg]="bankFilterForm"
+        [controlName]="bankFilterForm.value.accountTypes"
+        [formControlName]="'accountTypes'"
+        [optionList]="listOption"
+        [label]="'Hesap Türleri'"
+      ></app-nz-select>-->
       <div class="pb-3">
         <label>{{'bank-account.account-types' | translate}}</label>
       </div>
@@ -55,6 +76,13 @@
       </ng-template>
     </div>
     <div class="form-element p-1 pr-4">
+      <!--<app-nz-select
+        [fg]="bankFilterForm"
+        [controlName]="bankFilterForm.value.balance"
+        [formControlName]="'balance'"
+        [optionList]="listOption"
+        [label]="'Bakiye'"
+      ></app-nz-select>-->
       <div class="pb-3">
         <label>{{'bank-account.balance' | translate}}</label>
       </div>
@@ -73,6 +101,13 @@
       </ng-template>
     </div>
     <div class="form-element p-1 pr-4">
+      <!--<app-nz-select
+        [fg]="bankFilterForm"
+        [controlName]="bankFilterForm.value.currencyUnit"
+        [formControlName]="'currencyUnit'"
+        [optionList]="listOption"
+        [label]="'Para Birimi'"
+      ></app-nz-select>-->
       <div class="pb-3">
         <label>{{'bank-account.currency-unit' | translate}}</label>
       </div>
@@ -91,7 +126,7 @@
       </ng-template>
     </div>
     <div class="form-element pt-10">
-      <button class="btn-search">{{'bank-account.inquire' | translate}}</button>
+      <button (click)="onSubmit()" class="btn-search">{{'bank-account.inquire' | translate}}</button>
     </div>
   </form>
   <div class="bank-view-option">
