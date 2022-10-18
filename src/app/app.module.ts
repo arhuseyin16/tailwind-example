@@ -22,6 +22,7 @@ import { FusionChartsModule } from "./shared/fusion-charts/fusioncharts.module";
 
 import * as CandyTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
 import { CustomMissingTranslationHandler } from "./shared/translate/custom-missing-translation-handler";
+import {RouterModule} from "@angular/router";
 registerLocaleData(en);
 
 @NgModule({

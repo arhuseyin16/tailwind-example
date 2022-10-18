@@ -3,7 +3,7 @@ import {HEIGHT_PX} from "../../../shared/constants/select-height-px";
 import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
 import {Store} from "@ngxs/store";
 import {HeaderConfigModel} from "../../../models/header-config-model";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FavoriteAction} from "../../../store/favorite/favorite.action";
 import {FavoriteStateModel} from "../../../models/favorite-state.model";
 import {FormBuilder, FormControl, Validators} from "@angular/forms";
@@ -29,6 +29,7 @@ export class BankAccountsComponent implements OnInit {
   ];
   bankList = [
     {
+      id: 1,
       image: 'assets/img/bank-account/akbank.png',
       color: '#dc4333',
       accountList: [
@@ -70,6 +71,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 2,
       image: 'assets/img/bank-account/akbank.png',
       color: '#52b189',
       accountList: [
@@ -111,6 +113,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 3,
       image: 'assets/img/bank-account/akbank.png',
       color: '#2c414a',
       accountList: [
@@ -152,6 +155,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 4,
       image: 'assets/img/bank-account/akbank.png',
       color: '#2c6eaa',
       accountList: [
@@ -193,6 +197,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 5,
       image: 'assets/img/bank-account/akbank.png',
       color: '#95d8da',
       accountList: [
@@ -234,6 +239,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 6,
       image: 'assets/img/bank-account/akbank.png',
       color: '#0d3068',
       accountList: [
@@ -275,6 +281,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 7,
       image: 'assets/img/bank-account/akbank.png',
       color: '#ee6f2d',
       accountList: [
@@ -316,6 +323,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 8,
       image: 'assets/img/bank-account/akbank.png',
       color: '#be3a3a',
       accountList: [
@@ -357,6 +365,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 9,
       image: 'assets/img/bank-account/akbank.png',
       color: '#681836',
       accountList: [
@@ -398,6 +407,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 10,
       image: 'assets/img/bank-account/akbank.png',
       color: '#dc4333',
       accountList: [
@@ -439,6 +449,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 11,
       image: 'assets/img/bank-account/akbank.png',
       color: '#52b189',
       accountList: [
@@ -480,6 +491,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 12,
       image: 'assets/img/bank-account/akbank.png',
       color: '#2c414a',
       accountList: [
@@ -521,6 +533,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 13,
       image: 'assets/img/bank-account/akbank.png',
       color: '#2c6eaa',
       accountList: [
@@ -562,6 +575,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 14,
       image: 'assets/img/bank-account/akbank.png',
       color: '#95d8da',
       accountList: [
@@ -603,6 +617,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 15,
       image: 'assets/img/bank-account/akbank.png',
       color: '#0d3068',
       accountList: [
@@ -644,6 +659,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 16,
       image: 'assets/img/bank-account/akbank.png',
       color: '#ee6f2d',
       accountList: [
@@ -685,6 +701,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 17,
       image: 'assets/img/bank-account/akbank.png',
       color: '#be3a3a',
       accountList: [
@@ -726,6 +743,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 18,
       image: 'assets/img/bank-account/akbank.png',
       color: '#681836',
       accountList: [
@@ -767,6 +785,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 19,
       image: 'assets/img/bank-account/akbank.png',
       color: '#95d8da',
       accountList: [
@@ -808,6 +827,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 20,
       image: 'assets/img/bank-account/akbank.png',
       color: '#0d3068',
       accountList: [
@@ -849,6 +869,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 21,
       image: 'assets/img/bank-account/akbank.png',
       color: '#ee6f2d',
       accountList: [
@@ -890,6 +911,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 22,
       image: 'assets/img/bank-account/akbank.png',
       color: '#be3a3a',
       accountList: [
@@ -931,6 +953,7 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
     {
+      id: 23,
       image: 'assets/img/bank-account/akbank.png',
       color: '#681836',
       accountList: [
@@ -989,7 +1012,9 @@ export class BankAccountsComponent implements OnInit {
   constructor(
     private store: Store,
     private router: Router,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+  ) {
     this.headerConfig.push({
       component: () => import('../transactions-dashboard/timer-refresh/timer-refresh.component').then(it => it.TimerRefreshComponent),
       dataObj: null
@@ -1000,14 +1025,20 @@ export class BankAccountsComponent implements OnInit {
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
+    this.bankAccountRoutingController();
   }
 
   ngOnInit(): void {
   }
 
-  get companiesFormControl(): FormControl {
-    return this.bankFilterForm.controls.companies;
-  }
+ bankAccountRoutingController(): void {
+   this.activatedRoute.queryParams.subscribe((params: any) => {
+     if (params.id) {
+       this.bankListHidden = true;
+       this.bankTableHidden = false;
+     }
+   });
+ }
 
   bankViewChange(type: string) {
     if (type === 'bankTable') {

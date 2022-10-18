@@ -4,6 +4,7 @@ import { SwiperOptions } from "swiper/types";
 import { Store } from "@ngxs/store";
 import { SidebarState } from "../../../../store/sidebar/sidebar.state";
 import Swiper from "swiper";
+import {Router} from "@angular/router";
 
 // install Swiper modules
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
@@ -15,9 +16,11 @@ SwiperCore.use([FreeMode, Navigation, Thumbs]);
 })
 export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
   thumbsSwiper: any;
+  swiperChangeId?: number;
 
   bankAccounts = [
     {
+      id: 1,
       iconPath: 'assets/img/bank-account/akbank.png',
       title: 'Akbank',
       information: [
@@ -69,6 +72,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 2,
       iconPath: 'assets/img/bank-account/garanti.png',
       title: 'Garanti',
       information: [
@@ -85,6 +89,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 3,
       iconPath: 'assets/img/bank-account/yapikredi.png',
       title: 'Yapı Kredi',
       information: [
@@ -101,6 +106,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 4,
       iconPath: 'assets/img/bank-account/vakifbank.png',
       title: 'VakıfBank',
       information: [
@@ -117,6 +123,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 5,
       iconPath: 'assets/img/bank-account/teb.png',
       title: 'Teb',
       information: [
@@ -133,6 +140,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 6,
       iconPath: 'assets/img/bank-account/ziraatbankasi.png',
       title: 'Ziraat Bankası',
       information: [
@@ -149,6 +157,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 7,
       iconPath: 'assets/img/bank-account/ingbank.png',
       title: 'Ing Bank',
       information: [
@@ -165,6 +174,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 8,
       iconPath: '',
       title: 'Deutsche',
       information: [
@@ -181,6 +191,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 9,
       iconPath: 'assets/img/bank-account/aktifbank.png',
       title: 'AktifBank',
       information: [
@@ -197,6 +208,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 10,
       iconPath: 'assets/img/bank-account/albaraka.png',
       title: 'Albarak',
       information: [
@@ -213,6 +225,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 11,
       iconPath: 'assets/img/bank-account/burganbank.png',
       title: 'Burgan Bank',
       information: [
@@ -229,6 +242,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 12,
       iconPath: 'assets/img/bank-account/denizbank.png',
       title: 'Deniz Bank',
       information: [
@@ -245,6 +259,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 13,
       iconPath: 'assets/img/bank-account/emlak-bank.png',
       title: 'Emlak Bank',
       information: [
@@ -261,6 +276,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 14,
       iconPath: 'assets/img/bank-account/fibabanka.png',
       title: 'Fiba Banka',
       information: [
@@ -277,6 +293,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 15,
       iconPath: 'assets/img/bank-account/finansbank.png',
       title: 'Finansbank',
       information: [
@@ -293,6 +310,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 16,
       iconPath: 'assets/img/bank-account/halkbankasi.png',
       title: 'Halk Bank',
       information: [
@@ -309,6 +327,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 17,
       iconPath: 'assets/img/bank-account/hsbc.png',
       title: 'HSBC',
       information: [
@@ -325,6 +344,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 18,
       iconPath: 'assets/img/bank-account/isbankasi.png',
       title: 'İş Bankası',
       information: [
@@ -341,6 +361,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 19,
       iconPath: 'assets/img/bank-account/odeabank.png',
       title: 'Odeabank',
       information: [
@@ -357,6 +378,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 20,
       iconPath: 'assets/img/bank-account/icbc.png',
       title: 'ICBC',
       information: [
@@ -373,6 +395,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 21,
       iconPath: 'assets/img/bank-account/turkiyefinans.png',
       title: 'Türkiye Finans',
       information: [
@@ -389,6 +412,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
       ]
     },
     {
+      id: 22,
       iconPath: 'assets/img/bank-account/abank.png',
       title: 'Alternatif Bank',
       information: [
@@ -443,8 +467,10 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   };
 
-  constructor(private store: Store) {
-  }
+  constructor(
+    private store: Store,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
     this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => {
@@ -485,7 +511,13 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  transitionStart(event: [swiper: Swiper]) {
-    console.log(event);
+  bankAccountDetail() {
+    this.router.navigate(['bank/bank-account'], {queryParams: {id: this.swiperChangeId}});
+
+  }
+
+  slideChange(swipers: [swiper: Swiper]) {
+    const index = swipers[0].realIndex;
+    this.swiperChangeId = this.bankAccounts[index].id;
   }
 }
