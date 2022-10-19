@@ -1,0 +1,18 @@
+<div class="favorite-img" (click)="favoriteImageClick()">
+  <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
+  <div class="dropdown-favorite" *ngIf="favoriteView">
+    <ul>
+      <li class="favorite" [ngStyle]="{'border-bottom': favoriteList.length > 0 ? 'solid 0.5px #d5d5d5': 'none' }">
+        {{"favorite.add-favorite-transactions" | translate}}
+        <span>
+          <nz-switch [(ngModel)]="favoritePage" (ngModelChange)="change()"></nz-switch>
+        </span>
+      </li>
+    </ul>
+    <ul class="option-ul" [ngStyle]="favoriteList.length > 3 ? {'overflow': 'auto', 'height': '120px'} : null">
+      <li class="option" (click)="favoriteView = !favoriteView" routerLink="{{item.url}}" *ngFor="let item of favoriteList">
+        {{item?.name}}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,4 +1,7 @@
 {
+  "titles": {
+    "login": "Login"
+  },
   "title": "Title",
   "welcome": "Welcome",
   "dashboard": "Dashboard",
@@ -25,7 +28,11 @@
   },
   "profile": {
     "account": "Account",
-    "logout": "Logout"
+    "logout": "Logout",
+    "settings": "Settings"
+  },
+  "favorite": {
+    "add-favorite-transactions": "Add Favorite Transactions"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -39,6 +46,52 @@
     "sync-management": "Sync Management",
     "sync-maintenance": "Sync Maintenance",
     "sync-control-reports": "Sync Control Reports",
-    "sync-transaction-reports": "Sync Transaction Reports"
+    "sync-transaction-reports": "Sync Transaction Reports",
+    "account-activities": "Account Activities",
+    "bank-accounts": "Bank Accounts"
+  },
+  "bank-account": {
+    "companies": "Companies",
+    "branches": "Branches",
+    "account-types": "Account Types",
+    "balance": "Balance",
+    "currency-unit": "Currency Unit",
+    "inquire": "Inquire",
+    "account": "Account",
+    "detail": "Detail",
+    "date": "Date",
+    "definition": "Definition",
+    "company": "Company",
+    "branch": "Branch",
+    "accountType": "Account Type",
+    "accountNo": "Account No",
+    "total": "Total",
+    "creditLimit": "Credit Limit",
+    "availableCreditLimit": "Available Credit Limit",
+    "blockedBalance":  "Blocked Balance",
+    "availableBalance": "Available Balance",
+    "creditAvailableBalance": "Credit Available Balance"
+  },
+  "header": {
+    "screen-refresh-time": "Screen Refresh Time",
+    "send": "Send"
+  },
+  "transactions-dashboard": {
+    "buying": "Buying",
+    "sale": "Sale",
+    "money-input": "Money Input",
+    "money-out": "Money Out",
+    "balance-per-day": "Balance Per Day",
+    "balance-types": "Balance Types",
+    "account-types": "Account Types",
+    "bank-accounts": "Bank Accounts",
+    "detail": "Detail",
+    "account": "Account",
+    "currency-totals": "Currency Totals",
+    "currency-conversion": "Currency Conversion",
+    "currency-type": "Currency Type",
+    "total": "Total",
+    "bank": "Bank",
+    "amount": "Amount"
   }
 }

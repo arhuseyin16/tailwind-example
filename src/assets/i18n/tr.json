@@ -1,4 +1,7 @@
 {
+  "titles": {
+    "login": "Giriş Yap"
+  },
   "title": "Başlık",
   "welcome": "Hoşgeldiniz",
   "dashboard": "Dashboard",
@@ -25,7 +28,11 @@
   },
   "profile": {
     "account": "Hesabım",
-    "logout": "Çıkış"
+    "logout": "Çıkış",
+    "settings": "Ayarlar"
+  },
+  "favorite": {
+    "add-favorite-transactions": "Favori İşlemlere Ekle"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -39,6 +46,52 @@
     "sync-management": "Senkronizasyon Yönetimi",
     "sync-maintenance": "Senkronizasyon Bakımları",
     "sync-control-reports": "Senkronizasyon Kontrol Rap.",
-    "sync-transaction-reports": "Senkronizasyon İşlem Rap."
+    "sync-transaction-reports": "Senkronizasyon İşlem Rap.",
+    "account-activities": "Hesap Hareketleri",
+    "bank-accounts": "Banka Hesapları"
+  },
+  "bank-account": {
+    "companies": "Firmalar",
+    "branches": "Şubeler",
+    "account-types": "Hesap Türleri",
+    "balance": "Bakiye",
+    "currency-unit": "Para Birimi",
+    "inquire": "Sorgula",
+    "account": "Hesap",
+    "detail": "Detay",
+    "date": "Tarih",
+    "definition": "Tanım",
+    "company": "Firma",
+    "branch": "Şube",
+    "accountType": "Hesap Türü",
+    "accountNo": "Hesap Numarası",
+    "total": "Toplam",
+    "creditLimit": "Kredi Limiti",
+    "availableCreditLimit": "Kullanılabilir Kredi Limiti",
+    "blockedBalance":  "Bloklu Bakiye",
+    "availableBalance": "Kullanılabilir Bakiye",
+    "creditAvailableBalance": "Kredili Kullanılabilir Bakiye"
+  },
+  "header": {
+    "screen-refresh-time": "Ekran Yenileme Zamanı",
+    "send": "Gönder"
+  },
+  "transactions-dashboard": {
+    "buying": "Alış",
+    "sale": "Satış",
+    "money-input": "Para Girişi",
+    "money-out": "Para Çıkışı",
+    "balance-per-day": "Gün Başı Bakiye",
+    "balance-types": "Bakiye Türleri",
+    "account-types": "Hesap Türleri",
+    "bank-accounts": "Banka Hesapları",
+    "detail": "Detay",
+    "account": "Hesap",
+    "currency-totals": "Döviz Toplamları",
+    "currency-conversion": "Döviz Dönüşümleri",
+    "currency-type": "Döviz Türü",
+    "total": "Toplam",
+    "bank": "Banka",
+    "amount": "Tutar"
   }
 }

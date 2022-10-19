@@ -36,9 +36,8 @@
   <div class="favorite-img" (click)="favoriteView = !favoriteView">
     <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
     <div class="dropdown-favorite" *ngIf="favoriteView">
-      <ul>
-        <li>{{"dashboard-header.account-activities" | translate}}</li>
-        <li>{{"dashboard-header.bank-accounts" | translate}}</li>
+      <ul *ngFor="let item of favoriteList">
+        <li routerLink="{{item.url}}">{{item.name}}</li>
       </ul>
     </div>
   </div>

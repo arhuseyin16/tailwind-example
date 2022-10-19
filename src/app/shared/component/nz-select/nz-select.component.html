@@ -1,0 +1,18 @@
+<div class="form-element-select" [formGroup]="fg">
+  <div class="pb-3">
+    <label>{{label}}</label>
+  </div>
+  <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="controlName?.length === 1 ? 1 : 0"
+             [nzMaxTagPlaceholder]="controlName?.length === 1 ? null : branches"
+             (ngModelChange)="selectChange($event)" [nzSize]="'large'"
+             nzMode="multiple" formControlName="{{formControlName}}" [nzOptionHeightPx]="heightPx">
+    <nz-option *ngFor="let item of optionList" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
+      <label style="padding-right: 10px" nz-checkbox
+             (ngModelChange)="checkboxChange(item.id, $event, formControlName, controlName)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">
+      </label>{{item.name}}
+    </nz-option>
+  </nz-select>
+  <ng-template #branches>
+    <p>{{controlName?.length}} adet seçili</p>
+  </ng-template>
+</div>

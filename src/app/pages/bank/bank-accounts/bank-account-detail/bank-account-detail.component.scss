@@ -1,0 +1,231 @@
+.detail {
+  padding: 10px 18px 18px 18px;
+
+  .detail-header {
+    display: flex;
+    position: relative;
+    margin-bottom: 28px;
+
+    .account-total {
+      font-size: 18px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+    }
+
+    .option-select {
+      width: 230px;
+      position: absolute;
+      right: 0;
+      top: -9px;
+
+      ::ng-deep .ant-select {
+        width: 100%;
+
+        ::ng-deep .ant-select-selector {
+          //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
+          border: none;
+          border-radius: 5px;
+          background-color: #fff;
+          font-size: 14px;
+        }
+
+        ::ng-deep .ant-select-arrow {
+          color: #000000;
+        }
+      }
+
+      ::ng-deep .ant-select-item-option-content.select-option-image {
+        width: 18px;
+        height: 20px;
+        object-fit: contain;
+      }
+
+      ::ng-deep .ant-select-item-option-content.select-option-title {
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+      }
+    }
+  }
+
+  .detail-table {
+    ::ng-deep .ant-table {
+      background-color: #f5f5f5;
+    }
+
+    ::ng-deep .ant-table-container table > thead > tr > th:first-child {
+      border-radius: 15px 0 0 0;
+    }
+
+    ::ng-deep .ant-table-container table > thead > tr > th:last-child {
+      border-radius: 0 15px 0 0;
+    }
+
+    ::ng-deep .ant-table-thead > tr > th {
+      background: #2d639f;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    ::ng-deep .ant-table-tbody > tr > td {
+      font-size: 15px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+      border-bottom: solid 0.5px #d3d3d3;
+      border-right: solid 0.5px #d3d3d3;
+    }
+
+    ::ng-deep .ant-table-tbody > tr.child-table > td {
+      background-color: #f2f2f2;
+    }
+
+    ::ng-deep .ant-table-column-sorter {
+      color: #fff;
+    }
+
+    ///child table scss start
+
+    ::ng-deep nz-table.ant-table-wrapper.child-detail.ng-star-inserted {
+      background: #f2f2f2;
+
+      ::ng-deep .ant-table {
+        background-color: #f2f2f2;
+      }
+
+      ::ng-deep tr.ant-table-expanded-row > td, tr.ant-table-expanded-row:hover > td {
+        background: red;
+      }
+
+      ::ng-deep .ant-table-thead > tr > th {
+        background-color: #f2f2f2;
+        font-size: 15px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        border: none;
+      }
+
+      ::ng-deep .ant-table-tbody > tr > td {
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        border: none;
+      }
+    }
+
+    ///child table scss end
+
+    nz-table {
+      tbody {
+        tr {
+          td {
+            .last-colum-other {
+              position: relative;
+              .balance-value {
+
+              }
+
+              .accordion-img {
+                cursor: pointer;
+                position: absolute;
+                top: 4px;
+                left: 105px;
+
+                img {
+                  width: 15px;
+                  height: 15px;
+                  object-fit: contain;
+                }
+              }
+
+              .status-img {
+                position: absolute;
+                top: 4px;
+                right: 49px;
+
+                img {
+                  width: 15px;
+                  height: 15px;
+                  object-fit: contain;
+                }
+              }
+
+              .other-img {
+                position: absolute;
+                right: -5px;
+                top: 1px;
+                cursor: pointer;
+
+                img {
+                   width: 6px;
+                   height: 22.9px;
+                   object-fit: contain;
+                 }
+              }
+            }
+          }
+        }
+      }
+
+      tfoot {
+        .total-row {
+          box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
+          background-color: #fff;
+
+          .total-title {
+            font-size: 20px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000;
+            border-radius: 0 0 0 15px;
+            border-top: solid 0.5px #000;
+            background-color: #fff;
+
+          }
+
+          .total-price {
+            font-size: 20px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000;
+            border-radius: 0 0 15px 0;
+            border-top: solid 0.5px #000;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

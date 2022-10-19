@@ -1,0 +1,30 @@
+<nz-table #nzTable [nzData]="globalTranslatesOfDisplay" nzTableLayout="fixed">
+  <thead>
+  <tr>
+    <th nzCustomFilter>
+      Key
+      <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+        <span nz-icon nzType="search"></span>
+      </nz-filter-trigger>
+    </th>
+    <th>En</th>
+    <th>Tr</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of nzTable.data">
+    <td>{{ data.key }}</td>
+    <td>{{ data.enValue }}</td>
+    <td>{{ data.trValue }}</td>
+  </tr>
+  </tbody>
+</nz-table>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <div class="ant-table-filter-dropdown">
+    <div class="search-box">
+      <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+      <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Search</button>
+      <button nz-button nzSize="small" (click)="reset()">Reset</button>
+    </div>
+  </div>
+</nz-dropdown-menu>

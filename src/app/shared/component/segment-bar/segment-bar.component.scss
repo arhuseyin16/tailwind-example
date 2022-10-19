@@ -1,0 +1,28 @@
+:host ::ng-deep .ant-segmented-item-selected {
+  @apply bg-eton-blue text-white #{!important};
+}
+
+:host ::ng-deep .ant-segmented-item-label {
+  @apply min-h-[41px] flex justify-center items-center text-clip text-13 #{!important};
+}
+
+.test {
+  @apply border-solid border-r-2 border-sapphire #{!important};
+}
+
+/*
+:host ::ng-deep .ant-segmented:not(.ant-segmented-disabled):hover, .ant-segmented:not(.ant-segmented-disabled):focus {
+  @apply
+}*/
+
+.center {
+  @apply flex justify-center;
+}
+
+.start {
+  @apply flex justify-start;
+}
+
+.end {
+  @apply flex justify-end;
+}

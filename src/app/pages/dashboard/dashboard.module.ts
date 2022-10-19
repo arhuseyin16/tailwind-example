@@ -6,7 +6,7 @@ import { DashboardHeaderComponent } from './dashboard-header/dashboard-header.co
 import {NzInputModule} from "ng-zorro-antd/input";
 import {TranslatePageModule} from "../../shared/component/translate-page/translate-page.module";
 import {NzIconModule} from "ng-zorro-antd/icon";
-import {NotificationService} from "../../shared/service/notification.service";
+import {NotificationService} from "../../service/notification/notification.service";
 import {NzNotificationService} from "ng-zorro-antd/notification";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import {FormsModule} from "@angular/forms";

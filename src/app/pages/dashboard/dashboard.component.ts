@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {NotificationService} from "../../shared/service/notification.service";
+import {NotificationService} from "../../service/notification/notification.service";
 
 @Component({
   selector: 'app-dashboard',

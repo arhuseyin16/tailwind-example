@@ -1,0 +1,74 @@
+.favorite-img {
+  margin: 20px 15px 0 0;
+  position: relative;
+
+  img {
+    width: 30px;
+    object-fit: contain;
+    cursor: pointer;
+
+    &:hover {
+      border-radius: 5px;
+      background-color: #dbecff;
+    }
+  }
+
+  .dropdown-favorite {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    z-index: 999;
+    padding: 12px 14px 12px 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 14px 0 rgba(167, 167, 167, 0.16);
+    background-color: #fff;
+    width: 240px;
+    height: auto;
+
+    span {
+      padding-left: 10px;
+    }
+
+    .favorite {
+      font-size: 15px;
+      font-weight: 400;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+      padding: 3px;
+      border-bottom: solid 0.5px #d5d5d5;
+      nz-switch {
+        ::ng-deep .ant-switch {
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(to right, #fff, #fff);
+        }
+        ::ng-deep .ant-switch-checked {
+          background:  #2d64a0;
+        }
+      }
+    }
+
+    .option-ul {
+      padding-top: 8px;
+      .option {
+        font-size: 15px;
+        font-weight: 400;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        padding: 3px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #2d639f !important;
+          color: #ffffff !important;
+        }
+      }
+    }
+  }
+}

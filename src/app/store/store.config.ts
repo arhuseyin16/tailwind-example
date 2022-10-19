@@ -1,10 +1,19 @@
 import {NgxsDevtoolsOptions} from "@ngxs/devtools-plugin";
 import {environment} from "../../environments/environment";
 import {NgxsConfig} from "@ngxs/store/src/symbols";
+import {HeaderConfigState} from "./header-config/header-config.state";
+import {FavoriteState} from "./favorite/favorite.state";
+import {FavoriteListState} from "./favorite/favorite-list.state";
+import { SidebarState } from "./sidebar/sidebar.state";
+import {ChartState} from "./chart/chart.state";
 
-export const STATES_MODULES = [];
+export const STATES_MODULES = [
+  HeaderConfigState, FavoriteState, FavoriteListState,  SidebarState, ChartState
+];
 
-export const STORAGE_MODULES = {};
+export const STORAGE_MODULES = {
+  key: ['headerConfig', 'favorite', 'favoriteList', 'sidebar', 'chart']
+};
 
 export const OPTIONS_CONFIG: Partial<NgxsConfig> = {
   /**

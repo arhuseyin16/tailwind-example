@@ -2,9 +2,10 @@
   max-height: 132px;
   padding: 11px 10px 10px 20px;
   border-bottom: solid 1px #2d639f;
+  background-color: #fff;
 
   .eho-img {
-    margin: 0 51.5% 0 0;
+    margin: 0 55.6% 0 0;
 
     img {
       width: 80px;
@@ -13,7 +14,7 @@
   }
 
   .search-input {
-    margin: 5px 30px 0 0;
+    margin: 10px 30px 0 0;
 
     .input-position {
       position: relative;
@@ -55,7 +56,7 @@
   }
 
   .filter-img {
-    margin: 22px 30px 0 0;
+    margin: 27px 20px 0 0;
     position: relative;
 
     img {
@@ -148,7 +149,7 @@
   }
 
   .favorite-img {
-    margin: 20px 30px 0 0;
+    margin: 27px 20px 0 0;
     position: relative;
 
     img {
@@ -172,7 +173,7 @@
       box-shadow: 0 0 14px 0 rgba(167, 167, 167, 0.16);
       background-color: #fff;
       width: 230px;
-      height: 75px;
+      height: auto;
 
       li {
         font-size: 15px;
@@ -197,15 +198,15 @@
   .up-line {
     border: solid 1px #d0d0d0;
     height: 36px;
-    margin: 12px 30px 0 0;
+    margin: 19px 20px 0 0;
   }
 
   .language-selector {
-    margin: 15px 20px 0 0;
+    margin: 21px 20px 0 0;
   }
 
   .avatar {
-    margin: 7px 20px 0 0;
+    margin: 12px 20px 0 0;
     p {
       border-radius: 30px;
       background-color: #2d639f;

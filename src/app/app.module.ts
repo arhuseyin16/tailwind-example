@@ -11,10 +11,18 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { IconsProviderModule } from './icons-provider.module';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { StoreModule } from "./store/store.module";
+import { NgxTranslateRoutesModule } from "ngx-translate-routes";
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { FusionChartsModule } from "./shared/fusion-charts/fusioncharts.module";
 
+import * as CandyTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
+import { CustomMissingTranslationHandler } from "./shared/translate/custom-missing-translation-handler";
+import {RouterModule} from "@angular/router";
 registerLocaleData(en);
 
 @NgModule({
@@ -28,21 +36,29 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     AppRoutingModule,
     IconsProviderModule,
-    TranslateModule.forRoot( {
+    FusionChartsModule.forRoot(FusionCharts, Charts, FusionTheme, CandyTheme),
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      useDefaultLang: true,
       loader: {
         provide: TranslateLoader,
         useFactory: httpTranslateLoader,
-        deps: [ HttpClient ]
-      }
-    } ),
+        deps: [HttpClient]
+      },
+      missingTranslationHandler: {provide: MissingTranslationHandler, useClass: CustomMissingTranslationHandler}
+    }),
+    NgxTranslateRoutesModule.forRoot({
+      enableRouteTranslate: false
+    }),
     StoreModule
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US }
+    {provide: NZ_I18N, useValue: en_US}
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
 export function httpTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http);

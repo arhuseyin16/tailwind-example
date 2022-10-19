@@ -1,0 +1,16 @@
+.left-right-text {
+  background-color: #2d64a0;
+  padding: 16px 0 15px 0;
+
+  marquee {
+
+    span {
+
+      @apply font-medium text-left text-white text-18;
+
+      .textType {
+        @apply font-light;
+      }
+    }
+  }
+}

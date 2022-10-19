@@ -7,6 +7,13 @@ import { TranslatePageModule } from "../../shared/component/translate-page/trans
 import { NzMenuModule } from "ng-zorro-antd/menu";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { TranslateModule } from "@ngx-translate/core";
+import { HeaderComponent } from './layout/header/header.component';
+import {ProfileModule} from "../../shared/component/profile/profile.module";
+import {PdfModule} from "../../shared/component/pdf/pdf.module";
+import {FavoriteModule} from "../../shared/component/favorite/favorite.module";
+import {NzInputNumberModule} from "ng-zorro-antd/input-number";
+import {FormsModule} from "@angular/forms";
+import {NzSwitchModule} from "ng-zorro-antd/switch";
 
 const routes: Routes = [
   {
@@ -21,6 +28,10 @@ const routes: Routes = [
       {
         path: 'transactions-dashboard',
         loadChildren: () => import('./transactions-dashboard/transactions-dashboard.module').then(m => m.TransactionsDashboardModule)
+      },
+      {
+        path: 'bank-account',
+        loadChildren: () => import('./bank-accounts/bank-accounts.module').then(m => m.BankAccountsModule)
       }
     ]
   }
@@ -28,17 +39,24 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    HeaderComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NzLayoutModule,
-    TranslatePageModule,
-    NzMenuModule,
-    NzIconModule,
-    TranslateModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        NzLayoutModule,
+        TranslatePageModule,
+        NzMenuModule,
+        NzIconModule,
+        TranslateModule,
+        ProfileModule,
+        PdfModule,
+        FavoriteModule,
+        NzInputNumberModule,
+        FormsModule,
+        NzSwitchModule
+    ]
 })
 export class BankModule {
 }

@@ -1,0 +1,9 @@
+<div class="left-right-text">
+  <marquee>
+    <span class="ml-5" *ngFor="let item of moneyList">
+      {{item.name}}
+      <span class="textType">{{'transactions-dashboard.buying' | translate}}: <span>{{item.buying | number: '1.0-0'}}</span></span>
+      <span class="textType ml-3">{{'transactions-dashboard.sale' | translate}}: <span>{{item.sale | number: '1.0-0'}}</span></span>
+    </span>
+  </marquee>
+</div>

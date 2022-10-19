@@ -1,0 +1,136 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper2 {
+  height: auto;
+  width: 100%;
+}
+
+.mySwiper {
+  height: auto;
+  box-sizing: border-box;
+  padding: 10px 55px;
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 1;
+}
+.mySwiper2 .swiper-button-prev {
+  top: 0;
+  background: white;
+  width: 55px;
+  height: 100%;
+  align-items: start;
+  justify-content: start;
+  padding-top: 85px;
+  padding-left: 19px;
+  left: 0;
+  &::after {
+    font-size: 21px;
+    font-weight: bold;
+  }
+}
+
+.mySwiper2 .swiper-button-next {
+  top: 0;
+  background: white;
+  width: 55px;
+  height: 100%;
+  align-items: start;
+  justify-content: end;
+  padding-top: 85px;
+  padding-right: 19px;
+  right: 0;
+  &::after {
+    font-size: 21px;
+    font-weight: bold;
+  }
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+
+  .swiper-slide-box {
+    box-shadow: 0 3px 14px 0 rgba(123, 123, 123, 0.16);
+    border: solid 2px #87bfad;
+  }
+}
+
+.mySwiper2 .swiper-slide {
+  align-items: start;
+  margin-top: 30px;
+  padding: 0 45px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.swiper-slide-box {
+  border-radius: 5px;
+  box-shadow: 0 3px 14px 0 rgba(173, 173, 173, 0.2);
+  width: 116px!important;
+  height: 116px !important;
+  padding: 1px;
+}
+
+.bank-accounts-table {
+  nz-table {
+    border-radius: 5px;
+    box-shadow: 0 3px 14px 0 rgba(126, 126, 126, 0.16);
+  }
+}
+
+.currency-total-table-td {
+  @apply border-0 border-transparent text-18 px-7 #{!important};
+}
+
+.background-anti-flash-white {
+  @apply bg-anti-flash-white #{!important};
+}

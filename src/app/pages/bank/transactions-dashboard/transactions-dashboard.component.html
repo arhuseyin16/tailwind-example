@@ -1,1 +1,30 @@
-<p>bank-transactions-dashboard works!</p>
+<div class="transactions-dashboard">
+  <app-currency-flow-bar></app-currency-flow-bar>
+  <div class="w-100 pl-7 pr-30px">
+
+    <div class="grid pt-11 gap-30 grid-cols-1 md:grid-cols-3">
+      <div *ngFor="let money of moneyList">
+        <app-balance-summary-column [summary]="money"></app-balance-summary-column>
+      </div>
+    </div>
+
+    <div class="grid pt-[31px] gap-30 grid-cols-1 xl:grid-cols-3">
+
+      <div class="xl:col-span-2">
+        <app-balance-type [segmentBarConfig]="segmentBarConfigForBalanceType" [fusionChartsConfig]="balanceTypeConfig" [title]="'transactions-dashboard.balance-types'" [currencies]="currencies"></app-balance-type>
+      </div>
+
+      <div>
+        <app-balance-type [segmentBarConfig]="segmentBarConfigForAccountType" [fusionChartsConfig]="accountTypeConfig" [title]="'transactions-dashboard.account-types'" [currencies]="currencies"></app-balance-type>
+      </div>
+
+      <div class="xl:col-span-2">
+        <app-bank-accounts></app-bank-accounts>
+      </div>
+
+      <div><app-currencies-summaries [currencyTotals]="currencyTotals"></app-currencies-summaries></div>
+
+    </div>
+
+  </div>
+</div>

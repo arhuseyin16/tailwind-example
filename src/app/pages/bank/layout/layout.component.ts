@@ -1,26 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Store } from "@ngxs/store";
+import { SetIsCollapseAction } from "../../../store/sidebar/sidebar.action";
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent implements OnInit {
   isCollapsed = false;
-
-  constructor(
-    public translateService: TranslateService
-  ) {
-    translateService.addLangs(['en', 'tr']);
-    translateService.setDefaultLang('en');
-  }
+  store = inject(Store);
 
   ngOnInit(): void {
-  }
-  switchLang(lang: string) {
-    this.translateService.use(lang);
+    this.store.dispatch(new SetIsCollapseAction(this.isCollapsed));
   }
 
-
+  changeCollapse() {
+    this.isCollapsed = !this.isCollapsed;
+    this.store.dispatch(new SetIsCollapseAction(this.isCollapsed));
+  }
 }

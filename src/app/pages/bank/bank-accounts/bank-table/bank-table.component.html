@@ -1,0 +1,21 @@
+<div class="bank-table">
+  <div class="banks">
+    <div class="bank-list" *ngFor="let item of bankList">
+      <div class="bank-card">
+        <div class="bank-header">
+          <div class="bank-image">
+            <img src="../../../../../assets/img/bank-account/akbank.png">
+          </div>
+          <div class="bank-color" [ngStyle]="{'background-color': item.color}"></div>
+        </div>
+        <div class="bank-card-body" *ngFor="let data of item.accountList; let i = index" [ngStyle]="{'background-color': i%2 ? '#f2f2f2' : '#fff' }">
+          <div class="data-table" (click)="detailUrl(data)">
+            <span class="account">{{data.account !== 0 ? data.account + ' Hesap' : data.account}}</span>
+            <span class="price">{{data.price}}</span>
+            <span class="money-type">{{data.moneyType}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+
+.card {
+  border-radius: 20px;
+  box-shadow: 0 3px 14px 0 rgba(196, 196, 196, 0.16);
+  background-image: linear-gradient(to left, #87bfad, #2d64a0);
+  padding: 14px 16px 17px 25px;
+
+    .label {
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      color: #fff;
+      text-align: left;
+    }
+
+    .value {
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #fff;
+    }
+
+    .date {
+      font-weight: 300;
+      font-stretch: normal;
+      font-style: normal;
+      letter-spacing: normal;
+      text-align: end;
+      color: #fff;
+    }
+  }
