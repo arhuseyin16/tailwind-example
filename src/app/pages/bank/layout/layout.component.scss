@@ -29,6 +29,10 @@
   @apply text-sapphire #{!important}
 }
 
+:host ::ng-deep .ant-menu-sub.ant-menu-inline {
+  @apply bg-white #{!important};
+}
+
 .sidebar-menu-title {
   @apply text-15
 }
@@ -44,6 +48,10 @@
   .ant-menu-submenu-arrow .ant-menu-submenu-arrow::before .ant-menu-submenu-arrow::after {
     @apply ml-0.5 border w-[9px] bg-sapphire border-sapphire text-sapphire border-solid #{!important}
   }
+}
+
+:host ::ng-deep .ant-menu-submenu-arrow {
+  @apply right-[19px] #{!important};
 }
 
 :host ::ng-deep .ant-menu-submenu-arrow::before {
@@ -80,6 +88,10 @@
 
 .mb0 {
   @apply mb-0 #{!important};
+}
+
+.mt20 {
+  @apply mt-5 #{!important};
 }
 
 .align-items-baseline {
