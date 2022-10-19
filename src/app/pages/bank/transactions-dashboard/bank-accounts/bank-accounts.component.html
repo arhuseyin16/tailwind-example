@@ -35,6 +35,7 @@
       [navigation]="true"
       [loop]="true"
       class="mySwiper2"
+      (slideChangeTransitionStart)="slideChange($event)"
       [thumbs]="{ swiper: thumbsSwiper }"
     >
       <ng-template swiperSlide *ngFor="let accounts of bankAccounts; let i = index">

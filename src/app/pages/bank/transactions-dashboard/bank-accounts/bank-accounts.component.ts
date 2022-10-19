@@ -7,6 +7,7 @@ import Swiper from "swiper";
 
 // install Swiper modules
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
+
 @Component({
   selector: 'app-bank-accounts',
   templateUrl: './bank-accounts.component.html',
@@ -485,7 +486,9 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  transitionStart(event: [swiper: Swiper]) {
-    console.log(event);
+  slideChange(swipers: [swiper: Swiper]) {
+    const index = swipers[0].realIndex;
+    const bank = this.bankAccounts[index];
+    console.log(bank);
   }
 }

@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngxs/store";
 import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
-import {TimerRefreshComponent} from "./timer-refresh/timer-refresh.component";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segment-position.enum";
-import { SegmentBarConfig } from "../../../shared/component/segment-bar/segment-bar.config";
 import {SidebarState} from "../../../store/sidebar/sidebar.state";
 import {ChartConfigUpdated} from "../../../store/chart/chart.action";
-import { ChartDataModel } from "../../../models/shared/chart/chart-data.model";
 import {HeaderConfigModel} from "../../../models/header-config-model";
 import {FavoriteStateModel} from "../../../models/favorite-state.model";
 import {FavoriteAction} from "../../../store/favorite/favorite.action";
 import {Router} from "@angular/router";
+import { ChartDataModel } from "../../../models/shared/chart/chart-data.model";
 import { FusionChartsConfig } from "../../../models/shared/chart/fusion-charts.config";
+import { SegmentBarConfig } from "../../../shared/component/segment-bar/segment-bar.config";
+import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segment-position.enum";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -253,7 +252,7 @@ export class TransactionsDashboardComponent implements OnInit {
     this.balanceTypeConfig.chart.height = '450';
     this.balanceTypeConfig.chart.pieRadius = '175';
     this.balanceTypeConfig.chart.doughnutRadius = '140'
-    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse =>{
+    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => {
       let chartLeftMargin;
       let legendXPosition;
       if (!isCollapse) {

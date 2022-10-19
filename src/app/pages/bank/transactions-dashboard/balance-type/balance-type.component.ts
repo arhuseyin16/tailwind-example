@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import { FusionChartsConfig } from "../../../../models/shared/chart/fusion-charts.config";
-import { SegmentBarConfig } from "../../../../shared/component/segment-bar/segment-bar.config";
 import {Store} from "@ngxs/store";
 import {ChartState} from "../../../../store/chart/chart.state";
+import { FusionChartsConfig } from "../../../../models/shared/chart/fusion-charts.config";
+import { SegmentBarConfig } from "../../../../shared/component/segment-bar/segment-bar.config";
 
 @Component({
   selector: 'app-balance-type',

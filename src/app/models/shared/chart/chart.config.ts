@@ -12,7 +12,9 @@ export class ChartConfig{
   centerLabel?: string = '$label: $value' // chart ortasındaki yazı
   plottooltext?: string = '$value'
   decimal?: string = '2';
-  labelFontSize?: string = '16'; // label font büyüklüğü
+  labelFontSize?: string = '14'; // label font büyüklüğü
+  labelFontBold?: string = '0'
+  labelFont?: string = 'Poppins'
   decimalSeparator?: string = ','; // Value'daki decimal seperatörü
   thousandSeparator?: string = '.'; // Value'daki binler basamağı seperatörü
   legendIconScale?: string = '1'; // legend ikon büyüklüğü
@@ -32,4 +34,15 @@ export class ChartConfig{
   showPercentInTooltip?: string = '0';
   theme?: string = 'fusion';
   interactiveLegend?: boolean = false;
+  labelDisplay?: string = 'Auto';
+  useEllipsesWhenOverflow?: string = '0';
+  smartLineColor?: string = "#000";
+  smartLineThickness?: string = "2";
+  smartLineAlpha?: string = "100";
+  isSmartLineSlanted?: string = "0";
+  labelDistance?: string = '-5'
+  skipOverlapLabels?: string = '1';
+  slicingDistance?: string = '0';
+  alignLegendWithCanvas?: string = '1';
+  displayValue?: string = 'Ömer'
 }

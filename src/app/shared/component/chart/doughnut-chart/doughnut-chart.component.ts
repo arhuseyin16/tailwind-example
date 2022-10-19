@@ -41,7 +41,7 @@ export class DoughnutChartComponent implements OnInit {
       let label = fusionChartsEvent.dataObj.label;
 
       // @ts-ignore
-      if (this.previousLegendItem) {
+      if (this.previousLegendItem && this.previousLegendItem.label) {
         // @ts-ignore
         if (label === this.previousLegendItem.label) {
           updateItem = {
@@ -50,6 +50,7 @@ export class DoughnutChartComponent implements OnInit {
             color: this.previousLegendItem.color,
             showLabel: this.previousLegendItem.showLabel === '1' ? '0' : '1',
             showValue: this.previousLegendItem.showValue === '1' ? '0' : '1',
+            isSliced: this.previousLegendItem.isSliced === '1' ? '0' : '1'
           }
         } else {
           const newItem = virtualChartRefData.data.find((d: any) => d.label === label);
@@ -60,33 +61,37 @@ export class DoughnutChartComponent implements OnInit {
               color: newItem.color,
               showLabel: '1',
               showValue: '1',
+              isSliced: '1'
             };
           }
 
-          if (this.previousLegendItem) {
+          if (this.previousLegendItem && this.previousLegendItem.label) {
             previousItem = {
               label: this.previousLegendItem.label,
               value: this.previousLegendItem.value,
               color: this.previousLegendItem.color,
               showValue: '0',
               showLabel: '0',
+              isSliced: '0'
             };
           }
-          // @ts-ignore
-          this.previousLegendItem = updateItem;
         }
       } else {
-        this.previousLegendItem = virtualChartRefData.data.find((d: any) => d.label === label);
-        if (this.previousLegendItem) {
+        const newItem = virtualChartRefData.data.find((d: any) => d.label === label);
+        if (newItem) {
           updateItem = {
             showLabel: '1',
             showValue: '1',
-            value: this.previousLegendItem.value,
-            color: this.previousLegendItem.color,
-            label: this.previousLegendItem.label
+            isSliced: '1',
+            value: newItem.value,
+            color: newItem.color,
+            label: newItem.label
           }
         }
       }
+      // @ts-ignore
+      this.previousLegendItem = updateItem;
+
       virtualChartRefData.data = virtualChartRefData.data.map((item: any) => {
         if (item.label === label) {
           return updateItem;
