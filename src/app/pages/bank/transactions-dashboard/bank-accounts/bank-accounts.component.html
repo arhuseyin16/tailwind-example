@@ -45,7 +45,7 @@
           <thead>
           </thead>
           <tbody>
-          <tr *ngFor="let account of accountTable.data;let i  = index">
+          <tr class="bank-accounts-hover" [routerLink]="['/bank/bank-account/detail']" *ngFor="let account of accountTable.data;let i  = index">
             <td class="currency-total-table-td " [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
             <td class="currency-total-table-td text-right" [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.value |  number: '2.2' }}   <span
               class="font-bold">{{account.currency }}</span></td>

@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {FavoriteListStateModel} from "../../../models/favorite-state.model";
 import {FavoriteListState} from "../../../store/favorite/favorite-list.state";
 import {FavoriteListAction} from "../../../store/favorite/favorite-list.action";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-favorite',
@@ -18,7 +19,10 @@ export class FavoriteComponent implements OnInit, AfterViewInit {
   favoritePage = false;
   statePage: any;
 
-  constructor(private store: Store) {}
+  constructor(
+    private store: Store,
+    private router: Router,
+    ) {}
 
   ngOnInit(): void {
   }
@@ -61,5 +65,9 @@ export class FavoriteComponent implements OnInit, AfterViewInit {
 
   favoriteImageClick() {
     this.favoriteView = !this.favoriteView;
+  }
+
+  goToUrlPage(url: any) {
+    this.router.navigate([url]);
   }
 }

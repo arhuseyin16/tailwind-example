@@ -995,14 +995,14 @@ export class BankAccountsComponent implements OnInit {
       ]
     },
   ];
-  status = false;
+  allStatus = false;
 
   bankFilterForm = this.fb.group({
-    companies: new FormControl([]),
-    branches: new FormControl([]),
-    accountTypes: new FormControl([]),
-    balance: new FormControl([]),
-    currencyUnit: new FormControl([]),
+    companies: new FormControl<any>([]),
+    branches: new FormControl<any>([]),
+    accountTypes: new FormControl<any>([]),
+    balance: new FormControl<any>([]),
+    currencyUnit: new FormControl<any>([]),
   });
 
   heightPx = HEIGHT_PX;
@@ -1070,20 +1070,65 @@ export class BankAccountsComponent implements OnInit {
     });
   }
 
-  selectChange(event: any) {
+  selectChange(event: any, type: string, formControl: any) {
+    let list = [] as any;
     this.listOption.forEach((row: any) => {
       row.status = false;
     });
-    event.forEach((e: any) => {
+    if (event.includes(0) && !this.allStatus) {
       this.listOption.forEach((row: any) => {
-        if (e === row.id) {
-          row.status = true;
-        }
+        list.push(row.id);
+        row.status = true;
       });
-    });
+      list.push(0);
+      this.allStatus = true;
+      this.bankFilterForm.get(type)?.setValue(list);
+    } else if (!event.includes(0) && this.allStatus) {
+      this.allStatus = false;
+      this.bankFilterForm.get(type)?.setValue([]);
+    } else {
+      event.forEach((e: any, index: number) => {
+        this.listOption.forEach((row: any) => {
+          if (e === row.id) {
+            row.status = true;
+          }
+        });
+      });
+      if (event.includes(0)) {
+        if (event.length !== this.listOption.length + 1) {
+          event.forEach((e: any, index: number) => {
+            if (e === 0) {
+              event.splice(index, 1);
+            }
+          });
+          this.allStatus = false;
+        }
+      } else {
+        if (event.length === this.listOption.length) {
+          list.push(...formControl, 0);
+          this.allStatus = true;
+          this.bankFilterForm.get(type)?.setValue(list);
+        }
+      }
+    }
   }
 
   onSubmit() {
     console.log(this.bankFilterForm.value);
+  }
+
+  allCheckboxChange(e: any, type: string, formControl: any) {
+    let list = [] as any;
+    if (e) {
+      this.listOption.map((x, index) => {
+        list.push(x.id);
+        x.status = e;
+      });
+      list.unshift(0); // -tümü- options value
+      this.bankFilterForm.get(type)?.setValue(list);
+    } else {
+      formControl = [];
+      this.bankFilterForm.get(type)?.setValue([]);
+    }
   }
 }

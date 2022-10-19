@@ -6,8 +6,13 @@
      </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.companies?.length === 1 ? 1 : 0"
                  [nzMaxTagPlaceholder]="bankFilterForm.value.companies?.length === 1 ? null : companies" [nzSize]="'large'"
-                 (ngModelChange)="selectChange($event)"
+                 (ngModelChange)="selectChange($event, 'companies', bankFilterForm.value.companies)"
                  nzMode="multiple" [nzOptionHeightPx]="heightPx" formControlName="companies">
+        <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
+          <label style="padding-right: 10px" nz-checkbox
+                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+          </label>{{"nz-select.all" |translate}}
+        </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
           <label style="padding-right: 10px" nz-checkbox
                  (ngModelChange)="checkboxChange(item.id, $event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">
@@ -15,7 +20,8 @@
         </nz-option>
       </nz-select>
       <ng-template #companies>
-        <p>{{bankFilterForm.value.companies?.length}} adet seçili</p>
+        <p>{{allStatus ? bankFilterForm?.value?.companies?.length - 1  : bankFilterForm?.value?.companies?.length}} {{'nz-select.selected' | translate}}</p>
+<!--      <p>{{bankFilterForm?.value?.companies?.length ? bankFilterForm.value.companies.length - 1 : null}} {{'nz-select.selected' | translate}}</p>-->
       </ng-template>
      <!--<app-nz-select
        [fg]="bankFilterForm"
@@ -38,8 +44,13 @@
       </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.branches?.length === 1 ? 1 : 0"
                  [nzMaxTagPlaceholder]="bankFilterForm.value.branches?.length === 1 ? null : branches"
-                 (ngModelChange)="selectChange($event)"
+                 (ngModelChange)="selectChange($event, 'branches', bankFilterForm.value.branches)"
                  [nzSize]="'large'" nzMode="multiple" formControlName="branches" [nzOptionHeightPx]="heightPx">
+        <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
+          <label style="padding-right: 10px" nz-checkbox
+                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+          </label>{{"nz-select.all" |translate}}
+        </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
           <label style="padding-right: 10px" nz-checkbox
                  (ngModelChange)="checkboxChange(item.id, $event, 'branches', bankFilterForm.value.branches)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">
@@ -47,7 +58,7 @@
         </nz-option>
       </nz-select>
       <ng-template #branches>
-        <p>{{bankFilterForm.value.branches?.length}} adet seçili</p>
+        <p>{{allStatus ? bankFilterForm.value.branches?.length - 1: bankFilterForm.value.branches?.length}} {{'nz-select.selected' | translate}}</p>
       </ng-template>
     </div>
     <div class="form-element p-1 pr-4">
@@ -63,8 +74,13 @@
       </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.accountTypes?.length === 1 ? 1 : 0"
                  [nzMaxTagPlaceholder]="bankFilterForm.value.accountTypes?.length === 1 ? null : accountTypes"
-                 (ngModelChange)="selectChange($event)"
+                 (ngModelChange)="selectChange($event, 'accountTypes', bankFilterForm.value.accountTypes)"
                  [nzSize]="'large'" nzMode="multiple" formControlName="accountTypes" [nzOptionHeightPx]="heightPx">
+        <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
+          <label style="padding-right: 10px" nz-checkbox
+                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+          </label>{{"nz-select.all" |translate}}
+        </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
           <label style="padding-right: 10px" nz-checkbox
                  (ngModelChange)="checkboxChange(item.id, $event, 'accountTypes', bankFilterForm.value.accountTypes)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">
@@ -72,7 +88,7 @@
         </nz-option>
       </nz-select>
       <ng-template #accountTypes>
-        <p>{{bankFilterForm.value.accountTypes?.length}} adet seçili</p>
+        <p>{{allStatus ? bankFilterForm.value.accountTypes?.length - 1 : bankFilterForm.value.accountTypes?.length}} {{'nz-select.selected' | translate}}</p>
       </ng-template>
     </div>
     <div class="form-element p-1 pr-4">
@@ -88,8 +104,13 @@
       </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.balance?.length === 1 ? 1 : 0"
                  [nzMaxTagPlaceholder]="bankFilterForm.value.balance?.length === 1 ? null : balance"
-                 (ngModelChange)="selectChange($event)"
+                 (ngModelChange)="selectChange($event, 'balance', bankFilterForm.value.balance)"
                  [nzSize]="'large'" nzMode="multiple" formControlName="balance" [nzOptionHeightPx]="heightPx">
+        <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
+          <label style="padding-right: 10px" nz-checkbox
+                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+          </label>{{"nz-select.all" |translate}}
+        </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
           <label style="padding-right: 10px" nz-checkbox
                  (ngModelChange)="checkboxChange(item.id, $event, 'balance', bankFilterForm.value.balance)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">
@@ -97,7 +118,7 @@
         </nz-option>
       </nz-select>
       <ng-template #balance>
-        <p>{{bankFilterForm.value.balance?.length}} adet seçili</p>
+        <p>{{allStatus ? bankFilterForm.value.balance?.length - 1 : bankFilterForm.value.balance?.length}} {{'nz-select.selected' | translate}}</p>
       </ng-template>
     </div>
     <div class="form-element p-1 pr-4">
@@ -113,8 +134,13 @@
       </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.currencyUnit?.length === 1 ? 1 : 0"
                  [nzMaxTagPlaceholder]="bankFilterForm.value.currencyUnit?.length === 1 ? null : currencyUnit"
-                 (ngModelChange)="selectChange($event)"
+                 (ngModelChange)="selectChange($event, 'currencyUnit', bankFilterForm.value.currencyUnit)"
                  [nzSize]="'large'" nzMode="multiple" formControlName="currencyUnit" [nzOptionHeightPx]="heightPx">
+        <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
+          <label style="padding-right: 10px" nz-checkbox
+                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+          </label>{{"nz-select.all" |translate}}
+        </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
           <label style="padding-right: 10px" nz-checkbox
                  (ngModelChange)="checkboxChange(item.id, $event, 'currencyUnit', bankFilterForm.value.currencyUnit)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">
@@ -122,7 +148,7 @@
         </nz-option>
       </nz-select>
       <ng-template #currencyUnit>
-        <p>{{bankFilterForm.value.currencyUnit?.length}} adet seçili</p>
+        <p>{{ allStatus ? bankFilterForm.value.currencyUnit?.length- 1 : bankFilterForm.value.currencyUnit?.length}} {{'nz-select.selected' | translate}}</p>
       </ng-template>
     </div>
     <div class="form-element pt-10">

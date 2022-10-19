@@ -22,11 +22,14 @@
     border-radius: 5px;
     box-shadow: 0 0 14px 0 rgba(167, 167, 167, 0.16);
     background-color: #fff;
-    width: 240px;
+    width: 275px;
     height: auto;
 
     span {
-      padding-left: 10px;
+      //padding-left: 10px;
+      position: absolute;
+      right: 12px;
+      top: 13px;
     }
 
     .favorite {
