@@ -120,9 +120,11 @@
   padding: 1px;
 }
 
-nz-table {
-  border-radius: 5px;
-  box-shadow: 0 3px 14px 0 rgba(126, 126, 126, 0.16);
+.bank-accounts-table {
+  nz-table {
+    border-radius: 5px;
+    box-shadow: 0 3px 14px 0 rgba(126, 126, 126, 0.16);
+  }
 }
 
 .currency-total-table-td {

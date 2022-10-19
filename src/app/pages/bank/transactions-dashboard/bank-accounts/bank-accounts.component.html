@@ -39,7 +39,7 @@
       [thumbs]="{ swiper: thumbsSwiper }"
       (slideChangeTransitionStart)="slideChange($event)"
     >
-      <ng-template swiperSlide *ngFor="let accounts of bankAccounts; let i = index">
+      <ng-template swiperSlide class="bank-accounts-table" *ngFor="let accounts of bankAccounts; let i = index">
         <nz-table class="w-[95%]" nzSize="small" #accountTable [nzData]="accounts.information" [nzScroll]="{ y: '300px' }" [nzFrontPagination]="false"
                   [nzShowPagination]="false">
           <thead>
