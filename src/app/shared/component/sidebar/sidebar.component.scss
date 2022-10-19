@@ -92,3 +92,17 @@
   height: 106px;
   width: 106px;
 }
+
+:host ::ng-deep .ant-menu-submenu-open ul::before {
+  content: '';
+  @apply h-full w-px bg-silver left-[30px] absolute top-0 #{!important};
+}
+
+:host ::ng-deep .ant-menu-submenu-open ul {
+  @apply pl-[26px] #{!important};
+}
+
+.ant-menu ul,
+.ant-menu ol {
+  @apply relative #{!important};
+}

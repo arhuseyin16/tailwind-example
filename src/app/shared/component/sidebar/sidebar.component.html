@@ -26,7 +26,6 @@
         [ngClass]="(!isCollapsed)? menu.isNotCollapseClass: menu.isCollapseClass"
         [routerLink]="menu.routerLink"
       >
-
           <span nz-icon [class]="menu.iconSpanClass" *ngIf="menu.isCollapseCheck ? isCollapsed : true">
             <img [class]="menu.iconClass" [src]="menu.icon" [alt]="menu.isCollapseCheck ? menu.title : ''">
           </span>
