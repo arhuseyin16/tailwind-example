@@ -50,7 +50,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     NzCheckboxModule,
     FormsModule,
-    NzCustomSelectModule
+    NzCustomSelectModule,
   ]
 })
 export class BankAccountsModule { }
