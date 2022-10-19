@@ -6,62 +6,7 @@
             nzBreakpoint="lg"
             [(nzCollapsed)]="isCollapsed"
             [nzTrigger]="null">
-    <div>
-      <div class="sidebar-logo">
-        <img src="assets/icon/logo.png" alt="logo">
-      </div>
-      <div>
-        <span class="cursor-pointer" (click)="changeCollapse()">
-          <div *ngIf="isCollapsed" class="absolute top-[71px] left-[92px] w-[43%] h-[30%]">
-                 <img class="w-[50px] h-[50px]" src="assets/img/sidebar/sidebar-open-3x.png"
-                      alt="sidebar-open">
-          </div>
-
-          <div *ngIf="!isCollapsed" class="absolute top-[71px] left-[303px] w-[30%] h-[30%]">
-                <img class="w-[50px] h-[50px]" src="assets/img/sidebar/sidebar-close-3x.png"
-                     alt="sidebar-close">
-          </div>
-
-      </span>
-      </div>
-    </div>
-    <ul nz-menu nzTheme="light" nzMode="inline" class="w-full pt-[23px]" [nzInlineCollapsed]="isCollapsed">
-      <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menus }"></ng-container>
-      <ng-template #menuTpl let-menus>
-        <ng-container *ngFor="let menu of menus">
-          <li
-            *ngIf="!menu.children"
-            nz-menu-item
-            [class]="menu.menuItemClass"
-            [ngClass]="(!isCollapsed)? menu.isNotCollapseClass: menu.isCollapseClass"
-            [routerLink]="menu.routerLink"
-          >
-
-          <span nz-icon [class]="menu.iconSpanClass" *ngIf="menu.isCollapseCheck ? isCollapsed : true">
-            <img [class]="menu.iconClass" [src]="menu.icon" [alt]="menu.isCollapseCheck ? menu.title : ''">
-          </span>
-            <span *ngIf="menu.isCollapseCheck ? !isCollapsed : true" [class]="menu.titleClass">{{ menu.title | translate }}</span>
-          </li>
-          <li
-            *ngIf="menu.children"
-            nz-submenu
-            [nzTitle]="title"
-            [class]="menu.menuItemClass"
-            [ngClass]="(!isCollapsed)? menu.isNotCollapseClass: menu.isCollapseClass"
-          >
-            <ul>
-              <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menu.children }"></ng-container>
-            </ul>
-          </li>
-          <ng-template #title>
-            <span nz-icon [class]="menu.iconSpanClass">
-              <img [class]="menu.iconClass" [src]="menu.icon" [alt]="menu.title">
-              </span>
-            <span>{{menu.title | translate}}</span>
-          </ng-template>
-        </ng-container>
-      </ng-template>
-    </ul>
+  <app-sidebar></app-sidebar>
   </nz-sider>
 
 
