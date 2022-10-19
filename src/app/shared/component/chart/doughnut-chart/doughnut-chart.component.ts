@@ -20,11 +20,11 @@ export class DoughnutChartComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.fusionChartsConfig) {
-      this.store.select(ChartState.getChartConfig).subscribe(config => {
+    /*  this.store.select(ChartState.getChartConfig).subscribe(config => {
         if (this.chartRef && this.chartRef.id === 'chart' + this.fusionChartsConfig.data.length) {
           this.chartRef.setJSONData(config.chartConfig);
         }
-      });
+      });*/
     }
   }
 

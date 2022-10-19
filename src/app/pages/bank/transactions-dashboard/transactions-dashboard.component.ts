@@ -243,7 +243,7 @@ export class TransactionsDashboardComponent implements OnInit {
   createBalanceTypeConfig() {
     this.balanceTypeConfig.data = this.balanceTypes;
     this.balanceTypeConfig.chart.numberSuffix = '₺';
-    this.balanceTypeConfig.chart.legendPosition = 'absolute';
+    this.balanceTypeConfig.chart.legendPosition = 'right';
     this.balanceTypeConfig.chart.legendYPosition = '80';
     this.balanceTypeConfig.chart.legendNumRows = '3';
     this.balanceTypeConfig.chart.legendNumColumns = '2';
@@ -251,8 +251,8 @@ export class TransactionsDashboardComponent implements OnInit {
     this.balanceTypeConfig.chart.width = '100%';
     this.balanceTypeConfig.chart.height = '450';
     this.balanceTypeConfig.chart.pieRadius = '175';
-    this.balanceTypeConfig.chart.doughnutRadius = '140'
-    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => {
+    this.balanceTypeConfig.chart.doughnutRadius = '140';
+/*    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => {
       let chartLeftMargin;
       let legendXPosition;
       if (!isCollapse) {
@@ -265,7 +265,7 @@ export class TransactionsDashboardComponent implements OnInit {
         this.balanceTypeConfig = {...this.balanceTypeConfig, chart: {...this.balanceTypeConfig.chart, chartLeftMargin, legendXPosition}}
       }
       this.store.dispatch(new ChartConfigUpdated(this.balanceTypeConfig));
-    });
+    });*/
   }
 
   createAccountTypeConfig() {

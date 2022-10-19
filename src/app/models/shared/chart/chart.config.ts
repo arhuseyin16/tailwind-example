@@ -34,7 +34,7 @@ export class ChartConfig{
   showPercentInTooltip?: string = '0';
   theme?: string = 'fusion';
   interactiveLegend?: boolean = false;
-  labelDisplay?: string = 'Auto';
+  labelDisplay?: string = 'wrap';
   useEllipsesWhenOverflow?: string = '0';
   smartLineColor?: string = "#000";
   smartLineThickness?: string = "2";
@@ -44,5 +44,4 @@ export class ChartConfig{
   skipOverlapLabels?: string = '1';
   slicingDistance?: string = '0';
   alignLegendWithCanvas?: string = '1';
-  displayValue?: string = 'Ömer'
 }
