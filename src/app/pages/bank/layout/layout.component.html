@@ -39,7 +39,7 @@
           <span class="w-[22px]" *ngIf="isCollapsed"  nz-icon nzType="ellipsis" nzTheme="outline"></span>
        <!--   <img  class="w-[22px] h-[22px]" src="assets/img/sidebar/dashboard-icon.svg"
                 alt="dashboard">-->
-        <span class="sidebar-menu-title uppercase font-bold" *ngIf="!isCollapsed">{{'sidebar.bank-transactions' | translate}}</span>
+        <span class="sidebar-menu-title uppercase font-bold" [routerLink]="['/bank/transactions-dashboard']" *ngIf="!isCollapsed">{{'sidebar.bank-transactions' | translate}}</span>
       </li>
 
       <li class="mt16 sidebar-base-menu-label mb0" [ngClass]="(!isCollapsed)?'ml9-minus':'ml4-minus'" nz-submenu [nzTitle]="cashStatus">

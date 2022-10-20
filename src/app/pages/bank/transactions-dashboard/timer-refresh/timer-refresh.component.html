@@ -15,7 +15,7 @@
   <div class="leftSide-switch ml-3">
     <nz-switch [(ngModel)]="switch"></nz-switch>
   </div>
-  <div class="leftSide-send" *ngIf="timerValue !== 0">
+  <div class="leftSide-send" *ngIf="timerValue !== 0 && switch">
     <button>{{"header.send" | translate}}</button>
   </div>
 </div>
