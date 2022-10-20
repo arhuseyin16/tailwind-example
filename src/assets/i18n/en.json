@@ -98,6 +98,7 @@
     "selected": "Selected",
     "all": "All",
     "export": "Export",
-    "excel-export": "Excel Export"
+    "excel-export": "Excel Export",
+    "all-selected": "All Selected"
   }
 }

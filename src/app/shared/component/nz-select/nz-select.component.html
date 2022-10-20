@@ -1,18 +1,24 @@
 <div class="form-element-select" [formGroup]="fg">
   <div class="pb-3">
-    <label>{{label}}</label>
+    <label>{{label || '' |translate}}</label>
   </div>
   <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="controlName?.length === 1 ? 1 : 0"
-             [nzMaxTagPlaceholder]="controlName?.length === 1 ? null : branches"
-             (ngModelChange)="selectChange($event)" [nzSize]="'large'"
+             [nzMaxTagPlaceholder]="controlName?.length === 1 ? null : formLength" ngDefaultControl
+             (ngModelChange)="selectChange($event, formControlName, controlName)" [nzSize]="'large'"
              nzMode="multiple" formControlName="{{formControlName}}" [nzOptionHeightPx]="heightPx">
+    <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
+      <label style="padding-right: 10px" nz-checkbox
+             (ngModelChange)="allCheckboxChange($event, formControlName, controlName)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+      </label>{{"nz-select.all" |translate}}
+    </nz-option>
     <nz-option *ngFor="let item of optionList" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
       <label style="padding-right: 10px" nz-checkbox
              (ngModelChange)="checkboxChange(item.id, $event, formControlName, controlName)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">
       </label>{{item.name}}
     </nz-option>
   </nz-select>
-  <ng-template #branches>
-    <p>{{controlName?.length}}  {{'nz-select.selected' | translate}}</p>
+  <ng-template #formLength>
+    <p *ngIf="allStatus">{{'nz-select.all-selected' | translate}}</p>
+    <p *ngIf="!allStatus">{{controlName.length}}  {{'nz-select.selected' | translate}}</p>
   </ng-template>
 </div>

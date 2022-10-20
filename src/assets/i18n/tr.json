@@ -98,6 +98,7 @@
     "selected": "Adet Seçili",
     "all": "Tümü",
     "export": "Dışa Aktar",
-    "excel-export": "Excel'e Aktar"
+    "excel-export": "Excel'e Aktar",
+    "all-selected": "Tümü Seçili"
   }
 }

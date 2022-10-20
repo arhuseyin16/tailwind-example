@@ -1,7 +1,15 @@
 <div class="container-fluid">
   <form class="bank-filter-form" [formGroup]="bankFilterForm">
    <div class="form-element p-1 pr-4">
-     <div class="pb-3">
+     <app-nz-select
+       [fg]="bankFilterForm"
+       [controlName]="bankFilterForm.value.companies"
+       [formControlName]="'companies'"
+       [optionList]="listOption"
+       [label]="'bank-account.companies'"
+       ngDefaultControl
+     ></app-nz-select>
+    <!-- <div class="pb-3">
        <label>{{'bank-account.companies' | translate}}</label>
      </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.companies?.length === 1 ? 1 : 0"
@@ -21,25 +29,18 @@
       </nz-select>
       <ng-template #companies>
         <p>{{allStatus ? bankFilterForm?.value?.companies?.length - 1  : bankFilterForm?.value?.companies?.length}} {{'nz-select.selected' | translate}}</p>
-<!--      <p>{{bankFilterForm?.value?.companies?.length ? bankFilterForm.value.companies.length - 1 : null}} {{'nz-select.selected' | translate}}</p>-->
-      </ng-template>
-     <!--<app-nz-select
-       [fg]="bankFilterForm"
-       [controlName]="bankFilterForm.value.companies"
-       [formControlName]="'companies'"
-       [optionList]="listOption"
-       [label]="'Firmalar'"
-     ></app-nz-select>-->
+      </ng-template>-->
     </div>
     <div class="form-element p-1 pr-4">
-      <!--<app-nz-select
+      <app-nz-select
         [fg]="bankFilterForm"
         [controlName]="bankFilterForm.value.branches"
         [formControlName]="'branches'"
         [optionList]="listOption"
-        [label]="'Şubeler'"
-      ></app-nz-select>-->
-      <div class="pb-3">
+        ngDefaultControl
+        [label]="'bank-account.branches'"
+      ></app-nz-select>
+      <!--<div class="pb-3">
         <label>{{'bank-account.branches' | translate}}</label>
       </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.branches?.length === 1 ? 1 : 0"
@@ -48,7 +49,7 @@
                  [nzSize]="'large'" nzMode="multiple" formControlName="branches" [nzOptionHeightPx]="heightPx">
         <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
           <label style="padding-right: 10px" nz-checkbox
-                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+                 (ngModelChange)="allCheckboxChange($event, 'branches', bankFilterForm.value.branches)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
           </label>{{"nz-select.all" |translate}}
         </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
@@ -59,17 +60,18 @@
       </nz-select>
       <ng-template #branches>
         <p>{{allStatus ? bankFilterForm.value.branches?.length - 1: bankFilterForm.value.branches?.length}} {{'nz-select.selected' | translate}}</p>
-      </ng-template>
+      </ng-template>-->
     </div>
     <div class="form-element p-1 pr-4">
-      <!--<app-nz-select
+      <app-nz-select
         [fg]="bankFilterForm"
         [controlName]="bankFilterForm.value.accountTypes"
         [formControlName]="'accountTypes'"
         [optionList]="listOption"
-        [label]="'Hesap Türleri'"
-      ></app-nz-select>-->
-      <div class="pb-3">
+        ngDefaultControl
+        [label]="'bank-account.account-types'"
+      ></app-nz-select>
+      <!--<div class="pb-3">
         <label>{{'bank-account.account-types' | translate}}</label>
       </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.accountTypes?.length === 1 ? 1 : 0"
@@ -78,7 +80,7 @@
                  [nzSize]="'large'" nzMode="multiple" formControlName="accountTypes" [nzOptionHeightPx]="heightPx">
         <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
           <label style="padding-right: 10px" nz-checkbox
-                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+                 (ngModelChange)="allCheckboxChange($event, 'accountTypes', bankFilterForm.value.accountTypes)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
           </label>{{"nz-select.all" |translate}}
         </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
@@ -89,17 +91,18 @@
       </nz-select>
       <ng-template #accountTypes>
         <p>{{allStatus ? bankFilterForm.value.accountTypes?.length - 1 : bankFilterForm.value.accountTypes?.length}} {{'nz-select.selected' | translate}}</p>
-      </ng-template>
+      </ng-template>-->
     </div>
     <div class="form-element p-1 pr-4">
-      <!--<app-nz-select
+      <app-nz-select
         [fg]="bankFilterForm"
         [controlName]="bankFilterForm.value.balance"
         [formControlName]="'balance'"
         [optionList]="listOption"
-        [label]="'Bakiye'"
-      ></app-nz-select>-->
-      <div class="pb-3">
+        ngDefaultControl
+        [label]="'bank-account.balance'"
+      ></app-nz-select>
+      <!--<div class="pb-3">
         <label>{{'bank-account.balance' | translate}}</label>
       </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.balance?.length === 1 ? 1 : 0"
@@ -108,7 +111,7 @@
                  [nzSize]="'large'" nzMode="multiple" formControlName="balance" [nzOptionHeightPx]="heightPx">
         <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
           <label style="padding-right: 10px" nz-checkbox
-                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+                 (ngModelChange)="allCheckboxChange($event, 'balance', bankFilterForm.value.balance)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
           </label>{{"nz-select.all" |translate}}
         </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
@@ -119,17 +122,18 @@
       </nz-select>
       <ng-template #balance>
         <p>{{allStatus ? bankFilterForm.value.balance?.length - 1 : bankFilterForm.value.balance?.length}} {{'nz-select.selected' | translate}}</p>
-      </ng-template>
+      </ng-template>-->
     </div>
     <div class="form-element p-1 pr-4">
-      <!--<app-nz-select
+      <app-nz-select
         [fg]="bankFilterForm"
         [controlName]="bankFilterForm.value.currencyUnit"
         [formControlName]="'currencyUnit'"
         [optionList]="listOption"
-        [label]="'Para Birimi'"
-      ></app-nz-select>-->
-      <div class="pb-3">
+        ngDefaultControl
+        [label]="'bank-account.currency-unit'"
+      ></app-nz-select>
+     <!-- <div class="pb-3">
         <label>{{'bank-account.currency-unit' | translate}}</label>
       </div>
       <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="bankFilterForm.value.currencyUnit?.length === 1 ? 1 : 0"
@@ -138,7 +142,7 @@
                  [nzSize]="'large'" nzMode="multiple" formControlName="currencyUnit" [nzOptionHeightPx]="heightPx">
         <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
           <label style="padding-right: 10px" nz-checkbox
-                 (ngModelChange)="allCheckboxChange($event, 'companies', bankFilterForm.value.companies)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
+                 (ngModelChange)="allCheckboxChange($event, 'currencyUnit', bankFilterForm.value.currencyUnit)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
           </label>{{"nz-select.all" |translate}}
         </nz-option>
         <nz-option *ngFor="let item of listOption" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
@@ -149,7 +153,7 @@
       </nz-select>
       <ng-template #currencyUnit>
         <p>{{ allStatus ? bankFilterForm.value.currencyUnit?.length- 1 : bankFilterForm.value.currencyUnit?.length}} {{'nz-select.selected' | translate}}</p>
-      </ng-template>
+      </ng-template>-->
     </div>
     <div class="form-element pt-10">
       <button (click)="onSubmit()" class="btn-search">{{'bank-account.inquire' | translate}}</button>
