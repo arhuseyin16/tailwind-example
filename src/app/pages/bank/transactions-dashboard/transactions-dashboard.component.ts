@@ -245,8 +245,8 @@ export class TransactionsDashboardComponent implements OnInit {
     this.balanceTypeConfig.chart.numberSuffix = '₺';
     this.balanceTypeConfig.chart.legendPosition = 'right';
     this.balanceTypeConfig.chart.legendYPosition = '80';
-    this.balanceTypeConfig.chart.legendNumRows = '3';
-    this.balanceTypeConfig.chart.legendNumColumns = '2';
+    this.balanceTypeConfig.chart.legendNumRows = '1';
+    this.balanceTypeConfig.chart.legendNumColumns = '1';
     this.balanceTypeConfig.chart.defaultCenterLabel = '389.477.778';
     this.balanceTypeConfig.chart.width = '100%';
     this.balanceTypeConfig.chart.height = '450';

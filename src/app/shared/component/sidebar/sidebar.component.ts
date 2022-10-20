@@ -21,7 +21,8 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'pl-50',
       isNotCollapseClass: 'pl-15',
       titleClass: 'sidebar-menu-label',
-      routerLink: ''
+      routerLink: '',
+      isDisplayIcon: true
     },
 
     {
@@ -32,7 +33,8 @@ export class SidebarComponent implements OnInit {
       titleClass: 'sidebar-menu-title uppercase font-bold',
       isCollapseClass: 'pl-50',
       isNotCollapseClass: 'pl-15',
-      isCollapseCheck: true
+      isCollapseCheck: true,
+      isDisplayIcon: false
     },
 
     {
@@ -44,6 +46,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -67,6 +70,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'sidebar.account-activities',
@@ -90,6 +94,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -113,6 +118,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -136,6 +142,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -159,6 +166,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -182,6 +190,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -205,6 +214,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -228,6 +238,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -251,6 +262,7 @@ export class SidebarComponent implements OnInit {
       isCollapseClass: 'ml4-minus',
       isNotCollapseClass: 'ml9-minus',
       isCollapseCheck: false,
+      titleClass: 'ml-[9px]',
       children: [
         {
           title: 'Option 1',
@@ -271,7 +283,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new SetIsCollapseAction(this.isCollapsed));
-
   }
 
   changeCollapse() {

@@ -29,7 +29,7 @@
           <span nz-icon [class]="menu.iconSpanClass" *ngIf="menu.isCollapseCheck ? isCollapsed : true">
             <img [class]="menu.iconClass" [src]="menu.icon" [alt]="menu.isCollapseCheck ? menu.title : ''">
           </span>
-        <span *ngIf="menu.isCollapseCheck ? !isCollapsed : true" [class]="menu.titleClass">{{ menu.title | translate }}</span>
+        <span *ngIf="menu.isCollapseCheck ? !isCollapsed : true" [ngClass]="(isCollapsed ? 'opacity-0' : 'opacity-1')" [class]="menu.titleClass">{{ menu.title | translate }}</span>
       </li>
       <li
         *ngIf="menu.children"
@@ -46,7 +46,7 @@
             <span nz-icon [class]="menu.iconSpanClass">
               <img [class]="menu.iconClass" [src]="menu.icon" [alt]="menu.title">
               </span>
-        <span>{{menu.title | translate}}</span>
+        <span [ngClass]="(isCollapsed ? 'opacity-0' : 'opacity-1')" [class]="menu.titleClass">{{menu.title | translate}}</span>
       </ng-template>
     </ng-container>
   </ng-template>

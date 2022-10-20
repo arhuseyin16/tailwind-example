@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { Store } from "@ngxs/store";
+import { Select, Store } from "@ngxs/store";
 import { SetIsCollapseAction } from "../../../store/sidebar/sidebar.action";
+import { SidebarState } from "../../../store/sidebar/sidebar.state";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-layout',
@@ -9,8 +11,12 @@ import { SetIsCollapseAction } from "../../../store/sidebar/sidebar.action";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent implements OnInit {
-  isCollapsed = false
 
+  isCollapsed = false;
+  store = inject(Store);
+  constructor() {
+    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => this.isCollapsed = isCollapse);
+  }
   ngOnInit(): void {
   }
 }

@@ -43,5 +43,5 @@ export class ChartConfig{
   labelDistance?: string = '-5'
   skipOverlapLabels?: string = '1';
   slicingDistance?: string = '0';
-  alignLegendWithCanvas?: string = '1';
+  legendWidth?: string = '600';
 }

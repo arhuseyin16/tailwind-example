@@ -3,8 +3,8 @@
 
   <div class="mt-[29px] block h-full">
 
-    <div *ngIf="selectedIndex === 1" class="pb-[20px]">
-      <nz-table nzSize="small" nzShowPagination="false" #currencyTotalsData *ngIf="currencyTotals.length > 0" [nzData]="currencyTotals">
+    <div *ngIf="selectedIndex === 1 && currencyTotals.length > 0" class="pb-[20px]">
+      <nz-table nzSize="small"  nzShowPagination="false" #currencyTotalsData  [nzData]="currencyTotals">
         <thead>
         <tr>
           <th class="currency-total-table-th">{{'transactions-dashboard.currency-type' | translate}}</th>
@@ -19,6 +19,7 @@
         </tbody>
       </nz-table>
     </div>
+    <ng-template #virtualScroll></ng-template>
 
     <div *ngIf="selectedIndex === 2">
       <app-segment-bar [segmentBarConfig]="currenciesSegmentBarConfig" (selectedSegmentEvent)="currencyBarChange($event)"></app-segment-bar>
@@ -32,7 +33,7 @@
             <th class="currency-total-table-th" nzAlign="right" [nzLeft]="false">{{'transactions-dashboard.amount' | translate}}</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody class="side-bar">
           <tr *ngFor="let bankAmount of bankAccountByCurrency.data;let i = index">
             <td *ngIf="bankAmount.iconPath" class="currency-total-table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}"><img [src]="bankAmount.iconPath" alt="bankIcon" width="80" /></td>
             <td *ngIf="!bankAmount.iconPath" class="currency-total-table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{bankAmount.title}}</td>
