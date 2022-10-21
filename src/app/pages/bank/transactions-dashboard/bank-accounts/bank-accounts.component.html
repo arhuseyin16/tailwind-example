@@ -3,7 +3,8 @@
     <label class="text-20 text-black font-bold">{{'transactions-dashboard.bank-accounts' | translate}}</label>
   </div>
   <div>
-    <a (click)="bankAccountDetail()" class="text-new-car text-20-normal">{{'transactions-dashboard.detail' | translate}}</a>
+    <a (click)="bankAccountDetail()"
+       class="text-new-car text-20-normal">{{'transactions-dashboard.detail' | translate}}</a>
   </div>
 </div>
 <div class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px] h-full">
@@ -37,17 +38,19 @@
       class="mySwiper2"
       (slideChangeTransitionStart)="slideChange($event)"
       [thumbs]="{ swiper: thumbsSwiper }"
-      (slideChangeTransitionStart)="slideChange($event)"
     >
       <ng-template swiperSlide class="bank-accounts-table" *ngFor="let accounts of bankAccounts; let i = index">
-        <nz-table class="w-[95%]" nzSize="small" #accountTable [nzData]="accounts.information" [nzScroll]="{ y: '300px' }" [nzFrontPagination]="false"
+        <nz-table class="w-[95%]" nzSize="small" #accountTable [nzData]="accounts.information"
+                  [nzScroll]="{ y: '300px' }" [nzFrontPagination]="false"
                   [nzShowPagination]="false">
           <thead>
           </thead>
           <tbody>
           <tr *ngFor="let account of accountTable.data;let i  = index">
-            <td class="currency-total-table-td " [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
-            <td class="currency-total-table-td text-right" [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.value |  number: '2.2' }}   <span
+            <td class="currency-total-table-td "
+                [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
+            <td class="currency-total-table-td text-right"
+                [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.value |  number: '2.2' }}   <span
               class="font-bold">{{account.currency }}</span></td>
           </tr>
           </tbody>

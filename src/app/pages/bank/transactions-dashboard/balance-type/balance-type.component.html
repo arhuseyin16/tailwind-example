@@ -4,7 +4,8 @@
     <app-segment-bar [segmentBarConfig]="segmentBarConfig" (selectedSegmentEvent)="selectedCurrency($event)"></app-segment-bar>
 
     <div *ngIf="fusionChartsConfig.data.length > 0">
-      <app-doughnut-chart [fusionChartsConfig]="fusionChartsConfig"></app-doughnut-chart>
+      <!--<app-doughnut-chart [fusionChartsConfig]="fusionChartsConfig"></app-doughnut-chart>-->
+      <app-doughnut-echart></app-doughnut-echart>
     </div>
   </div>
 </div>
