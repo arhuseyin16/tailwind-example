@@ -13,6 +13,7 @@ import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
 import { TranslatePageModule } from "../../shared/component/translate-page/translate-page.module";
 import { OtpComponent } from './otp/otp.component';
 import { OnlyNumberModule } from "../../shared/directive/only-number/only-number.module";
+import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 
 const routes: Routes = [
   {
@@ -28,21 +29,22 @@ const routes: Routes = [
     LoginComponent,
     OtpComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NzCardModule,
-    NzInputModule,
-    TranslateModule,
-    NzIconModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslatePageModule,
-    NzWaveModule,
-    NzButtonModule,
-    NzCheckboxModule,
-    OnlyNumberModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        NzCardModule,
+        NzInputModule,
+        TranslateModule,
+        NzIconModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TranslatePageModule,
+        NzWaveModule,
+        NzButtonModule,
+        NzCheckboxModule,
+        OnlyNumberModule,
+        NzDropDownModule
+    ]
 })
 export class LoginModule {
 }

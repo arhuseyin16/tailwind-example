@@ -4,9 +4,19 @@
       20 Hesap
     </div>
     <div class="option-select">
-      <nz-select nzAllowClear [nzSize]="'large'" nzPlaceHolder="{{'nz-select.export' | translate}}">
+      <nz-select nzAllowClear [(ngModel)]="excelExport" [nzSize]="'large'" nzPlaceHolder="{{'nz-select.export' | translate}}" [nzCustomTemplate]="defaultTemplate">
         <nz-option nzValue="excel" nzLabel="{{'nz-select.excel-export' | translate}}"></nz-option>
       </nz-select>
+      <ng-template #defaultTemplate let-selected>
+        <div class="flex">
+          <div style="margin: 10px 5px 0 0;">
+            <img src="assets/icon/excel-icon.png" width="18px">
+          </div>
+          <div style="font-size: 15px;">
+            {{ selected.nzLabel }}
+          </div>
+        </div>
+      </ng-template>
     </div>
   </div>
   <div class="detail-table">

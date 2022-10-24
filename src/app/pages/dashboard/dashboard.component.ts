@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {NotificationService} from "../../service/notification/notification.service";
+import {Store} from "@ngxs/store";
+import {HeaderDropdownActionClear} from "../../store/header-dropdown-valid/header-dropdown.action";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private store: Store,
     private notificationService: NotificationService
     ) { }
 
@@ -26,4 +29,7 @@ export class DashboardComponent implements OnInit {
     this.router.navigate([url]);
   }
 
+  dropdownClick() {
+    this.store.dispatch(new HeaderDropdownActionClear());
+  }
 }

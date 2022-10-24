@@ -15,10 +15,14 @@ export class NzSelectComponent implements OnInit {
   @Input() optionList: any[] = [];
   @Input() label?: string = '';
   allStatus = false;
+  nzSelectLoading = true;
   constructor() {
   }
 
   ngOnInit(): void {
+    if (this.optionList.length > 0) {
+      this.nzSelectLoading = false;
+    }
   }
 
   selectChange(event: any, type: string, formControl: any) {
@@ -65,6 +69,9 @@ export class NzSelectComponent implements OnInit {
   }
 
   checkboxChange(id: number, e: any, type: any, formControl: any) {
+    if (typeof formControl === 'string') {
+      formControl = [];
+    }
     let list = [] as any;
     this.optionList.map((x: any) => {
       if (x.id === id) {
