@@ -512,8 +512,8 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  bankAccountDetail() {
-    this.router.navigate(['bank/bank-account'], {queryParams: {id: this.swiperChangeId}});
+  bankAccountDetail(id: number) {
+    this.router.navigate(['bank/bank-account'], {queryParams: {id: id}});
 
   }
 

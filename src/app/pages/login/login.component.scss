@@ -12,7 +12,8 @@
   .login-language {
     position: absolute;
     top: 0;
-    padding: 10px;
+    padding: 20px;
+    font-size: 18px;
   }
 
   .login-banner {
@@ -175,6 +176,15 @@
         letter-spacing: normal;
       }
     }
+  }
+}
+
+::ng-deep .ant-dropdown {
+  margin-top: 12px;
+  left: -10px;
+
+  ::ng-deep .ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title {
+    font-size: 18px;
   }
 }
 

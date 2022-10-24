@@ -1,4 +1,4 @@
-<div class="language">
+<div class="language" (click)="translateClick()">
   <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
     <img src="{{languageMeta[translateService.defaultLang].flagImagePath}}"
          width="33px" alt="{{languageMeta[translateService.defaultLang].text}} /">

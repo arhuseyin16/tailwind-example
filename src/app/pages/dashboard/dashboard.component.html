@@ -1,5 +1,5 @@
 <!--<app-dashboard-header (isSwitch)="test()"></app-dashboard-header>-->
-<div class="dashboard">
+<div class="dashboard" (click)="dropdownClick()">
   <div class="module">
     <div class="module-list" *ngFor="let item of moduleList">
       <div *ngIf="item.status">

@@ -1,7 +1,19 @@
 <!--begin::Signin-->
 <div class="login-form login-signin">
   <div class="login-language">
-    <app-translate-page></app-translate-page>
+<!--    <app-translate-page></app-translate-page>-->
+    <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+      {{languageMeta[translateService.defaultLang].short}}
+    </a>
+    <nz-dropdown-menu class="language-dropdown" #menu="nzDropdownMenu">
+      <div *ngFor="let language of translateService.getLangs()">
+        <ul nz-menu *ngIf="language !== translateService.defaultLang">
+          <li nz-menu-item (click)="switchLang(translateService.currentLang === 'en' ? 'tr' : 'en')">
+            {{languageMeta[language].short}}
+          </li>
+        </ul>
+      </div>
+    </nz-dropdown-menu>
   </div>
   <img class="login-banner" src="../../../assets/img/login-img/login-left-body.png" alt="Login Logo" />
   <!--begin::Form-->

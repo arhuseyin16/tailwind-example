@@ -4,8 +4,8 @@
   </div>
   <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="controlName?.length === 1 ? 1 : 0"
              [nzMaxTagPlaceholder]="controlName?.length === 1 ? null : formLength" ngDefaultControl
-             (ngModelChange)="selectChange($event, formControlName, controlName)" [nzSize]="'large'"
-             nzMode="multiple" formControlName="{{formControlName}}" [nzOptionHeightPx]="heightPx">
+             (ngModelChange)="selectChange($event, formControlName, controlName)" [nzSize]="'large'" [nzLoading]="nzSelectLoading"
+             nzMode="multiple" formControlName="{{formControlName}}" [nzOptionOverflowSize]="heightPx">
     <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
       <label style="padding-right: 10px" nz-checkbox
              (ngModelChange)="allCheckboxChange($event, formControlName, controlName)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">

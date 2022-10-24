@@ -1,3 +1,3 @@
-<div class="pdf-page">
+<div class="pdf-page" [ngClass]="pdfView ? 'back-image' : ''" (click)="pdfClick()">
   <img src="assets/img/header/header-pdf.png">
 </div>
