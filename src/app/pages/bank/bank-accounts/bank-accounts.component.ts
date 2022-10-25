@@ -6,7 +6,7 @@ import {HeaderConfigModel} from "../../../models/header-config-model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FavoriteAction} from "../../../store/favorite/favorite.action";
 import {FavoriteStateModel} from "../../../models/favorite-state.model";
-import {FormBuilder, FormControl, Validators} from "@angular/forms";
+import {FormBuilder, FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-bank-accounts',

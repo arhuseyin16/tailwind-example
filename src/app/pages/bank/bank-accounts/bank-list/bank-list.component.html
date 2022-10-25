@@ -10,7 +10,7 @@
       <img src="{{item.image}}">
     </div>
     <div class="account">
-      <div class="account-list" *ngFor="let child of item.accountList; let i = index;">
+      <div class="account-list" [ngStyle]="i !== 3 && i !== 7 ? {'border-right': 'solid 1px #b4b4b4'}: {'border-right': 'none'}" *ngFor="let child of item.accountList; let i = index;">
         <div class="total-price">
           <span class="total">{{child.price}}</span><span class="money-type">{{child.moneyType}}</span>
         </div>

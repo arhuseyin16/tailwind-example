@@ -312,7 +312,6 @@ export class BankAccountDetailComponent implements OnInit {
   pageSize = PAGE_SIZE;
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
-  excelExport: any = 'excel';
   constructor(
     private activatedRoute: ActivatedRoute,
     private store: Store,
