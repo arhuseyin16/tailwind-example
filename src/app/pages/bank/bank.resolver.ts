@@ -281,7 +281,6 @@ export class BankResolver implements Resolve<Array<SidebarDataModel>> {
         ]
       },
     ];
-    debugger
     this.store.dispatch(new SetSidebarDataAction(menus));
   }
 }

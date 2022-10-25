@@ -32,7 +32,6 @@ export class SidebarState {
 
   @Action(SetSidebarDataAction)
   setSidebarDataAction(ctx: StateContext<SidebarStateModel>, action: SetSidebarDataAction) {
-    debugger
     ctx.patchState({
       data: action.sidebarDataModel
     });
