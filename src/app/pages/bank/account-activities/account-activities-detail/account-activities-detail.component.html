@@ -1,0 +1,23 @@
+<div class="account-activities-detail">
+  <div class="account-excel-right">
+    <div class="excel-export">
+      <button>
+        <img src="assets/icon/excel-icon.png">
+      </button>
+    </div>
+  </div>
+  <div class="account-detail">
+    <div class="account-header">
+      <div class="bank-image">
+        <img src="assets/img/bank-account/akbank.png">
+      </div>
+      <div class="bank-color" [ngStyle]="{'background-color': bankDetail?.color}">
+        <span>İşlem ID: {{bankDetail?.id}}</span>
+      </div>
+    </div>
+    <div class="account-first-body">
+      <div class="left-card">Card 1</div>
+      <div class="right-card">Card 2</div>
+    </div>
+  </div>
+</div>

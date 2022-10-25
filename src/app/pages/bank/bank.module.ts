@@ -34,6 +34,10 @@ const routes: Routes = [
       {
         path: 'bank-account',
         loadChildren: () => import('./bank-accounts/bank-accounts.module').then(m => m.BankAccountsModule)
+      },
+      {
+        path: 'account-activities',
+        loadChildren: () => import('./account-activities/account-activities.module').then(m => m.AccountActivitiesModule)
       }
     ],
     resolve: {

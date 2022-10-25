@@ -1,0 +1,81 @@
+.account-activities-detail {
+  margin: 20px 30px 0 30px;
+  .account-excel-right {
+    position: relative;
+    padding: 0 0 50px 0;
+
+    .excel-export {
+      width: 45px;
+      position: absolute;
+      right: 0;
+      top: -9px;
+
+      button {
+        width: 100%;
+        height: 45px;
+      }
+
+      &:hover {
+        width: 50px;
+        padding: 4px;
+        background-color: #dbecff;
+        border-radius: 5px;
+        max-height: 53px;
+      }
+    }
+  }
+  .account-detail {
+    border-radius: 15px;
+    box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
+    background-color: #fff;
+
+    .account-header {
+      display: flex;
+
+      .bank-image {
+        padding: 0 0 0 24px;
+
+        img {
+          width: 129px;
+          height: 65px;
+          object-fit: contain;
+        }
+      }
+
+      .bank-color {
+        width: 100%;
+        border-radius: 15px 15px 0 15px;
+        padding: 17px 0px 0px 19px;
+        height: 60px;
+
+        span {
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #fff;
+        }
+      }
+    }
+
+    .account-first-body {
+      display: flex;
+      margin: 33px 25px 0 30px;
+
+      .left-card {
+        border-radius: 10px;
+        box-shadow: 0 0 14px 0 rgba(108, 108, 108, 0.16);
+        background-color: #fff;
+      }
+
+      .right-card {
+        border-radius: 10px;
+        box-shadow: 0 0 14px 0 rgba(108, 108, 108, 0.16);
+        background-color: #fff;
+      }
+    }
+  }
+}

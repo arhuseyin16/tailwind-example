@@ -100,5 +100,12 @@
     "export": "Dışa Aktar",
     "excel-export": "Excel'e Aktar",
     "all-selected": "Tümü Seçili"
+  },
+  "favorite-list": {
+    "bank-transactions": "Banka İşlemleri",
+    "bank-accounts": "Banka Hesapları",
+    "bank-accounts-detail": "Banka Hesapları Detay",
+    "account-activities": "Hesap Hareketleri",
+    "account-activities-detail": "Hesap Hareketleri Detay"
   }
 }

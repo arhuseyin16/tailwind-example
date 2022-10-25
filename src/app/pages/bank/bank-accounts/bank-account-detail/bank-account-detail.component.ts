@@ -332,7 +332,7 @@ export class BankAccountDetailComponent implements OnInit {
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
     //favorite
     this.favoriteModel = {
-      name: 'Banka Hesapları Detay',
+      name: 'favorite-list.bank-accounts-detail',
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
