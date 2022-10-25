@@ -246,22 +246,10 @@ export class DoughnutEchartComponent implements OnInit {
       orient: 'vertical',
       left: 'auto',
       right: 'right',
-      data: this.balanceTypesLegend
+      data: []
     },
     series: [
-      {
-        name: 'Access From',
-        type: 'pie',
-        radius: '50%',
-        data: this.balanceTypes,
-        emphasis: {
-          itemStyle: {
-            shadowBlur: 10,
-            shadowOffsetX: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
-          }
-        }
-      }
+
     ]
   };
 

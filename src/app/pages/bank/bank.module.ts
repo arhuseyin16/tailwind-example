@@ -15,6 +15,7 @@ import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {FormsModule} from "@angular/forms";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { SidebarModule } from "../../shared/component/sidebar/sidebar.module";
+import { BankResolver } from "./bank.resolver";
 
 const routes: Routes = [
   {
@@ -34,7 +35,10 @@ const routes: Routes = [
         path: 'bank-account',
         loadChildren: () => import('./bank-accounts/bank-accounts.module').then(m => m.BankAccountsModule)
       }
-    ]
+    ],
+    resolve: {
+      bank: BankResolver
+    }
   }
 ]
 
