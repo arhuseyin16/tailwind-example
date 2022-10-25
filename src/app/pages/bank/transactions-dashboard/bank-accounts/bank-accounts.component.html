@@ -3,7 +3,7 @@
     <label class="text-20 text-black font-bold">{{'transactions-dashboard.bank-accounts' | translate}}</label>
   </div>
   <div>
-    <a (click)="bankAccountDetail()"
+    <a [routerLink]="['/bank/bank-account']"
        class="text-new-car text-20-normal">{{'transactions-dashboard.detail' | translate}}</a>
   </div>
 </div>
@@ -46,11 +46,9 @@
           <thead>
           </thead>
           <tbody>
-          <tr *ngFor="let account of accountTable.data;let i  = index">
-            <td class="currency-total-table-td "
-                [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
-            <td class="currency-total-table-td text-right"
-                [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.value |  number: '2.2' }}   <span
+          <tr class="bank-accounts-hover" (click)="bankAccountDetail(accounts.id)" *ngFor="let account of accountTable.data;let i  = index">
+            <td class="currency-total-table-td " [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.accountNumber }} {{'transactions-dashboard.account' | translate}}</td>
+            <td class="currency-total-table-td text-right" [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ account.value |  number: '2.2' }}   <span
               class="font-bold">{{account.currency }}</span></td>
           </tr>
           </tbody>

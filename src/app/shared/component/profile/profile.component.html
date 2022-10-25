@@ -1,4 +1,4 @@
-<div class="profile" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+<div class="profile" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" (click)="profileClick()">
     {{avatar}}
   <nz-dropdown-menu class="profile-dropdown"  #menu="nzDropdownMenu">
     <ul class="profile-ul" nz-menu>

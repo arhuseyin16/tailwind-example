@@ -1,5 +1,7 @@
 <div class="favorite-img" (click)="favoriteImageClick()">
-  <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
+  <div [ngClass]="favoriteView ? 'back-image' : ''">
+    <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
+  </div>
   <div class="dropdown-favorite" *ngIf="favoriteView">
     <ul>
       <li class="favorite" [ngStyle]="{'border-bottom': favoriteList.length > 0 ? 'solid 0.5px #d5d5d5': 'none' }">
@@ -10,7 +12,7 @@
       </li>
     </ul>
     <ul class="option-ul" [ngStyle]="favoriteList.length > 3 ? {'overflow': 'auto', 'height': '120px'} : null">
-      <li class="option" (click)="favoriteView = !favoriteView" routerLink="{{item.url}}" *ngFor="let item of favoriteList">
+      <li class="option" (click)="goToUrlPage(item.url)" *ngFor="let item of favoriteList">
         {{item?.name}}
       </li>
     </ul>

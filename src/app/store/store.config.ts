@@ -6,13 +6,14 @@ import {FavoriteState} from "./favorite/favorite.state";
 import {FavoriteListState} from "./favorite/favorite-list.state";
 import { SidebarState } from "./sidebar/sidebar.state";
 import {ChartState} from "./chart/chart.state";
+import {HeaderDropdownState} from "./header-dropdown-valid/header-dropdown.state";
 
 export const STATES_MODULES = [
-  HeaderConfigState, FavoriteState, FavoriteListState,  SidebarState, ChartState
+  HeaderConfigState, FavoriteState, FavoriteListState,  SidebarState, ChartState, HeaderDropdownState
 ];
 
 export const STORAGE_MODULES = {
-  key: ['headerConfig', 'favorite', 'favoriteList', 'sidebar', 'chart']
+  key: ['headerConfig', 'favorite', 'favoriteList', 'sidebar', 'chart', 'headerDropdown']
 };
 
 export const OPTIONS_CONFIG: Partial<NgxsConfig> = {

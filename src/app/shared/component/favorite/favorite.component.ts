@@ -5,6 +5,12 @@ import {Observable} from "rxjs";
 import {FavoriteListStateModel} from "../../../models/favorite-state.model";
 import {FavoriteListState} from "../../../store/favorite/favorite-list.state";
 import {FavoriteListAction} from "../../../store/favorite/favorite-list.action";
+import {Router} from "@angular/router";
+import {HeaderDropdownState} from "../../../store/header-dropdown-valid/header-dropdown.state";
+import {
+  HeaderDropdownAction,
+  HeaderDropdownActionClear
+} from "../../../store/header-dropdown-valid/header-dropdown.action";
 
 @Component({
   selector: 'app-favorite',
@@ -13,12 +19,18 @@ import {FavoriteListAction} from "../../../store/favorite/favorite-list.action";
 })
 export class FavoriteComponent implements OnInit, AfterViewInit {
   @Select(FavoriteState.getFavorite) favoriteConfig$?: Observable<any>;
+  @Select(HeaderDropdownState.getDropdown) favoriteDropdown$?: Observable<any>;
   favoriteList: FavoriteListStateModel[] = [];
   favoriteView = false;
   favoritePage = false;
   statePage: any;
 
-  constructor(private store: Store) {}
+  constructor(
+    private store: Store,
+    private router: Router,
+    ) {
+    this.store.dispatch(new HeaderDropdownActionClear());
+  }
 
   ngOnInit(): void {
   }
@@ -35,6 +47,9 @@ export class FavoriteComponent implements OnInit, AfterViewInit {
           }
         });
       }
+    });
+    this.favoriteDropdown$?.subscribe(state => {
+      this.favoriteView = state.favorite;
     });
   }
 
@@ -61,5 +76,11 @@ export class FavoriteComponent implements OnInit, AfterViewInit {
 
   favoriteImageClick() {
     this.favoriteView = !this.favoriteView;
+    this.store.dispatch(new HeaderDropdownAction(false, this.favoriteView, false));
+
+  }
+
+  goToUrlPage(url: any) {
+    this.router.navigate([url]);
   }
 }

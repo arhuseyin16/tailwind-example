@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Store} from "@ngxs/store";
+import {HeaderDropdownActionClear} from "../../../store/header-dropdown-valid/header-dropdown.action";
 
 @Component({
   selector: 'app-profile',
@@ -11,11 +13,14 @@ export class ProfileComponent implements OnInit {
   surname: string = "Ar";
   avatar: string = "";
 
-  constructor() {
+  constructor(private store: Store) {
     this.avatar = this.name.split('')[0].toUpperCase() +  this.surname.split('')[0].toUpperCase();
   }
 
   ngOnInit(): void {
   }
 
+  profileClick() {
+    this.store.dispatch(new HeaderDropdownActionClear());
+  }
 }

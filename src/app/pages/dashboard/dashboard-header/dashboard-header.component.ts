@@ -1,15 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {Store} from "@ngxs/store";
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Select, Store} from "@ngxs/store";
 import {FavoriteListStateModel} from "../../../models/favorite-state.model";
 import {FavoriteListState} from "../../../store/favorite/favorite-list.state";
+import {HeaderDropdownState} from "../../../store/header-dropdown-valid/header-dropdown.state";
+import {Observable} from "rxjs";
+import {HeaderDropdownActionClear} from "../../../store/header-dropdown-valid/header-dropdown.action";
 
 @Component({
   selector: 'app-dashboard-header',
   templateUrl: './dashboard-header.component.html',
   styleUrls: ['./dashboard-header.component.scss']
 })
-export class DashboardHeaderComponent implements OnInit {
-
+export class DashboardHeaderComponent implements OnInit, AfterViewInit {
+  @Select(HeaderDropdownState.getDropdown) headerDropdown$?: Observable<any>;
   moduleList: Array<any> = new Array<any>();
   dashboardView = false;
   favoriteView = false;
@@ -82,4 +85,20 @@ export class DashboardHeaderComponent implements OnInit {
     });
   }
 
+  dashboardViewClick() {
+    this.favoriteView = false;
+    this.dashboardView = !this.dashboardView;
+  }
+
+  favoriteViewClick() {
+    this.dashboardView = false;
+    this.favoriteView = !this.favoriteView;
+  }
+
+  ngAfterViewInit() {
+    this.headerDropdown$?.subscribe(state => {
+      this.dashboardView = state.dashboardView;
+      this.favoriteView = state.favorite;
+    });
+  }
 }

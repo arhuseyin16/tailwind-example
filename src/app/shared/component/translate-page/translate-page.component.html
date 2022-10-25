@@ -1,14 +1,16 @@
-<div class="language">
+<div class="language" (click)="translateClick()">
   <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
     <img src="{{languageMeta[translateService.defaultLang].flagImagePath}}"
          width="33px" alt="{{languageMeta[translateService.defaultLang].text}} /">
   </a>
   <nz-dropdown-menu class="language-dropdown" #menu="nzDropdownMenu">
-    <ul nz-menu *ngFor="let language of translateService.getLangs()">
-      <li nz-menu-item (click)="switchLang(translateService.currentLang === 'en' ? 'tr' : 'en')">
-        <img src="{{languageMeta[language].flagImagePath}}" width="33px" alt="{{languageMeta[language].text}} /">
-      </li>
-    </ul>
+    <div *ngFor="let language of translateService.getLangs()">
+      <ul nz-menu *ngIf="language !== translateService.defaultLang">
+        <li nz-menu-item (click)="switchLang(translateService.currentLang === 'en' ? 'tr' : 'en')">
+          <img src="{{languageMeta[language].flagImagePath}}" width="33px" alt="{{languageMeta[language].text}} /">
+        </li>
+      </ul>
+    </div>
   </nz-dropdown-menu>
 </div>
 
