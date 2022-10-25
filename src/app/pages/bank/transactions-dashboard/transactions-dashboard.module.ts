@@ -16,6 +16,7 @@ import { NzTableModule } from "ng-zorro-antd/table";
 import { SwiperModule } from "swiper/angular";
 import { CurrenciesSummariesComponent } from './currencies-summaries/currencies-summaries.component';
 import { DoughnutChartModule } from "../../../shared/component/chart/doughnut-chart/doughnut-chart.module";
+import { DoughnutEchartModule } from "../../../shared/component/chart/doughnut-echart/doughnut-echart.module";
 
 const routes: Routes = [
   {
@@ -34,17 +35,18 @@ const routes: Routes = [
     BankAccountsComponent,
     CurrenciesSummariesComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        TranslateModule,
-        NzInputNumberModule,
-        NzSwitchModule,
-        FormsModule,
-        SegmentBarModule,
-        NzTableModule,
-        SwiperModule,
-        DoughnutChartModule,
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    TranslateModule,
+    NzInputNumberModule,
+    NzSwitchModule,
+    FormsModule,
+    SegmentBarModule,
+    NzTableModule,
+    SwiperModule,
+    DoughnutChartModule,
+    DoughnutEchartModule,
+  ]
 })
 export class TransactionsDashboardModule { }

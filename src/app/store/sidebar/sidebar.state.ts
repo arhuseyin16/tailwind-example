@@ -1,11 +1,13 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store";
-import { SetIsCollapseAction, SidebarStateModel } from "./sidebar.action";
+import { SetIsCollapseAction, SetSidebarDataAction, SidebarStateModel } from "./sidebar.action";
 import { Injectable } from "@angular/core";
+import { SidebarDataModel } from "../../models/shared/sidebar/sidebar-data.model";
 
 @State<SidebarStateModel>({
   name: 'sidebar',
   defaults: {
-    isCollapse: false
+    isCollapse: false,
+    data: []
   }
 })
 @Injectable()
@@ -16,10 +18,22 @@ export class SidebarState {
     return ctx.isCollapse;
   }
 
+  @Selector()
+  static getSidebarData(ctx: SidebarStateModel): Array<SidebarDataModel>  {
+    return ctx.data;
+  }
+
   @Action(SetIsCollapseAction)
   setIsCollapseAction(ctx: StateContext<SidebarStateModel>, action: SetIsCollapseAction) {
     ctx.patchState({
       isCollapse: action.isCollapse
+    });
+  }
+
+  @Action(SetSidebarDataAction)
+  setSidebarDataAction(ctx: StateContext<SidebarStateModel>, action: SetSidebarDataAction) {
+    ctx.patchState({
+      data: action.sidebarDataModel
     });
   }
 }

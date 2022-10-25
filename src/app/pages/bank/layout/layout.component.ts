@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
-import { Store } from "@ngxs/store";
+import { Select, Store } from "@ngxs/store";
 import { SetIsCollapseAction } from "../../../store/sidebar/sidebar.action";
+import { SidebarState } from "../../../store/sidebar/sidebar.state";
+import { Observable } from "rxjs";
 import {HeaderDropdownActionClear} from "../../../store/header-dropdown-valid/header-dropdown.action";
 
 @Component({
@@ -12,14 +14,11 @@ import {HeaderDropdownActionClear} from "../../../store/header-dropdown-valid/he
 export class LayoutComponent implements OnInit {
   isCollapsed = false;
   store = inject(Store);
-
-  ngOnInit(): void {
-    this.store.dispatch(new SetIsCollapseAction(this.isCollapsed));
+  constructor() {
+    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => this.isCollapsed = isCollapse);
   }
 
-  changeCollapse() {
-    this.isCollapsed = !this.isCollapsed;
-    this.store.dispatch(new SetIsCollapseAction(this.isCollapsed));
+  ngOnInit(): void {
   }
 
   dropdownClick() {
