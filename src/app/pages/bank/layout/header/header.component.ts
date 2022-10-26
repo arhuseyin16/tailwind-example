@@ -20,8 +20,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.headerConfig$?.subscribe(state => {
+      this.container.clear();
       if (state.data?.length > 0) {
-        this.container.clear();
         state.data.forEach((async (config: any) => {
           const componentInstance = await config.component();
           const componentRef = this.container.createComponent(componentInstance);

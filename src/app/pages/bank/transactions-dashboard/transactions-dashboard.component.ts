@@ -115,7 +115,7 @@ export class TransactionsDashboardComponent implements OnInit {
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
     this.favoriteModel = {
-      name: 'İşlem Hareketleri',
+      name: 'favorite-list.bank-transactions',
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));

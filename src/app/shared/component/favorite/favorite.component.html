@@ -13,7 +13,7 @@
     </ul>
     <ul class="option-ul" [ngStyle]="favoriteList.length > 3 ? {'overflow': 'auto', 'height': '120px'} : null">
       <li class="option" (click)="goToUrlPage(item.url)" *ngFor="let item of favoriteList">
-        {{item?.name}}
+        {{item?.name || '' | translate}}
       </li>
     </ul>
   </div>

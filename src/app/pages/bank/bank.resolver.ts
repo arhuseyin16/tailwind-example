@@ -79,7 +79,7 @@ export class BankResolver implements Resolve<Array<SidebarDataModel>> {
         children: [
           {
             title: 'sidebar.account-activities',
-            routerLink: '',
+            routerLink: 'account-activities',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {

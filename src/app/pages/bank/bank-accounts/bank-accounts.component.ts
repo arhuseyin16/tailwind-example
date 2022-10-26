@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HEIGHT_PX} from "../../../shared/constants/select-height-px";
 import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
 import {Store} from "@ngxs/store";
 import {HeaderConfigModel} from "../../../models/header-config-model";
@@ -953,7 +952,6 @@ export class BankAccountsComponent implements OnInit {
       ]
     }
   ];
-  allStatus = false;
 
   bankFilterForm = this.fb.group({
     companies: new FormControl<any>([]),
@@ -963,7 +961,6 @@ export class BankAccountsComponent implements OnInit {
     currencyUnit: new FormControl<any>([]),
   });
 
-  heightPx = HEIGHT_PX;
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
@@ -979,7 +976,7 @@ export class BankAccountsComponent implements OnInit {
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
     this.favoriteModel = {
-      name: 'Banka Hesapları',
+      name: 'favorite-list.bank-accounts',
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
