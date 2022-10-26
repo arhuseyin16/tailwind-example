@@ -45,7 +45,7 @@
       .bank-color {
         width: 100%;
         border-radius: 15px 15px 0 15px;
-        padding: 17px 0px 0px 19px;
+        padding: 17px 0 0 19px;
         height: 60px;
 
         span {
@@ -69,13 +69,188 @@
         border-radius: 10px;
         box-shadow: 0 0 14px 0 rgba(108, 108, 108, 0.16);
         background-color: #fff;
+        flex: 0 0 50%;
+        max-width: 49%;
+        margin: 0 12px 0 0;
+        padding: 5px 0 5px 0;
       }
 
       .right-card {
         border-radius: 10px;
         box-shadow: 0 0 14px 0 rgba(108, 108, 108, 0.16);
         background-color: #fff;
+        flex: 0 0 50%;
+        max-width: 49%;
+        margin: 0 0 0 12px;
+        padding: 5px 0 5px 0;
       }
+
+      .row-one {
+        background-color: #fff;
+        padding: 8px 0 8px 27px;
+        display: flex;
+      }
+
+      .row-two {
+        background-color: #f2f2f2;
+        padding: 8px 0 8px 27px;
+        display: flex;
+      }
+
+      .detail-label {
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
+      .detail-value {
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        flex: 0 0 75%;
+        max-width: 75%;
+      }
+    }
+
+    .account-second-body {
+      margin: 33px 25px 0 30px;
+
+      .center-card {
+        border-radius: 10px;
+        box-shadow: 0 0 14px 0 rgba(108, 108, 108, 0.16);
+        background-color: #fff;
+
+        .row-three {
+          background-color: #fff;
+          padding: 8px 0 8px 27px;
+          display: flex;
+        }
+
+        .row-four {
+          background-color: #f2f2f2;
+          padding: 8px 0 8px 27px;
+          display: flex;
+        }
+
+        .detail-label-three {
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000;
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+        .detail-value-three {
+          font-size: 18px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000;
+          flex: 0 0 75%;
+          max-width: 75%;
+        }
+      }
+    }
+
+    .account-footer {
+      display: flex;
+      margin: 50px 25px 0 30px;
+      padding-bottom: 35px;
+
+      .account-footer-balance {
+        border-radius: 10px;
+        box-shadow: 0 0 14px 0 rgba(95, 95, 95, 0.16);
+        background-color: #fff;
+        flex: 0 0 50%;
+        max-width: 49%;
+        margin: 0 30px 0 0;
+        padding: 10px 10px 10px 25px;;
+      }
+
+      .account-footer-amount {
+        border-radius: 10px;
+        box-shadow: 0 0 14px 0 rgba(95, 95, 95, 0.16);
+        background-color: #fff;
+        flex: 0 0 50%;
+        max-width: 49%;
+        margin: 0 12px 0 0;
+        padding: 10px 10px 10px 25px;;
+      }
+
+      .footer-label {
+        font-size: 25px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+      }
+
+      .footer-value {
+        font-size: 25px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        padding-left: 20px;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .account-first-body {
+    display: block !important;
+
+    .left-card {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+
+    .right-card {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      margin: 30px 0 0 0 !important;
+    }
+  }
+
+  .account-footer {
+    display: block !important;
+
+    .account-footer-balance {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+    }
+
+    .account-footer-amount {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+      margin: 20px 0 0 0 !important;
     }
   }
 }
