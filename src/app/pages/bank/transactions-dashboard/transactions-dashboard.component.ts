@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from "@ngxs/store";
-import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
+import { Store } from "@ngxs/store";
+import { HeaderConfigAction } from "../../../store/header-config/header-config.action";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import {SidebarState} from "../../../store/sidebar/sidebar.state";
-import {ChartConfigUpdated} from "../../../store/chart/chart.action";
-import {HeaderConfigModel} from "../../../models/header-config-model";
-import {FavoriteStateModel} from "../../../models/favorite-state.model";
-import {FavoriteAction} from "../../../store/favorite/favorite.action";
-import {Router} from "@angular/router";
-import { ChartDataModel } from "../../../models/shared/chart/chart-data.model";
-import { FusionChartsConfig } from "../../../models/shared/chart/fusion-charts.config";
+import { SidebarState } from "../../../store/sidebar/sidebar.state";
+import { ChartConfigUpdated } from "../../../store/chart/chart.action";
+import { HeaderConfigModel } from "../../../models/header-config-model";
+import { FavoriteStateModel } from "../../../models/favorite-state.model";
+import { FavoriteAction } from "../../../store/favorite/favorite.action";
+import { Router } from "@angular/router";
 import { SegmentBarConfig } from "../../../shared/component/segment-bar/segment-bar.config";
 import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segment-position.enum";
+import { EChartsOption } from "echarts";
+import { CurrencyUtil } from "../../../shared/util/currency.util";
+import { CurrencyEnum } from "../../../shared/enum/currency.enum";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -50,22 +51,83 @@ export class TransactionsDashboardComponent implements OnInit {
     {label: 'AED', value: 5.06},
   ];
 
-  balanceTypes = new Array<ChartDataModel>();
-
   accountTypes = [
     {
       label: "Vadeli",
-      value: "28504",
+      accounts: [
+        {
+          name: "GBP",
+          value: 41614
+        },
+        {
+          name: "AUD",
+          value: 23508
+        },
+        {
+          name: "USD",
+          value: 24453
+        },
+        {
+          name: "TRY",
+          value: 10133
+        },
+        {
+          name: "RUB",
+          value: 44026
+        }
+      ],
       color: '#007ea7'
     },
     {
       label: "Mevduat",
-      value: "14633",
+      accounts: [
+        {
+          name: "TRY",
+          value: 1894
+        },
+        {
+          name: "EUR",
+          value: 3524
+        },
+        {
+          name: "CHF",
+          value: 29840
+        },
+        {
+          name: "USD",
+          value: 47678
+        },
+        {
+          name: "GBP",
+          value: 22048
+        }
+      ],
       color: '#87bfad'
     },
     {
       label: "Blokeli",
-      value: "28715",
+      accounts: [
+        {
+          name: "AED",
+          value: 32709
+        },
+        {
+          name: "TRY",
+          value: 40049
+        },
+        {
+          name: "USD",
+          value: 33916
+        },
+        {
+          name: "RUB",
+          value: 23267
+        },
+        {
+          name: "AUD",
+          value: 33710
+        }
+      ],
       color: '#003249'
     }
   ];
@@ -101,13 +163,633 @@ export class TransactionsDashboardComponent implements OnInit {
     },
   ];
 
-  balanceTypeConfig = new FusionChartsConfig();
-  accountTypeConfig = new FusionChartsConfig();
+  balanceTypes = [
+    {
+      label: "Deutsche Bank",
+      accounts: [
+        {
+          name: 'TRY',
+          value: 2831
+        },
+        {
+          name: 'USD',
+          value: 4567
+        },
+        {
+          name: 'EUR',
+          value: 15687
+        },
+        {
+          name: 'GBP',
+          value: 68797
+        },
+        {
+          name: 'CHF',
+          value: 7985
+        },
+        {
+          name: 'RUB',
+          value: 33248
+        },
+        {
+          name: 'AUD',
+          value: 15687
+        },
+        {
+          name: 'JFY',
+          value: 32497
+        },
+        {
+          name: 'AED',
+          value: 8795
+        }
+      ],
+      color: '#52b189'
+    },
+    {
+      label: "Akbank",
+      accounts: [
+        {
+          name: 'TRY',
+          value: 28311
+        },
+        {
+          name: 'USD',
+          value: 13123
+        },
+        {
+          name: 'EUR',
+          value: 32432
+        },
+
+        {
+          name: 'RUB',
+          value: 12312
+        },
+        {
+          name: 'AUD',
+          value: 4563
+        },
+        {
+          name: 'JFY',
+          value: 3453
+        },
+        {
+          name: 'AED',
+          value: 6777
+        }
+      ],
+      color: '#dc4333'
+    },
+    {
+      label: "Aktif Bank",
+      accounts: [
+        {
+          name: 'TRY',
+          value: 6755
+        },
+        {
+          name: 'USD',
+          value: 56756
+        },
+        {
+          name: 'EUR',
+          value: 34532
+        },
+        {
+          name: 'GBP',
+          value: 3421
+        },
+        {
+          name: 'CHF',
+          value: 45643
+        },
+      ],
+      color: '#2c414a'
+    },
+    {
+      label: "Albarak Türk",
+      value: "4910",
+      accounts: [
+        {
+          name: 'CHF',
+          value: 3421
+        },
+        {
+          name: 'RUB',
+          value: 4645
+        },
+        {
+          name: 'AUD',
+          value: 45642
+        },
+        {
+          name: 'JFY',
+          value: 23432
+        },
+        {
+          name: 'AED',
+          value: 6785
+        }
+      ],
+      color: '#c32f31'
+    },
+    {
+      label: "Alternatif Bank",
+      accounts: [
+        {
+          name: 'TRY',
+          value: 2831
+        },
+        {
+          name: 'USD',
+          value: 4567
+        },
+        {
+          name: 'EUR',
+          value: 15687
+        },
+        {
+          name: 'GBP',
+          value: 68797
+        },
+        {
+          name: 'CHF',
+          value: 7985
+        },
+        {
+          name: 'RUB',
+          value: 33248
+        },
+        {
+          name: 'AUD',
+          value: 15687
+        },
+        {
+          name: 'JFY',
+          value: 32497
+        },
+        {
+          name: 'AED',
+          value: 8795
+        }
+      ],
+      color: '#681836'
+    },
+    {
+      label: "Burgan Bank",
+      accounts: [
+        {
+          name: 'TRY',
+          value: 34223
+        },
+        {
+          name: 'USD',
+          value: 4537
+        },
+        {
+          name: 'AUD',
+          value: 3453
+        },
+        {
+          name: 'JFY',
+          value: 23523
+        },
+        {
+          name: 'AED',
+          value: 12313
+        }
+      ],
+      color: '#2c6eaa'
+    },
+    {
+      label: "Denizbank",
+      accounts: [
+        {
+          name: "JFY",
+          value: 1324
+        },
+        {
+          name: "AED",
+          value: 4725
+        },
+        {
+          name: "TRY",
+          value: 1655
+        },
+        {
+          name: "AUD",
+          value: 4746
+        },
+        {
+          name: "USD",
+          value: 1944
+        }
+      ],
+      color: '#95d8da'
+    },
+    {
+      label: "Emlak Katılım",
+      accounts: [
+        {
+          name: "AUD",
+          value: 4199
+        },
+        {
+          name: "USD",
+          value: 2109
+        },
+        {
+          name: "RUB",
+          value: 2674
+        },
+        {
+          name: "TRY",
+          value: 2750
+        },
+        {
+          name: "JFY",
+          value: 2776
+        }
+      ],
+      color: '#52b189'
+    },
+    {
+      label: "Fibabank",
+      accounts: [
+        {
+          name: "AUD",
+          value: 3228
+        },
+        {
+          name: "USD",
+          value: 3270
+        },
+        {
+          name: "TRY",
+          value: 3080
+        },
+        {
+          name: "CHF",
+          value: 4770
+        },
+        {
+          name: "EUR",
+          value: 1485
+        }
+      ],
+      color: '#70a14c'
+    },
+    {
+      label: "Finansbank",
+      accounts: [
+        {
+          name: "GBP",
+          value: 1934
+        },
+        {
+          name: "EUR",
+          value: 4827
+        },
+        {
+          name: "USD",
+          value: 3825
+        },
+        {
+          name: "TRY",
+          value: 3796
+        },
+        {
+          name: "AUD",
+          value: 2736
+        }
+      ],
+      color: '#3c1040'
+    },
+    {
+      label: "Garanti",
+      accounts: [
+        {
+          name: "TRY",
+          value: 2370
+        },
+        {
+          name: "CHF",
+          value: 1038
+        },
+        {
+          name: "RUB",
+          value: 3818
+        },
+        {
+          name: "GBP",
+          value: 3441
+        },
+        {
+          name: "AED",
+          value: 2637
+        }
+      ],
+      color: '#8bb64b'
+    },
+    {
+      label: "Halkbank",
+      accounts: [
+        {
+          name: "EUR",
+          value: 27126
+        },
+        {
+          name: "RUB",
+          value: 13166
+        },
+        {
+          name: "AUD",
+          value: 1511
+        },
+        {
+          name: "USD",
+          value: 41748
+        },
+        {
+          name: "TRY",
+          value: 47472
+        }
+      ],
+      color: '#0d3068'
+    },
+    {
+      label: "HSBC",
+      accounts: [
+        {
+          name: "RUB",
+          value: 25091
+        },
+        {
+          name: "AED",
+          value: 39487
+        },
+        {
+          name: "JFY",
+          value: 13652
+        },
+        {
+          name: "TRY",
+          value: 25165
+        },
+        {
+          name: "CHF",
+          value: 8350
+        }
+      ],
+      color: '#ed6e33'
+    },
+    {
+      label: "ING Bank",
+      accounts: [
+        {
+          name: "GBP",
+          value: 43662
+        },
+        {
+          name: "CHF",
+          value: 26459
+        },
+        {
+          name: "TRY",
+          value: 27335
+        },
+        {
+          name: "RUB",
+          value: 12404
+        },
+        {
+          name: "EUR",
+          value: 19353
+        }
+      ],
+      color: '#ee6f2d'
+    },
+    {
+      label: "İş Bankası",
+      accounts: [
+        {
+          name: "RUB",
+          value: 10642
+        },
+        {
+          name: "JFY",
+          value: 7704
+        },
+        {
+          name: "USD",
+          value: 15559
+        },
+        {
+          name: "AED",
+          value: 29959
+        },
+        {
+          name: "TRY",
+          value: 25846
+        }
+      ],
+      color: '#1f367c'
+    },
+    {
+      label: "Odeabank",
+      accounts: [
+        {
+          name: "RUB",
+          value: 29257
+        },
+        {
+          name: "EUR",
+          value: 15094
+        },
+        {
+          name: "JFY",
+          value: 20310
+        },
+        {
+          name: "TRY",
+          value: 20623
+        },
+        {
+          name: "GBP",
+          value: 21795
+        }
+      ],
+      color: '#36434c'
+    },
+    {
+      label: "TEB",
+      accounts: [
+        {
+          name: "JFY",
+          value: 39447
+        },
+        {
+          name: "EUR",
+          value: 33677
+        },
+        {
+          name: "TRY",
+          value: 20880
+        },
+        {
+          name: "GBP",
+          value: 36169
+        },
+        {
+          name: "USD",
+          value: 19453
+        }
+      ],
+      color: '#4ba471'
+    },
+    {
+      label: "Tekstil",
+      accounts: [
+        {
+          name: "AUD",
+          value: 33107
+        },
+        {
+          name: "CHF",
+          value: 17727
+        },
+        {
+          name: "AED",
+          value: 4476
+        },
+        {
+          name: "GBP",
+          value: 18597
+        },
+        {
+          name: "USD",
+          value: 15963
+        }
+      ],
+      color: '#be3a3a'
+    },
+    {
+      label: "Türkiye Finans",
+      accounts: [
+        {
+          name: "EUR",
+          value: 4894
+        },
+        {
+          name: "CHF",
+          value: 43021
+        },
+        {
+          name: "JFY",
+          value: 4609
+        },
+        {
+          name: "RUB",
+          value: 28223
+        },
+        {
+          name: "TRY",
+          value: 7741
+        }
+      ],
+      color: '#39697b'
+    },
+    {
+      label: "Vakıfbank",
+      accounts: [
+        {
+          name: "GBP",
+          value: 44348
+        },
+        {
+          name: "JFY",
+          value: 38397
+        },
+        {
+          name: "RUB",
+          value: 46210
+        },
+        {
+          name: "TRY",
+          value: 47347
+        },
+        {
+          name: "USD",
+          value: 32670
+        }
+      ],
+      color: '#f5b43f'
+    },
+    {
+      label: "Yapıkredi",
+      accounts: [
+        {
+          name: "EUR",
+          value: 12580
+        },
+        {
+          name: "USD",
+          value: 11387
+        },
+        {
+          name: "CHF",
+          value: 21242
+        },
+        {
+          name: "GBP",
+          value: 48037
+        },
+        {
+          name: "AED",
+          value: 48553
+        }
+      ],
+      color: '#194a8b'
+    },
+    {
+      label: "Ziraatbankası",
+      accounts: [
+        {
+          name: "EUR",
+          value: 33072
+        },
+        {
+          name: "TRY",
+          value: 34806
+        },
+        {
+          name: "AED",
+          value: 25414
+        },
+        {
+          name: "JFY",
+          value: 41177
+        },
+        {
+          name: "RUB",
+          value: 37646
+        }
+      ],
+      color: '#ca2d25'
+    }
+  ];
+
+  balanceTypeConfig?: EChartsOption;
+  accountTypeConfig?: EChartsOption;
+
+
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
   segmentBarConfigForBalanceType = new SegmentBarConfig();
   segmentBarConfigForAccountType = new SegmentBarConfig();
+
   constructor(private store: Store, private router: Router) {
     this.headerConfig.push({
       component: () => import('../transactions-dashboard/timer-refresh/timer-refresh.component').then(it => it.TimerRefreshComponent),
@@ -119,120 +801,9 @@ export class TransactionsDashboardComponent implements OnInit {
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
-    this.balanceTypes =   [
-      {
-        label: "Deutsche Bank",
-        value: "28504",
-        color: '#52b189'
-      },
-      {
-        label: "Akbank",
-        value: "14633",
-        color: '#dc4333'
-      },
-      {
-        label: "Aktif Bank",
-        value: "28715",
-        color: '#2c414a'
-      },
-      {
-        label: "Albarak Türk",
-        value: "4910",
-        color: '#c32f31'
-      },
-      {
-        label: "Alternatif Bank",
-        value: "14826",
-        color: '#681836'
-      },
-      {
-        label: "Burgan Bank",
-        value: "71628",
-        color: '#2c6eaa'
-      },
-      {
-        label: "Denizbank",
-        value: "49110",
-        color: '#95d8da'
-      },
-      {
-        label: "Emlak Katılım",
-        value: "5489",
-        color: '#52b189'
-      },
-      {
-        label: "Fibabank",
-        value: "68128",
-        color: '#70a14c'
-      },
-      {
-        label: "Finansbank",
-        value: "23874",
-        color: '#3c1040'
-      },
-      {
-        label: "Garanti",
-        value: "12781",
-        color: '#8bb64b'
-      },
-      {
-        label: "Halkbank",
-        value: "23871",
-        color: '#0d3068'
-      },
-      {
-        label: "HSBC",
-        value: "2319",
-        color: '#ed6e33'
-      },
-      {
-        label: "ING Bank",
-        value: "84261",
-        color: '#ee6f2d'
-      },
-      {
-        label: "İş Bankası",
-        value: "3278",
-        color: '#1f367c'
-      },
-      {
-        label: "Odeabank",
-        value: "47523",
-        color: '#36434c'
-      },
-      {
-        label: "TEB",
-        value: "9657",
-        color: '#4ba471'
-      },
-      {
-        label: "Tekstil",
-        value: "7452",
-        color: '#be3a3a'
-      },
-      {
-        label: "Türkiye Finans",
-        value: "52148",
-        color: '#f5f5f5'
-      },
-      {
-        label: "Vakıfbank",
-        value: "65897",
-        color: '#f5b43f'
-      },
-      {
-        label: "Yapıkredi",
-        value: "21478",
-        color: '#194a8b'
-      },
-      {
-        label: "Ziraatbankası",
-        value: "23578",
-        color: '#ca2d25'
-      }
-    ];
-    this.createBalanceTypeConfig();
-    this.createAccountTypeConfig();
+
+    this.generateBalanceTypeConfig();
+    this.generateAccountTypeConfig();
     this.segmentBarConfigInitializeForAccountType();
     this.segmentBarConfigInitializeForBalanceType();
   }
@@ -240,59 +811,163 @@ export class TransactionsDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createBalanceTypeConfig() {
-    this.balanceTypeConfig.data = this.balanceTypes;
-    this.balanceTypeConfig.chart.numberSuffix = '₺';
-    this.balanceTypeConfig.chart.legendPosition = 'right';
-    this.balanceTypeConfig.chart.legendYPosition = '80';
-    this.balanceTypeConfig.chart.legendNumRows = '3';
-    this.balanceTypeConfig.chart.legendNumColumns = '2';
-    this.balanceTypeConfig.chart.defaultCenterLabel = '389.477.778';
-    this.balanceTypeConfig.chart.width = '100%';
-    this.balanceTypeConfig.chart.height = '450';
-    this.balanceTypeConfig.chart.pieRadius = '175';
-    this.balanceTypeConfig.chart.doughnutRadius = '140';
-/*    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => {
-      let chartLeftMargin;
-      let legendXPosition;
-      if (!isCollapse) {
-         chartLeftMargin = -400;
-         legendXPosition = '690';
-        this.balanceTypeConfig = {...this.balanceTypeConfig, chart: {...this.balanceTypeConfig.chart, chartLeftMargin, legendXPosition}}
-      } else {
-         chartLeftMargin = -550;
-         legendXPosition = '800'
-        this.balanceTypeConfig = {...this.balanceTypeConfig, chart: {...this.balanceTypeConfig.chart, chartLeftMargin, legendXPosition}}
-      }
-      this.store.dispatch(new ChartConfigUpdated(this.balanceTypeConfig));
-    });*/
+  generateBalanceTypeConfig(currency?: CurrencyEnum) {
+    // @ts-ignore
+    currency = !currency ? this.currencies[0].label : currency;
+    let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {};}[] = [];
+    let chartLegendList: {name: any; itemStyle: {color: any;};}[] = [];
+    this.balanceTypes.forEach(balanceType => {
+      balanceType.accounts.forEach((account: any) => {
+        if (currency && account.name === currency) {
+          chartDataList.push({
+            name: balanceType.label,
+            value: account.value,
+            itemStyle: {
+              color: balanceType.color
+            },
+            label: {
+              show: false,
+              formatter: `${balanceType.label}\n ${CurrencyUtil.getCurrencySymbolUtilByName(currency, account.value)}`,
+              fontSize: 14,
+              fontWeight: 'bold',
+              lineHeight: 20,
+              fontFamily: 'Poppins',
+            }
+          });
+          chartLegendList.push({
+            name: balanceType.label,
+            itemStyle: {
+              color: balanceType.color
+            }
+          });
+        }
+      });
+    });
+    this.balanceTypeConfig = {
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'auto',
+        right: 50,
+        top: 60,
+        selectedMode: `multiple`,
+        itemGap: 12,
+        data: [...chartLegendList],
+        icon: 'circle',
+        height: '75%',
+        textStyle: {
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          padding: 8
+        },
+      },
+      series: [
+        {
+          name: 'Pie Chart',
+          type: `pie`,
+          id: 'chart-2',
+          radius: ['55%', '72%'],
+          right: '45%',
+          label: {
+            show: false,
+          },
+          data: [
+            ...chartDataList
+          ],
+        }
+      ]
+    };
   }
 
-  createAccountTypeConfig() {
-    this.accountTypeConfig.data = this.accountTypes;
-    this.accountTypeConfig.chart.numberSuffix = '₺';
-    this.accountTypeConfig.chart.legendPosition = 'bottom';
-    this.accountTypeConfig.chart.legendNumRows = '1';
-    this.accountTypeConfig.chart.legendNumColumns = '1';
-    this.accountTypeConfig.chart.defaultCenterLabel = '2.474.394';
-    this.accountTypeConfig.chart.width = '100%';
-    this.accountTypeConfig.chart.height = '450';
-    this.accountTypeConfig.chart.pieRadius = '150';
+  generateAccountTypeConfig(currency?: CurrencyEnum) {
+    // @ts-ignore
+    currency = !currency ? this.currencies[0].label : currency;
+    let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {};}[] = [];
+    let chartLegendList: {name: any; itemStyle: {color: any;};}[] = [];
+    this.accountTypes.forEach(accountType => {
+      accountType.accounts.forEach((account: any) => {
+        if (currency && account.name === currency) {
+          chartDataList.push({
+            name: accountType.label,
+            value: account.value,
+            itemStyle: {
+              color: accountType.color
+            },
+            label: {
+              show: false,
+              formatter: `${accountType.label}\n ${CurrencyUtil.getCurrencySymbolUtilByName(currency, account.value)}`,
+              fontSize: 14,
+              fontWeight: 'bold',
+              lineHeight: 20,
+              fontFamily: 'Poppins',
+            }
+          });
+          chartLegendList.push({
+            name: accountType.label,
+            itemStyle: {
+              color: accountType.color
+            }
+          });
+        }
+      });
+    });
+    this.accountTypeConfig = {
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'vertical',
+        bottom: 15,
+        left: 'center',
+        selectedMode: `multiple`,
+        itemGap: 10,
+        data: [...chartLegendList],
+        icon: 'circle',
+        textStyle: {
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          padding: 8
+        },
+      },
+      series: [
+        {
+          name: 'Pie Chart',
+          type: `pie`,
+          id: 'chart-2',
+          bottom: 80,
+          radius: ['55%', '80%'],
+          label: {
+            show: false,
+          },
+          data: [...chartDataList],
+
+        }
+      ]
+    };
   }
 
   segmentBarConfigInitializeForBalanceType() {
-      this.segmentBarConfigForBalanceType.data = this.currencies;
-      this.segmentBarConfigForBalanceType.position = SegmentPositionEnum.START;
-      this.segmentBarConfigForBalanceType.paddingLeft = 79;
+    this.segmentBarConfigForBalanceType.data = this.currencies;
+    this.segmentBarConfigForBalanceType.position = SegmentPositionEnum.START;
+    this.segmentBarConfigForBalanceType.paddingLeft = 79;
   }
 
   segmentBarConfigInitializeForAccountType() {
-      this.segmentBarConfigForAccountType.data = this.currencies;
-      this.segmentBarConfigForAccountType.position = SegmentPositionEnum.CENTER;
-      this.segmentBarConfigForAccountType.block = true;
-      this.segmentBarConfigForAccountType.paddingLeft = 27;
-      this.segmentBarConfigForAccountType.paddingRight = 27;
-      this.segmentBarConfigForAccountType.width = '100%'
+    this.segmentBarConfigForAccountType.data = this.currencies;
+    this.segmentBarConfigForAccountType.position = SegmentPositionEnum.CENTER;
+    this.segmentBarConfigForAccountType.block = true;
+    this.segmentBarConfigForAccountType.paddingLeft = 27;
+    this.segmentBarConfigForAccountType.paddingRight = 27;
+    this.segmentBarConfigForAccountType.width = '100%'
   }
 
+  balanceTypeCurrencyChange(currency: CurrencyEnum) {
+    this.generateBalanceTypeConfig(currency);
+  }
+
+  accountTypeCurrencyChange(currency: CurrencyEnum) {
+    this.generateAccountTypeConfig(currency);
+  }
 }

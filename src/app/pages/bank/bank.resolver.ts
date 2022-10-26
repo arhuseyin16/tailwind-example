@@ -37,6 +37,7 @@ export class BankResolver implements Resolve<Array<SidebarDataModel>> {
         titleClass: 'sidebar-menu-title uppercase font-bold',
         isCollapseClass: 'pl-50',
         isNotCollapseClass: 'pl-15',
+        routerLink: 'transactions-dashboard',
         isCollapseCheck: true,
         isDisplayIcon: false
       },

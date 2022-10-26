@@ -1,1 +1,1 @@
-<div echarts [options]="chartOption" class="chart"></div>
+<div echarts [options]="chartOption" class="chart" (chartLegendSelectChanged)="legendSelected($event)" (chartInit)="chartInitialized($event)"></div>
