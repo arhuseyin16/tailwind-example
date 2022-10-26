@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AccountActivitiesComponent } from './account-activities.component';
 import { AccountActivitiesDetailComponent } from './account-activities-detail/account-activities-detail.component';
 import {RouterModule, Routes} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 const routes: Routes = [
   {
@@ -25,9 +26,10 @@ const routes: Routes = [
     AccountActivitiesComponent,
     AccountActivitiesDetailComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        TranslateModule,
+    ]
 })
 export class AccountActivitiesModule { }

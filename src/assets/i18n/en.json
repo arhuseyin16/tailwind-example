@@ -107,5 +107,15 @@
     "bank-accounts-detail": "Bank Accounts Detail",
     "account-activities": "Account Activities",
     "account-activities-detail": "Account Activities Detail"
+  },
+  "account-activities-detail": {
+    "process-id": "Process ID",
+    "company": "Company",
+    "bank": "Bank",
+    "branch": "Branch",
+    "account-type": "Account Type",
+    "account-no": "Account Number",
+    "date": "Date",
+    "iban-no": "IBAN Number"
   }
 }

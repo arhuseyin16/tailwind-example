@@ -107,5 +107,15 @@
     "bank-accounts-detail": "Banka Hesapları Detay",
     "account-activities": "Hesap Hareketleri",
     "account-activities-detail": "Hesap Hareketleri Detay"
+  },
+  "account-activities-detail": {
+    "process-id": "İşlem ID",
+    "company": "Firma",
+    "bank": "Banka",
+    "branch": "Şube",
+    "account-type": "Hesap Türü",
+    "account-no": "Hesap Numarası",
+    "date": "Tarih",
+    "iban-no": "IBAN Numarası"
   }
 }
