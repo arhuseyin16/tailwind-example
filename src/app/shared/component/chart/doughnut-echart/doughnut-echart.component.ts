@@ -15,35 +15,33 @@ export class DoughnutEchartComponent {
   chartRef: any;
 
   legendSelected(event: any) {
-    const selected = event.selected; // locale değişken olabilir.
-    // chart legend içerisinde select alanı güncellendi.
+    const selected = event.selected;
     for (let select in selected) {
       if (event.name === select) {
-        selected[select] = !selected[select];
+        selected[select] = !selected[select];     // chart legend içerisinde select alanı güncellendi.
       }
     }
-      // @ts-ignore
+
+    // @ts-ignore
     this.chartOption.series[0].data.forEach((data: any) => {
       if (data.name === event.name) { // seçilen legend name eşit ise
-          if(data.label.show) { // label objesinin show alanı true ise
-            data.label = {
-              ...data.label,
-              show: false
-            };
-            data.labelLine = {
-              ...data.labelLine,
-              show: false
-            };
-          } else {
-            data.label = {
-              ...data.label,
-              show: true,
-            };
-            data.labelLine = {
-              ...data.labelLine,
-              show: true
-            };
-          }
+        data.label = {
+          ...data.label,
+          show: !data.label.show
+        };
+        data.labelLine = {
+          ...data.labelLine,
+          show: data.label.show
+        };
+      } else {
+        data.label = {
+          ...data.label,
+          show: false
+        };
+        data.labelLine = {
+          ...data.labelLine,
+          show: false
+        };
       }
     });
 
