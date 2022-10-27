@@ -29,6 +29,6 @@ export class AccountActivitiesComponent implements OnInit {
   }
 
   detail() {
-    this.router.navigate(['/bank/account-activities/detail'])
+    this.router.navigate(['/bank/account-activities/detail'], {queryParams: {id: 1}});
   }
 }

@@ -116,6 +116,12 @@
     "account-type": "Account Type",
     "account-no": "Account Number",
     "date": "Date",
-    "iban-no": "IBAN Number"
+    "iban-no": "IBAN Number",
+    "receipt": "Receipt",
+    "operation-type": "Operation Type",
+    "reference": "Reference",
+    "b-a": "B/A",
+    "debtor-tın": "Deptor TIN",
+    "serial-number": "Serial Number"
   }
 }
