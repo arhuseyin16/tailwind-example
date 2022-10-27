@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from "@ngxs/store";
 import { HeaderConfigAction } from "../../../store/header-config/header-config.action";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import { SidebarState } from "../../../store/sidebar/sidebar.state";
-import { ChartConfigUpdated } from "../../../store/chart/chart.action";
 import { HeaderConfigModel } from "../../../models/header-config-model";
 import { FavoriteStateModel } from "../../../models/favorite-state.model";
 import { FavoriteAction } from "../../../store/favorite/favorite.action";

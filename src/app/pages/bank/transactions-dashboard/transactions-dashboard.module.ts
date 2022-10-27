@@ -15,7 +15,6 @@ import { BankAccountsComponent } from './bank-accounts/bank-accounts.component';
 import { NzTableModule } from "ng-zorro-antd/table";
 import { SwiperModule } from "swiper/angular";
 import { CurrenciesSummariesComponent } from './currencies-summaries/currencies-summaries.component';
-import { DoughnutChartModule } from "../../../shared/component/chart/doughnut-chart/doughnut-chart.module";
 import { DoughnutEchartModule } from "../../../shared/component/chart/doughnut-echart/doughnut-echart.module";
 import { BankService } from "../../../service/bank/bank.service";
 
@@ -46,7 +45,6 @@ const routes: Routes = [
     SegmentBarModule,
     NzTableModule,
     SwiperModule,
-    DoughnutChartModule,
     DoughnutEchartModule,
   ],
   providers: [BankService]

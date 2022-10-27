@@ -35,7 +35,6 @@
     "@ngxs/storage-plugin": "^3.7.5",
     "@ngxs/store": "^3.7.5",
     "echarts": "^5.4.0",
-    "fusioncharts": "^3.19.0",
     "ng-zorro-antd": "^14.0.0",
     "ngx-echarts": "^14.0.0",
     "ngx-translate-routes": "^1.4.1",

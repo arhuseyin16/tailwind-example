@@ -2,9 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SegmentBarComponent } from './segment-bar.component';
 import { NzSegmentedModule } from "ng-zorro-antd/segmented";
-import { FusionChartsModule } from "../../fusion-charts/fusioncharts.module";
-
-
 
 @NgModule({
     declarations: [
@@ -15,8 +12,7 @@ import { FusionChartsModule } from "../../fusion-charts/fusioncharts.module";
     ],
     imports: [
         CommonModule,
-        NzSegmentedModule,
-        FusionChartsModule,
+        NzSegmentedModule
     ]
 })
 export class SegmentBarModule { }
