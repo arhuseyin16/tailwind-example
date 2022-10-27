@@ -42,7 +42,7 @@ registerLocaleData(en);
     NgxTranslateRoutesModule.forRoot({
       enableRouteTranslate: false
     }),
-    StoreModule
+    StoreModule,
   ],
   providers: [
     {provide: NZ_I18N, useValue: en_US}

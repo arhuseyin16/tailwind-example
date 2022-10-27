@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Store } from "@ngxs/store";
 import { HeaderConfigAction } from "../../../store/header-config/header-config.action";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
@@ -15,6 +15,8 @@ import { BankService } from "../../../service/bank/bank.service";
 import { AccountType } from "../../../models/bank/account-type";
 import { BalanceType } from "../../../models/bank/balance-type";
 import { LabelValueType } from "../../../models/bank/label-value.type";
+import { interval, switchMap } from "rxjs";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -64,6 +66,8 @@ export class TransactionsDashboardComponent implements OnInit {
   segmentBarConfigForBalanceType = new SegmentBarConfig();
   segmentBarConfigForAccountType = new SegmentBarConfig();
 
+  ngxUiLoaderService = inject(NgxUiLoaderService);
+
   constructor(private store: Store, private router: Router,
               private bankService: BankService) {
     this.headerConfig.push({
@@ -82,9 +86,13 @@ export class TransactionsDashboardComponent implements OnInit {
       this.generateAccountTypeConfig();
     });
 
-    this.bankService.getBalanceTypes().subscribe(balanceTypes => {
+    this.ngxUiLoaderService.startLoader('transactions-dashboard.balance-types')
+    interval(9000).pipe(
+      switchMap(_ => this.bankService.getBalanceTypes())
+    ).subscribe(balanceTypes => {
       this.balanceTypes = balanceTypes;
       this.generateBalanceTypeConfig();
+      this.ngxUiLoaderService.stopLoader('transactions-dashboard.balance-types')
     });
 
     this.bankService.getCurrencyTotals().subscribe(currencyTotals => {
@@ -154,7 +162,6 @@ export class TransactionsDashboardComponent implements OnInit {
       },
       series: [
         {
-          name: 'Pie Chart',
           type: `pie`,
           id: 'chart-2',
           radius: ['55%', '72%'],

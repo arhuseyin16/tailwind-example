@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { EChartsOption } from "echarts";
-import { CurrencyUtil } from "../../../util/currency.util";
-import { CurrencyEnum } from "../../../enum/currency.enum";
 
 @Component({
   selector: 'app-doughnut-echart',

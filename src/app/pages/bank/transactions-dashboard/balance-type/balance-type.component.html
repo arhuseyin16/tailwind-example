@@ -1,5 +1,5 @@
 <label class="text-20 text-black font-bold">{{title | translate}}</label>
-<div class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px]">
+<div class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px] ">
   <div class="max-w-full ">
     <app-segment-bar [segmentBarConfig]="segmentBarConfig"
                      (selectedSegmentEvent)="selectedCurrency($event)"></app-segment-bar>
@@ -7,5 +7,7 @@
     <div *ngIf="chartsOption">
       <app-doughnut-echart [chartOption]="chartsOption"></app-doughnut-echart>
     </div>
+
   </div>
 </div>
+

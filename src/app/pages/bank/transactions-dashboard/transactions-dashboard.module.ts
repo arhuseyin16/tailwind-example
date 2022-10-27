@@ -17,6 +17,7 @@ import { SwiperModule } from "swiper/angular";
 import { CurrenciesSummariesComponent } from './currencies-summaries/currencies-summaries.component';
 import { DoughnutEchartModule } from "../../../shared/component/chart/doughnut-echart/doughnut-echart.module";
 import { BankService } from "../../../service/bank/bank.service";
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
 
 const routes: Routes = [
   {
@@ -46,6 +47,8 @@ const routes: Routes = [
     NzTableModule,
     SwiperModule,
     DoughnutEchartModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
   ],
   providers: [BankService]
 })
