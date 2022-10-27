@@ -12,18 +12,23 @@
 
       <div class="xl:col-span-2">
         <app-balance-type [segmentBarConfig]="segmentBarConfigForBalanceType" [chartsOption]="balanceTypeConfig"
-                          [title]="'transactions-dashboard.balance-types'" (currencyChange)="balanceTypeCurrencyChange($event)"></app-balance-type>
+                          [title]="'transactions-dashboard.balance-types'"
+                          (currencyChange)="balanceTypeCurrencyChange($event)"></app-balance-type>
       </div>
 
       <div>
-        <app-balance-type [segmentBarConfig]="segmentBarConfigForAccountType" [chartsOption]="accountTypeConfig" (currencyChange)="accountTypeCurrencyChange($event)" [title]="'transactions-dashboard.account-types'"></app-balance-type>
+        <app-balance-type [segmentBarConfig]="segmentBarConfigForAccountType" [chartsOption]="accountTypeConfig"
+                          (currencyChange)="accountTypeCurrencyChange($event)"
+                          [title]="'transactions-dashboard.account-types'"></app-balance-type>
       </div>
 
       <div class="xl:col-span-2">
         <app-bank-accounts></app-bank-accounts>
       </div>
 
-      <div><app-currencies-summaries [currencyTotals]="currencyTotals"></app-currencies-summaries></div>
+      <div *ngIf="currencyTotals">
+        <app-currencies-summaries [currencyTotals]="currencyTotals"></app-currencies-summaries>
+      </div>
 
     </div>
 

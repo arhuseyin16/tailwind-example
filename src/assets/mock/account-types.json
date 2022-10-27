@@ -1,0 +1,80 @@
+[
+  {
+    "label": "Vadeli",
+    "accounts": [
+      {
+        "name": "GBP",
+        "value": 41614
+      },
+      {
+        "name": "AUD",
+        "value": 23508
+      },
+      {
+        "name": "USD",
+        "value": 24453
+      },
+      {
+        "name": "TRY",
+        "value": 10133
+      },
+      {
+        "name": "RUB",
+        "value": 44026
+      }
+    ],
+    "color": "#007ea7"
+  },
+  {
+    "label": "Mevduat",
+    "accounts": [
+      {
+        "name": "TRY",
+        "value": 1894
+      },
+      {
+        "name": "EUR",
+        "value": 3524
+      },
+      {
+        "name": "CHF",
+        "value": 29840
+      },
+      {
+        "name": "USD",
+        "value": 47678
+      },
+      {
+        "name": "GBP",
+        "value": 22048
+      }
+    ],
+    "color": "#87bfad"
+  },
+  {
+    "label": "Blokeli",
+    "accounts": [
+      {
+        "name": "AED",
+        "value": 32709
+      },
+      {
+        "name": "TRY",
+        "value": 40049
+      },
+      {
+        "name": "USD",
+        "value": 33916
+      },
+      {
+        "name": "RUB",
+        "value": 23267
+      },
+      {
+        "name": "AUD",
+        "value": 33710
+      }
+    ],
+    "color": "#003249"
+  }
+]
