@@ -1,35 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccountActivitiesComponent } from './account-activities.component';
-import { AccountActivitiesDetailComponent } from './account-activities-detail/account-activities-detail.component';
 import {RouterModule, Routes} from "@angular/router";
-import {TranslateModule} from "@ngx-translate/core";
 
 const routes: Routes = [
   {
-    path: '',
-    component: AccountActivitiesComponent,
+    path: 'list',
+    loadChildren: () => import('./account-activities-list/account-activities-list.module').then(m => m.AccountActivitiesListModule)
   },
   {
     path: 'detail',
-    component: AccountActivitiesDetailComponent,
+    loadChildren: () => import('./account-activities-detail/account-activities-detail.module').then(m => m.AccountActivitiesDetailModule)
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: ''
+    redirectTo: 'list'
   },
 ]
 
 @NgModule({
   declarations: [
-    AccountActivitiesComponent,
-    AccountActivitiesDetailComponent
   ],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        TranslateModule,
     ]
 })
 export class AccountActivitiesModule { }

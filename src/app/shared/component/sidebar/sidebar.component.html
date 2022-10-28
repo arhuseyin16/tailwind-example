@@ -3,12 +3,12 @@
 </div>
 <div>
         <span class="cursor-pointer" (click)="changeCollapse()">
-          <div *ngIf="isCollapsed" class="absolute top-[71px] left-[92px] w-[43%] h-[30%]">
+          <div *ngIf="isCollapsed" class="absolute top-[71px] left-[92px] w-max">
                  <img class="w-[50px] h-[50px]" src="assets/img/sidebar/sidebar-open-3x.png"
                       alt="sidebar-open">
           </div>
 
-          <div *ngIf="!isCollapsed" class="absolute top-[71px] left-[303px] w-[30%] h-[30%]">
+          <div *ngIf="!isCollapsed" class="absolute top-[71px] left-[303px] w-max">
                 <img class="w-[50px] h-[50px]" src="assets/img/sidebar/sidebar-close-3x.png"
                      alt="sidebar-close">
           </div>

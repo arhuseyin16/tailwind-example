@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngxs/store";
 import {Router} from "@angular/router";
-import {FavoriteStateModel} from "../../../models/favorite-state.model";
-import {HeaderConfigClear} from "../../../store/header-config/header-config.action";
-import {FavoriteAction} from "../../../store/favorite/favorite.action";
+import {FavoriteStateModel} from "../../../../models/favorite-state.model";
+import {HeaderConfigClear} from "../../../../store/header-config/header-config.action";
+import {FavoriteAction} from "../../../../store/favorite/favorite.action";
 
 @Component({
   selector: 'app-account-activities',
-  templateUrl: './account-activities.component.html',
-  styleUrls: ['./account-activities.component.scss']
+  templateUrl: './account-activities-list.component.html',
+  styleUrls: ['./account-activities-list.component.scss']
 })
-export class AccountActivitiesComponent implements OnInit {
+export class AccountActivitiesListComponent implements OnInit {
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
   constructor(
