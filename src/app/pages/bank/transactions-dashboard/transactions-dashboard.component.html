@@ -10,19 +10,25 @@
 
     <div class="grid pt-[31px] gap-30 grid-cols-1 xl:grid-cols-3">
 
-      <div class="xl:col-span-2">
-        <app-balance-type [segmentBarConfig]="segmentBarConfigForBalanceType" [fusionChartsConfig]="balanceTypeConfig" [title]="'transactions-dashboard.balance-types'" [currencies]="currencies"></app-balance-type>
+      <div class="xl:col-span-2 h-[300px]">
+        <app-balance-type [segmentBarConfig]="segmentBarConfigForBalanceType" [chartsOption]="balanceTypeConfig"
+                          [title]="'transactions-dashboard.balance-types'"
+                          (currencyChange)="balanceTypeCurrencyChange($event)"></app-balance-type>
       </div>
 
       <div>
-        <app-balance-type [segmentBarConfig]="segmentBarConfigForAccountType" [fusionChartsConfig]="accountTypeConfig" [title]="'transactions-dashboard.account-types'" [currencies]="currencies"></app-balance-type>
+        <app-balance-type [segmentBarConfig]="segmentBarConfigForAccountType" [chartsOption]="accountTypeConfig"
+                          (currencyChange)="accountTypeCurrencyChange($event)"
+                          [title]="'transactions-dashboard.account-types'"></app-balance-type>
       </div>
 
       <div class="xl:col-span-2">
         <app-bank-accounts></app-bank-accounts>
       </div>
 
-      <div><app-currencies-summaries [currencyTotals]="currencyTotals"></app-currencies-summaries></div>
+      <div *ngIf="currencyTotals">
+        <app-currencies-summaries [currencyTotals]="currencyTotals"></app-currencies-summaries>
+      </div>
 
     </div>
 

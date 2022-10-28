@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from "@ngxs/store";
-import {HeaderConfigAction} from "../../../store/header-config/header-config.action";
+import { Store } from "@ngxs/store";
+import { HeaderConfigAction } from "../../../store/header-config/header-config.action";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
-import {SidebarState} from "../../../store/sidebar/sidebar.state";
-import {ChartConfigUpdated} from "../../../store/chart/chart.action";
-import {HeaderConfigModel} from "../../../models/header-config-model";
-import {FavoriteStateModel} from "../../../models/favorite-state.model";
-import {FavoriteAction} from "../../../store/favorite/favorite.action";
-import {Router} from "@angular/router";
-import { ChartDataModel } from "../../../models/shared/chart/chart-data.model";
-import { FusionChartsConfig } from "../../../models/shared/chart/fusion-charts.config";
+import { HeaderConfigModel } from "../../../models/header-config-model";
+import { FavoriteStateModel } from "../../../models/favorite-state.model";
+import { FavoriteAction } from "../../../store/favorite/favorite.action";
+import { Router } from "@angular/router";
 import { SegmentBarConfig } from "../../../shared/component/segment-bar/segment-bar.config";
 import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segment-position.enum";
+import { EChartsOption } from "echarts";
+import { CurrencyUtil } from "../../../shared/util/currency.util";
+import { CurrencyEnum } from "../../../shared/enum/currency.enum";
+import { BankService } from '../../../service/bank/bank.service';
+import { AccountType } from '../../../models/bank/account-type';
+import { BalanceType } from '../../../models/bank/balance-type';
+import { LabelValueType } from '../../../models/bank/label-value.type';
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -46,69 +49,23 @@ export class TransactionsDashboardComponent implements OnInit {
     {label: 'CHF', value: 18.87},
     {label: 'RUB', value: 0.31},
     {label: 'AUD', value: 12.00},
-    {label: 'JFY', value: 0.13},
+    {label: 'JPY', value: 0.13},
     {label: 'AED', value: 5.06},
   ];
 
-  balanceTypes = new Array<ChartDataModel>();
+  accountTypes?: Array<AccountType>;
+  currencyTotals?: Array<LabelValueType>;
+  balanceTypes?: Array<BalanceType>;
 
-  accountTypes = [
-    {
-      label: "Vadeli",
-      value: "28504",
-      color: '#007ea7'
-    },
-    {
-      label: "Mevduat",
-      value: "14633",
-      color: '#87bfad'
-    },
-    {
-      label: "Blokeli",
-      value: "28715",
-      color: '#003249'
-    }
-  ];
-
-  currencyTotals = [
-    {
-      label: "TRY",
-      value: "389477778"
-    },
-    {
-      label: "USD",
-      value: "4901916"
-    },
-    {
-      label: "EUR",
-      value: "5781477"
-    },
-    {
-      label: "CHF",
-      value: "78693"
-    },
-    {
-      label: "GBP",
-      value: "58769"
-    },
-    {
-      label: "JPY",
-      value: "317098"
-    },
-    {
-      label: "AUD",
-      value: "0"
-    },
-  ];
-
-  balanceTypeConfig = new FusionChartsConfig();
-  accountTypeConfig = new FusionChartsConfig();
+  balanceTypeConfig?: EChartsOption;
+  accountTypeConfig?: EChartsOption;
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
-
   segmentBarConfigForBalanceType = new SegmentBarConfig();
   segmentBarConfigForAccountType = new SegmentBarConfig();
-  constructor(private store: Store, private router: Router) {
+
+  constructor(private store: Store, private router: Router,
+              private bankService: BankService) {
     this.headerConfig.push({
       component: () => import('../transactions-dashboard/timer-refresh/timer-refresh.component').then(it => it.TimerRefreshComponent),
       dataObj: null
@@ -119,120 +76,21 @@ export class TransactionsDashboardComponent implements OnInit {
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
-    this.balanceTypes =   [
-      {
-        label: "Deutsche Bank",
-        value: "28504",
-        color: '#52b189'
-      },
-      {
-        label: "Akbank",
-        value: "14633",
-        color: '#dc4333'
-      },
-      {
-        label: "Aktif Bank",
-        value: "28715",
-        color: '#2c414a'
-      },
-      {
-        label: "Albarak Türk",
-        value: "4910",
-        color: '#c32f31'
-      },
-      {
-        label: "Alternatif Bank",
-        value: "14826",
-        color: '#681836'
-      },
-      {
-        label: "Burgan Bank",
-        value: "71628",
-        color: '#2c6eaa'
-      },
-      {
-        label: "Denizbank",
-        value: "49110",
-        color: '#95d8da'
-      },
-      {
-        label: "Emlak Katılım",
-        value: "5489",
-        color: '#52b189'
-      },
-      {
-        label: "Fibabank",
-        value: "68128",
-        color: '#70a14c'
-      },
-      {
-        label: "Finansbank",
-        value: "23874",
-        color: '#3c1040'
-      },
-      {
-        label: "Garanti",
-        value: "12781",
-        color: '#8bb64b'
-      },
-      {
-        label: "Halkbank",
-        value: "23871",
-        color: '#0d3068'
-      },
-      {
-        label: "HSBC",
-        value: "2319",
-        color: '#ed6e33'
-      },
-      {
-        label: "ING Bank",
-        value: "84261",
-        color: '#ee6f2d'
-      },
-      {
-        label: "İş Bankası",
-        value: "3278",
-        color: '#1f367c'
-      },
-      {
-        label: "Odeabank",
-        value: "47523",
-        color: '#36434c'
-      },
-      {
-        label: "TEB",
-        value: "9657",
-        color: '#4ba471'
-      },
-      {
-        label: "Tekstil",
-        value: "7452",
-        color: '#be3a3a'
-      },
-      {
-        label: "Türkiye Finans",
-        value: "52148",
-        color: '#f5f5f5'
-      },
-      {
-        label: "Vakıfbank",
-        value: "65897",
-        color: '#f5b43f'
-      },
-      {
-        label: "Yapıkredi",
-        value: "21478",
-        color: '#194a8b'
-      },
-      {
-        label: "Ziraatbankası",
-        value: "23578",
-        color: '#ca2d25'
-      }
-    ];
-    this.createBalanceTypeConfig();
-    this.createAccountTypeConfig();
+
+    this.bankService.getAccountTypes().subscribe((accountTypes:Array<AccountType>) => {
+      this.accountTypes = accountTypes;
+      this.generateAccountTypeConfig();
+    });
+
+    this.bankService.getBalanceTypes().subscribe((balanceTypes: Array<BalanceType>) => {
+      this.balanceTypes = balanceTypes;
+      this.generateBalanceTypeConfig();
+    });
+
+    this.bankService.getCurrencyTotals().subscribe((currencyTotals: Array<LabelValueType>) => {
+      this.currencyTotals = currencyTotals;
+    });
+
     this.segmentBarConfigInitializeForAccountType();
     this.segmentBarConfigInitializeForBalanceType();
   }
@@ -240,59 +98,241 @@ export class TransactionsDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createBalanceTypeConfig() {
-    this.balanceTypeConfig.data = this.balanceTypes;
-    this.balanceTypeConfig.chart.numberSuffix = '₺';
-    this.balanceTypeConfig.chart.legendPosition = 'right';
-    this.balanceTypeConfig.chart.legendYPosition = '80';
-    this.balanceTypeConfig.chart.legendNumRows = '3';
-    this.balanceTypeConfig.chart.legendNumColumns = '2';
-    this.balanceTypeConfig.chart.defaultCenterLabel = '389.477.778';
-    this.balanceTypeConfig.chart.width = '100%';
-    this.balanceTypeConfig.chart.height = '450';
-    this.balanceTypeConfig.chart.pieRadius = '175';
-    this.balanceTypeConfig.chart.doughnutRadius = '140';
-/*    this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => {
-      let chartLeftMargin;
-      let legendXPosition;
-      if (!isCollapse) {
-         chartLeftMargin = -400;
-         legendXPosition = '690';
-        this.balanceTypeConfig = {...this.balanceTypeConfig, chart: {...this.balanceTypeConfig.chart, chartLeftMargin, legendXPosition}}
-      } else {
-         chartLeftMargin = -550;
-         legendXPosition = '800'
-        this.balanceTypeConfig = {...this.balanceTypeConfig, chart: {...this.balanceTypeConfig.chart, chartLeftMargin, legendXPosition}}
+  generateBalanceTypeConfig(currency?: CurrencyEnum) {
+    // @ts-ignore
+    currency = !currency ? this.currencies[0].label : currency;
+    let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {}; tooltip: {formatter: any, textStyle: {}}}[] = [];
+    let centerChartDataList: {name: string; value: number, itemStyle: {color: any;};}[] = [];
+    let chartLegendList: {name: any; itemStyle: {color: any;};}[] = [];
+    let totalValue = 0;
+    if (this.balanceTypes) {
+      this.balanceTypes.forEach(balanceType => {
+        balanceType.accounts.forEach((account: any) => {
+          if (currency && account.name === currency) {
+            chartDataList.push({
+              name: balanceType.label,
+              value: account.value,
+              itemStyle: {
+                color: balanceType.color
+              },
+              label: {
+                show: false,
+                formatter: `${balanceType.label}\n ${CurrencyUtil.getCurrencySymbolUtilByName(currency, account.value)}`,
+                fontSize: 14,
+                fontWeight: 'bold',
+                lineHeight: 20,
+                fontFamily: 'Poppins',
+              },
+              tooltip: {
+                formatter: `${balanceType.label}<br />${CurrencyUtil.getCurrencySymbolUtilByName(currency, account.value)}`,
+                textStyle: {
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  fontFamily: 'Poppins',
+                }
+              }
+            });
+            chartLegendList.push({
+              name: balanceType.label,
+              itemStyle: {
+                color: balanceType.color
+              }
+            });
+            totalValue += account.value;
+          }
+        });
+      });
+      if(currency) {
+        centerChartDataList.push({
+          name: CurrencyUtil.getCurrencySymbolUtilByName(currency, totalValue).toString(),
+          value: 0,
+          itemStyle: {
+            color: '#fff'
+          }
+        })
       }
-      this.store.dispatch(new ChartConfigUpdated(this.balanceTypeConfig));
-    });*/
+    }
+    this.balanceTypeConfig = {
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'vertical',
+        left: 'auto',
+        right: 50,
+        top: 60,
+        selectedMode: `multiple`,
+        itemGap: 12,
+        data: [...chartLegendList],
+        icon: 'circle',
+        height: '75%',
+        textStyle: {
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          padding: 8
+        },
+      },
+      series: [
+        {
+          type: 'pie',
+          selectedMode: 'single',
+          radius: [0, '36%'],
+          right: '45%',
+          label: {
+            position: 'center',
+            fontSize: 18,
+            fontWeight: 'bold'
+          },
+          labelLine: {
+            show: false
+          },
+          tooltip: {
+            show: false
+          },
+          data: [...centerChartDataList]
+        },
+        {
+          type: `pie`,
+          id: 'chart-2',
+          radius: ['55%', '72%'],
+          right: '45%',
+          label: {
+            show: false,
+          },
+          data: [
+            ...chartDataList
+          ],
+        }
+      ]
+    };
   }
 
-  createAccountTypeConfig() {
-    this.accountTypeConfig.data = this.accountTypes;
-    this.accountTypeConfig.chart.numberSuffix = '₺';
-    this.accountTypeConfig.chart.legendPosition = 'bottom';
-    this.accountTypeConfig.chart.legendNumRows = '1';
-    this.accountTypeConfig.chart.legendNumColumns = '1';
-    this.accountTypeConfig.chart.defaultCenterLabel = '2.474.394';
-    this.accountTypeConfig.chart.width = '100%';
-    this.accountTypeConfig.chart.height = '450';
-    this.accountTypeConfig.chart.pieRadius = '150';
+  generateAccountTypeConfig(currency?: CurrencyEnum) {
+    // @ts-ignore
+    currency = !currency ? this.currencies[0].label : currency;
+    let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {}; tooltip: {formatter: any, textStyle: {}}}[] = [];
+    let centerChartDataList: {name: string; value: number, itemStyle: {color: any;};}[] = [];
+    let chartLegendList: {name: any; itemStyle: {color: any;};}[] = [];
+    let totalValue = 0;
+    if (this.accountTypes) {
+      this.accountTypes.forEach(accountType => {
+        accountType.accounts.forEach((account: any) => {
+          if (currency && account.name === currency) {
+            chartDataList.push({
+              name: accountType.label,
+              value: account.value,
+              itemStyle: {
+                color: accountType.color
+              },
+              label: {
+                show: false,
+                formatter: `${accountType.label}\n ${CurrencyUtil.getCurrencySymbolUtilByName(currency, account.value)}`,
+                fontSize: 14,
+                fontWeight: 'bold',
+                lineHeight: 20,
+                fontFamily: 'Poppins',
+              },
+              tooltip: {
+                formatter: `${accountType.label}<br />${CurrencyUtil.getCurrencySymbolUtilByName(currency, account.value)}`,
+                textStyle: {
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  fontFamily: 'Poppins',
+                }
+              }
+            });
+            chartLegendList.push({
+              name: accountType.label,
+              itemStyle: {
+                color: accountType.color
+              }
+            });
+            totalValue += account.value;
+          }
+        });
+      });
+      if(currency) {
+        centerChartDataList.push({
+          name: CurrencyUtil.getCurrencySymbolUtilByName(currency, totalValue).toString(),
+          value: 0,
+          itemStyle: {
+            color: '#fff'
+          }
+        })
+      }
+    }
+    this.accountTypeConfig = {
+      tooltip: {
+        trigger: 'item'
+      },
+      legend: {
+        orient: 'vertical',
+        bottom: 15,
+        left: 'center',
+        selectedMode: `multiple`,
+        itemGap: 10,
+        data: [...chartLegendList],
+        icon: 'circle',
+        textStyle: {
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          padding: 8
+        },
+      },
+      series: [
+        {
+          type: 'pie',
+          selectedMode: 'single',
+          radius: [0, '40%'],
+          bottom: 80,
+          label: {
+            position: 'center',
+            fontSize: 18,
+            fontWeight: 'bold'
+          },
+          labelLine: {
+            show: false
+          },
+          tooltip: {
+            show: false
+          },
+          data: [...centerChartDataList]
+        },
+        {
+          name: 'Pie Chart',
+          type: `pie`,
+          id: 'chart-2',
+          bottom: 80,
+          radius: ['55%', '80%'],
+          label: {
+            show: false,
+          },
+          data: [...chartDataList],
+        }
+      ]
+    };
   }
 
   segmentBarConfigInitializeForBalanceType() {
-      this.segmentBarConfigForBalanceType.data = this.currencies;
-      this.segmentBarConfigForBalanceType.position = SegmentPositionEnum.START;
-      this.segmentBarConfigForBalanceType.paddingLeft = 79;
+    this.segmentBarConfigForBalanceType.data = this.currencies;
+    this.segmentBarConfigForBalanceType.position = SegmentPositionEnum.START;
+    this.segmentBarConfigForBalanceType.paddingLeft = 79;
   }
 
   segmentBarConfigInitializeForAccountType() {
-      this.segmentBarConfigForAccountType.data = this.currencies;
-      this.segmentBarConfigForAccountType.position = SegmentPositionEnum.CENTER;
-      this.segmentBarConfigForAccountType.block = true;
-      this.segmentBarConfigForAccountType.paddingLeft = 27;
-      this.segmentBarConfigForAccountType.paddingRight = 27;
-      this.segmentBarConfigForAccountType.width = '100%'
+    this.segmentBarConfigForAccountType.data = this.currencies;
+    this.segmentBarConfigForAccountType.position = SegmentPositionEnum.CENTER;
+    this.segmentBarConfigForAccountType.block = true;
+    this.segmentBarConfigForAccountType.paddingLeft = 27;
+    this.segmentBarConfigForAccountType.paddingRight = 27;
+    this.segmentBarConfigForAccountType.width = '100%'
   }
 
+  balanceTypeCurrencyChange(currency: CurrencyEnum) {
+    this.generateBalanceTypeConfig(currency);
+  }
+
+  accountTypeCurrencyChange(currency: CurrencyEnum) {
+    this.generateAccountTypeConfig(currency);
+  }
 }
