@@ -37,7 +37,7 @@ export class BankResolver implements Resolve<Array<SidebarDataModel>> {
         titleClass: 'sidebar-menu-title uppercase font-bold',
         isCollapseClass: 'pl-50',
         isNotCollapseClass: 'pl-15',
-        routerLink: 'transactions-dashboard',
+        routerLink: '/bank/transactions-dashboard',
         isCollapseCheck: true,
         isDisplayIcon: false
       },
@@ -79,7 +79,7 @@ export class BankResolver implements Resolve<Array<SidebarDataModel>> {
         children: [
           {
             title: 'sidebar.account-activities',
-            routerLink: '',
+            routerLink: 'account-activities',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {

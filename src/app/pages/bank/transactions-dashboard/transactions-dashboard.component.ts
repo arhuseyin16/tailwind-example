@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from "@ngxs/store";
 import { HeaderConfigAction } from "../../../store/header-config/header-config.action";
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
@@ -11,10 +11,10 @@ import { SegmentPositionEnum } from "../../../shared/component/segment-bar/segme
 import { EChartsOption } from "echarts";
 import { CurrencyUtil } from "../../../shared/util/currency.util";
 import { CurrencyEnum } from "../../../shared/enum/currency.enum";
-import { BankService } from "../../../service/bank/bank.service";
-import { AccountType } from "../../../models/bank/account-type";
-import { BalanceType } from "../../../models/bank/balance-type";
-import { LabelValueType } from "../../../models/bank/label-value.type";
+import { BankService } from '../../../service/bank/bank.service';
+import { AccountType } from '../../../models/bank/account-type';
+import { BalanceType } from '../../../models/bank/balance-type';
+import { LabelValueType } from '../../../models/bank/label-value.type';
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -72,22 +72,22 @@ export class TransactionsDashboardComponent implements OnInit {
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
     this.favoriteModel = {
-      name: 'İşlem Hareketleri',
+      name: 'favorite-list.bank-transactions',
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
 
-    this.bankService.getAccountTypes().subscribe(accountTypes => {
+    this.bankService.getAccountTypes().subscribe((accountTypes:Array<AccountType>) => {
       this.accountTypes = accountTypes;
       this.generateAccountTypeConfig();
     });
 
-    this.bankService.getBalanceTypes().subscribe(balanceTypes => {
+    this.bankService.getBalanceTypes().subscribe((balanceTypes: Array<BalanceType>) => {
       this.balanceTypes = balanceTypes;
       this.generateBalanceTypeConfig();
     });
 
-    this.bankService.getCurrencyTotals().subscribe(currencyTotals => {
+    this.bankService.getCurrencyTotals().subscribe((currencyTotals: Array<LabelValueType>) => {
       this.currencyTotals = currencyTotals;
     });
 
