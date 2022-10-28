@@ -6,6 +6,6 @@ export enum CurrencyEnum {
   CHF = 'CHF',
   RUB = 'RUB',
   AUD = 'AUD',
-  JFY = 'JPY',
+  JPY = 'JPY',
   AED = 'AED'
 }

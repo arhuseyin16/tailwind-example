@@ -15,8 +15,6 @@ import { BankService } from "../../../service/bank/bank.service";
 import { AccountType } from "../../../models/bank/account-type";
 import { BalanceType } from "../../../models/bank/balance-type";
 import { LabelValueType } from "../../../models/bank/label-value.type";
-import { interval, switchMap } from "rxjs";
-import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: 'app-transactions-dashboard',
@@ -51,7 +49,7 @@ export class TransactionsDashboardComponent implements OnInit {
     {label: 'CHF', value: 18.87},
     {label: 'RUB', value: 0.31},
     {label: 'AUD', value: 12.00},
-    {label: 'JFY', value: 0.13},
+    {label: 'JPY', value: 0.13},
     {label: 'AED', value: 5.06},
   ];
 
@@ -65,8 +63,6 @@ export class TransactionsDashboardComponent implements OnInit {
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
   segmentBarConfigForBalanceType = new SegmentBarConfig();
   segmentBarConfigForAccountType = new SegmentBarConfig();
-
-  ngxUiLoaderService = inject(NgxUiLoaderService);
 
   constructor(private store: Store, private router: Router,
               private bankService: BankService) {
@@ -86,13 +82,9 @@ export class TransactionsDashboardComponent implements OnInit {
       this.generateAccountTypeConfig();
     });
 
-    this.ngxUiLoaderService.startLoader('transactions-dashboard.balance-types')
-    interval(9000).pipe(
-      switchMap(_ => this.bankService.getBalanceTypes())
-    ).subscribe(balanceTypes => {
+    this.bankService.getBalanceTypes().subscribe(balanceTypes => {
       this.balanceTypes = balanceTypes;
       this.generateBalanceTypeConfig();
-      this.ngxUiLoaderService.stopLoader('transactions-dashboard.balance-types')
     });
 
     this.bankService.getCurrencyTotals().subscribe(currencyTotals => {
@@ -109,8 +101,10 @@ export class TransactionsDashboardComponent implements OnInit {
   generateBalanceTypeConfig(currency?: CurrencyEnum) {
     // @ts-ignore
     currency = !currency ? this.currencies[0].label : currency;
-    let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {};}[] = [];
+    let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {}; tooltip: {formatter: any, textStyle: {}}}[] = [];
+    let centerChartDataList: {name: string; value: number, itemStyle: {color: any;};}[] = [];
     let chartLegendList: {name: any; itemStyle: {color: any;};}[] = [];
+    let totalValue = 0;
     if (this.balanceTypes) {
       this.balanceTypes.forEach(balanceType => {
         balanceType.accounts.forEach((account: any) => {
@@ -128,6 +122,14 @@ export class TransactionsDashboardComponent implements OnInit {
                 fontWeight: 'bold',
                 lineHeight: 20,
                 fontFamily: 'Poppins',
+              },
+              tooltip: {
+                formatter: `${balanceType.label}<br />${CurrencyUtil.getCurrencySymbolUtilByName(currency, account.value)}`,
+                textStyle: {
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  fontFamily: 'Poppins',
+                }
               }
             });
             chartLegendList.push({
@@ -136,9 +138,19 @@ export class TransactionsDashboardComponent implements OnInit {
                 color: balanceType.color
               }
             });
+            totalValue += account.value;
           }
         });
       });
+      if(currency) {
+        centerChartDataList.push({
+          name: CurrencyUtil.getCurrencySymbolUtilByName(currency, totalValue).toString(),
+          value: 0,
+          itemStyle: {
+            color: '#fff'
+          }
+        })
+      }
     }
     this.balanceTypeConfig = {
       tooltip: {
@@ -162,6 +174,24 @@ export class TransactionsDashboardComponent implements OnInit {
       },
       series: [
         {
+          type: 'pie',
+          selectedMode: 'single',
+          radius: [0, '36%'],
+          right: '45%',
+          label: {
+            position: 'center',
+            fontSize: 18,
+            fontWeight: 'bold'
+          },
+          labelLine: {
+            show: false
+          },
+          tooltip: {
+            show: false
+          },
+          data: [...centerChartDataList]
+        },
+        {
           type: `pie`,
           id: 'chart-2',
           radius: ['55%', '72%'],
@@ -180,9 +210,11 @@ export class TransactionsDashboardComponent implements OnInit {
   generateAccountTypeConfig(currency?: CurrencyEnum) {
     // @ts-ignore
     currency = !currency ? this.currencies[0].label : currency;
-    let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {};}[] = [];
+    let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {}; tooltip: {formatter: any, textStyle: {}}}[] = [];
+    let centerChartDataList: {name: string; value: number, itemStyle: {color: any;};}[] = [];
     let chartLegendList: {name: any; itemStyle: {color: any;};}[] = [];
-    if(this.accountTypes) {
+    let totalValue = 0;
+    if (this.accountTypes) {
       this.accountTypes.forEach(accountType => {
         accountType.accounts.forEach((account: any) => {
           if (currency && account.name === currency) {
@@ -199,6 +231,14 @@ export class TransactionsDashboardComponent implements OnInit {
                 fontWeight: 'bold',
                 lineHeight: 20,
                 fontFamily: 'Poppins',
+              },
+              tooltip: {
+                formatter: `${accountType.label}<br />${CurrencyUtil.getCurrencySymbolUtilByName(currency, account.value)}`,
+                textStyle: {
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  fontFamily: 'Poppins',
+                }
               }
             });
             chartLegendList.push({
@@ -207,9 +247,19 @@ export class TransactionsDashboardComponent implements OnInit {
                 color: accountType.color
               }
             });
+            totalValue += account.value;
           }
         });
       });
+      if(currency) {
+        centerChartDataList.push({
+          name: CurrencyUtil.getCurrencySymbolUtilByName(currency, totalValue).toString(),
+          value: 0,
+          itemStyle: {
+            color: '#fff'
+          }
+        })
+      }
     }
     this.accountTypeConfig = {
       tooltip: {
@@ -231,6 +281,24 @@ export class TransactionsDashboardComponent implements OnInit {
       },
       series: [
         {
+          type: 'pie',
+          selectedMode: 'single',
+          radius: [0, '40%'],
+          bottom: 80,
+          label: {
+            position: 'center',
+            fontSize: 18,
+            fontWeight: 'bold'
+          },
+          labelLine: {
+            show: false
+          },
+          tooltip: {
+            show: false
+          },
+          data: [...centerChartDataList]
+        },
+        {
           name: 'Pie Chart',
           type: `pie`,
           id: 'chart-2',
@@ -240,7 +308,6 @@ export class TransactionsDashboardComponent implements OnInit {
             show: false,
           },
           data: [...chartDataList],
-
         }
       ]
     };

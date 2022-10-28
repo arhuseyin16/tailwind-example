@@ -11,14 +11,9 @@
     <div class="grid pt-[31px] gap-30 grid-cols-1 xl:grid-cols-3">
 
       <div class="xl:col-span-2 h-[300px]">
-        <div class="relative">
-          <ngx-ui-loader [loaderId]="'transactions-dashboard.balance-types'" [fgsSize]="75" fgsType="ball-spin"></ngx-ui-loader>
-          <app-balance-type [segmentBarConfig]="segmentBarConfigForBalanceType" [chartsOption]="balanceTypeConfig"
-                            [title]="'transactions-dashboard.balance-types'"
-                            (currencyChange)="balanceTypeCurrencyChange($event)"></app-balance-type>
-        </div>
-
-
+        <app-balance-type [segmentBarConfig]="segmentBarConfigForBalanceType" [chartsOption]="balanceTypeConfig"
+                          [title]="'transactions-dashboard.balance-types'"
+                          (currencyChange)="balanceTypeCurrencyChange($event)"></app-balance-type>
       </div>
 
       <div>

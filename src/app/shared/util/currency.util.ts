@@ -17,7 +17,7 @@ export class CurrencyUtil {
       return CurrencySymbolEnum.RUB;
     } else if (name === CurrencyEnum.AUD) {
       return CurrencySymbolEnum.AUD;
-    } else if (name === CurrencyEnum.JFY) {
+    } else if (name === CurrencyEnum.JPY) {
       return CurrencySymbolEnum.JFY;
     } else {
       return CurrencySymbolEnum.AED;
@@ -34,13 +34,13 @@ export class CurrencyUtil {
     } else if (name === CurrencyEnum.GBP) {
       return new Intl.NumberFormat('en-GB', {style: 'currency', currency: CurrencyEnum.GBP}).format(value);
     } else if (name === CurrencyEnum.CHF) { // bakıcazz
-      return new Intl.NumberFormat('de-CH', {style: 'currency', currency: CurrencyEnum.CHF}).format(value);
+      return new Intl.NumberFormat('sv-SE', {style: 'currency', currency: CurrencyEnum.CHF}).format(value);
     } else if (name === CurrencyEnum.RUB) {
       return new Intl.NumberFormat('ru-RU', {style: 'currency', currency: CurrencyEnum.RUB}).format(value);
     } else if (name === CurrencyEnum.AUD) {
       return new Intl.NumberFormat('en-AU', {style: 'currency', currency: CurrencyEnum.AUD}).format(value);
-    } else if (name === CurrencyEnum.JFY) {
-      return new Intl.NumberFormat('ja-JA', {style: 'currency', currency: CurrencyEnum.JFY}).format(value);
+    } else if (name === CurrencyEnum.JPY) {
+      return new Intl.NumberFormat('ja-JP', {style: 'currency', currency: CurrencyEnum.JPY}).format(value);
     } else {
       return new Intl.NumberFormat('ar-SA-u-nu-latn', {style: 'currency', currency: 'SAR'}).format(value);
     }

@@ -21,7 +21,7 @@ export class DoughnutEchartComponent {
     }
 
     // @ts-ignore
-    this.chartOption.series[0].data.forEach((data: any) => {
+    this.chartOption.series[1].data.forEach((data: any) => {
       if (data.name === event.name) { // seçilen legend name eşit ise
         data.label = {
           ...data.label,
