@@ -26,7 +26,6 @@ export class LayoutComponent implements OnInit {
   }
 
   collapseChange(isCollapse: boolean) {
-    // isCollapse -> true ise kapanıyor false ise açılıyor.
     this.store.dispatch(new SetIsCollapseAction(isCollapse));
   }
 }

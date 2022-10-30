@@ -32,7 +32,8 @@
     "settings": "Settings"
   },
   "favorite": {
-    "add-favorite-transactions": "Add Favorite Transactions"
+    "add-favorite-transactions": "Add Favorite Transactions",
+    "filters": "Favorite Filters"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -117,5 +118,10 @@
     "account-no": "Account Number",
     "date": "Date",
     "iban-no": "IBAN Number"
+  },
+  "account-activities-list": {
+    "date": "Date",
+    "all-filters": "All Filters",
+    "export": "Export"
   }
 }

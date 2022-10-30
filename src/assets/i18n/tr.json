@@ -32,7 +32,8 @@
     "settings": "Ayarlar"
   },
   "favorite": {
-    "add-favorite-transactions": "Favori İşlemlere Ekle"
+    "add-favorite-transactions": "Favori İşlemlere Ekle",
+    "filters": "Favori Filtreler"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -117,5 +118,10 @@
     "account-no": "Hesap Numarası",
     "date": "Tarih",
     "iban-no": "IBAN Numarası"
+  },
+  "account-activities-list": {
+    "date": "Tarih",
+    "all-filters": "Tüm Filtreler",
+    "export": "Dışa Aktar"
   }
 }
