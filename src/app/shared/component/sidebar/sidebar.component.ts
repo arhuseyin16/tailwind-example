@@ -18,9 +18,9 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.store.dispatch(new SetIsCollapseAction(this.isCollapsed));
-    this.store.select(SidebarState.getSidebarData).subscribe(sidebarItems => {
-      this.sidebarItems = sidebarItems;
+    this.store.select(SidebarState).subscribe((state) => {
+      this.sidebarItems = state.data;
+      this.isCollapsed = state.isCollapse;
     });
   }
 

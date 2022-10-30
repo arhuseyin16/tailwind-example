@@ -24,4 +24,9 @@ export class LayoutComponent implements OnInit {
   dropdownClick() {
     this.store.dispatch(new HeaderDropdownActionClear());
   }
+
+  collapseChange(isCollapse: boolean) {
+    // isCollapse -> true ise kapanıyor false ise açılıyor.
+    this.store.dispatch(new SetIsCollapseAction(isCollapse));
+  }
 }

@@ -1,10 +1,10 @@
 <nz-layout class="app-layout">
   <nz-sider class="menu-sidebar"
-            nzCollapsible
             nzWidth="332px"
             [nzCollapsedWidth]="121"
             nzBreakpoint="lg"
             [(nzCollapsed)]="isCollapsed"
+            (nzCollapsedChange)="collapseChange($event)"
             [nzTrigger]="null">
   <app-sidebar></app-sidebar>
   </nz-sider>
