@@ -6,6 +6,8 @@ import { NzSelectModule } from "ng-zorro-antd/select";
 import { FormsModule } from "@angular/forms";
 import { TranslateModule } from "@ngx-translate/core";
 import { NzIconModule } from "ng-zorro-antd/icon";
+import { NzButtonModule } from "ng-zorro-antd/button";
+import { BankService } from "../../../../service/bank/bank.service";
 
 const routes: Routes = [
   {
@@ -16,13 +18,17 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AccountActivitiesListComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NzSelectModule,
-    FormsModule,
-    TranslateModule,
-    NzIconModule
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        NzSelectModule,
+        FormsModule,
+        TranslateModule,
+        NzIconModule,
+        NzButtonModule
+    ],
+  providers: [
+    BankService
   ]
 })
 export class AccountActivitiesListModule { }

@@ -1,69 +1,70 @@
 <div class="pl-7 pr-9">
   <div class="grid grid-rows-2">
 
-    <div class="grid grid-cols-7 gap-2.5">
+    <div class="flex justify-between">
 
-      <div class="col-span-3">test</div>
-      <div class="w-full">
-        <nz-select nzSize="large" class="w-full" nzAllowClear [nzPlaceHolder]="favoriteSelectPlaceholder">
-          <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-          <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-          <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-        </nz-select>
+      <div>test</div>
 
-        <ng-template #favoriteSelectPlaceholder>
+      <div class="flex justify-end">
+        <div class="w-full mr-2.5" *ngIf="favoriteFilters">
+          <nz-select nzSize="large" class="w-[230px]" nzAllowClear [nzOptions]="favoriteFilters" [nzCustomTemplate]="favoriteSelectCustomTemplate" [nzPlaceHolder]="favoriteSelectPlaceholder">
+          </nz-select>
+
+          <ng-template #favoriteSelectPlaceholder>
           <span class="flex h-full items-center">
             <img src="assets/icon/star.svg"/>
             <span class="pl-[9px] text-15 text-black">{{'favorite.filters' | translate}}</span>
           </span>
-        </ng-template>
-      </div>
+          </ng-template>
 
-      <div class="w-full">
-        <nz-select nzAllowClear nzSize="large" class="w-full" [nzPlaceHolder]="dateSelectPlaceholder">
-          <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-          <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-          <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-        </nz-select>
+          <ng-template #favoriteSelectCustomTemplate let-selected>
+            <span class="flex h-full items-center">
+            <img src="assets/icon/star.svg"/>
+            <span class="pl-[9px] text-15 text-black">{{selected.nzLabel}}</span>
+          </span>
+          </ng-template>
 
-        <ng-template #dateSelectPlaceholder>
+        </div>
+
+        <div class="w-full mr-2.5" *ngIf="dateFilters">
+          <nz-select nzAllowClear nzSize="large" class="w-[230px]" [nzOptions]="dateFilters" [nzCustomTemplate]="dateSelectCustomTemplate" [nzPlaceHolder]="dateSelectPlaceholder">
+            <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+            <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+          </nz-select>
+
+          <ng-template #dateSelectPlaceholder>
           <span class="flex h-full items-center">
-             <img src="assets/icon/star.svg"/>
+             <img src="assets/icon/calendar.svg"/>
              <span class="pl-[9px] text-15 text-black">{{'account-activities-list.date' | translate}}</span>
           </span>
-        </ng-template>
-      </div>
+          </ng-template>
 
-      <div class="w-[129px]">
-        <nz-select nzAllowClear nzSize="large" class="w-full" [nzPlaceHolder]="allFiltersSelectPlaceholder">
-          <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-          <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-          <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-        </nz-select>
-
-        <ng-template #allFiltersSelectPlaceholder>
-          <span class="flex h-full items-center">
-             <img src="assets/icon/star.svg"/>
-             <span class="pl-[9px] text-15 text-black">{{'account-activities-list.all-filters' | translate}}</span>
+          <ng-template #dateSelectCustomTemplate let-selected>
+            <span class="flex h-full items-center">
+            <img src="assets/icon/calendar.svg"/>
+            <span class="pl-[9px] text-15 text-black">{{selected.nzLabel}}</span>
           </span>
-        </ng-template>
-      </div>
+          </ng-template>
+        </div>
 
-      <div class="w-full">
-        <nz-select nzAllowClear nzSize="large" class="w-full" [nzPlaceHolder]="exportSelectPlaceholder">
-          <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-          <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-          <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-        </nz-select>
-
-        <ng-template #exportSelectPlaceholder>
-          <span class="flex h-full items-center">
-             <img src="assets/icon/excel.svg"/>
-             <span class="pl-[9px] text-15 text-black">{{'account-activities-list.export' | translate}}</span>
+        <div class="w-full mr-2.5">
+          <button nz-button nzType="default" class="w-[129px]" nzSize="large">
+          <span class="display-flex">
+            <img width="13" height="13" src="assets/icon/plus.svg"/>
+            <span class="text-15 text-black">Tüm Filtreler</span>
           </span>
-        </ng-template>
-      </div>
+          </button>
+        </div>
 
+        <div class="w-full">
+          <button class="w-[40px] h-[40px] p-y-10" nz-button nzType="default" nzSize="large">
+          <span>
+            <img class="w-[18px]" src="assets/icon/excel.svg"/>
+          </span>
+          </button>
+        </div>
+      </div>
     </div>
 
   </div>

@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Son 1 Gün",
+    "value": 1
+  },
+  {
+    "label": "Son 7 Gün",
+    "value": 2
+  },
+  {
+    "label": "Son 15 Gün",
+    "value": 3
+  },
+  {
+    "label": "Son 30 Gün",
+    "value": 4
+  },
+  {
+    "label": "Tarih Aralığı Seçin",
+    "value": 5
+  }
+]

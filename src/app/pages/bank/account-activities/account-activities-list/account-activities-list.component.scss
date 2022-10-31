@@ -1,0 +1,16 @@
+:host ::ng-deep .ant-select-selector {
+  @apply border-0 rounded-5px #{!important};
+}
+
+:host ::ng-deep .ant-btn-lg {
+  padding: 6.4px 9px;
+  @apply border-0 rounded-5px #{!important};
+}
+
+.display-flex {
+  @apply flex #{!important};
+}
+
+.p-y-10 {
+  @apply py-[10px] #{!important};
+}
