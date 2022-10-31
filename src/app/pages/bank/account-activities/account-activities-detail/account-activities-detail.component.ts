@@ -25,7 +25,7 @@ export class AccountActivitiesDetailComponent implements OnInit {
   ) {
     const dataObj = {
       backComponentName: 'Hesap Hareketleri',
-      backUrl: '/bank/account-activities',
+      backUrl: 'ui/bank/account-activities',
       detailTitle: 'Akbank'
     }
     this.headerConfig.push({
