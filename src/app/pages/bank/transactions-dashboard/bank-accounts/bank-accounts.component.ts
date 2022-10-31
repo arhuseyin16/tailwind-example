@@ -513,7 +513,7 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   bankAccountDetail(id: number) {
-    this.router.navigate(['bank/bank-account'], {queryParams: {id: id}});
+    this.router.navigate(['ui/bank/bank-account'], {queryParams: {id: id}});
 
   }
 

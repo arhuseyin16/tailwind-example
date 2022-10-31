@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {Observable} from "rxjs";
 import {Select} from "@ngxs/store";
-import {HeaderConfigState} from "../../../../store/header-config/header-config.state";
+import {HeaderConfigState} from "../../../store/header-config/header-config.state";
 
 @Component({
   selector: 'app-header',

@@ -3,7 +3,7 @@ import {HeaderConfigAction} from "../../../store/header-config/header-config.act
 import {Store} from "@ngxs/store";
 import {HeaderConfigModel} from "../../../models/header-config-model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FavoriteAction} from "../../../store/favorite/favorite.action";
+import {FavoriteAction, FavoriteClear} from "../../../store/favorite/favorite.action";
 import {FavoriteStateModel} from "../../../models/favorite-state.model";
 import {FormBuilder, FormControl} from "@angular/forms";
 
@@ -975,11 +975,6 @@ export class BankAccountsComponent implements OnInit {
       dataObj: null
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
-    this.favoriteModel = {
-      name: 'favorite-list.bank-accounts',
-      url: this.router.url
-    }
-    this.store.dispatch(new FavoriteAction(this.favoriteModel));
     this.bankAccountRoutingController();
   }
 
@@ -989,6 +984,13 @@ export class BankAccountsComponent implements OnInit {
  bankAccountRoutingController(): void {
    this.activatedRoute.queryParams.subscribe((params: any) => {
      if (params.id) {
+       this.store.dispatch(new FavoriteClear());
+     } else {
+       this.favoriteModel = {
+         name: 'favorite-list.bank-accounts',
+         url: this.router.url
+       }
+       this.store.dispatch(new FavoriteAction(this.favoriteModel));
      }
    });
  }

@@ -3,7 +3,7 @@
     <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
   </div>
   <div class="dropdown-favorite" *ngIf="favoriteView">
-    <ul>
+    <ul *ngIf="statePage?.name">
       <li class="favorite" [ngStyle]="{'border-bottom': favoriteList.length > 0 ? 'solid 0.5px #d5d5d5': 'none' }">
         {{"favorite.add-favorite-transactions" | translate}}
         <span>
