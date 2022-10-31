@@ -14,7 +14,6 @@ import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {FormsModule} from "@angular/forms";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { SidebarModule } from "../../shared/component/sidebar/sidebar.module";
-import { BankResolver } from "./bank.resolver";
 
 const routes: Routes = [
   {
@@ -34,32 +33,6 @@ const routes: Routes = [
     path: 'account-activities',
     loadChildren: () => import('./account-activities/account-activities.module').then(m => m.AccountActivitiesModule)
   },
-  /*{
-    path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'transactions-dashboard'
-      },
-      {
-        path: 'transactions-dashboard',
-        loadChildren: () => import('./transactions-dashboard/transactions-dashboard.module').then(m => m.TransactionsDashboardModule)
-      },
-      {
-        path: 'bank-account',
-        loadChildren: () => import('./bank-accounts/bank-accounts.module').then(m => m.BankAccountsModule)
-      },
-      {
-        path: 'account-activities',
-        loadChildren: () => import('./account-activities/account-activities.module').then(m => m.AccountActivitiesModule)
-      }
-    ],
-    resolve: {
-      bank: BankResolver
-    }
-  }*/
 ]
 
 @NgModule({
