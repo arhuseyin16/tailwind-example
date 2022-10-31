@@ -3,8 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Store} from "@ngxs/store";
 import {HeaderConfigAction} from "../../../../store/header-config/header-config.action";
 import {HeaderConfigModel} from "../../../../models/header-config-model";
-import {FavoriteStateModel} from "../../../../models/favorite-state.model";
-import {FavoriteAction} from "../../../../store/favorite/favorite.action";
+import {FavoriteClear} from "../../../../store/favorite/favorite.action";
 import {PAGE_SIZE} from "../../../../shared/constants/table-page-size";
 
 @Component({
@@ -311,7 +310,6 @@ export class BankAccountDetailComponent implements OnInit {
   ];
   pageSize = PAGE_SIZE;
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
-  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
   constructor(
     private activatedRoute: ActivatedRoute,
     private store: Store,
@@ -331,11 +329,7 @@ export class BankAccountDetailComponent implements OnInit {
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
     //favorite
-    this.favoriteModel = {
-      name: 'favorite-list.bank-accounts-detail',
-      url: this.router.url
-    }
-    this.store.dispatch(new FavoriteAction(this.favoriteModel));
+    this.store.dispatch(new FavoriteClear());
   }
 
   ngOnInit(): void {}

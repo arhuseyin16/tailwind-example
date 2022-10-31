@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FavoriteStateModel} from "../../../../models/favorite-state.model";
 import {Router} from "@angular/router";
 import {Store} from "@ngxs/store";
-import {HeaderConfigClear} from "../../../../store/header-config/header-config.action";
-import {FavoriteAction} from "../../../../store/favorite/favorite.action";
+import {HeaderConfigAction, HeaderConfigClear} from "../../../../store/header-config/header-config.action";
+import {FavoriteClear} from "../../../../store/favorite/favorite.action";
+import {HeaderConfigModel} from "../../../../models/header-config-model";
 
 @Component({
   selector: 'app-account-activities-detail',
@@ -11,23 +11,29 @@ import {FavoriteAction} from "../../../../store/favorite/favorite.action";
   styleUrls: ['./account-activities-detail.component.scss']
 })
 export class AccountActivitiesDetailComponent implements OnInit {
-  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
   bankDetail = {
-    id: 12121,
+    id: 1,
     image: 'assets/img/bank-account/bank.png',
     color: '#dc4333',
   };
+
+  headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
 
   constructor(
     private router: Router,
     private store: Store
   ) {
-    this.store.dispatch(new HeaderConfigClear()); // header sol taraf boş headerConfig state Clear methot'u çagırmamız yeterli
-    this.favoriteModel = {
-      name: 'favorite-list.account-activities-detail',
-      url: this.router.url
+    const dataObj = {
+      backComponentName: 'Hesap Hareketleri',
+      backUrl: '/bank/account-activities',
+      detailTitle: 'Akbank'
     }
-    this.store.dispatch(new FavoriteAction(this.favoriteModel));
+    this.headerConfig.push({
+      component: () => import('../../../../shared/component/header-detail-title/header-detail-title.component').then(it => it.HeaderDetailTitleComponent),
+      dataObj: dataObj
+    });
+    this.store.dispatch(new HeaderConfigAction(this.headerConfig));
+    this.store.dispatch(new FavoriteClear()); // detay sayfalarında favorite state clear yapılcak. Switch gözükmemesi için
   }
 
   ngOnInit(): void {

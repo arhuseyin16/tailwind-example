@@ -116,6 +116,12 @@
     "account-type": "Hesap Türü",
     "account-no": "Hesap Numarası",
     "date": "Tarih",
-    "iban-no": "IBAN Numarası"
+    "iban-no": "IBAN Numarası",
+    "receipt": "Dekont",
+    "operation-type": "İşlem Türü",
+    "reference": "Referans",
+    "b-a": "B/A",
+    "debtor-tın": "Borçlu VKN",
+    "serial-number": "Sıra No"
   }
 }
