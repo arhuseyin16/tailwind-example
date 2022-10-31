@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
-import { LayoutComponent } from "./layout/layout.component";
 import { NzLayoutModule } from "ng-zorro-antd/layout";
 import { TranslatePageModule } from "../../shared/component/translate-page/translate-page.module";
 import { NzMenuModule } from "ng-zorro-antd/menu";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { TranslateModule } from "@ngx-translate/core";
-import { HeaderComponent } from './layout/header/header.component';
+import { HeaderComponent } from '../../shared/component/header/header.component';
 import {ProfileModule} from "../../shared/component/profile/profile.module";
 import {PdfModule} from "../../shared/component/pdf/pdf.module";
 import {FavoriteModule} from "../../shared/component/favorite/favorite.module";
@@ -19,6 +18,23 @@ import { BankResolver } from "./bank.resolver";
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'transactions-dashboard'
+  },
+  {
+    path: 'transactions-dashboard',
+    loadChildren: () => import('./transactions-dashboard/transactions-dashboard.module').then(m => m.TransactionsDashboardModule)
+  },
+  {
+    path: 'bank-account',
+    loadChildren: () => import('./bank-accounts/bank-accounts.module').then(m => m.BankAccountsModule)
+  },
+  {
+    path: 'account-activities',
+    loadChildren: () => import('./account-activities/account-activities.module').then(m => m.AccountActivitiesModule)
+  },
+  /*{
     path: '',
     component: LayoutComponent,
     children: [
@@ -43,12 +59,14 @@ const routes: Routes = [
     resolve: {
       bank: BankResolver
     }
-  }
+  }*/
 ]
 
 @NgModule({
   declarations: [
-    LayoutComponent,
+    HeaderComponent
+  ],
+  exports: [
     HeaderComponent
   ],
   imports: [

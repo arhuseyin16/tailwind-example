@@ -17,7 +17,7 @@ export class BankTableComponent implements OnInit {
   }
 
   detailUrl(child: any) {
-    this.router.navigate(['/bank/bank-account/detail']);
+    this.router.navigate(['ui/bank/bank-account/detail']);
   }
 
 }

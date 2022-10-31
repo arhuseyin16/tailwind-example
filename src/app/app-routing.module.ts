@@ -6,7 +6,11 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
   },
-  { path: '',
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  { path: 'ui',
     canActivate: [],
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },

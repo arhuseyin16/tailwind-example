@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Select, Store } from "@ngxs/store";
-import { SetIsCollapseAction } from "../../../store/sidebar/sidebar.action";
-import { SidebarState } from "../../../store/sidebar/sidebar.state";
+import { SetIsCollapseAction } from "../../store/sidebar/sidebar.action";
+import { SidebarState } from "../../store/sidebar/sidebar.state";
 import { Observable } from "rxjs";
-import {HeaderDropdownActionClear} from "../../../store/header-dropdown-valid/header-dropdown.action";
+import {HeaderDropdownActionClear} from "../../store/header-dropdown-valid/header-dropdown.action";
 
 @Component({
   selector: 'app-layout',

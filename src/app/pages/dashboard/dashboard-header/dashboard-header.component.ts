@@ -31,7 +31,7 @@ export class DashboardHeaderComponent implements OnInit, AfterViewInit {
       name: 'dashboard-header.bank-transactions',
       image: 'assets/img/dashboard/dashboard-bank.png',
       lightImage:'assets/img/dashboard/light-bank.png',
-      url: '/bank/transactions-dashboard',
+      url: 'ui/bank/transactions-dashboard',
       status: true
     },
     {
