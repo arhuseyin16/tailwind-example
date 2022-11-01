@@ -142,5 +142,20 @@
     "b-a": "B/A",
     "debtor-tın": "Borçlu VKN",
     "serial-number": "Sıra No"
+  },
+  "settings-exchange": {
+    "registrationNumber": "Kayıt No",
+    "currencyHistory": "Kur Tarihi",
+    "sourcePB": "Kaynak PB",
+    "targetPB": "Hedef PB",
+    "rateType": "Oran Türü",
+    "rate": "Oran",
+    "priority": "Öncelik",
+    "creating": "Oluşturma",
+    "update": "Güncelleme",
+    "delete": "Sil",
+    "updated": "Güncelle",
+    "save": "Kaydet",
+    "cancel": "İptal"
   }
 }

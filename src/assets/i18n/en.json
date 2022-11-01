@@ -142,5 +142,20 @@
     "b-a": "B/A",
     "debtor-tın": "Deptor TIN",
     "serial-number": "Serial Number"
+  },
+  "settings-exchange": {
+    "registrationNumber": "Registration No",
+    "currencyHistory": "Currency History",
+    "sourcePB": "Source PB",
+    "targetPB": "Target PB",
+    "rateType": "Rate Type",
+    "rate": "Rate",
+    "priority": "Priority",
+    "creating": "Creating",
+    "update": "Update",
+    "delete": "Delete",
+    "updated": "Update",
+    "save": "Save",
+    "cancel": "Cancel"
   }
 }
