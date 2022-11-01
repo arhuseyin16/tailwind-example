@@ -3,11 +3,23 @@
 
     <div class="flex justify-between">
 
-      <div>test</div>
+      <div class="flex items-center">
+        <div>
+          <label class="text-16">86,356 Kayıttan 1 - 50 Arası</label>
+        </div>
+        <div class="ml-[43px]">
+          <nz-input-group class="w-[230px] rounded-5px border-0" nzSize="large" [nzPrefix]="prefixTemplateUser">
+            <input type="text" nz-input placeholder="Ara..."/>
+          </nz-input-group>
+          <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
+        </div>
+      </div>
 
       <div class="flex justify-end">
+
         <div class="w-full mr-2.5" *ngIf="favoriteFilters">
-          <nz-select nzSize="large" class="w-[230px]" nzAllowClear [nzOptions]="favoriteFilters" [nzCustomTemplate]="favoriteSelectCustomTemplate" [nzPlaceHolder]="favoriteSelectPlaceholder">
+          <nz-select nzSize="large" class="w-[230px]" nzAllowClear [nzOptions]="favoriteFilters"
+                     [nzCustomTemplate]="favoriteSelectCustomTemplate" [nzPlaceHolder]="favoriteSelectPlaceholder">
           </nz-select>
 
           <ng-template #favoriteSelectPlaceholder>
@@ -27,7 +39,8 @@
         </div>
 
         <div class="w-full mr-2.5" *ngIf="dateFilters">
-          <nz-select nzAllowClear nzSize="large" class="w-[230px]" [nzOptions]="dateFilters" [nzCustomTemplate]="dateSelectCustomTemplate" [nzPlaceHolder]="dateSelectPlaceholder">
+          <nz-select nzAllowClear nzSize="large" class="w-[230px]" [nzOptions]="dateFilters"
+                     [nzCustomTemplate]="dateSelectCustomTemplate" [nzPlaceHolder]="dateSelectPlaceholder">
             <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
             <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
             <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
@@ -49,15 +62,11 @@
         </div>
 
         <div class="w-full mr-2.5">
-          <button nz-button nzType="default" class="w-[129px]" nzSize="large">
-          <span class="display-flex">
-            <img width="13" height="13" src="assets/icon/plus.svg"/>
-            <span class="text-15 text-black">Tüm Filtreler</span>
-          </span>
-          </button>
+
+        <app-filter *ngIf="allFiltersModel" [filterTypes]="allFiltersModel"></app-filter>
         </div>
 
-        <div class="w-full">
+        <div class="w-full text-right">
           <button class="w-[40px] h-[40px] p-y-10" nz-button nzType="default" nzSize="large">
           <span>
             <img class="w-[18px]" src="assets/icon/excel.svg"/>

@@ -1,0 +1,15 @@
+::ng-deep .ant-select-selector {
+  @apply border-0.5 border-dark-silver-conf border-solid rounded-5px #{!important};
+}
+
+::ng-deep .ant-select-arrow {
+  @apply text-black #{!important};
+}
+
+::ng-deep .ant-popover-inner-content {
+  padding: 1px 26px 12px 19px;
+}
+
+::ng-deep .ant-popover-title {
+  @apply hidden;
+}

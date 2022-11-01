@@ -10,3 +10,19 @@
 @import "swiper/scss/free-mode";
 @import "swiper/scss/navigation";
 @import "swiper/scss/thumbs";
+
+.display-flex {
+  @apply flex #{!important};
+}
+
+.p-y-10 {
+  @apply py-[10px] #{!important};
+}
+
+.border-radius-5 {
+  @apply rounded-5px #{!important};
+}
+
+.border-bottom-0 {
+  @apply border-b-0 #{!important};
+}
