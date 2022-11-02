@@ -13,3 +13,7 @@
 ::ng-deep .ant-popover-title {
   @apply hidden;
 }
+
+::ng-deep .ant-picker {
+  @apply border-0.5 border-dark-silver-conf border-solid rounded-5px #{!important};
+}

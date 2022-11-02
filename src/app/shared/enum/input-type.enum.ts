@@ -1,8 +1,0 @@
-export enum InputTypeEnum {
-  SELECT = "SELECT",
-  TEXT = "TEXT",
-  NUMBER = "NUMBER",
-  MULTISELECT = "MULTISELECT",
-  DATE = "DATE",
-  DATEANDHOUR = "DATEANDHOUR"
-}

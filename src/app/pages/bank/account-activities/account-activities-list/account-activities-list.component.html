@@ -63,7 +63,7 @@
 
         <div class="w-full mr-2.5">
 
-        <app-filter *ngIf="allFiltersModel" [filterTypes]="allFiltersModel"></app-filter>
+        <app-account-activities-list-filter [favoriteFilters]="favoriteFilters"></app-account-activities-list-filter>
         </div>
 
         <div class="w-full text-right">
@@ -74,6 +74,7 @@
           </button>
         </div>
       </div>
+
     </div>
 
   </div>

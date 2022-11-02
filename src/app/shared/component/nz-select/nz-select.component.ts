@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormGroup} from "@angular/forms";
-import {HEIGHT_PX} from "../../constants/select-height-px";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from "@angular/forms";
+import { HEIGHT_PX } from "../../constants/select-height-px";
 
 @Component({
   selector: 'app-nz-select',
@@ -14,8 +14,10 @@ export class NzSelectComponent implements OnInit {
   @Input() formControlName: any;
   @Input() optionList: any[] = [];
   @Input() label?: string = '';
+  @Output() selectedChange = new EventEmitter();
   allStatus = false;
   nzSelectLoading = true;
+
   constructor() {
   }
 
@@ -66,6 +68,7 @@ export class NzSelectComponent implements OnInit {
         }
       }
     }
+    console.log(list);
   }
 
   checkboxChange(id: number, e: any, type: any, formControl: any) {
@@ -89,6 +92,8 @@ export class NzSelectComponent implements OnInit {
         this.fg.get(type.toString())?.setValue(list);
       }
     });
+    console.log(list);
+    this.selectedChange.emit(list);
   }
 
   allCheckboxChange(e: any, type: string, formControl: any) {

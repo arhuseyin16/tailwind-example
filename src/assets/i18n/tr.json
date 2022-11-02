@@ -128,6 +128,16 @@
   "account-activities-list": {
     "date": "Tarih",
     "all-filters": "Tüm Filtreler",
-    "export": "Dışa Aktar"
+    "export": "Dışa Aktar",
+    "filters": "Filtreler",
+    "filter": "Filtre",
+    "inquire": "Sorgula"
+  },
+  "account-activities-list-filter": {
+    "startDate": "Başlangıç Tarihi",
+    "endDate": "Bitiş Tarihi",
+    "currency-unit": "Para Birimi",
+    "willBorrows": "Debt/Receive",
+    "companies": "Companies"
   }
 }

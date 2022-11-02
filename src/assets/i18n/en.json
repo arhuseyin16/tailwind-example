@@ -128,6 +128,16 @@
   "account-activities-list": {
     "date": "Date",
     "all-filters": "All Filters",
-    "export": "Export"
+    "export": "Export",
+    "filters": "Filters",
+    "filter": "Filter",
+    "inquire": "Inquire"
+  },
+  "account-activities-list-filter": {
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "currency-unit": "Currency Unit",
+    "willBorrows": "Borç/Alacak",
+    "companies": "Firmalar"
   }
 }

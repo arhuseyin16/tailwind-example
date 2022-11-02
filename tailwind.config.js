@@ -13,6 +13,7 @@ module.exports = {
       '25': ['25px', 'normal'],
       '20-normal': ['20px', 'normal'],
       '20': ['20px', '1.5rem'],
+      '22': ['22px', '1.5rem']
     },
     borderWidth: {
       '1': '1px',

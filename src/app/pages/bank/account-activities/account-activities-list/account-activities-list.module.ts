@@ -3,13 +3,20 @@ import { CommonModule } from '@angular/common';
 import { AccountActivitiesListComponent } from "./account-activities-list.component";
 import { RouterModule, Routes } from "@angular/router";
 import { NzSelectModule } from "ng-zorro-antd/select";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TranslateModule } from "@ngx-translate/core";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { BankService } from "../../../../service/bank/bank.service";
 import { NzInputModule } from "ng-zorro-antd/input";
-import { FilterModule } from "../../../../shared/component/filter/filter.module";
+import {
+  AccountActivitiesListFilterComponent
+} from "./account-activities-list-filter/account-activities-list-filter.component";
+import { NzPopoverModule } from "ng-zorro-antd/popover";
+import { NzDrawerModule } from "ng-zorro-antd/drawer";
+import { NzCustomSelectModule } from "../../../../shared/component/nz-select/nz-custom-select.module";
+import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
+import { NzTimePickerModule } from "ng-zorro-antd/time-picker";
 
 const routes: Routes = [
   {
@@ -19,7 +26,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [AccountActivitiesListComponent],
+  declarations: [AccountActivitiesListComponent, AccountActivitiesListFilterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -29,7 +36,12 @@ const routes: Routes = [
     NzIconModule,
     NzButtonModule,
     NzInputModule,
-    FilterModule,
+    NzPopoverModule,
+    NzDrawerModule,
+    NzCustomSelectModule,
+    ReactiveFormsModule,
+    NzDatePickerModule,
+    NzTimePickerModule,
   ],
   providers: [
     BankService
