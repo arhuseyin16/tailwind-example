@@ -156,6 +156,16 @@
     "delete": "Sil",
     "updated": "Güncelle",
     "save": "Kaydet",
-    "cancel": "İptal"
+    "cancel": "İptal",
+    "newRecord": "Yeni Kayıt",
+    "filter": "Filtreler",
+    "synchronizationTCMB": "TCBM Senkronizasyon",
+    "deleteRecord": "Kayıtları Sil",
+    "deleteBodyMessage": "Seçili Kayıtlar silinecek. Onaylıyor musunuz?",
+    "approve": "Onayla",
+    "newRecordCreate": "Yeni Kayıt Oluştur",
+    "currenciesHistory": "Kur Tarihi",
+    "sourceCurrency": "Kaynak Para Birimi",
+    "targetCurrency": "Hedef Para Birimi"
   }
 }

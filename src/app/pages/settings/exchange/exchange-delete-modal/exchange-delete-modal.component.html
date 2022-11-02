@@ -1,11 +1,11 @@
 <div class="main-title">
-  <div class="title">Kayıtları Sil</div>
+  <div class="title">{{'settings-exchange.deleteRecord' | translate}}</div>
   <div class="close-icon" (click)="close()">X</div>
 </div>
 <div class="main-body">
-  Seçili Kayıtlar silinecek. Onayllıyor musunuz?
+  {{'settings-exchange.deleteBodyMessage' | translate}}
 </div>
 <div class="main-footer">
-  <button class="cancel" (click)="close()">İptal</button>
-  <button class="save" (click)="deleted()">Onayla</button>
+  <button class="cancel" (click)="close()">{{'settings-exchange.cancel' | translate}}</button>
+  <button class="save" (click)="deleted()">{{'settings-exchange.approve' | translate}}</button>
 </div>

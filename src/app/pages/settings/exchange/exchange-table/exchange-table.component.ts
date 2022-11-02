@@ -17,49 +17,57 @@ export class ExchangeTableComponent implements OnInit {
       title:'settings-exchange.registrationNumber',
       compare: (a: any, b: any) => a.registrationNumber - b.registrationNumber,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      // width: "200px"
     },
     {
       title:'settings-exchange.currencyHistory',
       compare: (a: any, b: any) => a.currencyHistory - b.currencyHistory,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      // width: "200px"
     },
     {
       title:'settings-exchange.sourcePB',
       compare: (a: any, b: any) => a.sourcePB - b.sourcePB,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      // width: "150px"
     },
     {
       title:'settings-exchange.targetPB',
       compare: (a: any, b: any) => a.targetPB - b.targetPB,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      // width: "150px"
     },
     {
       title:'settings-exchange.rateType',
       compare: (a: any, b: any) => a.rateTyperateType - b.rateType,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      // width: "150px"
     },
     {
       title:'settings-exchange.rate',
       compare: (a: any, b: any) => a.rate - b.rate,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      // width: "150px"
     },
     {
       title:'settings-exchange.priority',
       compare: (a: any, b: any) => a.priority - b.priority,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      // width: "150px"
     },
     {
       title:'settings-exchange.creating',
       compare: (a: any, b: any) => a.creating - b.creating,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      // width: "150px"
     },
 
     {
@@ -103,7 +111,7 @@ export class ExchangeTableComponent implements OnInit {
     // }
   ];
   checked = false;
-  indeterminate = false;
+  // indeterminate = false;
   listOfCurrentPageData: readonly any[] = [];
   listOfData: readonly any[] = [];
   setOfCheckedId = new Set<number>();
@@ -154,7 +162,7 @@ export class ExchangeTableComponent implements OnInit {
 
   refreshCheckedStatus(): void {
     this.checked = this.listOfCurrentPageData.every(item => this.setOfCheckedId.has(item.id));
-    this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
+    // this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
   }
 
   startEdit(id: string): void {

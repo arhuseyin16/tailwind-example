@@ -30,6 +30,19 @@
     border-right: solid 0.5px #d3d3d3;
   }
 
+  ::ng-deep .ant-table-tbody > tr > td.check-td {
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+    border-bottom: solid 0.5px #d3d3d3;
+    border-right: none;
+  }
+
   .action-tab {
     position: relative;
 

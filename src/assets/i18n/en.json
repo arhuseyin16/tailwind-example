@@ -156,6 +156,16 @@
     "delete": "Delete",
     "updated": "Update",
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "newRecord": "New Record",
+    "filter": "Filter",
+    "synchronizationTCMB": "TCBM Synchronization",
+    "deleteRecord": "Delete Record",
+    "deleteBodyMessage": "Selected Recordings will be deleted. Do you confirm?",
+    "approve": "Approve",
+    "newRecordCreate": "New Record Create",
+    "currenciesHistory": "Currency History",
+    "targetCurrency": "Target Currency",
+    "sourceCurrency": "Source Currency"
   }
 }

@@ -1,20 +1,20 @@
 <div class="exchange-page">
   <div class="exchange-left-menu">
     <div class="synchronization">
-      <button>TCBM Senkronizasyon</button>
+      <button>{{'settings-exchange.synchronizationTCMB' | translate}}</button>
     </div>
     <div class="new-record">
-      <button>Yeni Kayıt</button>
+      <button (click)="newRecordModal()">{{'settings-exchange.newRecord' | translate}}</button>
     </div>
     <div class="filter">
       <button>
-        <img src="assets/icon/döviz-filtre.png" width="19px" height="20px">
-        Filtreler
+        <img src="assets/icon/döviz-filtre.png">
+        {{'settings-exchange.filter' | translate}}
       </button>
     </div>
     <div class="excel-export">
       <button>
-        <img src="assets/icon/excel-icon.png" width="40px" height="40px">
+       <img src="assets/icon/excel.svg">
       </button>
     </div>
   </div>
