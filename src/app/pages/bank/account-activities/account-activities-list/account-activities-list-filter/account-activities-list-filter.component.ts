@@ -21,10 +21,19 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     {id: 6, name: 'Japon Yeni', status: false},
   );
 
+  companies = new Array<any>(
+    {id: 1, name: 'Koç', status: false},
+    {id: 2, name: 'Sabancı', status: false},
+    {id: 3, name: 'Ülker', status: false},
+    {id: 4, name: 'Eti', status: false},
+    {id: 5, name: 'Trendyol', status: false},
+    {id: 6, name: 'Hepsi Burada', status: false},
+  );
+
   willBorrows = new Array<any>(
     {id: 1, name: 'Giriş Alacak (A)', status: false},
     {id: 2, name: 'Çıkış Borç (B)', status: false},
-    );
+  );
   formBuilder = inject(FormBuilder);
 
   filterFormGroup = new FormGroup({
@@ -36,6 +45,26 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     currencyUnits: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
     willBorrows: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
     companies: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    banks: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    branches: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    accountTypes: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    accounts: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    transactionTypes: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    documentGroups: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    documentTypes: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    targetDocumentTypes: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    typeConversion: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    conversionType: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
+    amountRangeStart: new FormControl(0, {initialValueIsDefault: true, nonNullable: true}),
+    amountRangeEnd: new FormControl(0, {initialValueIsDefault: true, nonNullable: true}),
+    accountNumber: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
+    taxOrTckn: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
+    ibanNumber: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
+    referenceNumber: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
+    receiptNumber: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
+    description: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
+    descriptionSecond: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
+    customerDescription: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
   });
 
   ngOnInit(): void {
@@ -49,4 +78,23 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     this.visibleDrawer = false;
   }
 
+  companiesChange(companies: Array<any>) {
+    console.log(companies);
+  }
+
+  banksChange(banks: Array<any>) {
+    console.log(banks);
+  }
+
+  branchesChange(branches: Array<any>) {
+    console.log(branches);
+  }
+
+  accountTypesChange(accountTypes: Array<any>) {
+    console.log(accountTypes);
+  }
+
+  accountsChange(accounts: Array<any>) {
+    console.log(accounts);
+  }
 }

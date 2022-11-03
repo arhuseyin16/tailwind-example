@@ -137,7 +137,26 @@
     "startDate": "Start Date",
     "endDate": "End Date",
     "currency-unit": "Currency Unit",
-    "willBorrows": "Borç/Alacak",
-    "companies": "Firmalar"
+    "willBorrows": "Debt/Receive",
+    "companies": "Companies",
+    "banks": "Banks",
+    "branches" : "Branches",
+    "account-types": "Account Types",
+    "accounts": "Accounts",
+    "transaction-types": "Transaction Types",
+    "document-groups": "Document Group",
+    "document-types": "Document Type",
+    "target-document-types": "Target Document Type",
+    "type-conversion": "Type Conversion",
+    "conversion-type": "Conversion Type",
+    "amount-range": "Amount Range",
+    "account-number": "Account Number",
+    "tax-or-tckn": "Tax or Tckn",
+    "iban-number": "IBAN Number",
+    "reference-number": "Reference Number",
+    "receipt-number": "Receipt Number",
+    "description": "Description",
+    "description-second": "Description 2",
+    "customer-description": "Customer Description"
   }
 }

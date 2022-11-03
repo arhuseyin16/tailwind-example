@@ -62,6 +62,9 @@ module.exports = {
         'american-silver': '#d1d1d1',
         'dark-silver-conf': '#707070'
       },
+      gridTemplateRows: {
+        '10': 'repeat(10, minmax(0, 1fr))',
+      },
       gap: {
         '30': '1.875rem',
       },

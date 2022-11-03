@@ -48,6 +48,7 @@ export class NzSelectComponent implements OnInit {
         this.optionList.forEach((row: any) => {
           if (e === row.id) {
             row.status = true;
+            list.push(row.id)
           }
         });
       });
@@ -68,7 +69,7 @@ export class NzSelectComponent implements OnInit {
         }
       }
     }
-    console.log(list);
+    this.selectedChange.emit(list);
   }
 
   checkboxChange(id: number, e: any, type: any, formControl: any) {
@@ -92,7 +93,6 @@ export class NzSelectComponent implements OnInit {
         this.fg.get(type.toString())?.setValue(list);
       }
     });
-    console.log(list);
     this.selectedChange.emit(list);
   }
 

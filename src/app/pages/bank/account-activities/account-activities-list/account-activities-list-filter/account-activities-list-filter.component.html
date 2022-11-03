@@ -19,101 +19,264 @@
     (nzOnClose)="close()"
   >
     <ng-container *nzDrawerContent>
-      <div class="grid grid-rows-10">
-        <div [formGroup]="filterFormGroup">
+      <div class="grid grid-rows-10 grid-flow-col" [formGroup]="filterFormGroup">
 
-          <div class="flex flex-col">
-            <label class="text-16">{{'favorite.filters' | translate}}</label>
-            <nz-select nzSize="large" class="w-full mt-2.5" nzAllowClear *ngIf="favoriteFilters" [nzOptions]="favoriteFilters">
-            </nz-select>
-          </div>
-
-          <div class="mt-2.5">
-            <label class="text-16">{{'account-activities-list-filter.startDate' | translate}}</label>
-            <div class="flex mt-2.5">
-              <nz-date-picker nzSize="large" nzPlaceHolder="Tarih" formControlName="startDate"></nz-date-picker>
-              <nz-time-picker nzSize="large" [nzNowText]="'Şimdi'" nzPlaceHolder="Saat" formControlName="startDateHour"
-                              class="ml-4" nzFormat="HH:mm"></nz-time-picker>
-            </div>
-
-          </div>
-
-          <div class="mt-2.5">
-            <label class="text-16">{{'account-activities-list-filter.endDate' | translate}}</label>
-            <div class="flex mt-2.5">
-              <nz-date-picker nzSize="large" nzPlaceHolder="Tarih" formControlName="endDate"></nz-date-picker>
-              <nz-time-picker nzSize="large" [nzNowText]="'Şimdi'" nzPlaceHolder="Saat" formControlName="endDateHour"
-                              class="ml-4" nzFormat="HH:mm"></nz-time-picker>
-            </div>
-          </div>
-
-          <div class="mt-2.5">
-            <app-nz-select
-              [fg]="filterFormGroup"
-              [controlName]="filterFormGroup.value.currencyUnits"
-              [formControlName]="'currencyUnits'"
-              [optionList]="currencyUnits"
-              [label]="'account-activities-list-filter.currency-unit'"
-              ngDefaultControl
-            ></app-nz-select>
-          </div>
-
-          <div class="mt-2.5">
-            <app-nz-select
-              [fg]="filterFormGroup"
-              [controlName]="filterFormGroup.value.willBorrows"
-              [formControlName]="'willBorrows'"
-              [optionList]="willBorrows"
-              [label]="'account-activities-list-filter.willBorrows'"
-              ngDefaultControl
-            ></app-nz-select>
-          </div>
-
-          <div class="mt-2.5">
-            <app-nz-select
-              [fg]="filterFormGroup"
-              [controlName]="filterFormGroup.value.companies"
-              [formControlName]="'companies'"
-              [optionList]="currencyUnits"
-              [label]="'account-activities-list-filter.companies'"
-              ngDefaultControl
-            ></app-nz-select>
-          </div>
-
-
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+        <div class="flex flex-col">
+          <label class="text-16">{{'favorite.filters' | translate}}</label>
+          <nz-select nzSize="large" class="w-full mt-2.5" nzAllowClear *ngIf="favoriteFilters"
+                     [nzOptions]="favoriteFilters">
+          </nz-select>
         </div>
+
+        <div class="mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.startDate' | translate}}</label>
+          <div class="flex mt-2.5">
+            <nz-date-picker nzSize="large" nzPlaceHolder="Tarih" formControlName="startDate"></nz-date-picker>
+            <nz-time-picker nzSize="large" [nzNowText]="'Şimdi'" nzPlaceHolder="Saat" formControlName="startDateHour"
+                            class="ml-4" nzFormat="HH:mm"></nz-time-picker>
+          </div>
+
+        </div>
+
+        <div class="mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.endDate' | translate}}</label>
+          <div class="flex mt-2.5">
+            <nz-date-picker nzSize="large" nzPlaceHolder="Tarih" formControlName="endDate"></nz-date-picker>
+            <nz-time-picker nzSize="large" [nzNowText]="'Şimdi'" nzPlaceHolder="Saat" formControlName="endDateHour"
+                            class="ml-4" nzFormat="HH:mm"></nz-time-picker>
+          </div>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.currencyUnits"
+            [formControlName]="'currencyUnits'"
+            [optionList]="currencyUnits"
+            [label]="'account-activities-list-filter.currency-unit'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.willBorrows"
+            [formControlName]="'willBorrows'"
+            [optionList]="willBorrows"
+            [label]="'account-activities-list-filter.willBorrows'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.companies"
+            [formControlName]="'companies'"
+            [optionList]="companies"
+            [label]="'account-activities-list-filter.companies'"
+            (selectedChange)="companiesChange($event)"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.banks"
+            [formControlName]="'banks'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.banks'"
+            (selectedChange)="banksChange($event)"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.branches"
+            [formControlName]="'branches'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.branches'"
+            (selectedChange)="branchesChange($event)"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.accountTypes"
+            [formControlName]="'accountTypes'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.account-types'"
+            (selectedChange)="accountTypesChange($event)"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.accounts"
+            [formControlName]="'accounts'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.accounts'"
+            (selectedChange)="accountsChange($event)"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div>
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.transactionTypes"
+            [formControlName]="'transactionTypes'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.transaction-types'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.documentGroups"
+            [formControlName]="'documentGroups'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.document-groups'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.documentTypes"
+            [formControlName]="'documentTypes'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.document-types'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.targetDocumentTypes"
+            [formControlName]="'targetDocumentTypes'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.target-document-types'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.typeConversion"
+            [formControlName]="'typeConversion'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.type-conversion'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <app-nz-select
+            [fg]="filterFormGroup"
+            [controlName]="filterFormGroup.value.conversionType"
+            [formControlName]="'conversionType'"
+            [optionList]="[]"
+            [label]="'account-activities-list-filter.conversion-type'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+
+        <div class="mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.amount-range' | translate}}</label>
+          <div class="flex mt-2.5 w-full">
+            <nz-input-number class="f-input" nzSize="large" formControlName="amountRangeStart" [nzMin]="0" [nzMax]="100000000000"
+                             [nzStep]="1"></nz-input-number>
+            <nz-input-number class="f-input" nzSize="large" formControlName="amountRangeEnd" [nzMin]="0" [nzMax]="100000000000"
+                             [nzStep]="1"></nz-input-number>
+          </div>
+
+        </div>
+
+        <div class="flex flex-col mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.account-number' | translate}}</label>
+          <div class="w-full mt-2.5">
+            <input class="f-input" nzSize="large" nz-input formControlName="accountNumber" />
+          </div>
+        </div>
+
+        <div class="flex flex-col mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.tax-or-tckn' | translate}}</label>
+          <div class="w-full mt-2.5">
+            <input class="f-input" nzSize="large" nz-input formControlName="taxOrTckn" />
+          </div>
+        </div>
+
+        <div class="flex flex-col mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.iban-number' | translate}}</label>
+          <div class="w-full mt-2.5">
+            <input class="f-input" nzSize="large" nz-input formControlName="ibanNumber" />
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <label class="text-16">{{'account-activities-list-filter.reference-number' | translate}}</label>
+          <div class="w-full mt-2.5">
+            <input class="f-input" nzSize="large" nz-input formControlName="referenceNumber" />
+          </div>
+        </div>
+
+        <div class="flex flex-col mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.receipt-number' | translate}}</label>
+          <div class="w-full mt-2.5">
+            <input class="f-input" nzSize="large" nz-input formControlName="receiptNumber" />
+          </div>
+        </div>
+
+        <div class="flex flex-col mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.description' | translate}}</label>
+          <div class="w-full mt-2.5">
+            <input class="f-input" nzSize="large" nz-input formControlName="description" />
+          </div>
+        </div>
+
+        <div class="flex flex-col mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.description-second' | translate}}</label>
+          <div class="w-full mt-2.5">
+            <input class="f-input" nzSize="large" nz-input formControlName="descriptionSecond" />
+          </div>
+        </div>
+
+        <div class="flex flex-col mt-2.5">
+          <label class="text-16">{{'account-activities-list-filter.customer-description' | translate}}</label>
+          <div class="w-full mt-2.5">
+            <input class="f-input" nzSize="large" nz-input formControlName="customerDescription" />
+          </div>
+        </div>
+
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
       </div>
     </ng-container>
 

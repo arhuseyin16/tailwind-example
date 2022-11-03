@@ -137,7 +137,26 @@
     "startDate": "Başlangıç Tarihi",
     "endDate": "Bitiş Tarihi",
     "currency-unit": "Para Birimi",
-    "willBorrows": "Debt/Receive",
-    "companies": "Companies"
+    "willBorrows": "Borç/Alacak",
+    "companies": "Firmalar",
+    "banks" : "Bankalar",
+    "branches" : "Şubeler",
+    "account-types": "Hesap Türleri",
+    "accounts": "Hesaplar",
+    "transaction-types": "İşlem Türleri",
+    "document-groups": "Belge Grubu",
+    "document-types": "Belge Tipi",
+    "target-document-types": "Hedef Belge Tipi",
+    "type-conversion": "Tip Dönüştürme",
+    "conversion-type": "Dönüşüm Tipi",
+    "amount-range": "Tutar Aralığı",
+    "account-number": "Hesap Numarası",
+    "tax-or-tckn": "Vergi veya Tckn",
+    "iban-number": "IBAN Numarası",
+    "reference-number": "Referans Numarası",
+    "receipt-number": "Dekont Numarası",
+    "description": "Açıklama",
+    "description-second": "Açıklama 2",
+    "customer-description": "Müşteri Açıklama"
   }
 }

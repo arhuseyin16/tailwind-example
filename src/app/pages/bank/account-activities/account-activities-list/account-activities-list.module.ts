@@ -17,6 +17,7 @@ import { NzDrawerModule } from "ng-zorro-antd/drawer";
 import { NzCustomSelectModule } from "../../../../shared/component/nz-select/nz-custom-select.module";
 import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
 import { NzTimePickerModule } from "ng-zorro-antd/time-picker";
+import { NzInputNumberModule } from "ng-zorro-antd/input-number";
 
 const routes: Routes = [
   {
@@ -27,22 +28,23 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AccountActivitiesListComponent, AccountActivitiesListFilterComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NzSelectModule,
-    FormsModule,
-    TranslateModule,
-    NzIconModule,
-    NzButtonModule,
-    NzInputModule,
-    NzPopoverModule,
-    NzDrawerModule,
-    NzCustomSelectModule,
-    ReactiveFormsModule,
-    NzDatePickerModule,
-    NzTimePickerModule,
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        NzSelectModule,
+        FormsModule,
+        TranslateModule,
+        NzIconModule,
+        NzButtonModule,
+        NzInputModule,
+        NzPopoverModule,
+        NzDrawerModule,
+        NzCustomSelectModule,
+        ReactiveFormsModule,
+        NzDatePickerModule,
+        NzTimePickerModule,
+        NzInputNumberModule,
+    ],
   providers: [
     BankService
   ]
