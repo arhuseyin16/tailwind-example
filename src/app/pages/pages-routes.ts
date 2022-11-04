@@ -1,6 +1,7 @@
 import {Routes} from "@angular/router";
 import {LayoutComponent} from "./layout/layout.component";
 import {BankResolver} from "./bank/bank.resolver";
+import {SettingResolver} from "./settings/setting.resolver";
 
 export const PagesRoutes: Routes = [
   {
@@ -18,23 +19,14 @@ export const PagesRoutes: Routes = [
         resolve: {
           bank: BankResolver
         }
+      },
+      {
+        path: 'setting',
+        loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule),
+        resolve: {
+          setting: SettingResolver
+        }
       }
     ],
   },
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   redirectTo: 'dashboard'
-  // },{
-  //   path: 'bank',
-  //   loadChildren: () => import('./bank/bank.module').then(m => m.BankModule)
-  // },
-  // {
-  //   path: 'dashboard',
-  //   loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-  // },
-  // {
-  //   path: 'translate-dashboard',
-  //   loadChildren: () => import('./translate-dashboard/translate-dashboard.module').then(m => m.TranslateDashboardModule)
-  // }
 ]

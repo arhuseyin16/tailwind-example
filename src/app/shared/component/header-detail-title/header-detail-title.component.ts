@@ -24,6 +24,8 @@ export class HeaderDetailTitleComponent implements OnInit, AfterViewInit {
   }
 
   routerBack() {
-    this.router.navigate([this.backUrl]);
+    if (this.backUrl) {
+      this.router.navigate([this.backUrl]);
+    }
   }
 }

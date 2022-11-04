@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.container.clear();
       if (state.data?.length > 0) {
         state.data.forEach((async (config: any) => {
-          const componentInstance = await config.component();
+          const componentInstance = await config?.component();
           const componentRef = this.container.createComponent(componentInstance);
           if (config.dataObj) {
             Object.entries(config.dataObj).forEach(([key, value]) => {
