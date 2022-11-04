@@ -18,6 +18,7 @@ import { NzCustomSelectModule } from "../../../../shared/component/nz-select/nz-
 import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
 import { NzTimePickerModule } from "ng-zorro-antd/time-picker";
 import { NzInputNumberModule } from "ng-zorro-antd/input-number";
+import { NzFormModule } from "ng-zorro-antd/form";
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
         NzDatePickerModule,
         NzTimePickerModule,
         NzInputNumberModule,
+        NzFormModule,
     ],
   providers: [
     BankService

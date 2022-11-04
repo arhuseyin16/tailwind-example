@@ -157,6 +157,19 @@
     "receipt-number": "Dekont Numarası",
     "description": "Açıklama",
     "description-second": "Açıklama 2",
-    "customer-description": "Müşteri Açıklama"
+    "customer-description": "Müşteri Açıklama",
+    "valor-start-end-date": "Valor Başlangıç - Bitiş Tarihi",
+    "creation-timeframe": "Oluşturma Zaman Aralığı",
+    "update-timeframe": "Güncelleme Aralığı",
+    "erp-status": "ERP Statü",
+    "erp-timeframe": "ERP Zaman Aralığı",
+    "erp-processing-update-timeframe": "ERP İşlenme Güncelleme Zaman Aralığı",
+    "user-updating-erp-processing": "ERP İşleme Güncelleyen Kullanıcı",
+    "additional-field-first": "Ek Alan 1",
+    "additional-field-second": "Ek Alan 2",
+    "additional-field-third": "Ek Alan 3",
+    "additional-field-fourth": "Ek Alan 4",
+    "additional-field-fifth": "Ek Alan 5",
+    "additional-field-sixth": "Ek Alan 6"
   }
 }

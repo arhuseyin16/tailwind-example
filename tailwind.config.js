@@ -60,13 +60,15 @@ module.exports = {
         'gray-x11': '#b9b9b9',
         'anti-flash-white': '#f2f2f2',
         'american-silver': '#d1d1d1',
-        'dark-silver-conf': '#707070'
+        'dark-silver-conf': '#707070',
+        'dark-charcoal': '#ABABAB'
       },
       gridTemplateRows: {
         '10': 'repeat(10, minmax(0, 1fr))',
       },
       gap: {
         '30': '1.875rem',
+        '177': '11.0625rem'
       },
       padding: {
         '30px': '30px',

@@ -157,6 +157,19 @@
     "receipt-number": "Receipt Number",
     "description": "Description",
     "description-second": "Description 2",
-    "customer-description": "Customer Description"
+    "customer-description": "Customer Description",
+    "valor-start-end-date": "Valor Start - End Date",
+    "creation-timeframe": "Creation Timeframe",
+    "update-timeframe": "Update Timeframe",
+    "erp-status": "ERP Status",
+    "erp-timeframe": "ERP Timeframe",
+    "erp-processing-update-timeframe": "Erp Processing Update Timeframe",
+    "user-updating-erp-processing": "User Updating ERP Processing",
+    "additional-field-first": "Additional Field 1",
+    "additional-field-second": "Additional Field 2",
+    "additional-field-third": "Additional Field 3",
+    "additional-field-fourth": "Additional Field 4",
+    "additional-field-fifth": "Additional Field 5",
+    "additional-field-sixth": "Additional Field 6"
   }
 }

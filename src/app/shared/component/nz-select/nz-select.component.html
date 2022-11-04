@@ -1,7 +1,4 @@
 <div class="form-element-select" [formGroup]="fg">
-  <div class="pb-3">
-    <label>{{label || '' |translate}}</label>
-  </div>
   <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="controlName?.length === 1 ? 1 : 0"
              [nzMaxTagPlaceholder]="controlName?.length === 1 ? null : formLength" ngDefaultControl
              (ngModelChange)="selectChange($event, formControlName, controlName)" [nzSize]="'large'" [nzLoading]="nzSelectLoading"
