@@ -50,9 +50,22 @@
       <ng-template #editTemplate>
         <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.registrationNumber" /></td>
         <td>{{ data.currencyHistory }}</td>
-        <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.sourcePB" /></td>
-        <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.targetPB" /></td>
-        <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.rateType" /></td>
+        <td>
+<!--          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.sourcePB" />-->
+          <nz-select [(ngModel)]="editCache[data.id].data.sourcePB" nzAllowClear>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>
+        </td>
+        <td>
+          <nz-select [(ngModel)]="editCache[data.id].data.targetPB" nzAllowClear>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>
+        </td>
+        <td>
+          <nz-select [(ngModel)]="editCache[data.id].data.rateType" nzAllowClear>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>
+        </td>
         <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.rate" /></td>
         <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.priority" /></td>
         <td>{{ data.creating }}</td>

@@ -23,12 +23,20 @@ export class NewRecordCreatedModalComponent implements OnInit {
   }
 
   close() {
-    this.modalService.exchangeNewRecordCreatedRef?.close(false);
+    const result = {
+      close: false,
+      hoverKey: false
+    }
+    this.modalService.exchangeNewRecordCreatedRef?.close(result);
   }
 
   save() {
     //service
     console.log(this.createdForm);
-    this.modalService.exchangeNewRecordCreatedRef?.close(true);
+    const result = {
+      close: false,
+      hoverKey: false
+    }
+    this.modalService.exchangeNewRecordCreatedRef?.close(result);
   }
 }

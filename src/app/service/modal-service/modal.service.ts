@@ -6,11 +6,15 @@ import {
 import {
   NewRecordCreatedModalComponent
 } from "../../pages/settings/exchange/new-record-created-modal/new-record-created-modal.component";
+import {
+  SynchronizationModalComponent
+} from "../../pages/settings/exchange/synchronization-modal/synchronization-modal.component";
 
 @Injectable()
 export class ModalService {
   exchangeTableDeleteReference?: NzModalRef;
   exchangeNewRecordCreatedRef?: NzModalRef;
+  exchangeSynchronizationRef?: NzModalRef;
 
   constructor(private nzModalService: NzModalService) {
   }
@@ -39,5 +43,18 @@ export class ModalService {
       nzWidth: '586px',
     });
     return this.exchangeNewRecordCreatedRef;
+  }
+
+  synchronizationModal(): NzModalRef {
+    this.exchangeSynchronizationRef = this.nzModalService.create({
+      nzContent: SynchronizationModalComponent,
+      nzComponentParams: {},
+      nzClosable: false,
+      nzFooter: null,
+      nzKeyboard: false,
+      nzMaskClosable: false,
+      nzWidth: '586px',
+    });
+    return this.exchangeSynchronizationRef;
   }
 }

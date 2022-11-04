@@ -18,7 +18,7 @@ export class ExchangeTableComponent implements OnInit {
       compare: (a: any, b: any) => a.registrationNumber - b.registrationNumber,
       sort: true,
       sortOrder: null,
-      // width: "200px"
+      width: "50px"
     },
     {
       title:'settings-exchange.currencyHistory',
@@ -32,21 +32,21 @@ export class ExchangeTableComponent implements OnInit {
       compare: (a: any, b: any) => a.sourcePB - b.sourcePB,
       sort: true,
       sortOrder: null,
-      // width: "150px"
+      width: "170px"
     },
     {
       title:'settings-exchange.targetPB',
       compare: (a: any, b: any) => a.targetPB - b.targetPB,
       sort: true,
       sortOrder: null,
-      // width: "150px"
+      width: "170px"
     },
     {
       title:'settings-exchange.rateType',
       compare: (a: any, b: any) => a.rateTyperateType - b.rateType,
       sort: true,
       sortOrder: null,
-      // width: "150px"
+      width: "170px"
     },
     {
       title:'settings-exchange.rate',
@@ -67,7 +67,7 @@ export class ExchangeTableComponent implements OnInit {
       compare: (a: any, b: any) => a.creating - b.creating,
       sort: true,
       sortOrder: null,
-      // width: "150px"
+       width: "180px"
     },
 
     {

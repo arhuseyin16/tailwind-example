@@ -15,6 +15,9 @@ import {ModalService} from "../../../service/modal-service/modal.service";
 import {NzModalService} from "ng-zorro-antd/modal";
 import { NewRecordCreatedModalComponent } from './new-record-created-modal/new-record-created-modal.component';
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
+import {NzPopoverModule} from "ng-zorro-antd/popover";
+import {NzSelectModule} from "ng-zorro-antd/select";
+import { SynchronizationModalComponent } from './synchronization-modal/synchronization-modal.component';
 
 const routes: Routes = [
   {
@@ -30,7 +33,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [ExchangeComponent, ExchangeTableComponent, ExchangeDeleteModalComponent, NewRecordCreatedModalComponent],
+  declarations: [ExchangeComponent, ExchangeTableComponent, ExchangeDeleteModalComponent, NewRecordCreatedModalComponent, SynchronizationModalComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
@@ -41,6 +44,8 @@ const routes: Routes = [
         NzDropDownModule,
         ReactiveFormsModule,
         NzDatePickerModule,
+        NzPopoverModule,
+        NzSelectModule,
     ],
   providers: [
     NzNotificationService,

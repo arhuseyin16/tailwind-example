@@ -166,6 +166,13 @@
     "newRecordCreate": "New Record Create",
     "currenciesHistory": "Currency History",
     "targetCurrency": "Target Currency",
-    "sourceCurrency": "Source Currency"
+    "sourceCurrency": "Source Currency",
+    "creationDateRange": "Creation Date Range",
+    "updateDateRange": "Update Date Range",
+    "sourceForeignCurrency": "Source Currency",
+    "targetForeignCurrency": "Target Currency",
+    "inquire": "Inquire",
+    "startDate": "Start Date",
+    "endDate": "End Date"
   }
 }

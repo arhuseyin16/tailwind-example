@@ -166,6 +166,13 @@
     "newRecordCreate": "Yeni Kayıt Oluştur",
     "currenciesHistory": "Kur Tarihi",
     "sourceCurrency": "Kaynak Para Birimi",
-    "targetCurrency": "Hedef Para Birimi"
+    "targetCurrency": "Hedef Para Birimi",
+    "creationDateRange": "Oluşturma Tarih Aralığı",
+    "updateDateRange": "Günceleme Tarih Aralığı",
+    "sourceForeignCurrency": "Kaynak Döviz",
+    "targetForeignCurrency": "Hedef Döviz",
+    "inquire": "Sorgula",
+    "startDate": "Başlangıç Tarihi",
+    "endDate": "Bitiş Tarihi"
   }
 }

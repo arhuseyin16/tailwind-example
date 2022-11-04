@@ -43,6 +43,28 @@
     border-right: none;
   }
 
+  .ant-select {
+    width: 100%;
+    ::ng-deep .ant-select-selector {
+      //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
+      border: solid 0.5px #ABABAB;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 14px;
+    }
+
+    ::ng-deep .ant-select-arrow {
+      color: #000000;
+    }
+  }
+
+  input {
+    border: solid 0.5px #ABABAB;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 14px;
+  }
+
   .action-tab {
     position: relative;
 

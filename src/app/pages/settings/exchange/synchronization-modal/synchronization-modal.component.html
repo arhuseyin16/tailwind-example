@@ -1,0 +1,24 @@
+<div class="main-title">
+  <div class="title">{{'settings-exchange.synchronizationTCMB' | translate}}</div>
+  <div class="close-icon" (click)="close()">X</div>
+</div>
+<div class="main-body" [formGroup]="createdForm">
+  <div class="form-control">
+    <label>{{'settings-exchange.startDate' | translate}}</label>
+    <nz-date-picker  nzFormat="dd/MM/yyyy" nzPlaceHolder="gg/aa/yyyy" formControlName="startDate"></nz-date-picker>
+  </div>
+  <div class="form-control">
+    <label>{{'settings-exchange.endDate' | translate}}</label>
+    <nz-date-picker  nzFormat="dd/MM/yyyy" nzPlaceHolder="gg/aa/yyyy" formControlName="endDate"></nz-date-picker>
+  </div>
+  <div class="form-control">
+    <label>{{'settings-exchange.targetCurrency' | translate}}</label>
+    <nz-select formControlName="targetCurrency" [nzSize]="'large'" nzAllowClear>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    </nz-select>
+  </div>
+</div>
+<div class="main-footer">
+  <button class="cancel" (click)="close()">{{'settings-exchange.cancel' | translate}}</button>
+  <button class="save" (click)="save()">{{'settings-exchange.approve' | translate}}</button>
+</div>

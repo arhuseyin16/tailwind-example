@@ -2,7 +2,8 @@
   <div class="account-excel-right">
     <div class="excel-export">
       <button>
-        <img src="assets/icon/excel-icon.png">
+        <img class="normal-excel" src="assets/icon/excel.svg">
+        <img class="hover-excel" src="assets/icon/hover-excel.svg">
       </button>
     </div>
   </div>
@@ -11,8 +12,8 @@
       <div class="bank-image">
         <img src="assets/img/bank-account/akbank.png">
       </div>
-      <div class="bank-color" [ngStyle]="{'background-color': bankDetail?.color}">
-        <span>{{"account-activities-detail.process-id" | translate}}: {{bankDetail?.id}}</span>
+      <div class="bank-color" [ngStyle]="{'background-color': bankDetail.color}">
+        <span>{{"account-activities-detail.process-id" | translate}}: {{bankDetail.id}}</span>
       </div>
     </div>
     <div class="account-first-body">

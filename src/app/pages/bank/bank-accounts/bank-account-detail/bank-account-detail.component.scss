@@ -31,12 +31,32 @@
 
         &:hover {
           background-color: #2d639f;
+          .hover-excel {
+            width: 17px;
+            height: 17px;
+            display: inherit;
+            object-fit: contain;
+          }
+
+          .normal-excel {
+            width: 17px;
+            height: 17px;
+            display: none;
+            object-fit: contain;
+          }
         }
 
-        img {
+        .normal-excel {
           width: 17px;
           height: 17px;
           display: inherit;
+          object-fit: contain;
+        }
+
+        .hover-excel {
+          width: 17px;
+          height: 17px;
+          display: none;
           object-fit: contain;
         }
       }
