@@ -1,6 +1,10 @@
-import { Component, inject, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { NzDrawerRef } from "ng-zorro-antd/drawer";
+import { NzModalService } from "ng-zorro-antd/modal";
+import {
+  AccountActivitiesFilterShareComponent
+} from "../account-activities-filter-share/account-activities-filter-share.component";
 
 @Component({
   selector: 'app-account-activities-list-filter',
@@ -37,13 +41,15 @@ export class AccountActivitiesListFilterComponent implements OnInit {
   );
   formBuilder = inject(FormBuilder);
   @ViewChild('filterDrawerRef') filterDrawerRef?: NzDrawerRef;
+  @ViewChild('filterShareComponentTitle') filterShareComponentTitle?: TemplateRef<any>
+  @ViewChild('filterShareComponentFooter') filterShareComponentFooter?: TemplateRef<any>
 
   filterFormGroup = new FormGroup({
     favoriteFilter: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
     startDate: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
-    startDateHour: new FormControl(new Date().toString(), {initialValueIsDefault: true, nonNullable: true}),
+    startDateHour: new FormControl(null, {initialValueIsDefault: true, nonNullable: true}),
     endDate: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
-    endDateHour: new FormControl(new Date().toString(), {initialValueIsDefault: true, nonNullable: true}),
+    endDateHour: new FormControl(null, {initialValueIsDefault: true, nonNullable: true}),
     currencyUnits: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
     willBorrows: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
     companies: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
@@ -57,8 +63,8 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     targetDocumentTypes: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
     typeConversion: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
     conversionType: new FormControl([], {initialValueIsDefault: true, nonNullable: true}),
-    amountRangeStart: new FormControl(0, {initialValueIsDefault: true, nonNullable: true}),
-    amountRangeEnd: new FormControl(0, {initialValueIsDefault: true, nonNullable: true}),
+    amountRangeStart: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
+    amountRangeEnd: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
     accountNumber: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
     taxOrTckn: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
     ibanNumber: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
@@ -87,8 +93,14 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     additionalFieldSixth: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
   });
 
+  modalService = inject(NzModalService);
+
   ngOnInit(): void {
-    this.filterFormGroup.valueChanges.subscribe(change => this.isValueChanged = true)
+    this.filterFormGroup.valueChanges.subscribe(valueObject => {
+      console.log(valueObject);
+      this.filterFormValueControl(valueObject);
+      this.isValueChanged = true
+    })
   }
 
   open(): void {
@@ -130,10 +142,32 @@ export class AccountActivitiesListFilterComponent implements OnInit {
   }
 
   shareFilter() {
-    console.log("share filter completed");
+    this.modalService.create({
+      nzTitle: this.filterShareComponentTitle,
+      nzContent: AccountActivitiesFilterShareComponent,
+      nzBodyStyle: {'padding': '0 54px'},
+      nzFooter: this.filterShareComponentFooter,
+      nzWidth: 586
+    });
   }
 
   saveFilter() {
     console.log("save filter completed");
+  }
+
+  filterFormValueControl(filterFormGroupObject: any) {
+    for (let key in filterFormGroupObject) {
+
+      if (typeof filterFormGroupObject[key] === 'string') {
+          if(filterFormGroupObject[key]) {
+            console.log('string');
+          }
+      } else if(Array.isArray(filterFormGroupObject[key]) ) {
+        if (filterFormGroupObject[key].length > 0) {
+          console.log('array')
+        }
+      }
+
+    }
   }
 }

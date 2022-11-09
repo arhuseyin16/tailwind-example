@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AccountActivitiesShareFilterComponent } from './account-activities-share-filter.component';
+import { AccountActivitiesFilterShareComponent } from './account-activities-filter-share.component';
 
 describe('AccountActivitiesShareFilterComponent', () => {
-  let component: AccountActivitiesShareFilterComponent;
-  let fixture: ComponentFixture<AccountActivitiesShareFilterComponent>;
+  let component: AccountActivitiesFilterShareComponent;
+  let fixture: ComponentFixture<AccountActivitiesFilterShareComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AccountActivitiesShareFilterComponent ]
+      declarations: [ AccountActivitiesFilterShareComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AccountActivitiesShareFilterComponent);
+    fixture = TestBed.createComponent(AccountActivitiesFilterShareComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,14 @@
+::ng-deep .ant-modal-header {
+  @apply border-b-0 px-[54px] #{!important};
+}
+
+::ng-deep .ant-modal-footer {
+  @apply border-t-0 px-[54px] pt-0 pb-[50px] #{!important};
+}
+
+::ng-deep .ant-modal-close {
+  @apply right-[36px]
+}
+::ng-deep .ant-modal-content {
+  @apply rounded-10px pt-[5px];
+}
