@@ -19,6 +19,8 @@ import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
 import { NzTimePickerModule } from "ng-zorro-antd/time-picker";
 import { NzInputNumberModule } from "ng-zorro-antd/input-number";
 import { NzFormModule } from "ng-zorro-antd/form";
+import { NzBadgeModule } from "ng-zorro-antd/badge";
+import { AccountActivitiesShareFilterComponent } from './account-activities-share-filter/account-activities-share-filter.component';
 
 const routes: Routes = [
   {
@@ -28,7 +30,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [AccountActivitiesListComponent, AccountActivitiesListFilterComponent],
+  declarations: [AccountActivitiesListComponent, AccountActivitiesListFilterComponent, AccountActivitiesShareFilterComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
@@ -46,6 +48,7 @@ const routes: Routes = [
         NzTimePickerModule,
         NzInputNumberModule,
         NzFormModule,
+        NzBadgeModule,
     ],
   providers: [
     BankService

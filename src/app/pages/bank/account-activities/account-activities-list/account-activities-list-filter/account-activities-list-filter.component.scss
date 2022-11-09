@@ -25,3 +25,27 @@
 .font-size-16 {
   @apply text-16 #{!important};
 }
+
+::ng-deep .ant-drawer-header {
+  @apply border-b-0 #{!important};
+}
+
+::ng-deep .ant-drawer-body {
+  @apply overflow-x-hidden #{!important};
+}
+
+nz-badge {
+  margin-right: 10px;
+}
+
+::ng-deep .ant-drawer-footer {
+  @apply bg-eton-blue py-[17px] #{!important};
+}
+
+.padding-0 {
+  @apply p-0 #{!important};
+}
+
+.margin-b-0 {
+  @apply mb-0 #{!important};
+}

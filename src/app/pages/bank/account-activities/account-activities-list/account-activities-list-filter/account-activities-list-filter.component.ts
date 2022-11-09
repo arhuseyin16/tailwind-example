@@ -1,5 +1,6 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { Component, inject, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { NzDrawerRef } from "ng-zorro-antd/drawer";
 
 @Component({
   selector: 'app-account-activities-list-filter',
@@ -8,9 +9,9 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from "@angular/forms";
 })
 export class AccountActivitiesListFilterComponent implements OnInit {
 
-  visible: boolean = false;
-  visibleDrawer = false;
   @Input() favoriteFilters: any;
+
+  isValueChanged = false;
 
   currencyUnits = new Array<any>(
     {id: 1, name: 'İngiliz Sterlini', status: false},
@@ -35,6 +36,7 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     {id: 2, name: 'Çıkış Borç (B)', status: false},
   );
   formBuilder = inject(FormBuilder);
+  @ViewChild('filterDrawerRef') filterDrawerRef?: NzDrawerRef;
 
   filterFormGroup = new FormGroup({
     favoriteFilter: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
@@ -86,14 +88,11 @@ export class AccountActivitiesListFilterComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.filterFormGroup.valueChanges.subscribe(change => this.isValueChanged = true)
   }
 
   open(): void {
-    this.visibleDrawer = true;
-  }
-
-  close(): void {
-    this.visibleDrawer = false;
+    this.filterDrawerRef?.open();
   }
 
   companiesChange(companies: Array<any>) {
@@ -114,5 +113,27 @@ export class AccountActivitiesListFilterComponent implements OnInit {
 
   accountsChange(accounts: Array<any>) {
     console.log(accounts);
+  }
+
+  closeFilterDrawer() {
+    if (this.filterDrawerRef) {
+      this.filterDrawerRef.close();
+    }
+  }
+
+  clearAllFilter() {
+    this.filterFormGroup.reset();
+  }
+
+  inquireFilter() {
+    console.log("inquire completed");
+  }
+
+  shareFilter() {
+    console.log("share filter completed");
+  }
+
+  saveFilter() {
+    console.log("save filter completed");
   }
 }

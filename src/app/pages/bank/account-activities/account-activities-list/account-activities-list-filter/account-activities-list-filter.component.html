@@ -1,32 +1,36 @@
 <div>
-  <button
-    class="w-[129px]"
-    nz-button
-    (click)="open()"
-    nzSize="large"
-  >
+  <nz-badge [nzCount]="10" [nzStyle]="{backgroundColor: '#2d639f'}">
+    <button
+      class="w-[129px]"
+      nz-button
+      (click)="open()"
+      nzSize="large"
+    >
     <span class="display-flex">
        <img width="13" height="13" src="../../../../../../assets/icon/plus.svg"/>
        <span class="text-15 text-black">{{'account-activities-list.all-filters' | translate}}</span>
     </span>
-  </button>
+    </button>
+  </nz-badge>
 
   <nz-drawer
     [nzClosable]="false"
-    [nzVisible]="visibleDrawer"
+    [nzVisible]="false"
     [nzPlacement]="'top'"
     [nzTitle]="filterDrawerTitle"
+    [nzFooter]="filterDrawerFooter"
     [nzHeight]="'100%'"
-    (nzOnClose)="close()"
+    #filterDrawerRef
   >
     <ng-container *nzDrawerContent>
 
       <form nz-form [formGroup]="filterFormGroup" class="pl-[10px] pr-[43px]">
 
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pr-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="favoriteFilter">{{'favorite.filters' | translate}}</nz-form-label>
+        <div nz-row [nzGutter]="177">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label [nzSpan]="24" nzFor="favoriteFilter"
+                             class="padding-0">{{'favorite.filters' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <nz-select nzSize="large" nzId="favoriteFilter" class="w-full" nzAllowClear
                            formControlName="favoriteFilter"
@@ -36,9 +40,11 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24">{{'account-activities-list-filter.transaction-types' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label
+                [nzSpan]="24"
+                class="padding-0">{{'account-activities-list-filter.transaction-types' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -51,30 +57,30 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
               <nz-form-label
-                [nzSpan]="24">{{'account-activities-list-filter.receipt-number' | translate}}</nz-form-label>
+                [nzSpan]="24"
+                class="padding-0">{{'account-activities-list-filter.receipt-number' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <input class="f-input" nzSize="large" nz-input formControlName="receiptNumber"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24">{{'account-activities-list-filter.user-updating-erp-processing' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label
+                [nzSpan]="24">{{'account-activities-list-filter.user-updating-erp-processing' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <input class="f-input" nzSize="large" nz-input formControlName="userUpdatingErpProcessing"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pr-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="startDate">{{'account-activities-list-filter.startDate' | translate}}</nz-form-label>
-              <nz-form-control [nzSpan]="12" >
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="startDate">{{'account-activities-list-filter.startDate' | translate}}</nz-form-label>
+              <nz-form-control [nzSpan]="12">
                 <nz-date-picker nzSize="large" nzPlaceHolder="Tarih" formControlName="startDate"></nz-date-picker>
               </nz-form-control>
               <nz-form-control [nzSpan]="12">
@@ -83,9 +89,10 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="documentGroups">{{'account-activities-list-filter.document-groups' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="documentGroups">{{'account-activities-list-filter.document-groups' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -98,28 +105,29 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="description">{{'account-activities-list-filter.document-groups' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="description">{{'account-activities-list-filter.document-groups' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <input class="f-input" nzSize="large" id="description" nz-input formControlName="description"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="additionalFieldFirst">{{'account-activities-list-filter.additional-field-first' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="additionalFieldFirst">{{'account-activities-list-filter.additional-field-first' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
-                <input class="f-input" nzSize="large" id="additionalFieldFirst" nz-input formControlName="additionalFieldFirst"/>
+                <input class="f-input" nzSize="large" id="additionalFieldFirst" nz-input
+                       formControlName="additionalFieldFirst"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pr-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="startDate">{{'account-activities-list-filter.startDate' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="startDate">{{'account-activities-list-filter.endDate' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="12">
                 <nz-date-picker nzSize="large" nzPlaceHolder="Tarih" formControlName="endDate"></nz-date-picker>
               </nz-form-control>
@@ -129,9 +137,10 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="documentGroups">{{'account-activities-list-filter.document-types' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="documentGroups">{{'account-activities-list-filter.document-types' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -144,28 +153,30 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="descriptionSecond">{{'account-activities-list-filter.description-second' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="descriptionSecond">{{'account-activities-list-filter.description-second' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
-                <input class="f-input" nzSize="large" id="descriptionSecond" nz-input formControlName="descriptionSecond"/>
+                <input class="f-input" nzSize="large" id="descriptionSecond" nz-input
+                       formControlName="descriptionSecond"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="additionalFieldSecond">{{'account-activities-list-filter.additional-field-second' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="additionalFieldSecond">{{'account-activities-list-filter.additional-field-second' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
-                <input class="f-input" nzSize="large" id="additionalFieldSecond" nz-input formControlName="additionalFieldSecond"/>
+                <input class="f-input" nzSize="large" id="additionalFieldSecond" nz-input
+                       formControlName="additionalFieldSecond"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pr-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="startDate">{{'account-activities-list-filter.currency-unit' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="startDate">{{'account-activities-list-filter.currency-unit' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -178,9 +189,10 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="typeConversion">{{'account-activities-list-filter.type-conversion' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="typeConversion">{{'account-activities-list-filter.type-conversion' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -193,28 +205,30 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="customerDescription">{{'account-activities-list-filter.customer-description' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="customerDescription">{{'account-activities-list-filter.customer-description' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
-                <input class="f-input" nzSize="large" id="customerDescription" nz-input formControlName="customerDescription"/>
+                <input class="f-input" nzSize="large" id="customerDescription" nz-input
+                       formControlName="customerDescription"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item class="pl-[76px]">
-              <nz-form-label [nzSpan]="24" nzFor="additionalFieldThird">{{'account-activities-list-filter.additional-field-third' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="additionalFieldThird">{{'account-activities-list-filter.additional-field-third' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
-                <input class="f-input" nzSize="large" id="additionalFieldThird" nz-input formControlName="additionalFieldThird"/>
+                <input class="f-input" nzSize="large" id="additionalFieldThird" nz-input
+                       formControlName="additionalFieldThird"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="willBorrows">{{'account-activities-list-filter.willBorrows' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="willBorrows">{{'account-activities-list-filter.willBorrows' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -227,9 +241,10 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="conversionType">{{'account-activities-list-filter.conversion-type' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="conversionType">{{'account-activities-list-filter.conversion-type' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -242,32 +257,33 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="valorStartDate">{{'account-activities-list-filter.valor-start-end-date' | translate}}</nz-form-label>
-              <nz-form-control [nzSpan]="12">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="valorStartDate">{{'account-activities-list-filter.valor-start-end-date' | translate}}</nz-form-label>
+              <nz-form-control [nzSpan]="11">
                 <nz-date-picker nzSize="large" nzPlaceHolder="Tarih" formControlName="valorStartDate"></nz-date-picker>
               </nz-form-control>
-              <nz-form-control [nzSpan]="12">
-                <nz-date-picker nzSize="large" class="ml-[23px]" nzPlaceHolder="Tarih"
+              <nz-form-control [nzSpan]="11" class="ml-[25px]">
+                <nz-date-picker nzSize="large" nzPlaceHolder="Tarih"
                                 formControlName="valorEndDate"></nz-date-picker>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="additionalFieldFourth">{{'account-activities-list-filter.additional-field-fourth' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="additionalFieldFourth">{{'account-activities-list-filter.additional-field-fourth' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
-                <input class="f-input" nzSize="large" id="additionalFieldFourth" nz-input formControlName="additionalFieldFourth"/>
+                <input class="f-input" nzSize="large" id="additionalFieldFourth" nz-input
+                       formControlName="additionalFieldFourth"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="companies">{{'account-activities-list-filter.companies' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="companies">{{'account-activities-list-filter.companies' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -281,17 +297,18 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="amountRangeStart">{{'account-activities-list-filter.amount-range' | translate}}</nz-form-label>
-              <nz-form-control [nzSpan]="12">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="amountRangeStart">{{'account-activities-list-filter.amount-range' | translate}}</nz-form-label>
+              <nz-form-control [nzSpan]="11">
                 <nz-input-number class="f-input w-full" nzSize="large" formControlName="amountRangeStart" [nzMin]="0"
                                  [nzMax]="100000000000"
                                  nzPlaceHolder="En az"
                                  [nzStep]="1"></nz-input-number>
               </nz-form-control>
-              <nz-form-control [nzSpan]="12">
-                <nz-input-number class="f-input w-full ml-[13px]" nzSize="large" formControlName="amountRangeEnd"
+              <nz-form-control [nzSpan]="11">
+                <nz-input-number class="f-input w-full ml-[25px]" nzSize="large" formControlName="amountRangeEnd"
                                  [nzMin]="0"
                                  [nzMax]="100000000000"
                                  nzPlaceHolder="En çok"
@@ -299,33 +316,34 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="creationTimeframeStartDate">{{'account-activities-list-filter.creation-timeframe' | translate}}</nz-form-label>
-              <nz-form-control [nzSpan]="12">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="creationTimeframeStartDate">{{'account-activities-list-filter.creation-timeframe' | translate}}</nz-form-label>
+              <nz-form-control [nzSpan]="11">
                 <nz-date-picker nzSize="large" nzPlaceHolder="Tarih"
                                 formControlName="creationTimeframeStartDate"></nz-date-picker>
               </nz-form-control>
-              <nz-form-control [nzSpan]="12">
-                <nz-date-picker nzSize="large" class="ml-[23px]" nzPlaceHolder="Tarih"
+              <nz-form-control [nzSpan]="11" class="ml-[25px]">
+                <nz-date-picker nzSize="large"  nzPlaceHolder="Tarih"
                                 formControlName="creationTimeframeEndDate"></nz-date-picker>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="additionalFieldFifth">{{'account-activities-list-filter.additional-field-fifth' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="additionalFieldFifth">{{'account-activities-list-filter.additional-field-fifth' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
-                <input class="f-input" nzSize="large" id="additionalFieldFifth" nz-input formControlName="additionalFieldFifth"/>
+                <input class="f-input" nzSize="large" id="additionalFieldFifth" nz-input
+                       formControlName="additionalFieldFifth"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="companies">{{'account-activities-list-filter.banks' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="companies">{{'account-activities-list-filter.banks' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -339,41 +357,43 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="accountNumber">{{'account-activities-list-filter.account-number' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="accountNumber">{{'account-activities-list-filter.account-number' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <input class="f-input" nzSize="large" id="accountNumber" nz-input formControlName="accountNumber"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="updateTimeframeStartDate">{{'account-activities-list-filter.update-timeframe' | translate}}</nz-form-label>
-              <nz-form-control [nzSpan]="12">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="updateTimeframeStartDate">{{'account-activities-list-filter.update-timeframe' | translate}}</nz-form-label>
+              <nz-form-control [nzSpan]="11">
                 <nz-date-picker nzSize="large" nzPlaceHolder="Tarih"
                                 formControlName="updateTimeframeStartDate"></nz-date-picker>
               </nz-form-control>
-              <nz-form-control [nzSpan]="12">
-                <nz-date-picker nzSize="large" class="ml-[23px]" nzPlaceHolder="Tarih"
+              <nz-form-control [nzSpan]="11" class="ml-[25px]">
+                <nz-date-picker nzSize="large" nzPlaceHolder="Tarih"
                                 formControlName="updateTimeframeEndDate"></nz-date-picker>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="additionalFieldSixth">{{'account-activities-list-filter.additional-field-sixth' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="additionalFieldSixth">{{'account-activities-list-filter.additional-field-sixth' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
-                <input class="f-input" nzSize="large" id="additionalFieldSixth" nz-input formControlName="additionalFieldSixth"/>
+                <input class="f-input" nzSize="large" id="additionalFieldSixth" nz-input
+                       formControlName="additionalFieldSixth"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="branches">{{'account-activities-list-filter.branches' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="branches">{{'account-activities-list-filter.branches' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -387,17 +407,19 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="taxOrTckn">{{'account-activities-list-filter.tax-or-tckn' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="taxOrTckn">{{'account-activities-list-filter.tax-or-tckn' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <input class="f-input" nzSize="large" id="taxOrTckn" nz-input formControlName="taxOrTckn"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="erpStatus">{{'account-activities-list-filter.erp-status' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="erpStatus">{{'account-activities-list-filter.erp-status' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <nz-select nzSize="large" class="w-full" nzId="erpStatus" nzAllowClear formControlName="erpStatus"
                            *ngIf="favoriteFilters"
@@ -406,14 +428,12 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
+          <div nz-col [nzXs]="0" [nzSm]="0" [nzMd]="0" [nzLg]="0" [nzXl]="0" [nzXXl]="6">
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="branches">{{'account-activities-list-filter.account-types' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="branches">{{'account-activities-list-filter.account-types' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -427,35 +447,35 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="ibanNumber">{{'account-activities-list-filter.iban-number' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="ibanNumber">{{'account-activities-list-filter.iban-number' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <input class="f-input" nzSize="large" id="ibanNumber" nz-input formControlName="ibanNumber"/>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="erpTimeframeStartDate">{{'account-activities-list-filter.erp-timeframe' | translate}}</nz-form-label>
-              <nz-form-control [nzSpan]="12">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="erpTimeframeStartDate">{{'account-activities-list-filter.erp-timeframe' | translate}}</nz-form-label>
+              <nz-form-control [nzSpan]="11">
                 <nz-date-picker nzSize="large" nzPlaceHolder="Tarih"
                                 formControlName="erpTimeframeStartDate"></nz-date-picker>
               </nz-form-control>
-              <nz-form-control [nzSpan]="12">
-                <nz-date-picker nzSize="large" class="ml-[23px]" nzPlaceHolder="Tarih"
+              <nz-form-control [nzSpan]="11" class="ml-[25px]">
+                <nz-date-picker nzSize="large" nzPlaceHolder="Tarih"
                                 formControlName="erpTimeframeEndDate"></nz-date-picker>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
+          <div nz-col [nzXs]="0" [nzSm]="0" [nzMd]="0" [nzLg]="0" [nzXl]="0" [nzXXl]="6">
           </div>
-        </div>
-
-        <div nz-row [nzGutter]="24">
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="accounts">{{'account-activities-list-filter.accounts' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="accounts">{{'account-activities-list-filter.accounts' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <app-nz-select
                   [fg]="filterFormGroup"
@@ -469,29 +489,31 @@
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="referenceNumber">{{'account-activities-list-filter.reference-number' | translate}}</nz-form-label>
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="referenceNumber">{{'account-activities-list-filter.reference-number' | translate}}</nz-form-label>
               <nz-form-control [nzSpan]="24">
                 <input class="f-input" nzSize="large" id="referenceNumber" nz-input formControlName="referenceNumber"/>
 
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
-            <nz-form-item>
-              <nz-form-label [nzSpan]="24" nzFor="erpProcessingUpdateTimeframeStartDate">{{'account-activities-list-filter.erp-processing-update-timeframe' | translate}}</nz-form-label>
-              <nz-form-control [nzSpan]="12">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="8" [nzXl]="8" [nzXXl]="6">
+            <nz-form-item class="margin-b-0">
+              <nz-form-label class="padding-0" [nzSpan]="24"
+                             nzFor="erpProcessingUpdateTimeframeStartDate">{{'account-activities-list-filter.erp-processing-update-timeframe' | translate}}</nz-form-label>
+              <nz-form-control [nzSpan]="11">
                 <nz-date-picker nzSize="large" nzPlaceHolder="Tarih"
                                 formControlName="erpProcessingUpdateTimeframeStartDate"></nz-date-picker>
               </nz-form-control>
-              <nz-form-control [nzSpan]="12">
-                <nz-date-picker nzSize="large" class="ml-[23px]" nzPlaceHolder="Tarih"
+              <nz-form-control [nzSpan]="11" class="ml-[25px]">
+                <nz-date-picker nzSize="large" nzPlaceHolder="Tarih"
                                 formControlName="erpProcessingUpdateTimeframeEndDate"></nz-date-picker>
               </nz-form-control>
             </nz-form-item>
           </div>
-          <div nz-col [nzSpan]="6">
+          <div nz-col [nzXs]="0" [nzSm]="0" [nzMd]="0" [nzLg]="0" [nzXl]="0" [nzXXl]="6">
           </div>
         </div>
 
@@ -504,7 +526,33 @@
   <ng-template #filterDrawerTitle>
     <div class="flex mt-[39px] justify-between pr-[43px] pl-[10px]">
       <label class="text-22 uppercase text-lapis-lazuli">{{'account-activities-list.filter' | translate}}</label>
-      <span>icon</span>
+      <span class="cursor-pointer" (click)="closeFilterDrawer()" nz-icon nzType="close" nzTheme="outline"></span>
     </div>
+  </ng-template>
+
+  <ng-template #filterDrawerFooter>
+    <div class="grid grid-cols-2">
+      <div class="pl-[10px]">
+        <button *ngIf="isValueChanged" nz-button nzSize="large" (click)="saveFilter()"
+                class="rounded-10px bg-white text-eton-blue px-[52px] py-[7px] focus:border-eton-blue focus:text-eton-blue hover:border-eton-blue hover:text-eton-blue">
+          {{'account-activities-list-filter.save' | translate}}
+        </button>
+        <button *ngIf="isValueChanged" nz-button nzSize="large" (click)="shareFilter()"
+                class="rounded-10px bg-white text-eton-blue px-[56px] py-[7px] ml-[17px] focus:border-eton-blue focus:text-eton-blue hover:border-eton-blue hover:text-eton-blue">
+          {{'account-activities-list-filter.share' | translate}}
+        </button>
+      </div>
+      <div class="text-right pr-[43px]">
+        <button nz-button nzSize="large" (click)="clearAllFilter()"
+                class="rounded-10px bg-transparent text-white px-[15px] py-[7px] mr-[11px] focus:border-white focus:text-white focus:bg-transparent hover:border-white hover:text-white hover:bg-transparent">
+          {{'account-activities-list-filter.clear-all' | translate}}
+        </button>
+        <button nz-button nzSize="large" (click)="inquireFilter()"
+                class="rounded-10px bg-white text-eton-blue px-[47px] py-[7px] focus:border-eton-blue focus:text-eton-blue hover:border-eton-blue hover:text-eton-blue">
+          {{'account-activities-list-filter.inquire' | translate}}
+        </button>
+      </div>
+    </div>
+
   </ng-template>
 </div>

@@ -170,6 +170,10 @@
     "additional-field-third": "Additional Field 3",
     "additional-field-fourth": "Additional Field 4",
     "additional-field-fifth": "Additional Field 5",
-    "additional-field-sixth": "Additional Field 6"
+    "additional-field-sixth": "Additional Field 6",
+    "save": "Save",
+    "share": "Share",
+    "clear-all": "Clear All",
+    "inquire": "Inquire"
   }
 }
