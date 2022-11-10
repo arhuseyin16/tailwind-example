@@ -1,4 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnInit,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 import { Store } from "@ngxs/store";
 import { Router } from "@angular/router";
 import { FavoriteStateModel } from "../../../../models/favorite-state.model";
@@ -7,18 +15,27 @@ import { FavoriteAction } from "../../../../store/favorite/favorite.action";
 import { BankService } from "../../../../service/bank/bank.service";
 import { forkJoin } from "rxjs";
 import { NzSelectOptionInterface } from "ng-zorro-antd/select";
+import { DrawerService } from "../../../../service/drawer/drawer.service";
+import {
+  AccountActivitiesListFilterComponent
+} from "./account-activities-list-filter/account-activities-list-filter.component";
+import { SetFilterItemsCountAction } from "../../../../store/filter/filter.action";
 
 @Component({
   selector: 'app-account-activities',
   templateUrl: './account-activities-list.component.html',
-  styleUrls: ['./account-activities-list.component.scss']
+  styleUrls: ['./account-activities-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccountActivitiesListComponent implements OnInit {
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
   bankService = inject(BankService);
+  drawerService = inject(DrawerService);
+  cdr = inject(ChangeDetectorRef)
   favoriteFilters?: NzSelectOptionInterface[];
   dateFilters?: NzSelectOptionInterface[];
+  filterItemsCount = 0;
 
   constructor(
     private router: Router,
@@ -48,4 +65,17 @@ export class AccountActivitiesListComponent implements OnInit {
     this.router.navigate(['ui/bank/account-activities/detail'], {queryParams: {id: 1}});
   }
 
+  open() {
+    const filterDrawerRef = this.drawerService.create({
+      nzContent: AccountActivitiesListFilterComponent,
+      nzPlacement: 'top',
+      nzClosable: false,
+      nzHeight: '100%',
+    });
+    // Tekrardan bakılacak.
+    filterDrawerRef.afterClose.subscribe((param) => {
+      this.filterItemsCount = param.filterItemsCount;
+      this.cdr.detectChanges();
+    });
+  }
 }

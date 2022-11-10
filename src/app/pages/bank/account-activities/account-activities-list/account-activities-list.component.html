@@ -65,7 +65,19 @@
         </div>
 
         <div class="w-full mt-3.5 lg:mt-0 mr-2.5">
-        <app-account-activities-list-filter [favoriteFilters]="favoriteFilters"></app-account-activities-list-filter>
+          <nz-badge [nzCount]="filterItemsCount" [nzStyle]="{backgroundColor: '#2d639f'}">
+            <button
+              class="w-[129px]"
+              nz-button
+              (click)="open()"
+              nzSize="large"
+            >
+    <span class="display-flex">
+       <img width="13" height="13" src="../../../../../../assets/icon/plus.svg"/>
+       <span class="text-15 text-black">{{'account-activities-list.all-filters' | translate}}</span>
+    </span>
+            </button>
+          </nz-badge>
         </div>
 
         <div class="w-full text-right">

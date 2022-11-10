@@ -26,22 +26,13 @@
   @apply text-16 #{!important};
 }
 
-::ng-deep .ant-drawer-header {
-  @apply border-b-0 #{!important};
-}
-
 ::ng-deep .ant-drawer-body {
-  @apply overflow-x-hidden #{!important};
+  @apply overflow-x-hidden p-0 #{!important};
 }
 
 nz-badge {
   margin-right: 10px;
 }
-
-::ng-deep .ant-drawer-footer {
-  @apply bg-eton-blue py-[17px] #{!important};
-}
-
 
 .margin-b-0 {
   @apply mb-0 #{!important};

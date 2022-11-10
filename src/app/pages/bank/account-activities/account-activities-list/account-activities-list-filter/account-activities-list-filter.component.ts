@@ -1,23 +1,28 @@
-import { Component, inject, Input, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnDestroy,
+  OnInit,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { NzDrawerRef } from "ng-zorro-antd/drawer";
-import { NzModalService } from "ng-zorro-antd/modal";
 import {
   AccountActivitiesFilterShareComponent
 } from "../account-activities-filter-share/account-activities-filter-share.component";
 import { ModalService } from "../../../../../service/modal/modal.service";
-import { Subject, takeUntil } from "rxjs";
-import { Store } from "@ngxs/store";
-import { SetFilterItemsCountAction } from "../../../../../store/filter/filter.action";
+import { Subject } from "rxjs";
+import { DrawerService } from "../../../../../service/drawer/drawer.service";
 
 @Component({
   selector: 'app-account-activities-list-filter',
   templateUrl: './account-activities-list-filter.component.html',
-  styleUrls: ['./account-activities-list-filter.component.scss']
+  styleUrls: ['./account-activities-list-filter.component.scss'],
 })
 export class AccountActivitiesListFilterComponent implements OnInit, OnDestroy {
 
-  @Input() favoriteFilters: any;
+  @Input() favoriteFilters = [];
 
   isValueChanged = false;
 
@@ -45,9 +50,8 @@ export class AccountActivitiesListFilterComponent implements OnInit, OnDestroy {
   );
 
   formBuilder = inject(FormBuilder);
-  @ViewChild('filterDrawerRef') filterDrawerRef?: NzDrawerRef;
-  @ViewChild('filterShareComponentTitle') filterShareComponentTitle?: TemplateRef<any>
-  @ViewChild('filterShareComponentFooter') filterShareComponentFooter?: TemplateRef<any>
+  @ViewChild('filterShareComponentTitle') filterShareComponentTitle?: TemplateRef<any>;
+  @ViewChild('filterShareComponentFooter') filterShareComponentFooter?: TemplateRef<any>;
 
   filterFormGroup = new FormGroup({
     favoriteFilter: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
@@ -99,7 +103,7 @@ export class AccountActivitiesListFilterComponent implements OnInit, OnDestroy {
   });
 
   modalService = inject(ModalService);
-  store = inject(Store);
+  drawerService = inject(DrawerService);
   private readonly destroyer$ = new Subject<void>();
 
   ngOnInit(): void {
@@ -110,15 +114,6 @@ export class AccountActivitiesListFilterComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.destroyer$.next();
-  }
-
-  open(): void {
-    this.filterDrawerRef?.open();
-    this.filterDrawerRef?.afterClose.subscribe(() => {
-      console.log("close");
-      const filterItemsCount = this.filterFormValueCounter(this.filterFormGroup.value);
-      this.store.dispatch(new SetFilterItemsCountAction(filterItemsCount));
-    });
   }
 
   companiesChange(companies: Array<any>) {
@@ -142,12 +137,8 @@ export class AccountActivitiesListFilterComponent implements OnInit, OnDestroy {
   }
 
   closeFilterDrawer() {
-    this.filterDrawerRef?.afterClose.subscribe(() => {
-      console.log("close");
-      const filterItemsCount = this.filterFormValueCounter(this.filterFormGroup.value);
-      this.store.dispatch(new SetFilterItemsCountAction(filterItemsCount));
-    });
-    this.filterDrawerRef?.close();
+   const filterItemsCount = this.filterFormValueCounter(this.filterFormGroup.value);
+    this.drawerService.close({filterItemsCount});
   }
 
   clearAllFilter() {
@@ -159,12 +150,12 @@ export class AccountActivitiesListFilterComponent implements OnInit, OnDestroy {
   }
 
   shareFilter() {
-    this.modalService.create({
+    const t = this.modalService.create({
       nzTitle: this.filterShareComponentTitle,
       nzContent: AccountActivitiesFilterShareComponent,
       nzBodyStyle: {'padding': '0 54px'},
       nzFooter: this.filterShareComponentFooter,
-      nzWidth: 586
+      nzWidth: 586,
     });
   }
 

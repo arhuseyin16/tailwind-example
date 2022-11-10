@@ -13,7 +13,7 @@ import {
   AccountActivitiesListFilterComponent
 } from "./account-activities-list-filter/account-activities-list-filter.component";
 import { NzPopoverModule } from "ng-zorro-antd/popover";
-import { NzDrawerModule } from "ng-zorro-antd/drawer";
+import { NzDrawerModule, NzDrawerService } from "ng-zorro-antd/drawer";
 import { NzCustomSelectModule } from "../../../../shared/component/nz-select/nz-custom-select.module";
 import { NzDatePickerModule } from "ng-zorro-antd/date-picker";
 import { NzTimePickerModule } from "ng-zorro-antd/time-picker";
@@ -23,6 +23,7 @@ import { NzBadgeModule } from "ng-zorro-antd/badge";
 import { AccountActivitiesFilterShareComponent } from './account-activities-filter-share/account-activities-filter-share.component';
 import { NzModalService } from "ng-zorro-antd/modal";
 import { ModalService } from "../../../../service/modal/modal.service";
+import { DrawerService } from "../../../../service/drawer/drawer.service";
 
 const routes: Routes = [
   {
@@ -55,7 +56,9 @@ const routes: Routes = [
   providers: [
     BankService,
     ModalService,
-    NzModalService
+    NzModalService,
+    DrawerService,
+    NzDrawerService
   ]
 })
 export class AccountActivitiesListModule {
