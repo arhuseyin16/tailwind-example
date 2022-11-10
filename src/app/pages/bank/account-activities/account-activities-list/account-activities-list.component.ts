@@ -20,7 +20,6 @@ export class AccountActivitiesListComponent implements OnInit {
   favoriteFilters?: NzSelectOptionInterface[];
   dateFilters?: NzSelectOptionInterface[];
 
-
   constructor(
     private router: Router,
     private store: Store

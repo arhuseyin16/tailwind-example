@@ -22,6 +22,7 @@ import { NzFormModule } from "ng-zorro-antd/form";
 import { NzBadgeModule } from "ng-zorro-antd/badge";
 import { AccountActivitiesFilterShareComponent } from './account-activities-filter-share/account-activities-filter-share.component';
 import { NzModalService } from "ng-zorro-antd/modal";
+import { ModalService } from "../../../../service/modal/modal.service";
 
 const routes: Routes = [
   {
@@ -53,6 +54,7 @@ const routes: Routes = [
     ],
   providers: [
     BankService,
+    ModalService,
     NzModalService
   ]
 })

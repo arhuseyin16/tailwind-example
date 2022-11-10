@@ -8,7 +8,8 @@
           <label class="text-16">86,356 Kayıttan 1 - 50 Arası</label>
         </div>
         <div class="ml-[15px] lg:ml-[25px] xl:ml-[95px] 3xl:ml-[43px]">
-          <nz-input-group class="w-[230px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px] rounded-5px border-0" nzSize="large" [nzPrefix]="prefixTemplateUser">
+          <nz-input-group class="w-[230px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px] rounded-5px border-0" nzSize="large"
+                          [nzPrefix]="prefixTemplateUser">
             <input type="text" nz-input placeholder="Ara..."/>
           </nz-input-group>
           <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
@@ -18,7 +19,8 @@
       <div class="flex flex-col mt-3 3xl:mt-0 lg:flex-row lg:justify-end">
 
         <div class="w-full mr-2.5" *ngIf="favoriteFilters">
-          <nz-select nzSize="large" class="w-[460px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px]" nzAllowClear [nzOptions]="favoriteFilters"
+          <nz-select nzSize="large" class="w-[460px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px]" nzAllowClear
+                     [nzOptions]="favoriteFilters"
                      [nzCustomTemplate]="favoriteSelectCustomTemplate" [nzPlaceHolder]="favoriteSelectPlaceholder">
           </nz-select>
 
@@ -39,7 +41,8 @@
         </div>
 
         <div class="w-full mt-3.5 lg:mt-0 mr-2.5" *ngIf="dateFilters">
-          <nz-select nzAllowClear nzSize="large" class="w-[460px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px]" [nzOptions]="dateFilters"
+          <nz-select nzAllowClear nzSize="large" class="w-[460px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px]"
+                     [nzOptions]="dateFilters"
                      [nzCustomTemplate]="dateSelectCustomTemplate" [nzPlaceHolder]="dateSelectPlaceholder">
             <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
             <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
@@ -62,7 +65,6 @@
         </div>
 
         <div class="w-full mt-3.5 lg:mt-0 mr-2.5">
-
         <app-account-activities-list-filter [favoriteFilters]="favoriteFilters"></app-account-activities-list-filter>
         </div>
 

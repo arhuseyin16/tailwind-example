@@ -1,17 +1,21 @@
-import { Component, inject, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { NzDrawerRef } from "ng-zorro-antd/drawer";
 import { NzModalService } from "ng-zorro-antd/modal";
 import {
   AccountActivitiesFilterShareComponent
 } from "../account-activities-filter-share/account-activities-filter-share.component";
+import { ModalService } from "../../../../../service/modal/modal.service";
+import { Subject, takeUntil } from "rxjs";
+import { Store } from "@ngxs/store";
+import { SetFilterItemsCountAction } from "../../../../../store/filter/filter.action";
 
 @Component({
   selector: 'app-account-activities-list-filter',
   templateUrl: './account-activities-list-filter.component.html',
   styleUrls: ['./account-activities-list-filter.component.scss']
 })
-export class AccountActivitiesListFilterComponent implements OnInit {
+export class AccountActivitiesListFilterComponent implements OnInit, OnDestroy {
 
   @Input() favoriteFilters: any;
 
@@ -39,6 +43,7 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     {id: 1, name: 'Giriş Alacak (A)', status: false},
     {id: 2, name: 'Çıkış Borç (B)', status: false},
   );
+
   formBuilder = inject(FormBuilder);
   @ViewChild('filterDrawerRef') filterDrawerRef?: NzDrawerRef;
   @ViewChild('filterShareComponentTitle') filterShareComponentTitle?: TemplateRef<any>
@@ -93,18 +98,27 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     additionalFieldSixth: new FormControl('', {initialValueIsDefault: true, nonNullable: true}),
   });
 
-  modalService = inject(NzModalService);
+  modalService = inject(ModalService);
+  store = inject(Store);
+  private readonly destroyer$ = new Subject<void>();
 
   ngOnInit(): void {
-    this.filterFormGroup.valueChanges.subscribe(valueObject => {
-      console.log(valueObject);
-      this.filterFormValueControl(valueObject);
+    this.filterFormGroup.valueChanges.subscribe(() => {
       this.isValueChanged = true
-    })
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.destroyer$.next();
   }
 
   open(): void {
     this.filterDrawerRef?.open();
+    this.filterDrawerRef?.afterClose.subscribe(() => {
+      console.log("close");
+      const filterItemsCount = this.filterFormValueCounter(this.filterFormGroup.value);
+      this.store.dispatch(new SetFilterItemsCountAction(filterItemsCount));
+    });
   }
 
   companiesChange(companies: Array<any>) {
@@ -128,9 +142,12 @@ export class AccountActivitiesListFilterComponent implements OnInit {
   }
 
   closeFilterDrawer() {
-    if (this.filterDrawerRef) {
-      this.filterDrawerRef.close();
-    }
+    this.filterDrawerRef?.afterClose.subscribe(() => {
+      console.log("close");
+      const filterItemsCount = this.filterFormValueCounter(this.filterFormGroup.value);
+      this.store.dispatch(new SetFilterItemsCountAction(filterItemsCount));
+    });
+    this.filterDrawerRef?.close();
   }
 
   clearAllFilter() {
@@ -155,19 +172,22 @@ export class AccountActivitiesListFilterComponent implements OnInit {
     console.log("save filter completed");
   }
 
-  filterFormValueControl(filterFormGroupObject: any) {
+  filterFormValueCounter(filterFormGroupObject: any) {
+    let filterItems = [];
     for (let key in filterFormGroupObject) {
 
       if (typeof filterFormGroupObject[key] === 'string') {
-          if(filterFormGroupObject[key]) {
-            console.log('string');
-          }
-      } else if(Array.isArray(filterFormGroupObject[key]) ) {
-        if (filterFormGroupObject[key].length > 0) {
-          console.log('array')
+        if (filterFormGroupObject[key]) {
+          filterItems.push(filterFormGroupObject[key]);
         }
+      } else if (Array.isArray(filterFormGroupObject[key])) {
+        if (filterFormGroupObject[key].length > 0) {
+          filterItems.push(filterFormGroupObject[key]);
+        }
+      } else if (filterFormGroupObject[key]) {
+        filterItems.push(filterFormGroupObject[key]);
       }
-
     }
+    return filterItems.length;
   }
 }
