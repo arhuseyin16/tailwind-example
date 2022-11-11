@@ -1,4 +1,5 @@
-<div class="p-6">
+<div class="w-full relative">
+<div class="p-6 mb-[10%] 4xl:mb-0">
   <div class="flex mt-[20px] justify-between pr-[43px] pl-[10px]">
     <label class="text-22 uppercase text-lapis-lazuli">{{'account-activities-list.filter' | translate}}</label>
     <span class="cursor-pointer" (click)="closeFilterDrawer()" nz-icon nzType="close" nzTheme="outline"></span>
@@ -498,7 +499,7 @@
   </form>
 
 </div>
-<div class="grid grid-cols-2 bg-eton-blue py-[17px] mt-[72px]">
+<div class="grid grid-cols-2 fixed bottom-0 w-full bg-eton-blue py-[17px]">
   <div class="pl-[34px]">
     <button *ngIf="isValueChanged" nz-button nzSize="large" (click)="saveFilter()"
             class="rounded-10px bg-white text-eton-blue px-[52px] py-[7px] focus:border-eton-blue focus:text-eton-blue hover:border-eton-blue hover:text-eton-blue">
@@ -520,9 +521,9 @@
     </button>
   </div>
 </div>
-
+</div>
 <ng-template #filterShareComponentTitle>
-  <label class="text-20-normal font-medium">{{'account-activities-list-filter.filter-share' | translate}}</label>
+  <label class="text-20-normal font-bold">{{'account-activities-list-filter.filter-share' | translate}}</label>
 </ng-template>
 
 <ng-template #filterShareComponentFooter>

@@ -74,7 +74,7 @@ export class AccountActivitiesListComponent implements OnInit {
     });
     // Tekrardan bakılacak.
     filterDrawerRef.afterClose.subscribe((param) => {
-      this.filterItemsCount = param.filterItemsCount;
+      this.filterItemsCount = param?.filterItemsCount;
       this.cdr.detectChanges();
     });
   }

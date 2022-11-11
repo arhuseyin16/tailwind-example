@@ -12,3 +12,7 @@
 ::ng-deep .ant-modal-content {
   @apply rounded-10px pt-[5px];
 }
+
+:host ::ng-deep .ant-form-item-label > label {
+  @apply text-20-normal #{!important};
+}
