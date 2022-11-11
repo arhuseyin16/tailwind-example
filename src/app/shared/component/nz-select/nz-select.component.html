@@ -7,18 +7,32 @@
              (ngModelChange)="selectChange($event, formControlName, controlName)" [nzSize]="'large'" [nzLoading]="nzSelectLoading"
              nzMode="multiple" formControlName="{{formControlName}}" [nzOptionOverflowSize]="heightPx">
     <nz-option nzCustomContent [nzLabel]="'Tümü'" [nzValue]="0">
-      <label style="padding-right: 10px" nz-checkbox
+    <!--  <label style="padding-right: 10px" nz-checkbox
              (ngModelChange)="allCheckboxChange($event, formControlName, controlName)" [(ngModel)]="allStatus" [ngModelOptions]="{standalone: true}">
-      </label>{{"nz-select.all" |translate}}
+      </label>-->
+      <th
+        [(nzChecked)]="checked"
+        [nzIndeterminate]="false"
+        (nzCheckedChange)="onAllChecked($event)"
+      >
+        <span class="pl-2" style="font-weight: 100;">{{"nz-select.all" |translate}}</span>
+      </th>
+
     </nz-option>
     <nz-option *ngFor="let item of optionList" nzCustomContent [nzLabel]="item.name" [nzValue]="item.id">
-      <label style="padding-right: 10px" nz-checkbox
+      <!--<label style="padding-right: 10px" nz-checkbox
              (ngModelChange)="checkboxChange(item.id, $event, formControlName, controlName)" [(ngModel)]="item.status" [ngModelOptions]="{standalone: true}">
-      </label>{{item.name}}
+      </label>-->
+      <td
+        [nzChecked]="setOfCheckedId.has(item.id)"
+        (nzCheckedChange)="onItemChecked(item.id, $event)"
+      >
+        <span class="pl-2">{{item.name}}</span>
+      </td>
     </nz-option>
   </nz-select>
   <ng-template #formLength>
-    <p *ngIf="allStatus">{{'nz-select.all-selected' | translate}}</p>
-    <p *ngIf="!allStatus">{{controlName.length}}  {{'nz-select.selected' | translate}}</p>
+    <p *ngIf="checked">{{'nz-select.all-selected' | translate}}</p>
+    <p *ngIf="!checked">{{controlName.length}}  {{'nz-select.selected' | translate}}</p>
   </ng-template>
 </div>

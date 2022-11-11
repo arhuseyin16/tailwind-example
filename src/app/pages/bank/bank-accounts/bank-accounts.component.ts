@@ -17,14 +17,14 @@ export class BankAccountsComponent implements OnInit {
   bankTableHidden = false;
   size = 5;
   listOption = [
-    {id: 1, name: 'xyz', status: false},
-    {id: 2, name: 'abc', status: false},
-    {id: 3, name: 'klm', status: false},
-    {id: 4, name: 'fvt', status: false},
-    {id: 5, name: 'asd', status: false},
-    {id: 6, name: 'ghj', status: false},
-    {id: 7, name: 'çöm', status: false},
-    {id: 8, name: 'ıyo', status: false},
+    {id: 1, name: 'xyz'},
+    {id: 2, name: 'abc'},
+    {id: 3, name: 'klm'},
+    {id: 4, name: 'fvt'},
+    {id: 5, name: 'asd'},
+    {id: 6, name: 'ghj'},
+    {id: 7, name: 'çöm'},
+    {id: 8, name: 'ıyo'},
   ];
   bankList = [
     {

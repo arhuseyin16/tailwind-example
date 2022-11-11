@@ -5,6 +5,7 @@ import {TranslateModule} from "@ngx-translate/core";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
+import {NzTableModule} from "ng-zorro-antd/table";
 
 
 
@@ -15,13 +16,14 @@ import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
   exports: [
     NzSelectComponent
   ],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    NzSelectModule,
-    ReactiveFormsModule,
-    FormsModule,
-    NzCheckboxModule,
-  ]
+    imports: [
+        CommonModule,
+        TranslateModule,
+        NzSelectModule,
+        ReactiveFormsModule,
+        FormsModule,
+        NzCheckboxModule,
+        NzTableModule,
+    ]
 })
 export class NzCustomSelectModule { }
