@@ -1,0 +1,64 @@
+<div class="filter-list-table">
+  <nz-table
+    #rowSelectionTable
+    nzShowSizeChanger
+    [nzData]="listOfDisplayData"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+  >
+    <thead>
+    <tr>
+      <th
+        [nzSelections]="listOfSelection"
+        [(nzChecked)]="checked"
+        [nzIndeterminate]="indeterminate"
+        (nzCheckedChange)="onAllChecked($event)"
+      ></th>
+
+      <th *ngFor="let column of listOfColumns; trackBy: trackByName"
+          [(nzSortOrder)]="column.sortOrder"
+          [nzSortFn]="column.sortFn"
+          nzCustomFilter
+      >
+        {{column.name}}
+        <nz-filter-trigger *ngIf="column.filterFn" [(nzVisible)]="column.filterDisplay" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+          <span nz-icon nzType="search"></span>
+        </nz-filter-trigger>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <div class="ant-table-filter-dropdown">
+            <div class="search-box">
+              <nz-input-group class="width-[230px] border-dark-charcoal border-solid border-0.5 rounded-5px" nzSize="default"
+                              [nzPrefix]="prefixTemplateUser">
+                <input type="text" nz-input [(ngModel)]="column.filterValue" (ngModelChange)="filterChange(column)"/>
+              </nz-input-group>
+              <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
+              <cdk-virtual-scroll-viewport itemSize="30" class="demo-infinite-container">
+                <nz-list>
+                  <nz-list-item *cdkVirtualFor="let item of column.listOfFilter">
+                    <label nz-checkbox [(nzChecked)]="item.checked" (nzCheckedChange)="filterCheckedChange(item, column)">{{item.label}}</label>
+                  </nz-list-item>
+                </nz-list>
+              </cdk-virtual-scroll-viewport>
+              <button nz-button nzSize="small" nzType="primary" (click)="search(column)" class="search-button">Search</button>
+              <button nz-button nzSize="small" (click)="reset()">Reset</button>
+            </div>
+          </div>
+        </nz-dropdown-menu>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of rowSelectionTable.data">
+      <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)" [nzEllipsis]="true"></td>
+      <td [nzEllipsis]="true">{{ data.date }}</td>
+      <td [nzEllipsis]="true">{{ data.firm }}</td>
+      <td [nzEllipsis]="true">{{ data.bank }}</td>
+      <td [nzEllipsis]="true">{{ data.branch }}</td>
+      <td [nzEllipsis]="true">{{ data.accountType }}</td>
+      <td [nzEllipsis]="true">{{ data.accountNumber }}</td>
+      <td [nzEllipsis]="true">{{ data.amount }}</td>
+      <td [nzEllipsis]="true">{{ data.balance }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+</div>

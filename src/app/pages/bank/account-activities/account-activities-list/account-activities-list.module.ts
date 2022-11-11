@@ -24,6 +24,12 @@ import { AccountActivitiesFilterShareComponent } from './account-activities-filt
 import { NzModalService } from "ng-zorro-antd/modal";
 import { ModalService } from "../../../../service/modal/modal.service";
 import { DrawerService } from "../../../../service/drawer/drawer.service";
+import { AccountActivitiesListTableComponent } from './account-activities-list-table/account-activities-list-table.component';
+import { NzTableModule } from "ng-zorro-antd/table";
+import { NzDropDownModule } from "ng-zorro-antd/dropdown";
+import { ScrollingModule } from "@angular/cdk/scrolling";
+import { NzListModule } from "ng-zorro-antd/list";
+import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
 
 const routes: Routes = [
   {
@@ -33,26 +39,31 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [AccountActivitiesListComponent, AccountActivitiesListFilterComponent, AccountActivitiesFilterShareComponent],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        NzSelectModule,
-        FormsModule,
-        TranslateModule,
-        NzIconModule,
-        NzButtonModule,
-        NzInputModule,
-        NzPopoverModule,
-        NzDrawerModule,
-        NzCustomSelectModule,
-        ReactiveFormsModule,
-        NzDatePickerModule,
-        NzTimePickerModule,
-        NzInputNumberModule,
-        NzFormModule,
-        NzBadgeModule,
-    ],
+  declarations: [AccountActivitiesListComponent, AccountActivitiesListFilterComponent, AccountActivitiesFilterShareComponent, AccountActivitiesListTableComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    NzSelectModule,
+    FormsModule,
+    TranslateModule,
+    NzIconModule,
+    NzButtonModule,
+    NzInputModule,
+    NzPopoverModule,
+    NzDrawerModule,
+    NzCustomSelectModule,
+    ReactiveFormsModule,
+    NzDatePickerModule,
+    NzTimePickerModule,
+    NzInputNumberModule,
+    NzFormModule,
+    NzBadgeModule,
+    NzTableModule,
+    NzDropDownModule,
+    ScrollingModule,
+    NzListModule,
+    NzCheckboxModule,
+  ],
   providers: [
     BankService,
     ModalService,
