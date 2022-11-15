@@ -174,5 +174,13 @@
     "inquire": "Sorgula",
     "startDate": "Başlangıç Tarihi",
     "endDate": "Bitiş Tarihi"
+  },
+  "system-settings": {
+    "cadesSigningTimestampInformation": "Cades İmzalama Zaman Damgası Bilgileri",
+    "ehoSignerApiURLAddress": "Eho Signer Api URL Adresi",
+    "username": "Kullanıcı Adı",
+    "passwordUpdate": "Şifre Ekle/Güncelle",
+    "apiUrl": "Api URL",
+    "save": "Kaydet"
   }
 }
