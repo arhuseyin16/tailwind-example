@@ -174,5 +174,13 @@
     "inquire": "Inquire",
     "startDate": "Start Date",
     "endDate": "End Date"
+  },
+  "system-settings": {
+    "cadesSigningTimestampInformation": "Cades Signing Timestamp Information",
+    "ehoSignerApiURLAddress": "Eho Signer Api URL Address",
+    "username": "User Name",
+    "passwordUpdate": "Password Add/Update",
+    "apiUrl": "Api URL",
+    "save": "Save"
   }
 }

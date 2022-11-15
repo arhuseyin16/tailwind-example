@@ -1,0 +1,39 @@
+<div class="eho-signer">
+  <div class="page-shadow">
+    <div class="flex" [formGroup]="createdForm">
+      <div class="first">
+        <div class="first-header">
+          {{'system-settings.cadesSigningTimestampInformation' | translate}}
+        </div>
+        <div class="first-content">
+          <div class="flex">
+            <div class="form-control">
+              <label>{{'system-settings.username' | translate}}</label>
+              <input nz-input formControlName="username" type="text" />
+            </div>
+            <div class="form-control">
+              <label>{{'system-settings.passwordUpdate' | translate}}</label>
+              <input nz-input formControlName="password"  type="text" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="second">
+        <div class="second-header">
+          {{'system-settings.ehoSignerApiURLAddress' | translate}}
+        </div>
+        <div class="second-content">
+          <div class="flex">
+            <div class="form-control">
+              <label>{{'system-settings.apiUrl' | translate}}</label>
+              <input nz-input formControlName="apiUrl" type="text" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="eho-signer-submit">
+    <button class="eho-signer-btn" (click)="save()">{{'system-settings.save' | translate}}</button>
+  </div>
+</div>

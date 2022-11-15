@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'exchange',
     loadChildren: () => import('./exchange/exchange.module').then(m => m.ExchangeModule)
+  },
+  {
+    path: 'system-settings',
+    loadChildren: () => import('./system-settings/system-settings.module').then(m => m.SystemSettingsModule)
   }
 ]
 
