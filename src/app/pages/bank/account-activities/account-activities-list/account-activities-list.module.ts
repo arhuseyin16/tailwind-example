@@ -30,6 +30,8 @@ import { NzDropDownModule } from "ng-zorro-antd/dropdown";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { NzListModule } from "ng-zorro-antd/list";
 import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
+import { NzResizableModule } from "ng-zorro-antd/resizable";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 const routes: Routes = [
   {
@@ -63,6 +65,8 @@ const routes: Routes = [
     ScrollingModule,
     NzListModule,
     NzCheckboxModule,
+    NzResizableModule,
+    DragDropModule,
   ],
   providers: [
     BankService,

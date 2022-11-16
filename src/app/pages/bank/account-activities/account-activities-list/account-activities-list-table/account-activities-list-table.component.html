@@ -2,6 +2,7 @@
   <nz-table
     #rowSelectionTable
     nzShowSizeChanger
+    nzBordered
     [nzData]="listOfDisplayData"
     (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
   >
@@ -14,49 +15,93 @@
         (nzCheckedChange)="onAllChecked($event)"
       ></th>
 
-      <th *ngFor="let column of listOfColumns; trackBy: trackByName"
+      <th *ngFor="let column of listOfColumns; let i = index trackBy: trackByName"
           [(nzSortOrder)]="column.sortOrder"
           [nzSortFn]="column.sortFn"
           nzCustomFilter
       >
         {{column.name}}
-        <nz-filter-trigger *ngIf="column.filterFn" [(nzVisible)]="column.filterDisplay" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+        <nz-filter-trigger *ngIf="column.showFilterField" [(nzVisible)]="column.filterVisible" [nzDropdownMenu]="menu">
           <span nz-icon nzType="search"></span>
         </nz-filter-trigger>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <div class="ant-table-filter-dropdown">
             <div class="search-box">
-              <nz-input-group class="width-[230px] border-dark-charcoal border-solid border-0.5 rounded-5px" nzSize="default"
+              <nz-input-group class="width-[230px] border-dark-charcoal border-solid border-0.5 rounded-5px"
+                              nzSize="default"
                               [nzPrefix]="prefixTemplateUser">
                 <input type="text" nz-input [(ngModel)]="column.filterValue" (ngModelChange)="filterChange(column)"/>
               </nz-input-group>
               <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
-              <cdk-virtual-scroll-viewport itemSize="30" class="demo-infinite-container">
+              <cdk-virtual-scroll-viewport itemSize="30" class="filter-infinite-container">
                 <nz-list>
                   <nz-list-item *cdkVirtualFor="let item of column.listOfFilter">
-                    <label nz-checkbox [(nzChecked)]="item.checked" (nzCheckedChange)="filterCheckedChange(item, column)">{{item.label}}</label>
+                    <label nz-checkbox [(nzChecked)]="item.checked"
+                           (nzCheckedChange)="filterCheckedChange(item, column)">{{item.label}}</label>
                   </nz-list-item>
                 </nz-list>
               </cdk-virtual-scroll-viewport>
-              <button nz-button nzSize="small" nzType="primary" (click)="search(column)" class="search-button">Search</button>
-              <button nz-button nzSize="small" (click)="reset()">Reset</button>
             </div>
           </div>
         </nz-dropdown-menu>
       </th>
+      <th>
+        <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="addColumnMenu">
+          <img width="24px" height="22px" src="assets/icon/table-add-column.svg">
+          <nz-dropdown-menu #addColumnMenu="nzDropdownMenu">
+            <div class="ant-table-filter-dropdown add-column-container">
+              <div class="px-5 py-[19px]">
+                <cdk-virtual-scroll-viewport itemSize="20" class="add-column-infinite-container">
+                  <nz-list>
+                    <nz-list-item *cdkVirtualFor="let column of listOfAddColumn; let i = index trackBy: trackByName">
+                      <label nz-checkbox [(nzChecked)]="column.checked"
+                             (nzCheckedChange)="selectedColumnCheckedChange(column)">{{column.label}}</label>
+                    </nz-list-item>
+                  </nz-list>
+                </cdk-virtual-scroll-viewport>
+                <button nz-button nzSize="large" class="column-save-button text-white text-16 bg-eton-blue hover:bg-eton-blue hover:text-white focus:bg-eton-blue focuns:text-white" (click)="saveAddColumn()">Kaydet</button>
+              </div>
+            </div>
+          </nz-dropdown-menu>
+        </div>
+
+
+      </th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let data of rowSelectionTable.data">
-      <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)" [nzEllipsis]="true"></td>
-      <td [nzEllipsis]="true">{{ data.date }}</td>
-      <td [nzEllipsis]="true">{{ data.firm }}</td>
-      <td [nzEllipsis]="true">{{ data.bank }}</td>
-      <td [nzEllipsis]="true">{{ data.branch }}</td>
-      <td [nzEllipsis]="true">{{ data.accountType }}</td>
-      <td [nzEllipsis]="true">{{ data.accountNumber }}</td>
-      <td [nzEllipsis]="true">{{ data.amount }}</td>
-      <td [nzEllipsis]="true">{{ data.balance }}</td>
+    <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+      <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"
+          [nzEllipsis]="true" class="table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}"></td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.date }}</td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.firm }}</td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.bank }}</td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.branch }}</td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.accountType }}</td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.accountNumber }}</td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.amount }}</td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.balance }}</td>
+      <td class="table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}" nzAlign="right">
+        <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+          <img width="6px" height="22.9px" src="assets/img/bank-account/bank-detail-other.png">
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item>Dekont Yazdır</li>
+              <li nz-menu-item>Kullanıcı Açıklamasını Güncelle</li>
+              <li nz-menu-item>Sil</li>
+              <li nz-menu-item>Detay Görüntüle</li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
+      </td>
     </tr>
     </tbody>
   </nz-table>

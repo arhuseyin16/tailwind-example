@@ -1,41 +1,49 @@
 .filter-list-table {
-    ::ng-deep .ant-table {
-      background-color: #f5f5f5;
-    }
+  ::ng-deep .ant-table {
+    background-color: white;
+  }
 
-    ::ng-deep .ant-table-container table > thead > tr > th:first-child {
-      border-radius: 15px 0 0 0;
-    }
+  ::ng-deep .ant-table-container table > thead > tr > th:first-child {
+    border-radius: 15px 0 0 0;
+  }
 
-    ::ng-deep .ant-table-container table > thead > tr > th:last-child {
-      border-radius: 0 15px 0 0;
-    }
+  ::ng-deep .ant-table-container table > thead > tr > th:last-child {
+    border-radius: 0 15px 0 0;
+  }
 
-    ::ng-deep .ant-table-thead > tr > th {
-      background: #2d639f;
-      color: #fff;
-      font-size: 15px;
-    }
+  ::ng-deep .ant-table-thead > tr > th {
+    background: #2d639f;
+    color: #fff;
+    font-size: 15px;
+  }
 
-    ::ng-deep .ant-table-tbody > tr > td {
-      font-size: 15px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #000;
-      border-bottom: solid 0.5px #d3d3d3;
-      border-right: solid 0.5px #d3d3d3;
-    }
+  ::ng-deep .ant-table-thead > tr > th:nth-last-child(2) {
+    border-right: 0 !important;
+  }
 
-    ::ng-deep .ant-table-tbody > tr.child-table > td {
-      background-color: #f2f2f2;
-    }
+  ::ng-deep .ant-table-tbody > tr > td {
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000;
+    border-bottom: solid 0.5px #d3d3d3 !important;
+    border-right: solid 0.5px #d3d3d3 !important;
+  }
 
-    ::ng-deep .ant-table-column-sorter {
-      color: #fff;
-    }
+  ::ng-deep .ant-table-tbody > tr > td:last-child {
+    border-right: 0 !important;
+  }
+
+  ::ng-deep .ant-table-tbody > tr > td:nth-last-child(2) {
+    border-right: 0 !important;
+  }
+
+  ::ng-deep .ant-table-column-sorter {
+    color: #fff;
+  }
 }
 
 .search-box {
@@ -50,8 +58,29 @@
   margin-right: 8px;
 }
 
-.demo-infinite-container {
+.filter-infinite-container {
   height: 110px;
+}
+
+.add-column-infinite-container {
+  height: 290px;
+  width: 200px;
+}
+
+.add-column-container {
+  @apply rounded-5px;
+}
+
+.column-save-button {
+  @apply py-[9px] px-[55px] rounded-10px w-full mt-[25px] #{!important};
+}
+
+::ng-deep .cdk-drag-preview {
+  display: table;
+}
+
+::ng-deep .cdk-drag-placeholder {
+  opacity: 0;
 }
 
 .ant-list-split .ant-list-item {
@@ -68,4 +97,16 @@ nz-list {
 
 .ant-checkbox-wrapper {
   @apply text-15 #{!important};
+}
+
+.table-td {
+  @apply border-0 border-transparent text-15 #{!important};
+}
+
+.background-anti-flash-white {
+  @apply bg-anti-flash-white #{!important};
+}
+
+.other-img {
+  @apply cursor-pointer;
 }
