@@ -5,11 +5,16 @@ import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {TranslateModule} from "@ngx-translate/core";
+import { EnvironmentSettingsComponent } from './environment-settings/environment-settings.component';
 
 const routes: Routes = [
   {
     path: 'eho-signer',
     component: EhoSignerComponent
+  },
+  {
+    path: 'environment',
+    component: EnvironmentSettingsComponent
   },
   {
     path: '',
@@ -21,7 +26,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    EhoSignerComponent
+    EhoSignerComponent,
+    EnvironmentSettingsComponent
   ],
   imports: [
     CommonModule,

@@ -174,7 +174,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           },
           {
             title: 'sidebar.environment-settings',
-            routerLink: '',
+            routerLink: '/ui/setting/system-settings/environment',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {
