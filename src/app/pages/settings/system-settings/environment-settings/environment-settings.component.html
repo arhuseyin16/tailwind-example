@@ -1,0 +1,99 @@
+<div class="environment-settings">
+  <div class="page-shadow">
+    <div class="first">
+      <div class="flex">
+        <div class="first-form-control">
+          <label>{{'system-settings.applicationBaseAddress' | translate}}</label>
+          <input nz-input type="text" />
+        </div>
+        <div class="first-form-control">
+          <label>{{'system-settings.environment' | translate}}</label>
+          <nz-select [nzSize]="'large'" nzAllowClear>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>
+        </div>
+        <div class="first-form-control">
+          <label>{{'system-settings.numberOfFalseEntriesAllowedBeforeBlock' | translate}}</label>
+          <input nz-input type="text" />
+        </div>
+        <div class="first-form-control">
+          <label>{{'system-settings.numberOfPasswordUpdateChecks' | translate}}</label>
+          <input nz-input type="text" />
+        </div>
+      </div>
+    </div>
+    <div class="second">
+      <div class="flex">
+        <div class="second-form-control">
+          <div class="pb-3">
+            <label>{{'system-settings.passwordLifeTime' | translate}}</label>
+          </div>
+          <nz-input-number
+            [(ngModel)]="passwordTimerValue"
+            [nzMin]="0"
+            [nzMax]="60"
+            [nzStep]="1"
+            [nzFormatter]="passwordFormatterValue"
+            [nzParser]="passwordParserValue"
+          ></nz-input-number>
+        </div>
+        <div class="second-form-control">
+          <div class="pb-3">
+            <label>{{'system-settings.userLifeTime' | translate}}</label>
+          </div>
+          <nz-input-number
+            [(ngModel)]="userTimerValue"
+            [nzMin]="0"
+            [nzMax]="60"
+            [nzStep]="1"
+            [nzFormatter]="userFormatterValue"
+            [nzParser]="userParserValue"
+          ></nz-input-number>
+        </div>
+        <div class="second-form-control">
+          <div class="pb-3">
+            <label>{{'system-settings.incorrectLoginUnblockingTime' | translate}}</label>
+          </div>
+          <nz-input-number
+            [(ngModel)]="blockTimerValue"
+            [nzMin]="0"
+            [nzMax]="60"
+            [nzStep]="1"
+            [nzFormatter]="blockFormatterValue"
+            [nzParser]="blockParserValue"
+          ></nz-input-number>
+        </div>
+      </div>
+    </div>
+    <div class="third">
+      <div class="third-title">
+        {{'system-settings.radio1' | translate}}
+      </div>
+      <nz-radio-group [(ngModel)]="loginRadio" nzName="radiogroup" [nzSize]="'large'">
+        <label nz-radio nzValue="1">{{'system-settings.yes' | translate}}</label>
+        <label nz-radio nzValue="0">{{'system-settings.no' | translate}}</label>
+      </nz-radio-group>
+    </div>
+    <div class="fourth">
+      <div class="fourth-title">
+        {{'system-settings.radio2' | translate}}
+      </div>
+      <nz-radio-group [(ngModel)]="terminalRadio" nzName="radiogroup" [nzSize]="'large'">
+        <label nz-radio nzValue="1">{{'system-settings.yes' | translate}}</label>
+        <label nz-radio nzValue="0">{{'system-settings.no' | translate}}</label>
+      </nz-radio-group>
+    </div>
+    <div class="fifth">
+      <div class="fifth-title">
+        {{'system-settings.radio3' | translate}}
+      </div>
+      <nz-radio-group [(ngModel)]="userRadio" nzName="radiogroup" [nzSize]="'large'">
+        <label nz-radio nzValue="1">{{'system-settings.yes' | translate}}</label>
+        <label nz-radio nzValue="0">{{'system-settings.no' | translate}}</label>
+      </nz-radio-group>
+    </div>
+  </div>
+  <div class="environment-settings-submit">
+    <button class="environment-settings-btn" (click)="save()">{{'system-settings.save' | translate}}</button>
+  </div>
+</div>

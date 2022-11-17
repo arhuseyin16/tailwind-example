@@ -181,6 +181,18 @@
     "username": "Kullanıcı Adı",
     "passwordUpdate": "Şifre Ekle/Güncelle",
     "apiUrl": "Api URL",
-    "save": "Kaydet"
+    "save": "Kaydet",
+    "applicationBaseAddress": "Uygulama Base Adres",
+    "environment": "Ortam",
+    "numberOfFalseEntriesAllowedBeforeBlock": "Blok Öncesi İzin Verilen Hatalı Giriş Sayısı",
+    "numberOfPasswordUpdateChecks": "Şifre Güncelleme Kontrol Sayısı",
+    "passwordLifeTime": "Şifre Yaşam Süresi",
+    "userLifeTime": "Kullanıcı Yaşam Süresi",
+    "incorrectLoginUnblockingTime": "Hatalı Giriş Blok Kaldırma Süresi",
+    "radio1": "Login Sırasında SMS ile Doğrulama Yapılsın mı?",
+    "radio2": "Aynı anda birden fazla terminalden oturum açılsın mı?",
+    "radio3": "Kullanıcı Bloke bilgisi ekranda gösterilsin mi?",
+    "yes": "Evet",
+    "no": "Hayır"
   }
 }
