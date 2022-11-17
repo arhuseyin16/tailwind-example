@@ -181,6 +181,18 @@
     "username": "User Name",
     "passwordUpdate": "Password Add/Update",
     "apiUrl": "Api URL",
-    "save": "Save"
+    "save": "Save",
+    "applicationBaseAddress": "Application Base Address",
+    "environment": "Environment",
+    "numberOfFalseEntriesAllowedBeforeBlock": "Number of False Entries Allowed Block",
+    "numberOfPasswordUpdateChecks": "Number of Password Update Checks",
+    "passwordLifeTime": "Password Life Time",
+    "userLifeTime": "User Life Time",
+    "incorrectLoginUnblockingTime": "Incorrect Login Unblocking Time",
+    "radio1": "Verify by SMS During Login?",
+    "radio2": "Login from multiple terminals at the same time?",
+    "radio3": "Show User Block information on the screen?",
+    "yes": "Yes",
+    "no": "No"
   }
 }

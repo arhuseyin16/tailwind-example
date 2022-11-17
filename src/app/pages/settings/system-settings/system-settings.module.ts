@@ -6,6 +6,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {TranslateModule} from "@ngx-translate/core";
 import { EnvironmentSettingsComponent } from './environment-settings/environment-settings.component';
+import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzInputNumberModule} from "ng-zorro-antd/input-number";
+import {NzRadioModule} from "ng-zorro-antd/radio";
 
 const routes: Routes = [
   {
@@ -29,14 +32,17 @@ const routes: Routes = [
     EhoSignerComponent,
     EnvironmentSettingsComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    FormsModule,
-    ReactiveFormsModule,
-    NzInputModule,
-    TranslateModule,
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FormsModule,
+        ReactiveFormsModule,
+        NzInputModule,
+        TranslateModule,
+        NzSelectModule,
+        NzInputNumberModule,
+        NzRadioModule,
+    ],
   providers: []
 })
 export class SystemSettingsModule { }

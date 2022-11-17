@@ -15,6 +15,18 @@ import {FavoriteAction} from "../../../../store/favorite/favorite.action";
 export class EnvironmentSettingsComponent implements OnInit {
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
+  passwordTimerValue: number = 0;
+  passwordFormatterValue = (value: number): string => `${value} gün`;
+  passwordParserValue = (value: string): string => value.replace('gün ', '');
+  userTimerValue: number = 0;
+  userFormatterValue = (value: number): string => `${value} gün`;
+  userParserValue = (value: string): string => value.replace('gün ', '');
+  blockTimerValue: number = 0;
+  blockFormatterValue = (value: number): string => `${value} dk`;
+  blockParserValue = (value: string): string => value.replace('dk ', '');
+  loginRadio: any;
+  terminalRadio: any;
+  userRadio: any;
 
   constructor(private store: Store,
               private router: Router,
@@ -38,4 +50,7 @@ export class EnvironmentSettingsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save() {
+
+  }
 }
