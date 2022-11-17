@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
-import { filter } from "rxjs";
-import { CdkDragDrop, CdkDragStart, CdkDropList, moveItemInArray } from "@angular/cdk/drag-drop";
-import { T } from "@angular/cdk/keycodes";
+import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
+import { CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
 
 interface ItemData {
   id: number;
@@ -17,7 +15,6 @@ interface ItemData {
   endDate: string;
   currencyType: string;
   willBorrow: string;
-
 }
 
 interface ColumnItem {
@@ -31,6 +28,7 @@ interface ColumnItem {
   showFilterField: boolean;
   filterValue: string;
   index?: number;
+  width?: string;
 }
 
 interface TableFilterList {
@@ -176,6 +174,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 0,
+        width: '170px'
       },
       {
         key: 'firm',
@@ -187,6 +186,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 1,
+        width: '150px'
       },
       {
         key: 'bank',
@@ -198,6 +198,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 2,
+        width: '140px'
       },
       {
         key: 'branch',
@@ -209,6 +210,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 3,
+        width: '215px'
       },
       {
         key: 'accountType',
@@ -220,6 +222,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 4,
+        width: '195px'
       },
       {
         key: 'accountNumber',
@@ -231,6 +234,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 5,
+        width: '230px'
       },
       {
         key: 'amount',
@@ -242,6 +246,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 6,
+        width: '150px'
       },
       {
         key: 'balance',
@@ -253,6 +258,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 7,
+        width: '100px'
       }
     ];
   }

@@ -3,6 +3,7 @@
     #rowSelectionTable
     nzShowSizeChanger
     nzBordered
+    [nzScroll]="{ x: '240px' }"
     [nzData]="listOfDisplayData"
     (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
   >
@@ -13,12 +14,14 @@
         [(nzChecked)]="checked"
         [nzIndeterminate]="indeterminate"
         (nzCheckedChange)="onAllChecked($event)"
+        nzWidth="50px"
       ></th>
 
       <th *ngFor="let column of listOfColumns; let i = index trackBy: trackByName"
           [(nzSortOrder)]="column.sortOrder"
           [nzSortFn]="column.sortFn"
           nzCustomFilter
+          [nzWidth]="column.width ? column.width : 'auto'"
       >
         {{column.name}}
         <nz-filter-trigger *ngIf="column.showFilterField" [(nzVisible)]="column.filterVisible" [nzDropdownMenu]="menu">
@@ -45,7 +48,7 @@
           </div>
         </nz-dropdown-menu>
       </th>
-      <th>
+      <th nzWidth="100px">
         <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="addColumnMenu">
           <img width="24px" height="22px" src="assets/icon/table-add-column.svg">
           <nz-dropdown-menu #addColumnMenu="nzDropdownMenu">
@@ -64,8 +67,6 @@
             </div>
           </nz-dropdown-menu>
         </div>
-
-
       </th>
     </tr>
     </thead>
