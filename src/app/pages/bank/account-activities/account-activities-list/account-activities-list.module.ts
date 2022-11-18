@@ -40,6 +40,7 @@ import { PrintReceiptModalComponent } from "./print-receipt-modal/print-receipt-
 import { AngularSvgIconModule } from "angular-svg-icon";
 import { SelectDeleteRecordModalComponent } from './select-delete-record-modal/select-delete-record-modal.component';
 import { EditUserDescriptionComponent } from './edit-user-description/edit-user-description.component';
+import { CreateFavoriteFilterComponent } from './create-favorite-filter/create-favorite-filter.component';
 
 const routes: Routes = [
   {
@@ -50,7 +51,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AccountActivitiesListComponent, PrintReceiptModalComponent,
-    AccountActivitiesListFilterComponent, AccountActivitiesFilterShareComponent, AccountActivitiesListTableComponent, SelectDeleteRecordModalComponent, EditUserDescriptionComponent],
+    AccountActivitiesListFilterComponent, AccountActivitiesFilterShareComponent, AccountActivitiesListTableComponent, SelectDeleteRecordModalComponent, EditUserDescriptionComponent, CreateFavoriteFilterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

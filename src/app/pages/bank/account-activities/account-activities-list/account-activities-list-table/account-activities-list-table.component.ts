@@ -5,6 +5,7 @@ import { ModalService } from "../../../../../service/modal/modal.service";
 import { PrintReceiptModalComponent } from "../print-receipt-modal/print-receipt-modal.component";
 import { SelectDeleteRecordModalComponent } from "../select-delete-record-modal/select-delete-record-modal.component";
 import { EditUserDescriptionComponent } from "../edit-user-description/edit-user-description.component";
+import { CreateFavoriteFilterComponent } from "../create-favorite-filter/create-favorite-filter.component";
 
 interface ItemData {
   id: number;
@@ -57,10 +58,9 @@ export class AccountActivitiesListTableComponent implements OnInit {
       }
     },
     {
-      text: 'Select Odd Row',
+      text: 'Favori Filtre Oluştur',
       onSelect: () => {
-        this.listOfCurrentPageData.forEach((data, index) => this.updateCheckedSet(data.id, index % 2 !== 0));
-        this.refreshCheckedStatus();
+        this.openCreateFavoriteFilterModal()
       }
     },
     {
@@ -419,6 +419,18 @@ export class AccountActivitiesListTableComponent implements OnInit {
       nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
       nzWidth: '650px',
       nzComponentParams: {processId: id}
+    });
+
+    modalRef.afterClose.subscribe(result => console.log(result));
+  }
+
+  openCreateFavoriteFilterModal() {
+    const modalRef = this.modalService.create({
+      nzContent: CreateFavoriteFilterComponent,
+      nzClosable: false,
+      nzFooter: null,
+      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
+      nzWidth: '650px',
     });
 
     modalRef.afterClose.subscribe(result => console.log(result));
