@@ -3,6 +3,7 @@ import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/
 import { CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
 import { ModalService } from "../../../../../service/modal/modal.service";
 import { PrintReceiptModalComponent } from "../print-receipt-modal/print-receipt-modal.component";
+import { SelectDeleteRecordModalComponent } from "../select-delete-record-modal/select-delete-record-modal.component";
 
 interface ItemData {
   id: number;
@@ -51,7 +52,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
     {
       text: 'Seçili Kayıtları Sil',
       onSelect: () => {
-        this.onAllChecked(true);
+        this.openSelectDeleteRecordModal();
       }
     },
     {
@@ -388,6 +389,18 @@ export class AccountActivitiesListTableComponent implements OnInit {
   openPrintReceiptModal() {
     const modalRef = this.modalService.create({
       nzContent: PrintReceiptModalComponent,
+      nzClosable: false,
+      nzFooter: null,
+      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
+      nzWidth: '650px'
+    });
+
+    modalRef.afterClose.subscribe(result => console.log(result));
+  }
+
+  openSelectDeleteRecordModal() {
+    const modalRef = this.modalService.create({
+      nzContent: SelectDeleteRecordModalComponent,
       nzClosable: false,
       nzFooter: null,
       nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},

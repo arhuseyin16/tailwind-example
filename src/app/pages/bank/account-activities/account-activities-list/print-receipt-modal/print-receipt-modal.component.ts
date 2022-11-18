@@ -14,6 +14,7 @@ export class PrintReceiptModalComponent implements OnInit {
   }
 
   closePrintReceiptModal() {
+    console.log("Kapatıldı");
     this.modalService.getModalRef()?.close(false);
   }
 
