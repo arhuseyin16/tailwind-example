@@ -18,7 +18,8 @@ module.exports = {
     borderWidth: {
       '1': '1px',
       '0.5': '0.5px',
-      '0': '0'
+      '0': '0',
+      '2': '2px'
     },
     fontFamily: {
       'poppins': ['Poppins'],

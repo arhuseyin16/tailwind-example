@@ -1,0 +1,31 @@
+<div class="w-full">
+  <div class="bg-eton-blue rounded-t-10px px-[30px] py-[17px]">
+    <div class="w-full flex justify-between">
+      <div class="text-white text-20-normal">Dekont Yazdır</div>
+      <div>
+        <svg-icon src="assets/svg/close-icon.svg" [svgClass]="'filter-green'"
+                  (click)="closePrintReceiptModal()"></svg-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-[60px] px-[45px]">
+    <div class="text-center w-full">
+      <label class="text-20-normal font-light">Seçili Kayıtlar yazdırılacak. Onaylıyor musunuz?</label>
+    </div>
+    <div class="flex py-[46px]">
+      <div class="w-full">
+        <button
+          class="w-11/12 px-[98px] py-[11px] bg-white text-eton-blue border-2 border-eton-blue text-20-normal rounded-10px hover:bg-white hover:text-eton-blue focus:bg-white focus:text-eton-blue active:border-eton-blue"
+          (click)="cancel()"
+        >İptal</button>
+      </div>
+      <div class="w-full text-right">
+        <button
+          class="w-11/12 px-[84px] py-[11px] bg-eton-blue text-white text-20-normal rounded-10px hover:bg-eton-blue hover:text-white focus:bg-eton-blue focus:text-white"
+          (click)="approve()"
+        >Onayla</button>
+      </div>
+    </div>
+  </div>
+</div>

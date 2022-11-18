@@ -137,3 +137,8 @@ nz-list {
 .other-img {
   @apply cursor-pointer;
 }
+
+::ng-deep .ant-modal-content {
+  @apply rounded-10px p-0 #{!important};
+}
+

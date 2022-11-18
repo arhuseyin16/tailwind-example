@@ -20,11 +20,15 @@ import { NzTimePickerModule } from "ng-zorro-antd/time-picker";
 import { NzInputNumberModule } from "ng-zorro-antd/input-number";
 import { NzFormModule } from "ng-zorro-antd/form";
 import { NzBadgeModule } from "ng-zorro-antd/badge";
-import { AccountActivitiesFilterShareComponent } from './account-activities-filter-share/account-activities-filter-share.component';
+import {
+  AccountActivitiesFilterShareComponent
+} from './account-activities-filter-share/account-activities-filter-share.component';
 import { NzModalService } from "ng-zorro-antd/modal";
 import { ModalService } from "../../../../service/modal/modal.service";
 import { DrawerService } from "../../../../service/drawer/drawer.service";
-import { AccountActivitiesListTableComponent } from './account-activities-list-table/account-activities-list-table.component';
+import {
+  AccountActivitiesListTableComponent
+} from './account-activities-list-table/account-activities-list-table.component';
 import { NzTableModule } from "ng-zorro-antd/table";
 import { NzDropDownModule } from "ng-zorro-antd/dropdown";
 import { ScrollingModule } from "@angular/cdk/scrolling";
@@ -32,6 +36,9 @@ import { NzListModule } from "ng-zorro-antd/list";
 import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
 import { NzResizableModule } from "ng-zorro-antd/resizable";
 import { DragDropModule } from "@angular/cdk/drag-drop";
+import { PrintReceiptModalComponent } from "./print-receipt-modal/print-receipt-modal.component";
+import { AngularSvgIconModule } from "angular-svg-icon";
+import { SelectDeleteRecordModalComponent } from './select-delete-record-modal/select-delete-record-modal.component';
 
 const routes: Routes = [
   {
@@ -41,7 +48,8 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [AccountActivitiesListComponent, AccountActivitiesListFilterComponent, AccountActivitiesFilterShareComponent, AccountActivitiesListTableComponent],
+  declarations: [AccountActivitiesListComponent, PrintReceiptModalComponent,
+    AccountActivitiesListFilterComponent, AccountActivitiesFilterShareComponent, AccountActivitiesListTableComponent, SelectDeleteRecordModalComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -67,6 +75,8 @@ const routes: Routes = [
     NzCheckboxModule,
     NzResizableModule,
     DragDropModule,
+    AngularSvgIconModule,
+
   ],
   providers: [
     BankService,

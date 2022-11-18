@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
 import { CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
+import { ModalService } from "../../../../../service/modal/modal.service";
+import { PrintReceiptModalComponent } from "../print-receipt-modal/print-receipt-modal.component";
 
 interface ItemData {
   id: number;
@@ -47,7 +49,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
 
   listOfSelection = [
     {
-      text: 'Select All Row',
+      text: 'Seçili Kayıtları Sil',
       onSelect: () => {
         this.onAllChecked(true);
       }
@@ -78,6 +80,8 @@ export class AccountActivitiesListTableComponent implements OnInit {
   filterOfCheckedItem = new Array<TableFilterList>();
 
   previousIndex: number = 0;
+
+  modalService = inject(ModalService);
 
   ngOnInit(): void {
     this.listOfDisplayData = new Array(200).fill(0).map((_, index) => ({
@@ -379,6 +383,17 @@ export class AccountActivitiesListTableComponent implements OnInit {
   }
 
   saveAddColumn() {
+  }
 
+  openPrintReceiptModal() {
+    const modalRef = this.modalService.create({
+      nzContent: PrintReceiptModalComponent,
+      nzClosable: false,
+      nzFooter: null,
+      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
+      nzWidth: '650px'
+    });
+
+    modalRef.afterClose.subscribe(result => console.log(result));
   }
 }

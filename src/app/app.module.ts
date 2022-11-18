@@ -16,6 +16,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { StoreModule } from "./store/store.module";
 import { NgxTranslateRoutesModule } from "ngx-translate-routes";
 import { CustomMissingTranslationHandler } from "./shared/translate/custom-missing-translation-handler";
+import { AngularSvgIconModule } from "angular-svg-icon";
 registerLocaleData(en);
 
 @NgModule({
@@ -43,9 +44,10 @@ registerLocaleData(en);
       enableRouteTranslate: false
     }),
     StoreModule,
+    AngularSvgIconModule.forRoot()
   ],
   providers: [
-    {provide: NZ_I18N, useValue: en_US}
+    {provide: NZ_I18N, useValue: en_US},
   ],
   bootstrap: [AppComponent]
 })
