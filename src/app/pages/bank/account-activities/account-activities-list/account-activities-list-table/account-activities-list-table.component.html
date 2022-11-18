@@ -96,7 +96,7 @@
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu>
               <li nz-menu-item (click)="openPrintReceiptModal()">Dekont Yazdır</li>
-              <li nz-menu-item>Kullanıcı Açıklamasını Güncelle</li>
+              <li nz-menu-item (click)="openEditUserDescription(data.id)">Kullanıcı Açıklamasını Güncelle</li>
               <li nz-menu-item>Sil</li>
               <li nz-menu-item>Detay Görüntüle</li>
             </ul>

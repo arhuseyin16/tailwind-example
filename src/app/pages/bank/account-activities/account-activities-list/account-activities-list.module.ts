@@ -39,6 +39,7 @@ import { DragDropModule } from "@angular/cdk/drag-drop";
 import { PrintReceiptModalComponent } from "./print-receipt-modal/print-receipt-modal.component";
 import { AngularSvgIconModule } from "angular-svg-icon";
 import { SelectDeleteRecordModalComponent } from './select-delete-record-modal/select-delete-record-modal.component';
+import { EditUserDescriptionComponent } from './edit-user-description/edit-user-description.component';
 
 const routes: Routes = [
   {
@@ -49,7 +50,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AccountActivitiesListComponent, PrintReceiptModalComponent,
-    AccountActivitiesListFilterComponent, AccountActivitiesFilterShareComponent, AccountActivitiesListTableComponent, SelectDeleteRecordModalComponent],
+    AccountActivitiesListFilterComponent, AccountActivitiesFilterShareComponent, AccountActivitiesListTableComponent, SelectDeleteRecordModalComponent, EditUserDescriptionComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

@@ -4,6 +4,7 @@ import { CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
 import { ModalService } from "../../../../../service/modal/modal.service";
 import { PrintReceiptModalComponent } from "../print-receipt-modal/print-receipt-modal.component";
 import { SelectDeleteRecordModalComponent } from "../select-delete-record-modal/select-delete-record-modal.component";
+import { EditUserDescriptionComponent } from "../edit-user-description/edit-user-description.component";
 
 interface ItemData {
   id: number;
@@ -405,6 +406,19 @@ export class AccountActivitiesListTableComponent implements OnInit {
       nzFooter: null,
       nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
       nzWidth: '650px'
+    });
+
+    modalRef.afterClose.subscribe(result => console.log(result));
+  }
+
+  openEditUserDescription(id: number) {
+    const modalRef = this.modalService.create({
+      nzContent: EditUserDescriptionComponent,
+      nzClosable: false,
+      nzFooter: null,
+      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
+      nzWidth: '650px',
+      nzComponentParams: {processId: id}
     });
 
     modalRef.afterClose.subscribe(result => console.log(result));

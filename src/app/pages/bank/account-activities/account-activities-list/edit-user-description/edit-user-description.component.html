@@ -1,0 +1,42 @@
+<div class="w-full">
+  <div class="bg-eton-blue rounded-t-10px px-[30px] py-[17px]">
+    <div class="w-full flex justify-between">
+      <div class="text-white text-20-normal">Kullanıcı Açıklamasını Düzenle</div>
+      <div>
+        <svg-icon src="assets/svg/close-icon.svg" [svgClass]="'filter-white'"
+                  (click)="closeEditUserDescriptionModal()"></svg-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-[24px] px-[45px]">
+    <div class="w-full">
+      <div class="w-full">
+        <label class="text-20-normal width-full font-light">İşlem Id: {{processId}}</label>
+      </div>
+      <div class="mt-2.5">
+        <div class="w-full">
+          <label class="text-20-normal width-full font-light">Açıklama</label>
+        </div>
+        <div class="w-full mt-3.5">
+          <textarea class="border-black rounded-5px shadow-none hover:border-black hover:shadow-none focus:border-black focus:shadow-none" nz-input
+                    [nzAutosize]="{ minRows: 4, maxRows: 8 }"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="flex pt-[14px] pb-[42px]">
+      <div class="w-full">
+        <button
+          class="w-11/12 px-[98px] py-[11px] bg-white text-eton-blue border-2 border-eton-blue text-20-normal rounded-10px hover:bg-white hover:text-eton-blue focus:bg-white focus:text-eton-blue active:border-eton-blue"
+          (click)="cancel()"
+        >İptal</button>
+      </div>
+      <div class="w-full text-right">
+        <button
+          class="w-11/12 px-[84px] py-[11px] bg-eton-blue text-white text-20-normal rounded-10px hover:bg-eton-blue hover:text-white focus:bg-eton-blue focus:text-white"
+          (click)="save()"
+        >Kaydet</button>
+      </div>
+    </div>
+  </div>
+</div>
