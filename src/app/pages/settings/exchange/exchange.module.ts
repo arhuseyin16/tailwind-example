@@ -18,6 +18,7 @@ import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 import {NzPopoverModule} from "ng-zorro-antd/popover";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import { SynchronizationModalComponent } from './synchronization-modal/synchronization-modal.component';
+import {NzCustomSelectModule} from "../../../shared/component/nz-select/nz-custom-select.module";
 
 const routes: Routes = [
   {
@@ -46,6 +47,7 @@ const routes: Routes = [
         NzDatePickerModule,
         NzPopoverModule,
         NzSelectModule,
+        NzCustomSelectModule,
     ],
   providers: [
     NzNotificationService,

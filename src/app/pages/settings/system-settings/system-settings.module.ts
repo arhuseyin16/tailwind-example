@@ -9,6 +9,7 @@ import { EnvironmentSettingsComponent } from './environment-settings/environment
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {NzRadioModule} from "ng-zorro-antd/radio";
+import { MailSettingsComponent } from './mail-settings/mail-settings.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'environment',
     component: EnvironmentSettingsComponent
+  },
+  {
+    path: 'mail',
+    component: MailSettingsComponent
   },
   {
     path: '',
@@ -30,7 +35,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     EhoSignerComponent,
-    EnvironmentSettingsComponent
+    EnvironmentSettingsComponent,
+    MailSettingsComponent
   ],
     imports: [
         CommonModule,

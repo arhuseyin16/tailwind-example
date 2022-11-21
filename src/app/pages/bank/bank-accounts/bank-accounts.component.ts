@@ -15,7 +15,6 @@ import {FormBuilder, FormControl} from "@angular/forms";
 export class BankAccountsComponent implements OnInit {
   bankListHidden = true;
   bankTableHidden = false;
-  size = 5;
   listOption = [
     {id: 1, name: 'xyz'},
     {id: 2, name: 'abc'},

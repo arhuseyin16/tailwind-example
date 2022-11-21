@@ -26,9 +26,20 @@ export class ExchangeComponent implements OnInit {
     updateStartDate: new FormControl('', Validators.required),
     updateEndDate: new FormControl('', Validators.required),
     rateType: new FormControl(''),
-    sourceCurrency: new FormControl(''),
-    targetCurrency: new FormControl(''),
+    sourceCurrency: new FormControl([]),
+    targetCurrency: new FormControl([]),
   });
+
+  listOption = [
+    {id: 1, name: 'xyz'},
+    {id: 2, name: 'abc'},
+    {id: 3, name: 'klm'},
+    {id: 4, name: 'fvt'},
+    {id: 5, name: 'asd'},
+    {id: 6, name: 'ghj'},
+    {id: 7, name: 'çöm'},
+    {id: 8, name: 'ıyo'},
+  ];
 
   constructor(private store: Store,
               private router: Router,
@@ -74,5 +85,9 @@ export class ExchangeComponent implements OnInit {
       this.synchronizationBtn = res.hoverKey;
       this.cdr.detectChanges();
     });
+  }
+
+  filterClick() {
+    console.log(this.createdForm.value);
   }
 }

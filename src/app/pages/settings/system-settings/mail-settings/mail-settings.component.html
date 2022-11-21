@@ -1,0 +1,13 @@
+<div class="mail-settings">
+  <div class="page-shadow">
+    <div class="first" [formGroup]="createdForm">
+      <div class="form-control">
+        <label>{{'system-settings.senderEmailAddress' | translate}}</label>
+        <input nz-input formControlName="mail" type="text" />
+      </div>
+    </div>
+  </div>
+  <div class="mail-settings-submit">
+    <button class="mail-settings-btn" (click)="save()">{{'system-settings.save' | translate}}</button>
+  </div>
+</div>

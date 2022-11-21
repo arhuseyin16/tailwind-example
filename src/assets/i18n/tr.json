@@ -193,6 +193,7 @@
     "radio2": "Aynı anda birden fazla terminalden oturum açılsın mı?",
     "radio3": "Kullanıcı Bloke bilgisi ekranda gösterilsin mi?",
     "yes": "Evet",
-    "no": "Hayır"
+    "no": "Hayır",
+    "senderEmailAddress": "Gönderici Mail Adresi"
   }
 }
