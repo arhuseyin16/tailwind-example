@@ -9,12 +9,16 @@ import {
 import {
   SynchronizationModalComponent
 } from "../../pages/settings/exchange/synchronization-modal/synchronization-modal.component";
+import {
+  HolidayDeleteModalComponent
+} from "../../pages/settings/system-settings/holiday-definition/holiday-delete-modal/holiday-delete-modal.component";
 
 @Injectable()
 export class ModalService {
   exchangeTableDeleteReference?: NzModalRef;
   exchangeNewRecordCreatedRef?: NzModalRef;
   exchangeSynchronizationRef?: NzModalRef;
+  holidayDeleteReference?: NzModalRef;
 
   constructor(private nzModalService: NzModalService) {
   }
@@ -56,5 +60,18 @@ export class ModalService {
       nzWidth: '586px',
     });
     return this.exchangeSynchronizationRef;
+  }
+
+  holidayTableDeleteModal(id: any): NzModalRef {
+    this.holidayDeleteReference = this.nzModalService.create({
+      nzContent: HolidayDeleteModalComponent,
+      nzComponentParams: {id},
+      nzClosable: false,
+      nzFooter: null,
+      nzKeyboard: false,
+      nzMaskClosable: false,
+      nzWidth: '586px',
+    });
+    return this.holidayDeleteReference;
   }
 }

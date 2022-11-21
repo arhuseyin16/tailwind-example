@@ -194,6 +194,9 @@
     "radio3": "Kullanıcı Bloke bilgisi ekranda gösterilsin mi?",
     "yes": "Evet",
     "no": "Hayır",
-    "senderEmailAddress": "Gönderici Mail Adresi"
+    "senderEmailAddress": "Gönderici Mail Adresi",
+    "name": "Adı",
+    "description": "Açıklama",
+    "date": "Tarih"
   }
 }

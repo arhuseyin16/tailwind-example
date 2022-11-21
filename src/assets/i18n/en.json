@@ -194,6 +194,9 @@
     "radio3": "Show User Block information on the screen?",
     "yes": "Yes",
     "no": "No",
-    "senderEmailAddress": "Sender Email Address"
+    "senderEmailAddress": "Sender Email Address",
+    "name": "Name",
+    "description": "Description",
+    "date": "Date"
   }
 }

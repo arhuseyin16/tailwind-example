@@ -1,0 +1,64 @@
+<div class="holiday">
+  <div class="holiday-header">
+    <div class="excel-export">
+      <button>
+        <img class="normal-excel" src="assets/icon/excel.svg">
+        <img class="hover-excel" src="assets/icon/hover-excel.svg">
+      </button>
+    </div>
+  </div>
+  <div class="holiday-table">
+    <nz-table
+      #rowSelectionTable
+      nzShowSizeChanger
+      [nzData]="listOfData"
+      [nzPageSize]="10"
+      [nzShowSizeChanger]="true"
+      [nzPageSizeOptions]="pageSize"
+      (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+    >
+      <thead>
+      <tr>
+        <th [nzEllipsis]="true" *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortOrder]="column.sortOrder" width="{{column.width}}">
+          {{column.title | translate}}
+        </th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  [ngStyle]="{'background-color': i%2 ? '#fff' : '#f5f5f5' }" *ngFor="let data of rowSelectionTable.data; let i = index">
+        <ng-container *ngIf="!editCache[data.id].edit; else editTemplate">
+          <td>{{ data.name }}</td>
+          <td>{{ data.description }}</td>
+          <td>{{ data.date }}</td>
+          <td></td>
+          <div class="action-tab">
+            <div class="other" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+              <img src="assets/img/bank-account/bank-detail-other.png">
+            </div>
+          </div>
+
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu style="width: 200px">
+              <li (click)="deleted(data.id)" nz-menu-item>{{'settings-exchange.delete' | translate}}</li>
+              <li (click)="startEdit(data.id)" nz-menu-item>{{'settings-exchange.updated' | translate}}</li>
+            </ul>
+          </nz-dropdown-menu>
+        </ng-container>
+        <ng-template #editTemplate>
+          <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.name" /></td>
+          <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.description" /></td>
+          <td>{{ data.date }}</td>
+          <td></td>
+          <div class="action-tab">
+            <div class="other-process">
+              <a (click)="saveEdit(data.id)" class="save">{{'settings-exchange.save' | translate}}</a>
+              <a (click)="cancelEdit(data.id)" class="delete">{{'settings-exchange.cancel' | translate}}</a>
+            </div>
+          </div>
+        </ng-template>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
