@@ -193,6 +193,7 @@
     "radio2": "Login from multiple terminals at the same time?",
     "radio3": "Show User Block information on the screen?",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "senderEmailAddress": "Sender Email Address"
   }
 }

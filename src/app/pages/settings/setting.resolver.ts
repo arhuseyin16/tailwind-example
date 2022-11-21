@@ -184,7 +184,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           },
           {
             title: 'sidebar.system-mail-settings',
-            routerLink: '',
+            routerLink: '/ui/setting/system-settings/mail',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {
