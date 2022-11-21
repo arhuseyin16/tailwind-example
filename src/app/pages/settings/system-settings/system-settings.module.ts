@@ -10,6 +10,14 @@ import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {NzRadioModule} from "ng-zorro-antd/radio";
 import { MailSettingsComponent } from './mail-settings/mail-settings.component';
+import { HolidayDefinitionComponent } from './holiday-definition/holiday-definition.component';
+import {NzTableModule} from "ng-zorro-antd/table";
+import {NzDropDownModule} from "ng-zorro-antd/dropdown";
+import { HolidayDeleteModalComponent } from './holiday-definition/holiday-delete-modal/holiday-delete-modal.component';
+import {NzNotificationService} from "ng-zorro-antd/notification";
+import {NotificationService} from "../../../service/notification/notification.service";
+import {NzModalService} from "ng-zorro-antd/modal";
+import {ModalService} from "../../../service/modal-service/modal.service";
 
 const routes: Routes = [
   {
@@ -25,6 +33,10 @@ const routes: Routes = [
     component: MailSettingsComponent
   },
   {
+    path: 'holiday',
+    component: HolidayDefinitionComponent
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: ''
@@ -36,19 +48,28 @@ const routes: Routes = [
   declarations: [
     EhoSignerComponent,
     EnvironmentSettingsComponent,
-    MailSettingsComponent
+    MailSettingsComponent,
+    HolidayDefinitionComponent,
+    HolidayDeleteModalComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        FormsModule,
-        ReactiveFormsModule,
-        NzInputModule,
-        TranslateModule,
-        NzSelectModule,
-        NzInputNumberModule,
-        NzRadioModule,
-    ],
-  providers: []
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    NzInputModule,
+    TranslateModule,
+    NzSelectModule,
+    NzInputNumberModule,
+    NzRadioModule,
+    NzTableModule,
+    NzDropDownModule,
+  ],
+  providers: [
+    NzNotificationService,
+    NotificationService,
+    NzModalService,
+    ModalService
+  ]
 })
 export class SystemSettingsModule { }
