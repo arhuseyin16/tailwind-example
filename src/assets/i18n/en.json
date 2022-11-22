@@ -197,6 +197,15 @@
     "senderEmailAddress": "Sender Email Address",
     "name": "Name",
     "description": "Description",
-    "date": "Date"
+    "date": "Date",
+    "user": "User",
+    "title": "Title",
+    "mail": "E-mail",
+    "unexpiredOrders": "Unexpired Orders",
+    "instructionOutcomeReading": "Instruction Outcome Reading",
+    "radio4": "Query unexpired orders?",
+    "radio5": "Read the fate of the instructions from Account Transactions or from the Bank?",
+    "eho": "Eho",
+    "bank": "Bank"
   }
 }

@@ -189,7 +189,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           },
           {
             title: 'sidebar.dbs-settings',
-            routerLink: '',
+            routerLink: '/ui/setting/system-settings/dbs',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
         ]

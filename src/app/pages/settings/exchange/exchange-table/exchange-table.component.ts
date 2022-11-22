@@ -77,7 +77,6 @@ export class ExchangeTableComponent implements OnInit {
       sortOrder: null,
       width: "230px"
     },
-
   ]
   listOfSelection = [
     {

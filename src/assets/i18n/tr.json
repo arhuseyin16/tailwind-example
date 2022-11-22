@@ -197,6 +197,15 @@
     "senderEmailAddress": "Gönderici Mail Adresi",
     "name": "Adı",
     "description": "Açıklama",
-    "date": "Tarih"
+    "date": "Tarih",
+    "user": "Kullanıcı",
+    "title": "Unvan",
+    "mail": "E-mail",
+    "unexpiredOrders": "Vade Tarihi Gelmemiş Talimatlar",
+    "instructionOutcomeReading": "Talimat Akıbet Okuma",
+    "radio4": "Vade tarihi gelmemiş talimatlar sorgulansın mı?",
+    "radio5": "Talimatların akıbetleri Hesap Hareketlerinden mi okunsun Bankadan mı?",
+    "eho": "Eho",
+    "bank": "Banka"
   }
 }
