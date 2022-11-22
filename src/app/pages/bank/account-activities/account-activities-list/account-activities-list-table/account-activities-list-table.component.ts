@@ -6,6 +6,10 @@ import { PrintReceiptModalComponent } from "../print-receipt-modal/print-receipt
 import { SelectDeleteRecordModalComponent } from "../select-delete-record-modal/select-delete-record-modal.component";
 import { EditUserDescriptionComponent } from "../edit-user-description/edit-user-description.component";
 import { CreateFavoriteFilterComponent } from "../create-favorite-filter/create-favorite-filter.component";
+import { Router } from "@angular/router";
+import { Store } from "@ngxs/store";
+import { DeleteFilterItemAction, SetFilterItemAction } from "../../../../../store/filter/filter.action";
+import { KeyValueType } from "../../../../../models/shared/key-value.type";
 
 interface ItemData {
   id: number;
@@ -79,11 +83,13 @@ export class AccountActivitiesListTableComponent implements OnInit {
   listOfData: ItemData[] = [];
   listOfAddColumn: any[] = [];
   setOfCheckedId = new Set<number>();
-  filterOfCheckedItem = new Array<TableFilterList>();
+  filterOfCheckedItems = new Array<TableFilterList>();
 
   previousIndex: number = 0;
 
   modalService = inject(ModalService);
+  router = inject(Router);
+  store = inject(Store);
 
   ngOnInit(): void {
     this.listOfDisplayData = new Array(200).fill(0).map((_, index) => ({
@@ -299,7 +305,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
 
   resetFilter(column: ColumnItem): void {
     column.listOfFilter?.forEach(item => item.checked = false);
-    this.filterOfCheckedItem = this.filterOfCheckedItem.filter(item => item.key !== column.key);
+    this.filterOfCheckedItems = this.filterOfCheckedItems.filter(item => item.key !== column.key);
     column.filterValue = '';
     this.filterChange(column);
     this.generateListOfDisplayData();
@@ -327,10 +333,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
 
     // Kolon bazlı, filtre içerisinde ki search inputuna girilen değerlere göre filtre yapılıyor.
     filterList = column.filterValue ? this.getColumnsByColumnName(column.key)?.filter((item) => item.label.toLowerCase().indexOf(column.filterValue.toLowerCase()) !== -1) : this.getColumnsByColumnName(column.key);
-
+    console.log(filterList);
     // Filtre sonucuna göre checked alanı true olanlar listeye setleniyor.
     filterList.forEach(item => {
-      this.filterOfCheckedItem.forEach(filterItem => {
+      this.filterOfCheckedItems.forEach(filterItem => {
         if (item.key === filterItem.key) {
           if (item.value === filterItem.value) {
             item.checked = filterItem.checked;
@@ -338,30 +344,36 @@ export class AccountActivitiesListTableComponent implements OnInit {
         }
       });
     });
-    this.listOfColumns.forEach(column => column.listOfFilter = filterList);
+    this.listOfColumns.forEach(c => c.key === column.key ? c.listOfFilter = filterList : c.listOfFilter);
   }
 
   filterCheckedChange(item: TableFilterList, columnItem: ColumnItem) {
     // Filtre içerisindeki seçilen alanların check edilme durumu kontrol ediliyor.
-    if (item.checked) {
-      this.filterOfCheckedItem.push({key: columnItem.key, value: item.value, checked: item.checked, label: item.value})
-    } else {
-      this.filterOfCheckedItem = this.filterOfCheckedItem.filter((f) => f.value !== item.value);
+    const filterItem: KeyValueType = {
+      key: columnItem.key,
+      value: item.value,
+      label: item.label
     }
-
+    if (item.checked) {
+      this.filterOfCheckedItems.push({key: columnItem.key, value: item.value, checked: item.checked, label: item.value})
+       this.store.dispatch(new SetFilterItemAction(filterItem));
+    } else {
+      this.filterOfCheckedItems = this.filterOfCheckedItems.filter((f) => f.value !== item.value);
+      this.store.dispatch(new DeleteFilterItemAction(columnItem.key, filterItem));
+    }
     // checked değerine göre ekranki liste güncelleniyor.
     this.generateListOfDisplayData();
   }
 
   generateListOfDisplayData(column?: ColumnItem) {
-    if (this.filterOfCheckedItem.length > 0) {
-      this.listOfDisplayData = this.listOfData.filter(data => this.filterOfCheckedItem.some(item => data[item.key as keyof typeof data] === item.value));
+    if (this.filterOfCheckedItems.length > 0) {
+      this.listOfDisplayData = this.listOfData.filter(data => this.filterOfCheckedItems.some(item => data[item.key as keyof typeof data] === item.value));
     } else {
       this.listOfDisplayData = this.listOfData;
     }
   }
 
-  dragStarted(event: CdkDragStart, index: number ) {
+  dragStarted(event: CdkDragStart, index: number) {
     this.previousIndex = index;
   }
 
@@ -374,7 +386,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
   }
 
   setDisplayedColumns() {
-    this.listOfColumns.forEach(( col, index) => {
+    this.listOfColumns.forEach((col, index) => {
       col.index = index;
       this.listOfColumns[index] = col;
     });
@@ -434,5 +446,9 @@ export class AccountActivitiesListTableComponent implements OnInit {
     });
 
     modalRef.afterClose.subscribe(result => console.log(result));
+  }
+
+  accountActivityDetail(id: number) {
+    this.router.navigateByUrl(`/ui/bank/account-activities/detail?id=${id}`)
   }
 }

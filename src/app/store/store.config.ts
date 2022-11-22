@@ -13,7 +13,7 @@ export const STATES_MODULES = [
 ];
 
 export const STORAGE_MODULES = {
-  key: ['headerConfig', 'favorite', 'favoriteList', 'sidebar', 'headerDropdown']
+  key: ['headerConfig', 'favorite', 'favoriteList', 'sidebar', 'headerDropdown', 'filter']
 };
 
 export const OPTIONS_CONFIG: Partial<NgxsConfig> = {

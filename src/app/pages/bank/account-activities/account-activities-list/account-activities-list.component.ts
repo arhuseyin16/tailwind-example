@@ -19,7 +19,10 @@ import { DrawerService } from "../../../../service/drawer/drawer.service";
 import {
   AccountActivitiesListFilterComponent
 } from "./account-activities-list-filter/account-activities-list-filter.component";
-import { SetFilterItemsCountAction } from "../../../../store/filter/filter.action";
+import { DeleteFilterItemAction, SetFilterItemsCountAction } from "../../../../store/filter/filter.action";
+import { FilterState } from "../../../../store/filter/filter.state";
+import { KeyValueType } from "../../../../models/shared/key-value.type";
+import { LabelValueType } from "../../../../models/bank/label-value.type";
 
 @Component({
   selector: 'app-account-activities',
@@ -32,10 +35,11 @@ export class AccountActivitiesListComponent implements OnInit {
 
   bankService = inject(BankService);
   drawerService = inject(DrawerService);
-  cdr = inject(ChangeDetectorRef)
+  cdr = inject(ChangeDetectorRef);
   favoriteFilters?: NzSelectOptionInterface[];
   dateFilters?: NzSelectOptionInterface[];
   filterItemsCount = 0;
+  filterItems$ = this.store.select(FilterState.getFilterItems);
 
   constructor(
     private router: Router,
@@ -47,6 +51,10 @@ export class AccountActivitiesListComponent implements OnInit {
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
+/*    this.store.select(FilterState.getFilterItems).subscribe(items => {
+      this.fi
+      console.log(items);
+    })*/
   }
 
   ngOnInit(): void {
@@ -77,5 +85,9 @@ export class AccountActivitiesListComponent implements OnInit {
       this.filterItemsCount = param?.filterItemsCount;
       this.cdr.detectChanges();
     });
+  }
+
+  deleteFilterItem(key: string, item: LabelValueType) {
+     this.store.dispatch(new DeleteFilterItemAction(key, item));
   }
 }

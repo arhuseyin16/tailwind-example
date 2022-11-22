@@ -1,4 +1,4 @@
-<div class="pl-7 pr-9">
+<div class="pl-7 pr-9 pt-3">
   <div class="grid grid-rows-2">
 
     <div class="flex flex-col items-start 3xl:flex-row 3xl:justify-between">
@@ -7,10 +7,10 @@
         <div>
           <label class="text-16">86,356 Kayıttan 1 - 50 Arası</label>
         </div>
-        <div class="ml-[15px] lg:ml-[25px] xl:ml-[95px] 3xl:ml-[43px]">
+        <div class="ml-[15px] lg:ml-[25px] xl:ml-[95px] 3xl:ml-[43px] search-input">
           <nz-input-group class="w-[230px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px] rounded-5px border-0" nzSize="large"
                           [nzPrefix]="prefixTemplateUser">
-            <input type="text" nz-input placeholder="Ara..."/>
+            <input class="hover:shadow-none hover:border-0" type="text" nz-input placeholder="Ara..."/>
           </nz-input-group>
           <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
         </div>
@@ -93,7 +93,24 @@
 
   </div>
 
-  <button style="width: 20%; height: 40px; background-color: #2d64a0; color: white" (click)="detail()">DETAY</button>
+  <div class="w-full">
+    <div class="grid grid-cols-4">
+      <div class="flex" *ngFor="let filterItem of filterItems$ | async">
+        <div>
+          <label class="text-15">{{filterItem.title}}:</label>
+        </div>
+        <div class="flex">
+          <label class="text-15 font-bold pl-2 block" *ngFor="let item of filterItem.items">
+            {{item.label}}
+            <span class="cursor-pointer pl-2.5 font-normal" style="font-size: 20px; vertical-align: 0" nz-icon
+                  nzType="close-circle" nzTheme="outline" (click)="deleteFilterItem(filterItem.key, item)"></span>
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 
   <div class="w-full mt-5">
     <app-account-activities-list-table></app-account-activities-list-table>

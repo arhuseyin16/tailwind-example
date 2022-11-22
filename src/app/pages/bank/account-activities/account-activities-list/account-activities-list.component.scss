@@ -11,3 +11,9 @@ nz-badge {
   margin-right: 10px;
 }
 
+.search-input {
+  ::ng-deep .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    @apply border-0 #{!important};
+  }
+}
+
