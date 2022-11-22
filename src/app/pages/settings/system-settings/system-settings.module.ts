@@ -18,6 +18,7 @@ import {NzNotificationService} from "ng-zorro-antd/notification";
 import {NotificationService} from "../../../service/notification/notification.service";
 import {NzModalService} from "ng-zorro-antd/modal";
 import {ModalService} from "../../../service/modal-service/modal.service";
+import { DbsSettingsComponent } from './dbs-settings/dbs-settings.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
     component: HolidayDefinitionComponent
   },
   {
+    path: 'dbs',
+    component: DbsSettingsComponent
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: ''
@@ -50,7 +55,8 @@ const routes: Routes = [
     EnvironmentSettingsComponent,
     MailSettingsComponent,
     HolidayDefinitionComponent,
-    HolidayDeleteModalComponent
+    HolidayDeleteModalComponent,
+    DbsSettingsComponent
   ],
   imports: [
     CommonModule,
