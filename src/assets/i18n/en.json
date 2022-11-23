@@ -206,6 +206,9 @@
     "radio4": "Query unexpired orders?",
     "radio5": "Read the fate of the instructions from Account Transactions or from the Bank?",
     "eho": "Eho",
-    "bank": "Bank"
+    "bank": "Bank",
+    "serviceUrl": "Service URL",
+    "serviceUsername": "Service Username",
+    "servicePassword": "Service Password"
   }
 }

@@ -169,7 +169,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           },
           {
             title: 'sidebar.erp-api-settings',
-            routerLink: '',
+            routerLink: '/ui/setting/system-settings/erp',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {
