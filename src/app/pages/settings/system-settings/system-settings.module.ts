@@ -19,6 +19,7 @@ import {NotificationService} from "../../../service/notification/notification.se
 import {NzModalService} from "ng-zorro-antd/modal";
 import {ModalService} from "../../../service/modal-service/modal.service";
 import { DbsSettingsComponent } from './dbs-settings/dbs-settings.component';
+import { ErpApiSettingsComponent } from './erp-api-settings/erp-api-settings.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     component: DbsSettingsComponent
   },
   {
+    path: 'erp',
+    component: ErpApiSettingsComponent
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: ''
@@ -56,7 +61,8 @@ const routes: Routes = [
     MailSettingsComponent,
     HolidayDefinitionComponent,
     HolidayDeleteModalComponent,
-    DbsSettingsComponent
+    DbsSettingsComponent,
+    ErpApiSettingsComponent
   ],
   imports: [
     CommonModule,
