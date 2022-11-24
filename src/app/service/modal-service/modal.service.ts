@@ -12,6 +12,12 @@ import {
 import {
   HolidayDeleteModalComponent
 } from "../../pages/settings/system-settings/holiday-definition/holiday-delete-modal/holiday-delete-modal.component";
+import {
+  TagDeleteModalComponent
+} from "../../pages/settings/system-settings/tag-management/tag-delete-modal/tag-delete-modal.component";
+import {
+  NewTagModalComponent
+} from "../../pages/settings/system-settings/tag-management/new-tag-modal/new-tag-modal.component";
 
 @Injectable()
 export class ModalService {
@@ -19,6 +25,8 @@ export class ModalService {
   exchangeNewRecordCreatedRef?: NzModalRef;
   exchangeSynchronizationRef?: NzModalRef;
   holidayDeleteReference?: NzModalRef;
+  tagTableDeleteReference?: NzModalRef;
+  tagNewRecordCreatedRef?: NzModalRef;
 
   constructor(private nzModalService: NzModalService) {
   }
@@ -73,5 +81,31 @@ export class ModalService {
       nzWidth: '586px',
     });
     return this.holidayDeleteReference;
+  }
+
+  tagTableDeleteModal(ids: any): NzModalRef {
+    this.tagTableDeleteReference = this.nzModalService.create({
+      nzContent: TagDeleteModalComponent,
+      nzComponentParams: {ids},
+      nzClosable: false,
+      nzFooter: null,
+      nzKeyboard: false,
+      nzMaskClosable: false,
+      nzWidth: '586px',
+    });
+    return this.tagTableDeleteReference;
+  }
+
+  tagNewRecordCreatedModal(): NzModalRef {
+    this.tagNewRecordCreatedRef = this.nzModalService.create({
+      nzContent: NewTagModalComponent,
+      nzComponentParams: {},
+      nzClosable: false,
+      nzFooter: null,
+      nzKeyboard: false,
+      nzMaskClosable: false,
+      nzWidth: '586px',
+    });
+    return this.tagNewRecordCreatedRef;
   }
 }

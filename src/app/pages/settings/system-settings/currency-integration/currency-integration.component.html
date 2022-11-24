@@ -1,0 +1,23 @@
+<div class="currency-settings">
+  <div class="page-shadow">
+    <div class="first" [formGroup]="createdForm">
+      <div class="form-control">
+        <label>{{'system-settings.serviceUrl' | translate}}</label>
+        <input nz-input formControlName="url" type="text" />
+      </div>
+      <div class="form-control">
+        <label>{{'system-settings.serviceControlTime' | translate}}</label>
+        <input nz-input formControlName="controlTime" type="text" />
+      </div>
+      <div class="form-control">
+        <label>{{'system-settings.autoSync' | translate}}</label>
+        <div style="padding-top: 20px">
+          <nz-switch formControlName="autoSync"></nz-switch>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="currency-settings-submit">
+    <button class="currency-settings-btn" (click)="save()">{{'system-settings.save' | translate}}</button>
+  </div>
+</div>

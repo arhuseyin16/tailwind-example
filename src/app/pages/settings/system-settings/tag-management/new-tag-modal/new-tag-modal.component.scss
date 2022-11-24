@@ -1,0 +1,151 @@
+::ng-deep .ant-modal-body {
+  padding: 0;
+}
+
+::ng-deep .ant-modal-content {
+  border-radius: 10px;
+}
+.main-title {
+  display: flex;
+  background-color: #87bfad;
+  padding: 15px 30px 10px 28px;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+
+  .close-icon {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+}
+
+.main-body  {
+  padding: 10px 35px 25px 35px;
+
+  .form-control {
+    padding-top: 15px;
+
+    label {
+      font-size: 20px;
+      font-weight: 300;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+    }
+
+    input {
+      border-radius: 10px;
+      border: solid 0.5px #ABABAB;
+      background-color: #fff;
+      margin-top: 10px;
+      height: 45px;
+
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+    ::ng-deep .ant-picker {
+      display: block;
+      border-radius: 10px;
+      border: solid 0.5px #ABABAB;
+      background-color: #fff;
+      margin-top: 10px;
+      height: 45px;
+
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+
+      .ant-picker-input > input {
+        height: 35px;
+      }
+
+      .ant-picker-suffix {
+        color: black;
+      }
+    }
+
+    .ant-select {
+      width: 100%;
+      margin-top: 10px;
+      ::ng-deep .ant-select-selector {
+        //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
+        border: solid 0.5px #ABABAB;
+        border-radius: 10px;
+        background-color: #fff;
+        font-size: 14px;
+      }
+
+      ::ng-deep .ant-select-arrow {
+        color: #000000;
+      }
+    }
+  }
+
+  .form-row-1 {
+    padding: 15px 5px 0 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .form-row-2 {
+    padding: 15px 0 0 5px;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+.main-footer {
+  justify-content: center;
+  display: flex;
+  padding-bottom: 40px;
+  padding-top: 10px;
+
+  .cancel {
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    border: solid 2px #87bfad !important;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #87bfad;
+    margin-right: 8px;
+  }
+
+  .save {
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #87bfad;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+    margin-left: 8px;
+  }
+}

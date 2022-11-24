@@ -20,6 +20,12 @@ import {NzModalService} from "ng-zorro-antd/modal";
 import {ModalService} from "../../../service/modal-service/modal.service";
 import { DbsSettingsComponent } from './dbs-settings/dbs-settings.component';
 import { ErpApiSettingsComponent } from './erp-api-settings/erp-api-settings.component';
+import { CurrencyIntegrationComponent } from './currency-integration/currency-integration.component';
+import {NzSwitchModule} from "ng-zorro-antd/switch";
+import { TagManagementComponent } from './tag-management/tag-management.component';
+import { TagTableComponent } from './tag-management/tag-table/tag-table.component';
+import { NewTagModalComponent } from './tag-management/new-tag-modal/new-tag-modal.component';
+import { TagDeleteModalComponent } from './tag-management/tag-delete-modal/tag-delete-modal.component';
 
 const routes: Routes = [
   {
@@ -47,6 +53,14 @@ const routes: Routes = [
     component: ErpApiSettingsComponent
   },
   {
+    path: 'currency-integration',
+    component: CurrencyIntegrationComponent
+  },
+  {
+    path: 'tag',
+    component: TagManagementComponent
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: ''
@@ -62,7 +76,12 @@ const routes: Routes = [
     HolidayDefinitionComponent,
     HolidayDeleteModalComponent,
     DbsSettingsComponent,
-    ErpApiSettingsComponent
+    ErpApiSettingsComponent,
+    CurrencyIntegrationComponent,
+    TagManagementComponent,
+    TagTableComponent,
+    NewTagModalComponent,
+    TagDeleteModalComponent
   ],
   imports: [
     CommonModule,
@@ -76,6 +95,7 @@ const routes: Routes = [
     NzRadioModule,
     NzTableModule,
     NzDropDownModule,
+    NzSwitchModule,
   ],
   providers: [
     NzNotificationService,
