@@ -209,6 +209,14 @@
     "bank": "Banka",
     "serviceUrl": "Servis URL",
     "serviceUsername": "Servis Kullanıcı Adı",
-    "servicePassword": "Servis Şifresi"
+    "servicePassword": "Servis Şifresi",
+    "serviceControlTime": "Servis Kontrol Süresi",
+    "autoSync": "Otomatik Senkronizyon",
+    "code": "Kod",
+    "tagType": "Tag Tipi",
+    "createdTime": "Oluşturma Zamanı",
+    "updateTime": "Güncelleme Zamanı",
+    "constituent": "Oluşturan",
+    "updater": "Güncelleyen"
   }
 }

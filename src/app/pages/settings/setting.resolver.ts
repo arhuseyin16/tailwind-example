@@ -154,7 +154,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           },
           {
             title: 'sidebar.currency-integration-definition',
-            routerLink: '',
+            routerLink: '/ui/setting/system-settings/currency-integration',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {
@@ -164,7 +164,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           },
           {
             title: 'sidebar.tag-management',
-            routerLink: '',
+            routerLink: '/ui/setting/system-settings/tag',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {

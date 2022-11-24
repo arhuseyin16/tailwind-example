@@ -209,6 +209,14 @@
     "bank": "Bank",
     "serviceUrl": "Service URL",
     "serviceUsername": "Service Username",
-    "servicePassword": "Service Password"
+    "servicePassword": "Service Password",
+    "serviceControlTime": "Service Control Time",
+    "autoSync": "Auto Sync",
+    "code": "Code",
+    "tagType": "Tag Type",
+    "createdTime": "Created Time",
+    "updateTime": "Update Time",
+    "constituent": "Constituent",
+    "updater": "Updater"
   }
 }
