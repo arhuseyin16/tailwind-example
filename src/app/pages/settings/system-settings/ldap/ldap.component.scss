@@ -1,4 +1,170 @@
 .ldap {
   padding: 20px 30px 0 20px;
 
+  .page-shadow {
+    border-radius: 15px;
+    box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
+    background-color: #fff;
+
+    .first {
+
+      .form-control {
+        flex: 0 0 17%;
+        max-width: 17%;
+        margin: 20px 0 24px 23px;
+
+        label {
+          font-size: 20px;
+          font-weight: 300;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000;
+        }
+
+        input {
+          border-radius: 10px;
+          border: solid 0.5px #ABABAB;
+          background-color: #fff;
+          margin-top: 10px;
+          height: 45px;
+
+          &:focus {
+            box-shadow: none;
+            outline: none;
+          }
+        }
+
+        nz-radio-group {
+          ::ng-deep .ant-radio-checked .ant-radio-inner {
+            border-color: #87bfad;
+
+            &:after {
+              background-color: #87bfad;
+            }
+          }
+        }
+      }
+    }
+
+    .second {
+      .form-control {
+        flex: 0 0 17%;
+        max-width: 17%;
+        margin: 10px 0 24px 23px;
+
+        label {
+          font-size: 20px;
+          font-weight: 300;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000;
+        }
+
+        input {
+          border-radius: 10px;
+          border: solid 0.5px #ABABAB;
+          background-color: #fff;
+          margin-top: 10px;
+          height: 45px;
+
+          &:focus {
+            box-shadow: none;
+            outline: none;
+          }
+        }
+
+        nz-input-number {
+          border-radius: 10px;
+
+          ::ng-deep .ant-input-number-handler-wrap {
+            border-radius: 10px;
+          }
+        }
+
+        nz-switch {
+          ::ng-deep .ant-switch {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(to right, #fff, #fff);
+          }
+          ::ng-deep .ant-switch-checked {
+            background:  #2d64a0;
+          }
+        }
+      }
+
+      .form-control-ldap {
+        flex: 0 0 36%;
+        max-width: 36%;
+        margin: 10px 0 24px 23px;
+
+        label {
+          font-size: 20px;
+          font-weight: 300;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000;
+        }
+
+        input {
+          border-radius: 10px;
+          border: solid 0.5px #ABABAB;
+          background-color: #fff;
+          margin-top: 10px;
+          height: 45px;
+
+          &:focus {
+            box-shadow: none;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .ldap-settings-submit {
+    margin-top: 30px;
+
+    .ldap-btn {
+      flex: 0 0 20%;
+      max-width: 20%;
+      margin: 0 15px 0 0;
+
+      .ldap-settings-save {
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #87bfad;
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #fff;
+      }
+
+      .ldap-settings-manual {
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        border: solid 2px #87bfad;
+        background-color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #87bfad;
+      }
+    }
+  }
 }

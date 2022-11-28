@@ -16,6 +16,11 @@ export class LdapComponent implements OnInit {
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
+  sslRadio: any;
+  workTimerValue: number = 0;
+  workFormatterValue = (value: number): string => `${value} dk`;
+  workParserValue = (value: string): string => value.replace('dk ', '');
+
   constructor(private store: Store,
               private router: Router,
               private fb: FormBuilder) {
@@ -37,4 +42,7 @@ export class LdapComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save() {
+
+  }
 }

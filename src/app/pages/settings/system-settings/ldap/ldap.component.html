@@ -1,3 +1,77 @@
 <div class="ldap">
- ldap
+ <div class="page-shadow">
+   <div class="first">
+     <div class="flex">
+       <div class="form-control">
+         <label>{{'system-settings.username' | translate}}</label>
+         <input nz-input type="text" />
+       </div>
+       <div class="form-control">
+         <label>{{'system-settings.username' | translate}}</label>
+         <input nz-input type="text" />
+       </div>
+       <div class="form-control">
+         <label>{{'system-settings.username' | translate}}</label>
+         <div class="pt-4">
+           <nz-radio-group [(ngModel)]="sslRadio" nzName="radiogroup" [nzSize]="'large'">
+             <label nz-radio nzValue="1">{{'system-settings.yes' | translate}}</label>
+             <label nz-radio nzValue="0">{{'system-settings.no' | translate}}</label>
+           </nz-radio-group>
+         </div>
+       </div>
+       <div class="form-control">
+         <label>{{'system-settings.username' | translate}}</label>
+         <input nz-input type="text" />
+       </div>
+       <div class="form-control">
+         <label>{{'system-settings.username' | translate}}</label>
+         <input nz-input type="text" />
+       </div>
+     </div>
+   </div>
+   <div class="second">
+     <div class="flex">
+       <div class="form-control">
+         <label>{{'system-settings.username' | translate}}</label>
+         <input nz-input type="text" />
+       </div>
+       <div class="form-control-ldap">
+         <label>{{'system-settings.username' | translate}}</label>
+         <input nz-input type="text" />
+       </div>
+       <div class="form-control">
+         <label>{{'system-settings.username' | translate}}</label>
+         <div class="pt-4">
+           <nz-input-number
+             [(ngModel)]="workTimerValue"
+             [nzMin]="0"
+             [nzMax]="60"
+             [nzStep]="1"
+             [nzFormatter]="workFormatterValue"
+             [nzParser]="workParserValue"
+           ></nz-input-number>
+         </div>
+       </div>
+       <div class="form-control">
+         <label>{{'system-settings.username' | translate}}</label>
+         <div class="pt-4">
+           <nz-switch></nz-switch>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+  <div class="ldap-settings-submit">
+    <div class="flex">
+      <div class="ldap-btn">
+        <button class="ldap-settings-save" (click)="save()">{{'system-settings.save' | translate}}</button>
+      </div>
+      <div class="ldap-btn">
+        <button class="ldap-settings-manual" (click)="save()">{{'system-settings.save' | translate}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="ldap-report">
+    <app-ldap-report></app-ldap-report>
+  </div>
 </div>

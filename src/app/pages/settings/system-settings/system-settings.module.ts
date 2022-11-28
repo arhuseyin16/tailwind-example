@@ -27,6 +27,8 @@ import { TagTableComponent } from './tag-management/tag-table/tag-table.componen
 import { NewTagModalComponent } from './tag-management/new-tag-modal/new-tag-modal.component';
 import { TagDeleteModalComponent } from './tag-management/tag-delete-modal/tag-delete-modal.component';
 import { LdapComponent } from './ldap/ldap.component';
+import { LdapReportComponent } from './ldap/ldap-report/ldap-report.component';
+import { LdapUsersComponent } from './ldap/ldap-users/ldap-users.component';
 
 const routes: Routes = [
   {
@@ -87,7 +89,9 @@ const routes: Routes = [
     TagTableComponent,
     NewTagModalComponent,
     TagDeleteModalComponent,
-    LdapComponent
+    LdapComponent,
+    LdapReportComponent,
+    LdapUsersComponent
   ],
   imports: [
     CommonModule,
