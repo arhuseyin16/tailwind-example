@@ -90,4 +90,8 @@ export class ExchangeComponent implements OnInit {
   filterClick() {
     console.log(this.createdForm.value);
   }
+
+  clear() {
+    this.createdForm.reset();
+  }
 }
