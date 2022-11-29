@@ -65,7 +65,7 @@ export class NzSelectComponent implements OnInit {
   selectChange(event: any, type: string, formControl: any) {
     this.setOfCheckedId = new Set<number>();
     let list = [] as any;
-    if (event.includes(0) && !this.checked) {
+    if (event?.includes(0) && !this.checked) {
       this.checked = true;
       this.optionList.forEach(row => {
         this.setOfCheckedId.add(row.id);
@@ -74,11 +74,11 @@ export class NzSelectComponent implements OnInit {
       });
       list.push(0);
       this.fg.get(this.formControlName)?.setValue(list);
-    } else if (!event.includes(0) && this.checked) {
+    } else if (!event?.includes(0) && this.checked) {
       this.checked = false;
       this.fg.get(this.formControlName)?.setValue([]);
     } else {
-      if (event.includes(0) && this.checked && event.length === this.optionList.length) {
+      if (event?.includes(0) && this.checked && event?.length === this.optionList.length) {
         this.checked = false;
         this.setOfCheckedId = new Set<number>();
         event.forEach((row: any) => {
@@ -89,11 +89,11 @@ export class NzSelectComponent implements OnInit {
           }
         });
         this.fg.get(this.formControlName)?.setValue(list);
-      } else if (event.length === this.optionList.length) {
+      } else if (event?.length === this.optionList.length) {
         list.push(0);
         this.fg.get(this.formControlName)?.setValue([...list, ...event]);
       } else {
-        event.forEach((row: any) => {
+        event?.forEach((row: any) => {
           this.setOfCheckedId.add(row);
           this.refreshCheckedStatus();
         });
