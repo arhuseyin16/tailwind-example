@@ -29,6 +29,8 @@ import { TagDeleteModalComponent } from './tag-management/tag-delete-modal/tag-d
 import { LdapComponent } from './ldap/ldap.component';
 import { LdapReportComponent } from './ldap/ldap-report/ldap-report.component';
 import { LdapUsersComponent } from './ldap/ldap-users/ldap-users.component';
+import {NzPopoverModule} from "ng-zorro-antd/popover";
+import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 
 const routes: Routes = [
   {
@@ -106,6 +108,8 @@ const routes: Routes = [
     NzTableModule,
     NzDropDownModule,
     NzSwitchModule,
+    NzPopoverModule,
+    NzDatePickerModule,
   ],
   providers: [
     NzNotificationService,

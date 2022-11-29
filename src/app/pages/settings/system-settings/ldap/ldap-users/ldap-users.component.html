@@ -1,1 +1,42 @@
-<p>ldap-users works!</p>
+<div class="ldap-user-table">
+  <nz-table
+    #rowSelectionTable
+    nzShowSizeChanger
+    [nzData]="listOfData"
+    [nzPageSize]="10"
+    [nzShowSizeChanger]="true"
+    [nzPageSizeOptions]="pageSize"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+  >
+    <thead>
+    <tr>
+      <th style="width: 35px"
+          [nzSelections]="listOfSelection"
+          [(nzChecked)]="checked"
+          [nzIndeterminate]="false"
+          (nzCheckedChange)="onAllChecked($event)"
+      ></th>
+      <th [nzEllipsis]="true" *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortOrder]="column.sortOrder" width="{{column.width}}">
+        {{column.title | translate}}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  [ngStyle]="{'background-color': i%2 ? '#fff' : '#f5f5f5' }" *ngFor="let data of rowSelectionTable.data; let i = index">
+      <td class="check-td" [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+      <ng-container>
+        <td>{{ data.userCode }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{ data.mail }}</td>
+        <td>{{ data.mobilNumber }}</td>
+        <td>
+          <div class="flex">
+            <div class="form-control1"> {{ data.status }}</div>
+            <div class="form-control2">{{'system-settings.sync' | translate}}</div>
+          </div>
+        </td>
+      </ng-container>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

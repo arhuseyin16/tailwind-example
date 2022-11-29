@@ -173,7 +173,8 @@
     "targetForeignCurrency": "Hedef Döviz",
     "inquire": "Sorgula",
     "startDate": "Başlangıç Tarihi",
-    "endDate": "Bitiş Tarihi"
+    "endDate": "Bitiş Tarihi",
+    "clear": "Temizle"
   },
   "system-settings": {
     "cadesSigningTimestampInformation": "Cades İmzalama Zaman Damgası Bilgileri",
@@ -217,6 +218,24 @@
     "createdTime": "Oluşturma Zamanı",
     "updateTime": "Güncelleme Zamanı",
     "constituent": "Oluşturan",
-    "updater": "Güncelleyen"
+    "updater": "Güncelleyen",
+    "domain": "Domain",
+    "server": "Server",
+    "useSsl": "UseSSL",
+    "container": "Container",
+    "accessUSer": "AccessUser",
+    "accessPassword": "AccessPassword",
+    "ldapQuery": "LDAP Query",
+    "operatingRange": "Çalışma Aralığı(dk)",
+    "runManually": "Manuel Çalıştır",
+    "status": "Durum",
+    "startDate": "Başlangıç Tarihi",
+    "endDate": "Bitiş Tarihi",
+    "ldapSyncReport": "LDAP Senkronizasyon Raporu",
+    "workTime": "Çalışma Zamanı",
+    "id": "ID",
+    "userCode": "Kullanıcı Kodu",
+    "mobilNumber": "Tel. Numara",
+    "sync": "Senkronize Et"
   }
 }

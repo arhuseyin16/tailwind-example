@@ -20,6 +20,7 @@ export class LdapComponent implements OnInit {
   workTimerValue: number = 0;
   workFormatterValue = (value: number): string => `${value} dk`;
   workParserValue = (value: string): string => value.replace('dk ', '');
+  hidden = true;
 
   constructor(private store: Store,
               private router: Router,
@@ -44,5 +45,9 @@ export class LdapComponent implements OnInit {
 
   save() {
 
+  }
+
+  manually() {
+    this.hidden = false;
   }
 }

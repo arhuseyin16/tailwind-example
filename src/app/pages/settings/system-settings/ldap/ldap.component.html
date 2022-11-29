@@ -1,17 +1,17 @@
-<div class="ldap">
+<div class="ldap" *ngIf="hidden">
  <div class="page-shadow">
    <div class="first">
      <div class="flex">
        <div class="form-control">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.domain' | translate}}</label>
          <input nz-input type="text" />
        </div>
        <div class="form-control">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.server' | translate}}</label>
          <input nz-input type="text" />
        </div>
        <div class="form-control">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.useSsl' | translate}}</label>
          <div class="pt-4">
            <nz-radio-group [(ngModel)]="sslRadio" nzName="radiogroup" [nzSize]="'large'">
              <label nz-radio nzValue="1">{{'system-settings.yes' | translate}}</label>
@@ -20,11 +20,11 @@
          </div>
        </div>
        <div class="form-control">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.container' | translate}}</label>
          <input nz-input type="text" />
        </div>
        <div class="form-control">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.accessUSer' | translate}}</label>
          <input nz-input type="text" />
        </div>
      </div>
@@ -32,15 +32,15 @@
    <div class="second">
      <div class="flex">
        <div class="form-control">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.accessPassword' | translate}}</label>
          <input nz-input type="text" />
        </div>
        <div class="form-control-ldap">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.ldapQuery' | translate}}</label>
          <input nz-input type="text" />
        </div>
        <div class="form-control">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.operatingRange' | translate}}</label>
          <div class="pt-4">
            <nz-input-number
              [(ngModel)]="workTimerValue"
@@ -53,7 +53,7 @@
          </div>
        </div>
        <div class="form-control">
-         <label>{{'system-settings.username' | translate}}</label>
+         <label>{{'system-settings.autoSync' | translate}}</label>
          <div class="pt-4">
            <nz-switch></nz-switch>
          </div>
@@ -67,11 +67,14 @@
         <button class="ldap-settings-save" (click)="save()">{{'system-settings.save' | translate}}</button>
       </div>
       <div class="ldap-btn">
-        <button class="ldap-settings-manual" (click)="save()">{{'system-settings.save' | translate}}</button>
+        <button class="ldap-settings-manual" (click)="manually()">{{'system-settings.runManually' | translate}}</button>
       </div>
     </div>
   </div>
   <div class="ldap-report">
     <app-ldap-report></app-ldap-report>
   </div>
+</div>
+<div class="ldap" *ngIf="!hidden">
+  <app-ldap-users></app-ldap-users>
 </div>

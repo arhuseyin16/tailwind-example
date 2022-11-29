@@ -173,7 +173,8 @@
     "targetForeignCurrency": "Target Currency",
     "inquire": "Inquire",
     "startDate": "Start Date",
-    "endDate": "End Date"
+    "endDate": "End Date",
+    "clear": "Clear"
   },
   "system-settings": {
     "cadesSigningTimestampInformation": "Cades Signing Timestamp Information",
@@ -217,6 +218,24 @@
     "createdTime": "Created Time",
     "updateTime": "Update Time",
     "constituent": "Constituent",
-    "updater": "Updater"
+    "updater": "Updater",
+    "domain": "Domain",
+    "server": "Server",
+    "useSsl": "UseSSL",
+    "container": "Container",
+    "accessUSer": "AccessUser",
+    "accessPassword": "AccessPassword",
+    "ldapQuery": "LDAP Query",
+    "operatingRange": "Operating Range",
+    "runManually": "Run Manually",
+    "status": "Status",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "ldapSyncReport": "LDAP Sync Report",
+    "workTime": "Work Time",
+    "id": "ID",
+    "userCode": "User Code",
+    "mobilNumber": "Phone No",
+    "sync": "Sync"
   }
 }
