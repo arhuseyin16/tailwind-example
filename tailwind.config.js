@@ -65,10 +65,12 @@ module.exports = {
         'anti-flash-white': '#f2f2f2',
         'american-silver': '#d1d1d1',
         'dark-silver-conf': '#707070',
-        'dark-charcoal': '#ABABAB'
+        'dark-charcoal': '#ABABAB',
+        'boston-university-red': '#CE0000'
       },
       gridTemplateRows: {
         '10': 'repeat(10, minmax(0, 1fr))',
+        '2-0.7fr': 'repeat(2, minmax(0, 0.7fr))'
       },
       gap: {
         '30': '1.875rem',

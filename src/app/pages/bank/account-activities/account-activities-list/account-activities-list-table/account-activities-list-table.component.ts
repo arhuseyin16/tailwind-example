@@ -8,8 +8,13 @@ import { EditUserDescriptionComponent } from "../edit-user-description/edit-user
 import { CreateFavoriteFilterComponent } from "../create-favorite-filter/create-favorite-filter.component";
 import { Router } from "@angular/router";
 import { Store } from "@ngxs/store";
-import { DeleteFilterItemAction, SetFilterItemAction } from "../../../../../store/filter/filter.action";
+import {
+  DeleteFilterItemAction,
+  SetFilterItemAction
+} from "../../../../../store/filter/filter.action";
 import { KeyValueType } from "../../../../../models/shared/key-value.type";
+import { FilterState } from "../../../../../store/filter/filter.state";
+import { find } from "rxjs";
 
 interface ItemData {
   id: number;
@@ -104,7 +109,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
       amount: index,
       balance: index.toString(),
       currencyType: `Bakiye Türü - ${index}`,
-      willBorrow: `Bakiye Türü - ${index}`,
+      willBorrow: `Borç/Alacak - ${index}`,
     }));
     this.listOfData = [...this.listOfDisplayData];
     this.listOfAddColumn = [
@@ -273,6 +278,20 @@ export class AccountActivitiesListTableComponent implements OnInit {
         width: '100px'
       }
     ];
+    this.store.select(FilterState.getFilterItems).subscribe(filterItems => {
+      filterItems.forEach(item => {
+        const findColumn = this.listOfColumns.find(column => column.key === item.key);
+        findColumn?.listOfFilter?.forEach(col => {
+          const checkValue = item.items.findIndex(i => i.value === col.value);
+          if (checkValue !== -1) {
+            col.checked === true;
+          } else {
+            col.checked === false;
+          }
+        });
+        console.log(findColumn);
+      });
+    });
   }
 
   updateCheckedSet(id: number, checked: boolean): void {
@@ -333,7 +352,6 @@ export class AccountActivitiesListTableComponent implements OnInit {
 
     // Kolon bazlı, filtre içerisinde ki search inputuna girilen değerlere göre filtre yapılıyor.
     filterList = column.filterValue ? this.getColumnsByColumnName(column.key)?.filter((item) => item.label.toLowerCase().indexOf(column.filterValue.toLowerCase()) !== -1) : this.getColumnsByColumnName(column.key);
-    console.log(filterList);
     // Filtre sonucuna göre checked alanı true olanlar listeye setleniyor.
     filterList.forEach(item => {
       this.filterOfCheckedItems.forEach(filterItem => {
@@ -356,7 +374,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
     }
     if (item.checked) {
       this.filterOfCheckedItems.push({key: columnItem.key, value: item.value, checked: item.checked, label: item.value})
-       this.store.dispatch(new SetFilterItemAction(filterItem));
+      this.store.dispatch(new SetFilterItemAction(filterItem));
     } else {
       this.filterOfCheckedItems = this.filterOfCheckedItems.filter((f) => f.value !== item.value);
       this.store.dispatch(new DeleteFilterItemAction(columnItem.key, filterItem));

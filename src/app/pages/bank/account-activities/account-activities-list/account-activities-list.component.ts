@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  inject,
-  OnInit,
-  TemplateRef,
-  ViewChild
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Store } from "@ngxs/store";
 import { Router } from "@angular/router";
 import { FavoriteStateModel } from "../../../../models/favorite-state.model";
@@ -16,13 +8,11 @@ import { BankService } from "../../../../service/bank/bank.service";
 import { forkJoin } from "rxjs";
 import { NzSelectOptionInterface } from "ng-zorro-antd/select";
 import { DrawerService } from "../../../../service/drawer/drawer.service";
-import {
-  AccountActivitiesListFilterComponent
-} from "./account-activities-list-filter/account-activities-list-filter.component";
-import { DeleteFilterItemAction, SetFilterItemsCountAction } from "../../../../store/filter/filter.action";
+import { AccountActivitiesListFilterComponent } from "./account-activities-list-filter/account-activities-list-filter.component";
+import { ClearFilterItemAction, DeleteFilterItemAction, } from "../../../../store/filter/filter.action";
 import { FilterState } from "../../../../store/filter/filter.state";
-import { KeyValueType } from "../../../../models/shared/key-value.type";
 import { LabelValueType } from "../../../../models/bank/label-value.type";
+import { browserRefresh } from "../../../../app.component";
 
 @Component({
   selector: 'app-account-activities',
@@ -38,8 +28,10 @@ export class AccountActivitiesListComponent implements OnInit {
   cdr = inject(ChangeDetectorRef);
   favoriteFilters?: NzSelectOptionInterface[];
   dateFilters?: NzSelectOptionInterface[];
-  filterItemsCount = 0;
+  filterItemCount = 0;
   filterItems$ = this.store.select(FilterState.getFilterItems);
+  browserRefresh?: boolean;
+
 
   constructor(
     private router: Router,
@@ -51,10 +43,12 @@ export class AccountActivitiesListComponent implements OnInit {
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
-/*    this.store.select(FilterState.getFilterItems).subscribe(items => {
-      this.fi
-      console.log(items);
-    })*/
+    this.store.select(FilterState.getFilterItemsCount).subscribe(count => {
+      this.filterItemCount = count;
+      this.cdr.markForCheck();
+    });
+    this.browserRefresh = browserRefresh;
+    this.browserRefresh ? this.clearFilter() : null;
   }
 
   ngOnInit(): void {
@@ -81,13 +75,20 @@ export class AccountActivitiesListComponent implements OnInit {
       nzHeight: '100%',
     });
     // Tekrardan bakılacak.
-    filterDrawerRef.afterClose.subscribe((param) => {
+/*    filterDrawerRef.afterClose.subscribe((param) => {
       this.filterItemsCount = param?.filterItemsCount;
       this.cdr.detectChanges();
-    });
+    });*/
   }
 
   deleteFilterItem(key: string, item: LabelValueType) {
      this.store.dispatch(new DeleteFilterItemAction(key, item));
+  }
+
+  clearFilter() {
+    this.store.dispatch(new ClearFilterItemAction());
+  }
+
+  saveFilter() {
   }
 }

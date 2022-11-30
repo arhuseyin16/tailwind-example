@@ -8,13 +8,7 @@ export type FilterItemModel = {
 }
 
 export interface FilterStateModel {
-  filterItemsCount: number;
   items: Array<FilterItemModel>;
-}
-
-export class SetFilterItemsCountAction {
-  static readonly type = '[filter] SetFilterItemsCount';
-  constructor(public filterItemsCount: number) {}
 }
 
 export class SetFilterItemAction {
@@ -25,4 +19,8 @@ export class SetFilterItemAction {
 export class DeleteFilterItemAction {
   static readonly type = '[filter] DeleteFilterItemAction';
   constructor(public key: string, public filterItem: LabelValueType) {}
+}
+
+export class ClearFilterItemAction {
+  static readonly type = '[filter] ClearFilterItemAction';
 }

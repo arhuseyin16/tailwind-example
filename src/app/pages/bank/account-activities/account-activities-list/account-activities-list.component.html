@@ -1,5 +1,5 @@
-<div class="pl-7 pr-9 pt-3">
-  <div class="grid grid-rows-2">
+<div class="pl-3.5 pr-9 pt-3">
+  <div class="grid grid-rows-2-0.7fr pl-3.5">
 
     <div class="flex flex-col items-start 3xl:flex-row 3xl:justify-between">
 
@@ -65,7 +65,7 @@
         </div>
 
         <div class="w-full mt-3.5 lg:mt-0 mr-2.5">
-          <nz-badge [nzCount]="filterItemsCount" [nzStyle]="{backgroundColor: '#2d639f'}">
+          <nz-badge [nzCount]="filterItemCount" [nzStyle]="{backgroundColor: '#2d639f'}">
             <button
               class="w-[129px]"
               nz-button
@@ -93,20 +93,25 @@
 
   </div>
 
-  <div class="w-full">
-    <div class="grid grid-cols-4">
-      <div class="flex" *ngFor="let filterItem of filterItems$ | async">
-        <div>
-          <label class="text-15">{{filterItem.title}}:</label>
+  <div class="w-full" *ngIf="filterItemCount !== 0">
+    <div class="flex w-max float-left ml-3.5 mt-3" *ngFor="let filterItem of filterItems$ | async; let i = index">
+      <div>
+        <label class="text-15">{{filterItem.title}}:</label>
+      </div>
+      <div class="flex">
+        <div class="text-15 font-bold pl-2 flex" *ngFor="let item of filterItem.items">
+          <label>{{item.label}}</label>
+          <span class="cursor-pointer pl-2.5 font-normal" style="font-size: 20px; vertical-align: 0" nz-icon
+                nzType="close-circle" nzTheme="outline" (click)="deleteFilterItem(filterItem.key, item)"></span>
         </div>
-        <div class="flex">
-          <label class="text-15 font-bold pl-2 block" *ngFor="let item of filterItem.items">
-            {{item.label}}
-            <span class="cursor-pointer pl-2.5 font-normal" style="font-size: 20px; vertical-align: 0" nz-icon
-                  nzType="close-circle" nzTheme="outline" (click)="deleteFilterItem(filterItem.key, item)"></span>
-          </label>
-        </div>
-
+      </div>
+    </div>
+    <div class="flex w-max float-left ml-3.5 mt-3">
+      <div>
+        <a class="text-15 font-bold text-boston-university-red" (click)="clearFilter()">Temizle</a>
+      </div>
+      <div class="ml-6">
+        <a class="text-15 font-bold text-lapis-lazuli" (click)="saveFilter()">Filtreyi Kaydet</a>
       </div>
     </div>
 
