@@ -8,12 +8,16 @@ import { BankService } from "../../../../service/bank/bank.service";
 import { forkJoin } from "rxjs";
 import { NzSelectOptionInterface } from "ng-zorro-antd/select";
 import { DrawerService } from "../../../../service/drawer/drawer.service";
-import { AccountActivitiesListFilterComponent } from "./account-activities-list-filter/account-activities-list-filter.component";
+import {
+  AccountActivitiesListFilterComponent
+} from "./account-activities-list-filter/account-activities-list-filter.component";
 import { ClearFilterItemAction, DeleteFilterItemAction, } from "../../../../store/filter/filter.action";
 import { FilterState } from "../../../../store/filter/filter.state";
 import { LabelValueType } from "../../../../models/bank/label-value.type";
 import { browserRefresh } from "../../../../app.component";
 import { KeyValueType } from "../../../../models/shared/key-value.type";
+import { CreateFavoriteFilterComponent } from "./create-favorite-filter/create-favorite-filter.component";
+import { ModalService } from "../../../../service/modal/modal.service";
 
 @Component({
   selector: 'app-account-activities',
@@ -22,16 +26,18 @@ import { KeyValueType } from "../../../../models/shared/key-value.type";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccountActivitiesListComponent implements OnInit {
-  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
 
   bankService = inject(BankService);
   drawerService = inject(DrawerService);
   cdr = inject(ChangeDetectorRef);
+  modalService = inject(ModalService);
+
+  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
   favoriteFilters?: NzSelectOptionInterface[];
   dateFilters?: NzSelectOptionInterface[];
   filterItemCount = 0;
-  filterItems$ = this.store.select(FilterState.getFilterItems);
   browserRefresh?: boolean;
+  filterItems$ = this.store.select(FilterState.getFilterItems);
   filterClearChange = new EventEmitter();
 
   constructor(
@@ -92,6 +98,15 @@ export class AccountActivitiesListComponent implements OnInit {
     this.filterClearChange.emit(false);
   }
 
-  saveFilter() {
+  openCreateFavoriteFilterModal() {
+    const modalRef = this.modalService.create({
+      nzContent: CreateFavoriteFilterComponent,
+      nzClosable: false,
+      nzFooter: null,
+      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
+      nzWidth: '650px',
+    });
+
+    modalRef.afterClose.subscribe(result => console.log(result));
   }
 }

@@ -13,8 +13,6 @@ import {
   SetFilterItemAction
 } from "../../../../../store/filter/filter.action";
 import { KeyValueType } from "../../../../../models/shared/key-value.type";
-import { FilterState } from "../../../../../store/filter/filter.state";
-import { find } from "rxjs";
 
 interface ItemData {
   id: number;
@@ -59,18 +57,12 @@ interface TableFilterList {
 })
 export class AccountActivitiesListTableComponent implements OnInit {
 
-  @Input() filterClearChange?: EventEmitter<KeyValueType>;
+  @Input() filterClearChange?: EventEmitter<KeyValueType>; // Parent componentte listenen filtreleri sildiğimizde çalışır.
   listOfSelection = [
     {
       text: 'Seçili Kayıtları Sil',
       onSelect: () => {
         this.openSelectDeleteRecordModal();
-      }
-    },
-    {
-      text: 'Favori Filtre Oluştur',
-      onSelect: () => {
-        this.openCreateFavoriteFilterModal()
       }
     },
     {
@@ -279,6 +271,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
         width: '100px'
       }
     ];
+    this.parentFilterClearChange();
+  }
+
+  parentFilterClearChange() {
     this.filterClearChange?.subscribe(item => {
       this.listOfColumns.forEach(column => {
         if (item) {
@@ -298,21 +294,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         }
       });
       this.generateListOfDisplayData();
-    })
-    /*    this.store.select(FilterState.getFilterItems).subscribe(filterItems => {
-          filterItems.forEach(item => {
-            const findColumn = this.listOfColumns.find(column => column.key === item.key);
-            findColumn?.listOfFilter?.forEach(col => {
-              const checkValue = item.items.findIndex(i => i.value === col.value);
-              if (checkValue !== -1) {
-                col.checked === true;
-              } else {
-                col.checked === false;
-              }
-            });
-            console.log(findColumn);
-          });
-        });*/
+    });
   }
 
   updateCheckedSet(id: number, checked: boolean): void {
@@ -470,18 +452,6 @@ export class AccountActivitiesListTableComponent implements OnInit {
       nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
       nzWidth: '650px',
       nzComponentParams: {processId: id}
-    });
-
-    modalRef.afterClose.subscribe(result => console.log(result));
-  }
-
-  openCreateFavoriteFilterModal() {
-    const modalRef = this.modalService.create({
-      nzContent: CreateFavoriteFilterComponent,
-      nzClosable: false,
-      nzFooter: null,
-      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
-      nzWidth: '650px',
     });
 
     modalRef.afterClose.subscribe(result => console.log(result));
