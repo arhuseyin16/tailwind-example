@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./exchange/exchange.module').then(m => m.ExchangeModule)
   },
   {
+    path: 'auth-management',
+    loadChildren: () => import('./authority-management/authority-management.module').then(m => m.AuthorityManagementModule)
+  },
+  {
     path: 'system-document',
     loadChildren: () => import('./system-documents/system-documents.module').then(m => m.SystemDocumentsModule)
   },

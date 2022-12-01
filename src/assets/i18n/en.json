@@ -248,5 +248,17 @@
     "subCategory": "Sub Category",
     "documentName": "Document Name",
     "version": "Version"
+  },
+  "auth-management": {
+    "user": "User",
+    "groupName": "Group Name",
+    "authScheme": "Auth. Scheme",
+    "module": "Module",
+    "userAssignment": "User Assignment",
+    "addGroup": "Add Group",
+    "userName": "User Name",
+    "created": "Created",
+    "groupEdit": "Group Edit",
+    "bankAuthEdit": "Bank Auth. Edit"
   }
 }

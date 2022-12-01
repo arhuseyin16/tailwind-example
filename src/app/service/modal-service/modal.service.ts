@@ -18,6 +18,12 @@ import {
 import {
   NewTagModalComponent
 } from "../../pages/settings/system-settings/tag-management/new-tag-modal/new-tag-modal.component";
+import {
+  UserGroupNewRecordModalComponent
+} from "../../pages/settings/authority-management/user-group/user-group-new-record-modal/user-group-new-record-modal.component";
+import {
+  UserGroupDeleteModalComponent
+} from "../../pages/settings/authority-management/user-group/user-group-delete-modal/user-group-delete-modal.component";
 
 @Injectable()
 export class ModalService {
@@ -27,6 +33,8 @@ export class ModalService {
   holidayDeleteReference?: NzModalRef;
   tagTableDeleteReference?: NzModalRef;
   tagNewRecordCreatedRef?: NzModalRef;
+  userGroupNewRecordRef?: NzModalRef
+  userGroupDeleteRef?: NzModalRef;
 
   constructor(private nzModalService: NzModalService) {
   }
@@ -107,5 +115,31 @@ export class ModalService {
       nzWidth: '586px',
     });
     return this.tagNewRecordCreatedRef;
+  }
+
+  userGroupNewRecordCreatedModal(): NzModalRef {
+    this.userGroupNewRecordRef = this.nzModalService.create({
+      nzContent: UserGroupNewRecordModalComponent,
+      nzComponentParams: {},
+      nzClosable: false,
+      nzFooter: null,
+      nzKeyboard: false,
+      nzMaskClosable: false,
+      nzWidth: '586px',
+    });
+    return this.userGroupNewRecordRef;
+  }
+
+  userGroupDeleteModal(ids: any): NzModalRef {
+    this.userGroupDeleteRef = this.nzModalService.create({
+      nzContent: UserGroupDeleteModalComponent,
+      nzComponentParams: {ids},
+      nzClosable: false,
+      nzFooter: null,
+      nzKeyboard: false,
+      nzMaskClosable: false,
+      nzWidth: '586px',
+    });
+    return this.userGroupDeleteRef;
   }
 }

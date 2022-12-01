@@ -60,7 +60,6 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
         iconClass: 'w-[22px] h-[19px]',
         isCollapseClass: 'ml4-minus',
         isNotCollapseClass: 'ml9-minus',
-        routerLink: '/ui/setting/exchange',
         titleClass: 'ml-[9px]',
         isCollapseCheck: false,
         children: [
@@ -81,7 +80,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           },
           {
             title: 'sidebar.userGroupDefinition',
-            routerLink: '/ui/setting/exchange',
+            routerLink: '/ui/setting/auth-management/user-group',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           }
         ]

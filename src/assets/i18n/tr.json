@@ -248,5 +248,18 @@
     "subCategory": "Alt Kategori",
     "documentName": "Dokümanın Adı",
     "version": "Versiyon"
+  },
+  "auth-management": {
+    "user": "Kullanıcı",
+    "groupName": "Grup Adı",
+    "authScheme": "Yetki Şeması",
+    "module": "Modül",
+    "userAssignment": "Kullanıcı Atama",
+    "addGroup": "Grup Ekle",
+    "userName": "Kullanıcı Adı",
+    "created": "Oluşturma",
+    "groupEdit": "Grup Düzenle",
+    "bankAuthEdit": "Banka Erişim Yetkiri Düzenle"
+
   }
 }
