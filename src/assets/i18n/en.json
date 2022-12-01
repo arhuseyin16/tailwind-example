@@ -241,5 +241,12 @@
     "userCode": "User Code",
     "mobilNumber": "Phone No",
     "sync": "Sync"
+  },
+  "system-document": {
+    "keyword": "Keyword",
+    "module": "Module",
+    "subCategory": "Sub Category",
+    "documentName": "Document Name",
+    "version": "Version"
   }
 }

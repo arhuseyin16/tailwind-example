@@ -241,5 +241,12 @@
     "userCode": "Kullanıcı Kodu",
     "mobilNumber": "Tel. Numara",
     "sync": "Senkronize Et"
+  },
+  "system-document": {
+    "keyword": "Anahtar Sözcük",
+    "module": "Modül",
+    "subCategory": "Alt Kategori",
+    "documentName": "Dokümanın Adı",
+    "version": "Versiyon"
   }
 }

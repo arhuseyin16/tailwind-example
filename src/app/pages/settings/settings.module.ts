@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./exchange/exchange.module').then(m => m.ExchangeModule)
   },
   {
+    path: 'system-document',
+    loadChildren: () => import('./system-documents/system-documents.module').then(m => m.SystemDocumentsModule)
+  },
+  {
     path: 'system-settings',
     loadChildren: () => import('./system-settings/system-settings.module').then(m => m.SystemSettingsModule)
   }
