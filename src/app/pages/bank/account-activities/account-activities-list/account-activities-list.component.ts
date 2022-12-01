@@ -15,7 +15,7 @@ import { ClearFilterItemAction, DeleteFilterItemAction, } from "../../../../stor
 import { FilterState } from "../../../../store/filter/filter.state";
 import { LabelValueType } from "../../../../models/bank/label-value.type";
 import { browserRefresh } from "../../../../app.component";
-import { KeyValueType } from "../../../../models/shared/key-value.type";
+import { KeyLabelValueType } from "../../../../models/shared/key-label-value.type";
 import { CreateFavoriteFilterComponent } from "./create-favorite-filter/create-favorite-filter.component";
 import { ModalService } from "../../../../service/modal/modal.service";
 
@@ -84,7 +84,7 @@ export class AccountActivitiesListComponent implements OnInit {
   }
 
   deleteFilterItem(key: string, item: LabelValueType) {
-    const keyValueType: KeyValueType = {
+    const keyValueType: KeyLabelValueType = {
       key,
       value: item.value,
       label: item.label

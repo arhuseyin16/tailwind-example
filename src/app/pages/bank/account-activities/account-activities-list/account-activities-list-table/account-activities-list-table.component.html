@@ -9,8 +9,9 @@
     (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
   >
     <thead>
-    <tr>
-      <th
+    <tr cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+      <th cdkDrag
+          nz-resizable
         [nzSelections]="listOfSelection"
         [(nzChecked)]="checked"
         [nzIndeterminate]="indeterminate"
@@ -18,13 +19,17 @@
         nzWidth="50px"
       ></th>
 
-      <th *ngFor="let column of listOfColumns; let i = index trackBy: trackByName"
+      <th *ngFor="let column of listOfColumns; let i = index; trackBy: trackByName"
           [(nzSortOrder)]="column.sortOrder"
           [nzSortFn]="column.sortFn"
-          nzCustomFilter
+          nzCustomFilter cdkDrag nz-resizable
           [nzWidth]="column.width ? column.width : 'auto'"
       >
-        {{column.name}}
+        <div cdkDragHandle>
+          {{column.name}}
+        </div>
+        <nz-resize-handle nz-th-extra [nzDirection]="'right'"></nz-resize-handle>
+        <div class="th-drag-preview" *cdkDragPreview>{{column.name}}</div>
         <nz-filter-trigger *ngIf="column.showFilterField" [(nzVisible)]="column.filterVisible" [nzDropdownMenu]="menu">
           <span nz-icon nzType="search"></span>
         </nz-filter-trigger>
@@ -49,17 +54,17 @@
           </div>
         </nz-dropdown-menu>
       </th>
-      <th nzWidth="100px">
+      <th nzWidth="100px" nz-resizable cdkDrag>
         <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="addColumnMenu">
           <img width="24px" height="22px" src="assets/icon/table-add-column.svg">
           <nz-dropdown-menu #addColumnMenu="nzDropdownMenu">
             <div class="ant-table-filter-dropdown add-column-container">
               <div class="px-5 py-[19px]">
-                <cdk-virtual-scroll-viewport itemSize="20" class="add-column-infinite-container">
+                <cdk-virtual-scroll-viewport itemSize="10" class="add-column-infinite-container">
                   <nz-list>
-                    <nz-list-item *cdkVirtualFor="let column of listOfAddColumn; let i = index trackBy: trackByName">
+                    <nz-list-item *cdkVirtualFor="let column of listOfAddColumn; trackBy: trackByName">
                       <label nz-checkbox [(nzChecked)]="column.checked"
-                             (nzCheckedChange)="selectedColumnCheckedChange(column)">{{column.label}}</label>
+                             (nzCheckedChange)="selectedColumnCheckedChange(column)">{{column.name}}</label>
                     </nz-list-item>
                   </nz-list>
                 </cdk-virtual-scroll-viewport>
@@ -72,25 +77,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let data of rowSelectionTable.data; let i = index">
+    <tr *ngFor="let data of rowSelectionTable.data; let i = index;">
       <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"
           [nzEllipsis]="true" class="table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}"></td>
       <td [nzEllipsis]="true" class="table-td"
-          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.date }}</td>
-      <td [nzEllipsis]="true" class="table-td"
-          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.firm }}</td>
-      <td [nzEllipsis]="true" class="table-td"
-          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.bank }}</td>
-      <td [nzEllipsis]="true" class="table-td"
-          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.branch }}</td>
-      <td [nzEllipsis]="true" class="table-td"
-          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.accountType }}</td>
-      <td [nzEllipsis]="true" class="table-td"
-          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.accountNumber }}</td>
-      <td [nzEllipsis]="true" class="table-td"
-          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.amount }}</td>
-      <td [nzEllipsis]="true" class="table-td"
-          [ngClass]="{'background-anti-flash-white': i%2 === 1}">{{ data.balance }}</td>
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}"
+          *ngFor="let column of listOfColumns"
+      >
+            {{data[column.key].value}}
+      </td>
       <td class="table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}" nzAlign="right">
         <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
           <img width="6px" height="22.9px" src="assets/img/bank-account/bank-detail-other.png">

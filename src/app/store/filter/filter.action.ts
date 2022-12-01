@@ -1,4 +1,4 @@
-import { KeyValueType } from "../../models/shared/key-value.type";
+import { KeyLabelValueType } from "../../models/shared/key-label-value.type";
 import { LabelValueType } from "../../models/bank/label-value.type";
 
 export type FilterItemModel = {
@@ -13,7 +13,7 @@ export interface FilterStateModel {
 
 export class SetFilterItemAction {
   static readonly type = '[filter] SetFilterItemAction';
-  constructor(public filterItem: KeyValueType) {}
+  constructor(public filterItem: KeyLabelValueType) {}
 }
 
 export class DeleteFilterItemAction {

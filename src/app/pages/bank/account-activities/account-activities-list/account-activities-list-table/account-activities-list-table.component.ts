@@ -1,37 +1,41 @@
 import { Component, EventEmitter, inject, Input, OnInit } from '@angular/core';
 import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
-import { CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
+import { CdkDragDrop, CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
 import { ModalService } from "../../../../../service/modal/modal.service";
 import { PrintReceiptModalComponent } from "../print-receipt-modal/print-receipt-modal.component";
 import { SelectDeleteRecordModalComponent } from "../select-delete-record-modal/select-delete-record-modal.component";
 import { EditUserDescriptionComponent } from "../edit-user-description/edit-user-description.component";
-import { CreateFavoriteFilterComponent } from "../create-favorite-filter/create-favorite-filter.component";
 import { Router } from "@angular/router";
 import { Store } from "@ngxs/store";
 import {
   DeleteFilterItemAction,
   SetFilterItemAction
 } from "../../../../../store/filter/filter.action";
-import { KeyValueType } from "../../../../../models/shared/key-value.type";
+import { KeyLabelValueType } from "../../../../../models/shared/key-label-value.type";
 
 interface ItemData {
-  id: number;
-  date: string;
-  firm: string;
-  bank: string;
-  branch: string;
-  accountType: string;
-  accountNumber: string;
-  amount: number;
-  balance: string;
-  endDate: string;
-  currencyType: string;
-  willBorrow: string;
+  id: any;
+  date: ItemDataChild;
+  firm: ItemDataChild;
+  bank: ItemDataChild;
+  branch: ItemDataChild;
+  accountType: ItemDataChild;
+  accountNumber: ItemDataChild;
+  amount: ItemDataChild;
+  balance: ItemDataChild;
+  endDate: ItemDataChild;
+  currencyType: ItemDataChild;
+  willBorrow: ItemDataChild;
+  account: ItemDataChild;
+}
+
+interface ItemDataChild extends KeyLabelValueType {
+  checked: boolean;
 }
 
 interface ColumnItem {
   name: string;
-  key: string;
+  key: any;
   sortOrder: NzTableSortOrder | null;
   sortFn: NzTableSortFn<ItemData> | null;
   listOfFilter: Array<TableFilterList> | null;
@@ -41,6 +45,7 @@ interface ColumnItem {
   filterValue: string;
   index?: number;
   width?: string;
+  checked?: boolean;
 }
 
 interface TableFilterList {
@@ -57,7 +62,7 @@ interface TableFilterList {
 })
 export class AccountActivitiesListTableComponent implements OnInit {
 
-  @Input() filterClearChange?: EventEmitter<KeyValueType>; // Parent componentte listenen filtreleri sildiğimizde çalışır.
+  @Input() filterClearChange?: EventEmitter<KeyLabelValueType>; // Parent componentte listenen filtreleri sildiğimizde çalışır.
   listOfSelection = [
     {
       text: 'Seçili Kayıtları Sil',
@@ -77,9 +82,9 @@ export class AccountActivitiesListTableComponent implements OnInit {
   checked = false;
   indeterminate = false;
   listOfCurrentPageData: readonly ItemData[] = [];
-  listOfDisplayData: ItemData[] = [];
-  listOfData: ItemData[] = [];
-  listOfAddColumn: any[] = [];
+  listOfDisplayData: any[] | ItemData[] = [];
+  listOfData: any[] | ItemData[] = [];
+  listOfAddColumn: ColumnItem[] = [];
   setOfCheckedId = new Set<number>();
   filterOfCheckedItems = new Array<TableFilterList>();
 
@@ -90,187 +95,217 @@ export class AccountActivitiesListTableComponent implements OnInit {
   store = inject(Store);
 
   ngOnInit(): void {
-    this.listOfDisplayData = new Array(200).fill(0).map((_, index) => ({
-      id: index,
-      date: '07.02.2022 00:00',
-      endDate: '07.02.2022 00:00',
-      firm: `Firma - ${index}`,
-      bank: `Bank - ${index}`,
-      branch: `Şube - ${index}`,
-      accountType: `Hesap Türü - ${index}`,
-      accountNumber: `Hesap Numarası - ${index}`,
-      amount: index,
-      balance: index.toString(),
-      currencyType: `Bakiye Türü - ${index}`,
-      willBorrow: `Borç/Alacak - ${index}`,
-    }));
-    this.listOfData = [...this.listOfDisplayData];
     this.listOfAddColumn = [
-      {
-        key: 'endDate',
-        label: 'Bitiş Tarihi',
-        value: 'Bitiş Tarihi',
-        checked: false
-      },
-      {
-        key: 'currencyType',
-        label: 'Para Birimi',
-        value: 'Para Birimi',
-        checked: false
-      },
-      {
-        key: 'willBorrow',
-        label: 'Borç/Alacak',
-        value: 'Borç/Alacak',
-        checked: false
-      },
-      {
-        key: 'firm',
-        label: 'Firma',
-        value: 'Firma',
-        checked: false
-      },
-      {
-        key: 'bank',
-        label: 'Banka',
-        value: 'Banka',
-        checked: false
-      },
-      {
-        key: 'branch',
-        label: 'Şube',
-        value: 'Şube',
-        checked: false
-      },
-      {
-        key: 'accountType',
-        label: 'Hesap Türü',
-        value: 'Hesap Türü',
-        checked: false
-      },
-      {
-        key: 'account',
-        label: 'Hesap',
-        value: 'Hesap',
-        checked: false
-      },
-      {
-        key: 'accountNumber',
-        label: 'Hesap Numarası',
-        value: 'Hesap Numarası',
-        checked: false
-      },
-      {
-        key: 'amount',
-        label: 'Tutar',
-        value: 'Tutar',
-        checked: false
-      },
-      {
-        key: 'balance',
-        label: 'Bakiye',
-        value: 'Bakiye',
-        checked: false
-      }
-    ]
-    this.listOfColumns = [
       {
         key: 'date',
         name: 'Tarih',
         sortOrder: null,
-        sortFn: (a: ItemData, b: ItemData) => a.date.localeCompare(b.date),
+        sortFn: (a: ItemData, b: ItemData) => a.date.value.localeCompare(b.date.value),
         listOfFilter: [],
         showFilterField: false,
         filterVisible: false,
         filterValue: '',
         index: 0,
-        width: '170px'
+        width: '170px',
+        checked: true
       },
       {
         key: 'firm',
         name: 'Firma',
         sortOrder: null,
-        sortFn: (a: ItemData, b: ItemData) => a.firm.localeCompare(b.firm),
+        sortFn: (a: ItemData, b: ItemData) => a.firm.value.localeCompare(b.firm.value),
         listOfFilter: this.getColumnsByColumnName('firm'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
         index: 1,
-        width: '150px'
+        width: '150px',
+        checked: true
       },
       {
         key: 'bank',
         name: 'Banka',
         sortOrder: null,
-        sortFn: (a: ItemData, b: ItemData) => a.bank.localeCompare(b.bank),
+        sortFn: (a: ItemData, b: ItemData) => a.bank.value.localeCompare(b.bank.value),
         listOfFilter: this.getColumnsByColumnName('bank'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
         index: 2,
-        width: '140px'
+        width: '140px',
+        checked: true
       },
       {
         key: 'branch',
         name: 'Şube',
         sortOrder: null,
-        sortFn: (a: ItemData, b: ItemData) => a.branch.localeCompare(b.branch),
+        sortFn: (a: ItemData, b: ItemData) => a.branch.value.localeCompare(b.branch.value),
         listOfFilter: this.getColumnsByColumnName('branch'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
         index: 3,
-        width: '215px'
+        width: '215px',
+        checked: true
       },
       {
         key: 'accountType',
         name: 'Hesap Türü',
         sortOrder: null,
-        sortFn: (a: ItemData, b: ItemData) => a.accountType.localeCompare(b.accountType),
+        sortFn: (a: ItemData, b: ItemData) => a.accountType.value.localeCompare(b.accountType.value),
         listOfFilter: this.getColumnsByColumnName('accountType'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
         index: 4,
-        width: '195px'
+        width: '195px',
+        checked: true
       },
       {
         key: 'accountNumber',
         name: 'Hesap Numarası',
         sortOrder: null,
-        sortFn: (a: ItemData, b: ItemData) => a.accountNumber.localeCompare(b.accountNumber),
+        sortFn: (a: ItemData, b: ItemData) => a.accountNumber.value.localeCompare(b.accountNumber.value),
         listOfFilter: this.getColumnsByColumnName('accountNumber'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
         index: 5,
-        width: '230px'
+        width: '230px',
+        checked: true
       },
       {
         key: 'amount',
         name: 'Tutar',
         sortOrder: null,
-        sortFn: (a: ItemData, b: ItemData) => a.amount.toString().localeCompare(b.amount.toString()),
+        sortFn: (a: ItemData, b: ItemData) => a.amount.value.localeCompare(b.amount.value),
         listOfFilter: this.getColumnsByColumnName('amount'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
         index: 6,
-        width: '150px'
+        width: '150px',
+        checked: true
       },
       {
         key: 'balance',
         name: 'Bakiye',
         sortOrder: null,
-        sortFn: (a: ItemData, b: ItemData) => a.balance.localeCompare(b.balance),
+        sortFn: (a: ItemData, b: ItemData) => a.balance.value.localeCompare(b.balance.value),
         listOfFilter: this.getColumnsByColumnName('balance'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
         index: 7,
-        width: '100px'
-      }
-    ];
+        width: '120px',
+        checked: true
+      },
+      {
+        key: 'endDate',
+        name: 'Bitiş Tarihi',
+        sortOrder: null,
+        sortFn: (a: ItemData, b: ItemData) => a.endDate.value.localeCompare(b.endDate.value),
+        listOfFilter: [],
+        showFilterField: false,
+        filterVisible: false,
+        filterValue: '',
+        index: 8,
+        width: '170px',
+        checked: false
+      },
+      {
+        key: 'currencyType',
+        name: 'Para Birimi',
+        sortOrder: null,
+        sortFn: (a: ItemData, b: ItemData) => a.currencyType.value.localeCompare(b.currencyType.value),
+        listOfFilter: this.getColumnsByColumnName('currencyType'),
+        showFilterField: true,
+        filterVisible: false,
+        filterValue: '',
+        index: 9,
+        width: '180px',
+        checked: false
+      },
+      {
+        key: 'willBorrow',
+        name: 'Borç/Alacak',
+        sortOrder: null,
+        sortFn: (a: ItemData, b: ItemData) => a.willBorrow.value.localeCompare(b.willBorrow.value),
+        listOfFilter: this.getColumnsByColumnName('willBorrow'),
+        showFilterField: true,
+        filterVisible: false,
+        filterValue: '',
+        index: 10,
+        width: '200px',
+        checked: false
+      },
+      {
+        key: 'account',
+        name: 'Hesap',
+        sortOrder: null,
+        sortFn: (a: ItemData, b: ItemData) => a.account.value.localeCompare(b.account.value),
+        listOfFilter: this.getColumnsByColumnName('account'),
+        showFilterField: true,
+        filterVisible: false,
+        filterValue: '',
+        index: 11,
+        width: '150px',
+        checked: false
+      },
+    ]
+    this.listOfColumns = this.listOfAddColumn.filter(column => column.checked === true);
+    this.listOfDisplayData = new Array(200).fill(0).map((_, index) => ({
+      id: index,
+      date: {
+        value: '07.02.2022 00:00',
+        checked: true
+      },
+      endDate: {
+        value: '07.02.2022 00:00',
+        checked: false
+      },
+      firm: {
+        value: `Firma - ${index}`,
+        checked: true
+      },
+      bank: {
+        value: `Bank - ${index}`,
+        checked: true
+      },
+      branch: {
+        value: `Şube - ${index}`,
+        checked: true
+      },
+      accountType: {
+        value: `Hesap Türü - ${index}`,
+        checked: true
+      },
+      accountNumber: {
+        value: `Hesap Numarası - ${index}`,
+        checked: true
+      },
+      amount: {
+        value: index.toString(),
+        checked: true
+      },
+      balance: {
+        value: index.toString(),
+        checked: true
+      },
+      currencyType: {
+        value: `Para Birimi - ${index}`,
+        checked: false
+      },
+      willBorrow: {
+        value: `Borç/Alacak - ${index}`,
+        checked: false
+      },
+      account: {
+        value: `Hesap - ${index}`,
+        checked: false
+      },
+    })) as any;
+    this.listOfData = [...this.listOfDisplayData];
     this.parentFilterClearChange();
   }
 
@@ -335,10 +370,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
 
   getColumnsByColumnName(key: string): Array<TableFilterList> {
     let filterList: Array<TableFilterList> = [];
-    this.listOfData.forEach(data => {
+    this.listOfData.forEach((data) => {
       filterList.push({
-        label: data[key as keyof typeof data].toString(),
-        value: data[key as keyof typeof data],
+        label: data[key as keyof typeof data].value.toString(),
+        value: data[key as keyof typeof data].value,
         checked: false,
         key
       });
@@ -370,7 +405,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
 
   filterCheckedChange(item: TableFilterList, columnItem: ColumnItem) {
     // Filtre içerisindeki seçilen alanların check edilme durumu kontrol ediliyor.
-    const filterItem: KeyValueType = {
+    const filterItem: KeyLabelValueType = {
       key: columnItem.key,
       value: item.value,
       label: item.label
@@ -388,33 +423,20 @@ export class AccountActivitiesListTableComponent implements OnInit {
 
   generateListOfDisplayData(column?: ColumnItem) {
     if (this.filterOfCheckedItems.length > 0) {
-      this.listOfDisplayData = this.listOfData.filter(data => this.filterOfCheckedItems.some(item => data[item.key as keyof typeof data] === item.value));
+      this.listOfDisplayData = this.listOfData.filter(data => this.filterOfCheckedItems.some(item => data[item.key as keyof typeof data].value === item.value));
     } else {
       this.listOfDisplayData = this.listOfData;
     }
   }
 
-  dragStarted(event: CdkDragStart, index: number) {
-    this.previousIndex = index;
-  }
-
-  dropListDropped(event: any, index: number) {
-    if (event) {
-      moveItemInArray(this.listOfColumns, this.previousIndex, index);
-      this.listOfColumns = [...this.listOfColumns];
-      this.setDisplayedColumns();
-    }
-  }
-
-  setDisplayedColumns() {
-    this.listOfColumns.forEach((col, index) => {
-      col.index = index;
-      this.listOfColumns[index] = col;
-    });
-  }
-
   selectedColumnCheckedChange(column: ColumnItem) {
-    console.log(column);
+    column.checked && column.index ? this.listOfColumns.splice(column.index, 0, column) : this.listOfColumns = this.listOfColumns.filter(col => col.key !== column.key);
+    this.listOfData.forEach(data => {
+      if (data[column.key as keyof typeof data]) {
+        data[column.key as keyof typeof data].checked = column.checked;
+      }
+    });
+    this.listOfDisplayData = [...this.listOfData];
   }
 
   saveAddColumn() {
@@ -459,5 +481,18 @@ export class AccountActivitiesListTableComponent implements OnInit {
 
   accountActivityDetail(id: number) {
     this.router.navigateByUrl(`/ui/bank/account-activities/detail?id=${id}`)
+  }
+
+  drop(event: CdkDragDrop<string[]>): void {
+    moveItemInArray(
+      this.listOfColumns,
+      event.previousIndex,
+      event.currentIndex
+    );
+  }
+
+  stopPropagation (event: MouseEvent) {
+    event.stopPropagation();
+    console.log('stopPropagation')
   }
 }

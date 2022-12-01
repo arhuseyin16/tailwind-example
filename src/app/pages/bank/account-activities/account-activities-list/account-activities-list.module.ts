@@ -78,7 +78,6 @@ const routes: Routes = [
     NzResizableModule,
     DragDropModule,
     AngularSvgIconModule,
-
   ],
   providers: [
     BankService,
