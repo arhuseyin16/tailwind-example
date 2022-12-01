@@ -53,54 +53,6 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
         isCollapseCheck: false,
       },
       {
-        title: 'sidebar.erp-api-setting-screen',
-        menuItemClass: 'mt16 sidebar-base-menu-label mb0',
-        icon: 'assets/img/sidebar/erp-api.svg',
-        iconSpanClass: 'w-[22px] block',
-        iconClass: 'w-[22px] h-[19px]',
-        isCollapseClass: 'ml4-minus',
-        isNotCollapseClass: 'ml9-minus',
-        routerLink: '/ui/setting/exchange',
-        titleClass: 'ml-[9px]',
-        isCollapseCheck: false,
-      },
-      {
-        title: 'sidebar.system-logs',
-        menuItemClass: 'mt16 sidebar-base-menu-label mb0',
-        icon: 'assets/img/sidebar/system-logs.svg',
-        iconSpanClass: 'w-[22px] block',
-        iconClass: 'w-[22px] h-[19px]',
-        isCollapseClass: 'ml4-minus',
-        isNotCollapseClass: 'ml9-minus',
-        routerLink: '/ui/setting/exchange',
-        titleClass: 'ml-[9px]',
-        isCollapseCheck: false,
-      },
-      {
-        title: 'sidebar.system-notification',
-        menuItemClass: 'mt16 sidebar-base-menu-label mb0',
-        icon: 'assets/img/sidebar/system-notification.svg',
-        iconSpanClass: 'w-[22px] block',
-        iconClass: 'w-[22px] h-[19px]',
-        isCollapseClass: 'ml4-minus',
-        isNotCollapseClass: 'ml9-minus',
-        routerLink: '/ui/setting/exchange',
-        titleClass: 'ml-[9px]',
-        isCollapseCheck: false,
-      },
-      {
-        title: 'sidebar.collective-user-auth',
-        menuItemClass: 'mt16 sidebar-base-menu-label mb0',
-        icon: 'assets/img/sidebar/collective-user-auth.svg',
-        iconSpanClass: 'w-[22px] block',
-        iconClass: 'w-[22px] h-[19px]',
-        isCollapseClass: 'ml4-minus',
-        isNotCollapseClass: 'ml9-minus',
-        routerLink: '/ui/setting/exchange',
-        titleClass: 'ml-[9px]',
-        isCollapseCheck: false,
-      },
-      {
         title: 'sidebar.auth-management',
         menuItemClass: 'mt16 sidebar-base-menu-label mb0',
         icon: 'assets/img/sidebar/auth-management.svg',
@@ -111,18 +63,28 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
         routerLink: '/ui/setting/exchange',
         titleClass: 'ml-[9px]',
         isCollapseCheck: false,
-      },
-      {
-        title: 'sidebar.system-tools',
-        menuItemClass: 'mt16 sidebar-base-menu-label mb0',
-        icon: 'assets/img/sidebar/system-tools.svg',
-        iconSpanClass: 'w-[22px] block',
-        iconClass: 'w-[22px] h-[19px]',
-        isCollapseClass: 'ml4-minus',
-        isNotCollapseClass: 'ml9-minus',
-        routerLink: '/ui/setting/exchange',
-        titleClass: 'ml-[9px]',
-        isCollapseCheck: false,
+        children: [
+          {
+            title: 'sidebar.authScheme',
+            routerLink: '/ui/setting/exchange',
+            menuItemClass: 'mt16 sidebar-base-menu-label mb0'
+          },
+          {
+            title: 'sidebar.bankAccessAuth',
+            routerLink: '/ui/setting/exchange',
+            menuItemClass: 'mt16 sidebar-base-menu-label mb0'
+          },
+          {
+            title: 'sidebar.userIdentification',
+            routerLink: '/ui/setting/exchange',
+            menuItemClass: 'mt16 sidebar-base-menu-label mb0'
+          },
+          {
+            title: 'sidebar.userGroupDefinition',
+            routerLink: '/ui/setting/exchange',
+            menuItemClass: 'mt16 sidebar-base-menu-label mb0'
+          }
+        ]
       },
       {
         title: 'sidebar.system-documents',
@@ -193,6 +155,18 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
         ]
+      },
+      {
+        title: 'sidebar.system-tools',
+        menuItemClass: 'mt16 sidebar-base-menu-label mb0',
+        icon: 'assets/img/sidebar/system-tools.svg',
+        iconSpanClass: 'w-[22px] block',
+        iconClass: 'w-[22px] h-[19px]',
+        isCollapseClass: 'ml4-minus',
+        isNotCollapseClass: 'ml9-minus',
+        routerLink: '/ui/setting/exchange',
+        titleClass: 'ml-[9px]',
+        isCollapseCheck: false,
       },
     ];
     this.store.dispatch(new SetSidebarDataAction(menus));

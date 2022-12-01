@@ -67,7 +67,11 @@
     "environment-settings": "Ortam Ayarları",
     "eho-signer": "EHO Signer",
     "system-mail-settings": "Sistem Mail Ayarları",
-    "dbs-settings": "DBS Ayarları"
+    "dbs-settings": "DBS Ayarları",
+    "authScheme": "Yetki Şeması",
+    "bankAccessAuth": "Banka Erişim Yetkileri",
+    "userIdentification": "Kullanıcı Tanımlama",
+    "userGroupDefinition": "Kullanıcı Grup Tanımlama"
   },
   "bank-account": {
     "companies": "Firmalar",

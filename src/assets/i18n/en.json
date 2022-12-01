@@ -67,7 +67,11 @@
     "environment-settings": "Environment Settings",
     "eho-signer": "EHO Signer",
     "system-mail-settings": "System Mail Settings",
-    "dbs-settings": "DBS Settings"
+    "dbs-settings": "DBS Settings",
+    "authScheme": "Auth. Scheme",
+    "bankAccessAuth": "Bank Access Auth.",
+    "userIdentification": "User Identification",
+    "userGroupDefinition": "User Group Definition"
   },
   "bank-account": {
     "companies": "Companies",
