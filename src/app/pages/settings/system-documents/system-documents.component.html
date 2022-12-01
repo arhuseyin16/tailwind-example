@@ -1,0 +1,56 @@
+<div class="document-page">
+  <div class="document-left-menu">
+    <div class="filter">
+      <button nz-popover
+              nzPopoverPlacement="bottomRight"
+              [nzPopoverContent]="contentTemplate"
+              nzPopoverTrigger="click"
+              [(nzPopoverVisible)]="visible"
+              [ngStyle]="visible ? {'background-color': '#2d639f', 'color': '#fff'} : {'background-color': '#fff', 'color': '#000'}"
+      >
+        <img [ngStyle]="visible ? {'display': 'none'} : {'display': 'inherit'}" class="normal-filter" src="assets/icon/döviz-filtre.png">
+        <img [ngStyle]="visible ? {'display': 'inherit'} : {'display': 'none'}" class="hover-filter" src="assets/icon/döviz-filtre-hover.png">
+        {{'settings-exchange.filter' | translate}}
+      </button>
+      <ng-template #contentTemplate>
+        <div class="filter-popover" [formGroup]="createdForm">
+          <div class="form-filter">
+            <label>{{'system-document.keyword' | translate}}</label>
+            <input nz-input formControlName="keyword" type="text" />
+          </div>
+          <div class="form-filter">
+            <label>{{'system-document.module' | translate}}</label>
+            <nz-select formControlName="module" [nzSize]="'large'" nzAllowClear>
+              <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+            </nz-select>
+          </div>
+          <div class="form-filter">
+            <label>{{'system-document.subCategory' | translate}}</label>
+            <nz-select formControlName="subCategory" [nzSize]="'large'" nzAllowClear>
+              <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+            </nz-select>
+          </div>
+          <div class="form-filter">
+            <div class="flex">
+              <div class="btn-action1">
+                <button class="clear-btn" (click)="clear()">{{'settings-exchange.clear' | translate}}</button>
+              </div>
+              <div class="btn-action2">
+                <button class="save-btn">{{'settings-exchange.inquire' | translate}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <div class="excel-export">
+      <button>
+        <img class="normal-excel" src="assets/icon/excel.svg">
+        <img class="hover-excel" src="assets/icon/hover-excel.svg">
+      </button>
+    </div>
+  </div>
+  <div class="document-table">
+    <app-system-document-table></app-system-document-table>
+  </div>
+</div>

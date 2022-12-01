@@ -94,7 +94,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
         iconClass: 'w-[22px] h-[19px]',
         isCollapseClass: 'ml4-minus',
         isNotCollapseClass: 'ml9-minus',
-        routerLink: '/ui/setting/exchange',
+        routerLink: '/ui/setting/system-document',
         titleClass: 'ml-[9px]',
         isCollapseCheck: false,
       },
