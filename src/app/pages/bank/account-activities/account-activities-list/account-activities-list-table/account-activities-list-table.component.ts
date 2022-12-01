@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit } from '@angular/core';
 import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
 import { CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
 import { ModalService } from "../../../../../service/modal/modal.service";
@@ -59,6 +59,7 @@ interface TableFilterList {
 })
 export class AccountActivitiesListTableComponent implements OnInit {
 
+  @Input() filterClearChange?: EventEmitter<KeyValueType>;
   listOfSelection = [
     {
       text: 'Seçili Kayıtları Sil',
@@ -278,20 +279,40 @@ export class AccountActivitiesListTableComponent implements OnInit {
         width: '100px'
       }
     ];
-    this.store.select(FilterState.getFilterItems).subscribe(filterItems => {
-      filterItems.forEach(item => {
-        const findColumn = this.listOfColumns.find(column => column.key === item.key);
-        findColumn?.listOfFilter?.forEach(col => {
-          const checkValue = item.items.findIndex(i => i.value === col.value);
-          if (checkValue !== -1) {
-            col.checked === true;
-          } else {
-            col.checked === false;
+    this.filterClearChange?.subscribe(item => {
+      this.listOfColumns.forEach(column => {
+        if (item) {
+          if (column.key === item.key) {
+            column.listOfFilter?.forEach(filterItem => {
+              if (filterItem.value === item.value) {
+                filterItem.checked = false;
+                this.filterOfCheckedItems = this.filterOfCheckedItems.filter((f) => f.value !== item.value);
+              }
+            });
           }
-        });
-        console.log(findColumn);
+        } else {
+          column.listOfFilter?.forEach(filterItem => {
+            filterItem.checked = false;
+            this.filterOfCheckedItems = [];
+          });
+        }
       });
-    });
+      this.generateListOfDisplayData();
+    })
+    /*    this.store.select(FilterState.getFilterItems).subscribe(filterItems => {
+          filterItems.forEach(item => {
+            const findColumn = this.listOfColumns.find(column => column.key === item.key);
+            findColumn?.listOfFilter?.forEach(col => {
+              const checkValue = item.items.findIndex(i => i.value === col.value);
+              if (checkValue !== -1) {
+                col.checked === true;
+              } else {
+                col.checked === false;
+              }
+            });
+            console.log(findColumn);
+          });
+        });*/
   }
 
   updateCheckedSet(id: number, checked: boolean): void {

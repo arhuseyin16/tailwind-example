@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, inject, OnInit } from '@angular/core';
 import { Store } from "@ngxs/store";
 import { Router } from "@angular/router";
 import { FavoriteStateModel } from "../../../../models/favorite-state.model";
@@ -13,6 +13,7 @@ import { ClearFilterItemAction, DeleteFilterItemAction, } from "../../../../stor
 import { FilterState } from "../../../../store/filter/filter.state";
 import { LabelValueType } from "../../../../models/bank/label-value.type";
 import { browserRefresh } from "../../../../app.component";
+import { KeyValueType } from "../../../../models/shared/key-value.type";
 
 @Component({
   selector: 'app-account-activities',
@@ -31,7 +32,7 @@ export class AccountActivitiesListComponent implements OnInit {
   filterItemCount = 0;
   filterItems$ = this.store.select(FilterState.getFilterItems);
   browserRefresh?: boolean;
-
+  filterClearChange = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -74,19 +75,21 @@ export class AccountActivitiesListComponent implements OnInit {
       nzClosable: false,
       nzHeight: '100%',
     });
-    // Tekrardan bakılacak.
-/*    filterDrawerRef.afterClose.subscribe((param) => {
-      this.filterItemsCount = param?.filterItemsCount;
-      this.cdr.detectChanges();
-    });*/
   }
 
   deleteFilterItem(key: string, item: LabelValueType) {
-     this.store.dispatch(new DeleteFilterItemAction(key, item));
+    const keyValueType: KeyValueType = {
+      key,
+      value: item.value,
+      label: item.label
+    };
+    this.filterClearChange.emit(keyValueType);
+    this.store.dispatch(new DeleteFilterItemAction(key, item));
   }
 
   clearFilter() {
     this.store.dispatch(new ClearFilterItemAction());
+    this.filterClearChange.emit(false);
   }
 
   saveFilter() {
