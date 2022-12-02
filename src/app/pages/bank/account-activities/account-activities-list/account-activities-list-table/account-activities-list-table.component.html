@@ -6,12 +6,19 @@
     [nzScroll]="{ x: '240px' }"
     [nzData]="listOfDisplayData"
     class="pt-8"
+    [ngClass]="(filterItemCount | async) === 0 ? 'pt-0': 'pt-8'"
+    [nzShowSizeChanger]="true"
+    [nzPageSizeOptions]="[10,20,30,40,50]"
+    [nzPageSize]="10"
+    [nzItemRender]="paginationItemRender"
+    [nzShowTotal]="rangeTemplate"
     (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+    (nzPageSizeChange)="pageSizeChange($event)"
+    (nzPageIndexChange)="pageIndexChange($event)"
   >
     <thead>
     <tr cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
-      <th cdkDrag
-          nz-resizable
+      <th
         [nzSelections]="listOfSelection"
         [(nzChecked)]="checked"
         [nzIndeterminate]="indeterminate"
@@ -22,8 +29,9 @@
       <th *ngFor="let column of listOfColumns; let i = index; trackBy: trackByName"
           [(nzSortOrder)]="column.sortOrder"
           [nzSortFn]="column.sortFn"
-          nzCustomFilter cdkDrag nz-resizable
+          nzCustomFilter cdkDrag nz-resizable cdkDragLockAxis="x"
           [nzWidth]="column.width ? column.width : 'auto'"
+          class="dynamic-th"
       >
         <div cdkDragHandle>
           {{column.name}}
@@ -31,7 +39,7 @@
         <nz-resize-handle nz-th-extra [nzDirection]="'right'"></nz-resize-handle>
         <div class="th-drag-preview" *cdkDragPreview>{{column.name}}</div>
         <nz-filter-trigger *ngIf="column.showFilterField" [(nzVisible)]="column.filterVisible" [nzDropdownMenu]="menu">
-          <span nz-icon nzType="search"></span>
+          <img src="assets/svg/filter.svg" width="20px" height="20px" class="ml-5"/>
         </nz-filter-trigger>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <div class="ant-table-filter-dropdown">
@@ -54,7 +62,7 @@
           </div>
         </nz-dropdown-menu>
       </th>
-      <th nzWidth="100px" nz-resizable cdkDrag>
+      <th nzWidth="100px">
         <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="addColumnMenu">
           <img width="24px" height="22px" src="assets/icon/table-add-column.svg">
           <nz-dropdown-menu #addColumnMenu="nzDropdownMenu">
@@ -68,7 +76,10 @@
                     </nz-list-item>
                   </nz-list>
                 </cdk-virtual-scroll-viewport>
-                <button nz-button nzSize="large" class="column-save-button text-white text-16 bg-eton-blue hover:bg-eton-blue hover:text-white focus:bg-eton-blue focuns:text-white" (click)="saveAddColumn()">Kaydet</button>
+                <button nz-button nzSize="large"
+                        class="column-save-button text-white text-16 bg-eton-blue hover:bg-eton-blue hover:text-white focus:bg-eton-blue focuns:text-white"
+                        (click)="saveAddColumn()">Kaydet
+                </button>
               </div>
             </div>
           </nz-dropdown-menu>
@@ -84,7 +95,7 @@
           [ngClass]="{'background-anti-flash-white': i%2 === 1}"
           *ngFor="let column of listOfColumns"
       >
-            {{data[column.key].value}}
+        {{data[column.key].value}}
       </td>
       <td class="table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}" nzAlign="right">
         <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
@@ -101,6 +112,18 @@
       </td>
     </tr>
     </tbody>
+    <ng-template #paginationItemRender let-type let-page="page">
+      <ng-container [ngSwitch]="type">
+        <a *ngSwitchCase="'page'">{{ page }}</a>
+        <a *ngSwitchCase="'prev'"><img src="assets/svg/left-single-arrow.svg"/></a>
+        <a *ngSwitchCase="'next'"><img src="assets/svg/right-single-arrow.svg"/></a>
+        <a *ngSwitchCase="'prev_5'"><img src="assets/svg/left-double-arrow.svg"/></a>
+        <a *ngSwitchCase="'next_5'"><img src="assets/svg/right-double-arrow.svg"/></a>
+      </ng-container>
+    </ng-template>
+    <ng-template #rangeTemplate let-range="range" let-total>
+      {{ range[0] }}-{{ range[1] }} of {{ total }} items
+    </ng-template>
   </nz-table>
 
 </div>

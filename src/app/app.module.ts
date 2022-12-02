@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { NZ_I18N, tr_TR } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -47,7 +47,7 @@ registerLocaleData(en);
     AngularSvgIconModule.forRoot()
   ],
   providers: [
-    {provide: NZ_I18N, useValue: en_US},
+    {provide: NZ_I18N, useValue: tr_TR},
   ],
   bootstrap: [AppComponent]
 })

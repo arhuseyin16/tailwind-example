@@ -5,6 +5,9 @@
 
       <div class="flex items-center">
         <div>
+          <ng-container [ngTemplateOutlet]="template">
+          </ng-container>
+          <ng-template #template></ng-template>
           <label class="text-16">86,356 Kayıttan 1 - 50 Arası</label>
         </div>
         <div class="ml-[15px] lg:ml-[25px] xl:ml-[95px] 3xl:ml-[43px] search-input">
@@ -118,6 +121,6 @@
   </div>
 
   <div class="w-full mt-5">
-    <app-account-activities-list-table [filterClearChange]="filterClearChange"></app-account-activities-list-table>
+    <app-account-activities-list-table [filterClearChange]="filterClearChange" (rangeAndTotalValueChange)="setRangeAndTotalValueTemplate($event)"></app-account-activities-list-table>
   </div>
 </div>

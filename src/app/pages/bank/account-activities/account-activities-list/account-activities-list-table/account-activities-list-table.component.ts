@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
 import { CdkDragDrop, CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
 import { ModalService } from "../../../../../service/modal/modal.service";
@@ -12,6 +12,7 @@ import {
   SetFilterItemAction
 } from "../../../../../store/filter/filter.action";
 import { KeyLabelValueType } from "../../../../../models/shared/key-label-value.type";
+import { FilterState } from "../../../../../store/filter/filter.state";
 
 interface ItemData {
   id: any;
@@ -63,6 +64,8 @@ interface TableFilterList {
 export class AccountActivitiesListTableComponent implements OnInit {
 
   @Input() filterClearChange?: EventEmitter<KeyLabelValueType>; // Parent componentte listenen filtreleri sildiğimizde çalışır.
+  @Output() rangeAndTotalValueChange = new  EventEmitter<TemplateRef<any>>;
+  @ViewChild(TemplateRef) rangeTemplate?: TemplateRef<any>;
   listOfSelection = [
     {
       text: 'Seçili Kayıtları Sil',
@@ -88,13 +91,64 @@ export class AccountActivitiesListTableComponent implements OnInit {
   setOfCheckedId = new Set<number>();
   filterOfCheckedItems = new Array<TableFilterList>();
 
-  previousIndex: number = 0;
-
   modalService = inject(ModalService);
   router = inject(Router);
   store = inject(Store);
+  filterItemCount = this.store.select(FilterState.getFilterItemsCount);
 
   ngOnInit(): void {
+    this.listOfDisplayData = new Array(200).fill(0).map((_, index) => ({
+      id: index,
+      date: {
+        value: '07.02.2022 00:00',
+        checked: true
+      },
+      endDate: {
+        value: '07.02.2022 00:00',
+        checked: false
+      },
+      firm: {
+        value: `Firma - ${index}`,
+        checked: true
+      },
+      bank: {
+        value: `Bank - ${index}`,
+        checked: true
+      },
+      branch: {
+        value: `Şube - ${index}`,
+        checked: true
+      },
+      accountType: {
+        value: `Hesap Türü - ${index}`,
+        checked: true
+      },
+      accountNumber: {
+        value: `Hesap Numarası - ${index}`,
+        checked: true
+      },
+      amount: {
+        value: index.toString(),
+        checked: true
+      },
+      balance: {
+        value: index.toString(),
+        checked: true
+      },
+      currencyType: {
+        value: `Para Birimi - ${index}`,
+        checked: false
+      },
+      willBorrow: {
+        value: `Borç/Alacak - ${index}`,
+        checked: false
+      },
+      account: {
+        value: `Hesap - ${index}`,
+        checked: false
+      },
+    })) as any;
+    this.listOfData = [...this.listOfDisplayData];
     this.listOfAddColumn = [
       {
         key: 'date',
@@ -197,7 +251,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
         filterVisible: false,
         filterValue: '',
         index: 7,
-        width: '120px',
+        width: '150px',
         checked: true
       },
       {
@@ -254,58 +308,6 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
     ]
     this.listOfColumns = this.listOfAddColumn.filter(column => column.checked === true);
-    this.listOfDisplayData = new Array(200).fill(0).map((_, index) => ({
-      id: index,
-      date: {
-        value: '07.02.2022 00:00',
-        checked: true
-      },
-      endDate: {
-        value: '07.02.2022 00:00',
-        checked: false
-      },
-      firm: {
-        value: `Firma - ${index}`,
-        checked: true
-      },
-      bank: {
-        value: `Bank - ${index}`,
-        checked: true
-      },
-      branch: {
-        value: `Şube - ${index}`,
-        checked: true
-      },
-      accountType: {
-        value: `Hesap Türü - ${index}`,
-        checked: true
-      },
-      accountNumber: {
-        value: `Hesap Numarası - ${index}`,
-        checked: true
-      },
-      amount: {
-        value: index.toString(),
-        checked: true
-      },
-      balance: {
-        value: index.toString(),
-        checked: true
-      },
-      currencyType: {
-        value: `Para Birimi - ${index}`,
-        checked: false
-      },
-      willBorrow: {
-        value: `Borç/Alacak - ${index}`,
-        checked: false
-      },
-      account: {
-        value: `Hesap - ${index}`,
-        checked: false
-      },
-    })) as any;
-    this.listOfData = [...this.listOfDisplayData];
     this.parentFilterClearChange();
   }
 
@@ -358,14 +360,6 @@ export class AccountActivitiesListTableComponent implements OnInit {
   refreshCheckedStatus(): void {
     this.checked = this.listOfCurrentPageData.every(item => this.setOfCheckedId.has(item.id));
     this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
-  }
-
-  resetFilter(column: ColumnItem): void {
-    column.listOfFilter?.forEach(item => item.checked = false);
-    this.filterOfCheckedItems = this.filterOfCheckedItems.filter(item => item.key !== column.key);
-    column.filterValue = '';
-    this.filterChange(column);
-    this.generateListOfDisplayData();
   }
 
   getColumnsByColumnName(key: string): Array<TableFilterList> {
@@ -494,5 +488,14 @@ export class AccountActivitiesListTableComponent implements OnInit {
   stopPropagation (event: MouseEvent) {
     event.stopPropagation();
     console.log('stopPropagation')
+  }
+
+  pageSizeChange(size: number) {
+    console.log(size);
+  }
+
+  pageIndexChange(index: number) {
+    console.log(index);
+    this.rangeAndTotalValueChange?.emit(this.rangeTemplate);
   }
 }

@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  inject,
+  OnInit,
+  TemplateRef, ViewChild
+} from '@angular/core';
 import { Store } from "@ngxs/store";
 import { Router } from "@angular/router";
 import { FavoriteStateModel } from "../../../../models/favorite-state.model";
@@ -39,6 +47,7 @@ export class AccountActivitiesListComponent implements OnInit {
   browserRefresh?: boolean;
   filterItems$ = this.store.select(FilterState.getFilterItems);
   filterClearChange = new EventEmitter();
+  @ViewChild(TemplateRef) templateRef?: TemplateRef<any>;
 
   constructor(
     private router: Router,
@@ -108,5 +117,11 @@ export class AccountActivitiesListComponent implements OnInit {
     });
 
     modalRef.afterClose.subscribe(result => console.log(result));
+  }
+
+  setRangeAndTotalValueTemplate(templateRef: TemplateRef<any>) {
+    if (templateRef)
+      this.templateRef = templateRef;
+    console.log(this.templateRef);
   }
 }

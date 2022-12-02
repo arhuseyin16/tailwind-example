@@ -27,7 +27,8 @@ module.exports = {
     borderRadius: {
       '5px': '5px',
       '20px': '20px',
-      '10px': '10px'
+      '10px': '10px',
+      "50%": '50%'
     },
     screens: {
       'sm': '640px',
@@ -66,7 +67,8 @@ module.exports = {
         'american-silver': '#d1d1d1',
         'dark-silver-conf': '#707070',
         'dark-charcoal': '#ABABAB',
-        'boston-university-red': '#CE0000'
+        'boston-university-red': '#CE0000',
+        'toupe-gray': '#898989'
       },
       gridTemplateRows: {
         '10': 'repeat(10, minmax(0, 1fr))',
@@ -88,6 +90,7 @@ module.exports = {
       },
       lineHeight: {
         '47px': '2.9655',
+        '25px': '1.5625'
       }
     },
   },
