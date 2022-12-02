@@ -34,13 +34,10 @@
           <span>{{data.userName.length}}</span>
         </div>
       </td>
-      <td>
-        <span *ngIf="data.authScheme.length < 5">{{data.authScheme}}</span>
-        <div class="userName-option" *ngIf="data.authScheme.length > 4">
-          <img class="right-ok" src="assets/icon/right-ok.png">
-          <img class="layers" src="assets/icon/other.png">
-          <span>{{data.authScheme.length}}</span>
-        </div>
+      <td class="authScheme">
+        <span class="pr-3" *ngFor="let auth of data.authScheme">
+          {{auth.name}}
+        </span>
       </td>
       <td>{{ data.created }}</td>
       <div class="action-tab">

@@ -66,11 +66,33 @@ export class UserGroupTableComponent implements OnInit {
                private modalService: ModalService) { }
 
   ngOnInit(): void {
+    const scheme = [
+      {
+        id: 1,
+        name: 'IT Yetki Şeması',
+        auth: [
+          {id: 1, name: 'Banka İşlemleri'},
+          {id: 2, name: 'DBS'},
+          {id: 3, name: 'Pos'},
+          {id: 4, name: 'E Ödeme'},
+        ]
+      },
+      {
+        id: 2,
+        name: 'Muasebe Yetki Şeması',
+        auth: [
+          {id: 1, name: 'Banka İşlemleri'},
+          {id: 2, name: 'DBS'},
+          {id: 3, name: 'Pos'},
+          {id: 4, name: 'E Ödeme'},
+        ]
+      }
+    ]
     this.listOfData = new Array(20).fill(0).map((_, index) => ({
       id: index,
       groupName: 'Frontend',
       userName: index % 2 === 0 ? ['Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar']: ['Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar'],
-      authScheme: index % 2 !== 0 ? ['yetki-1', 'yetki-2', 'yetki-3', 'yetki-4']: ['yetki-1', 'yetki-2', 'yetki-3', 'yetki-4', 'yetki-5'],
+      authScheme: scheme,
       created: '12.10.2022 17:50',
     }));
   }
