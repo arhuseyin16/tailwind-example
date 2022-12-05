@@ -59,14 +59,18 @@
     margin: 27px 20px 0 0;
     position: relative;
 
+    .hover-filter {
+      &:hover {
+        background-color: #dbecff;
+        padding: 6px;
+        margin: -6px;
+      }
+    }
+
     img {
       width: 25px;
       object-fit: contain;
       cursor: pointer;
-
-      &:hover {
-        background-color: #dbecff !important;
-      }
     }
 
 
@@ -136,15 +140,19 @@
     margin: 27px 20px 0 0;
     position: relative;
 
+    .hover-favorite {
+
+      &:hover {
+        background-color: #dbecff;
+        padding: 6px;
+        margin: -6px;
+      }
+    }
+
     img {
       width: 30px;
       object-fit: contain;
       cursor: pointer;
-
-      &:hover {
-        border-radius: 5px;
-        background-color: #dbecff;
-      }
     }
 
     .dropdown-favorite {
