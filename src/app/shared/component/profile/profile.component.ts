@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngxs/store";
 import {HeaderDropdownActionClear} from "../../../store/header-dropdown-valid/header-dropdown.action";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,10 @@ export class ProfileComponent implements OnInit {
   surname: string = "Ar";
   avatar: string = "";
 
-  constructor(private store: Store) {
+  constructor(
+    private store: Store,
+    private router: Router
+  ) {
     this.avatar = this.name.split('')[0].toUpperCase() +  this.surname.split('')[0].toUpperCase();
   }
 
@@ -22,5 +26,9 @@ export class ProfileComponent implements OnInit {
 
   profileClick() {
     this.store.dispatch(new HeaderDropdownActionClear());
+  }
+
+  goToSetting() {
+    this.router.navigate(['ui/setting/exchange']);
   }
 }

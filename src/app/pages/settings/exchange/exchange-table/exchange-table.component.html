@@ -1,0 +1,83 @@
+<div class="table-exchange">
+  <nz-table
+    #rowSelectionTable
+    nzShowSizeChanger
+    [nzData]="listOfData"
+    [nzPageSize]="10"
+    [nzShowSizeChanger]="true"
+    [nzPageSizeOptions]="pageSize"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+  >
+    <thead>
+    <tr>
+      <th
+        [nzSelections]="listOfSelection"
+        [(nzChecked)]="checked"
+        [nzIndeterminate]="false"
+        (nzCheckedChange)="onAllChecked($event)"
+      ></th>
+      <th [nzEllipsis]="true" *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortOrder]="column.sortOrder" width="{{column.width}}">
+        {{column.title | translate}}
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr  [ngStyle]="{'background-color': i%2 ? '#fff' : '#f5f5f5' }" *ngFor="let data of rowSelectionTable.data; let i = index">
+      <td class="check-td" [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+      <ng-container *ngIf="!editCache[data.id].edit; else editTemplate">
+        <td>{{ data.registrationNumber }}</td>
+        <td>{{ data.currencyHistory }}</td>
+        <td>{{ data.sourcePB }}</td>
+        <td>{{ data.targetPB }}</td>
+        <td>{{ data.rateType }}</td>
+        <td>{{ data.rate }}</td>
+        <td>{{ data.priority }}</td>
+        <td>{{ data.creating }}</td>
+        <td>{{ data.update }}</td>
+        <div class="action-tab">
+          <div class="other" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+            <img src="assets/img/bank-account/bank-detail-other.png">
+          </div>
+        </div>
+
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu style="width: 200px">
+            <li (click)="deleted(data.id)" nz-menu-item>{{'settings-exchange.delete' | translate}}</li>
+            <li (click)="startEdit(data.id)" nz-menu-item>{{'settings-exchange.updated' | translate}}</li>
+          </ul>
+        </nz-dropdown-menu>
+      </ng-container>
+      <ng-template #editTemplate>
+        <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.registrationNumber" /></td>
+        <td>{{ data.currencyHistory }}</td>
+        <td>
+<!--          <input type="text" nz-input [(ngModel)]="editCache[data.id].data.sourcePB" />-->
+          <nz-select [(ngModel)]="editCache[data.id].data.sourcePB" nzAllowClear>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>
+        </td>
+        <td>
+          <nz-select [(ngModel)]="editCache[data.id].data.targetPB" nzAllowClear>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>
+        </td>
+        <td>
+          <nz-select [(ngModel)]="editCache[data.id].data.rateType" nzAllowClear>
+            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+          </nz-select>
+        </td>
+        <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.rate" /></td>
+        <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.priority" /></td>
+        <td>{{ data.creating }}</td>
+        <td>{{ data.update }}</td>
+        <div class="action-tab">
+          <div class="other-process">
+            <a (click)="saveEdit(data.id)" class="save">{{'settings-exchange.save' | translate}}</a>
+            <a (click)="cancelEdit(data.id)" class="delete">{{'settings-exchange.cancel' | translate}}</a>
+          </div>
+        </div>
+      </ng-template>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

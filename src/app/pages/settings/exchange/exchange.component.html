@@ -1,0 +1,102 @@
+<div class="exchange-page">
+  <div class="exchange-left-menu">
+    <div class="synchronization">
+      <button [ngStyle]="synchronizationBtn ? {'background-color': '#2d639f', 'color': '#fff'} : {'background-color': '#fff', 'color': '#000'}"
+        (click)="synchronizationModal()">{{'settings-exchange.synchronizationTCMB' | translate}}</button>
+    </div>
+    <div class="new-record">
+      <button [ngStyle]="recordBtn ? {'background-color': '#2d639f', 'color': '#fff'} : {'background-color': '#fff', 'color': '#000'}"
+              (click)="newRecordModal()">{{'settings-exchange.newRecord' | translate}}</button>
+    </div>
+    <div class="filter">
+      <button nz-popover
+              nzPopoverPlacement="bottomRight"
+              [nzPopoverContent]="contentTemplate"
+              nzPopoverTrigger="click"
+              [(nzPopoverVisible)]="visible"
+              [ngStyle]="visible ? {'background-color': '#2d639f', 'color': '#fff'} : {'background-color': '#fff', 'color': '#000'}"
+      >
+        <img [ngStyle]="visible ? {'display': 'none'} : {'display': 'inherit'}" class="normal-filter" src="assets/icon/döviz-filtre.png">
+        <img [ngStyle]="visible ? {'display': 'inherit'} : {'display': 'none'}" class="hover-filter" src="assets/icon/döviz-filtre-hover.png">
+        {{'settings-exchange.filter' | translate}}
+      </button>
+      <ng-template #contentTemplate>
+        <div class="filter-popover" [formGroup]="createdForm">
+          <div class="form-control">
+            <label>{{'settings-exchange.currenciesHistory' | translate}}</label>
+            <nz-date-picker  nzFormat="dd/MM/yyyy" nzPlaceHolder="gg/aa/yyyy" formControlName="currenciesHistory"></nz-date-picker>
+          </div>
+          <div class="row-label">
+            <label>{{'settings-exchange.creationDateRange' | translate}}</label>
+            <div class="flex">
+              <div class="form-control form-row-1">
+                <nz-date-picker  nzFormat="dd/MM/yyyy" nzPlaceHolder="gg/aa/yyyy" formControlName="creationStartDate"></nz-date-picker>
+              </div>
+              <div class="form-control form-row-2">
+                <nz-date-picker  nzFormat="dd/MM/yyyy" nzPlaceHolder="gg/aa/yyyy" formControlName="creationEndDate"></nz-date-picker>
+              </div>
+            </div>
+          </div>
+          <div class="row-label">
+            <label>{{'settings-exchange.updateDateRange' | translate}}</label>
+            <div class="flex">
+              <div class="form-control form-row-1">
+                <nz-date-picker  nzFormat="dd/MM/yyyy" nzPlaceHolder="gg/aa/yyyy" formControlName="updateStartDate"></nz-date-picker>
+              </div>
+              <div class="form-control form-row-2">
+                <nz-date-picker  nzFormat="dd/MM/yyyy" nzPlaceHolder="gg/aa/yyyy" formControlName="updateEndDate"></nz-date-picker>
+              </div>
+            </div>
+          </div>
+          <div class="form-control">
+            <app-nz-select
+              [fg]="createdForm"
+              [controlName]="createdForm.value.sourceCurrency"
+              [formControlName]="'sourceCurrency'"
+              [optionList]="listOption"
+              [label]="'settings-exchange.sourceForeignCurrency'"
+              ngDefaultControl
+            ></app-nz-select>
+          </div>
+          <div class="form-control">
+            <app-nz-select
+              [fg]="createdForm"
+              [controlName]="createdForm.value.targetCurrency"
+              [formControlName]="'targetCurrency'"
+              [optionList]="listOption"
+              [label]="'settings-exchange.targetForeignCurrency'"
+              ngDefaultControl
+            ></app-nz-select>
+          </div>
+          <div class="form-control">
+            <label>{{'settings-exchange.rateType' | translate}}</label>
+            <nz-select formControlName="rateType" [nzSize]="'large'" nzAllowClear>
+              <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+            </nz-select>
+          </div>
+          <div class="form-btn">
+            <div class="flex">
+              <div class="btn-action1">
+                <button class="clear-btn" (click)="clear()">{{'settings-exchange.clear' | translate}}</button>
+              </div>
+              <div class="btn-action2">
+                <button class="save-btn" (click)="filterClick()">{{'settings-exchange.inquire' | translate}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <div class="excel-export">
+      <button>
+       <img class="normal-excel" src="assets/icon/excel.svg">
+       <img class="hover-excel" src="assets/icon/hover-excel.svg">
+      </button>
+    </div>
+  </div>
+
+  <div class="exchange-table">
+    <app-exchange-table></app-exchange-table>
+  </div>
+</div>
+

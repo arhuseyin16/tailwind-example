@@ -1,0 +1,311 @@
+.exchange-page {
+  padding: 15px 30px 10px 25px;
+  .exchange-left-menu {
+    display: flex;
+    justify-content: end;
+
+    .synchronization {
+      padding-right: 10px;
+
+      button {
+        height: 40px;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        padding: 0 17px 0 17px;
+
+        &:hover {
+          background-color: #2d639f !important;
+          color: #fff !important;
+        }
+      }
+    }
+
+    .new-record {
+      padding-right: 10px;
+
+      button {
+        height: 40px;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        padding: 0 17px 0 17px;
+
+        &:hover {
+          background-color: #2d639f !important;
+          color: #fff !important;
+        }
+      }
+    }
+
+    .filter {
+      padding-right: 10px;
+      button {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+        padding: 0 17px 0 17px;
+
+        &:hover {
+          background-color: #2d639f !important;
+          color: #fff !important;
+          .hover-filter {
+            width: 19px;
+            height: 20px;
+            object-fit: contain;
+            margin-right: 5px;
+            display: inherit !important;
+          }
+
+          .normal-filter {
+            width: 19px;
+            height: 20px;
+            object-fit: contain;
+            margin-right: 5px;
+            display: none !important;
+          }
+        }
+
+        .hover-filter {
+          width: 19px;
+          height: 20px;
+          object-fit: contain;
+          margin-right: 5px;
+          //display: none;
+        }
+
+        .normal-filter {
+          width: 19px;
+          height: 20px;
+          object-fit: contain;
+          margin-right: 5px;
+          //display: inherit;
+        }
+      }
+    }
+
+    .excel-export {
+
+      button {
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        background-color: #ffffff;
+
+        &:hover {
+          background-color: #2d639f;
+          .hover-excel {
+            width: 17px;
+            height: 17px;
+            display: inherit;
+            object-fit: contain;
+          }
+
+          .normal-excel {
+            width: 17px;
+            height: 17px;
+            display: none;
+            object-fit: contain;
+          }
+        }
+
+        .normal-excel {
+          width: 17px;
+          height: 17px;
+          display: inherit;
+          object-fit: contain;
+        }
+
+        .hover-excel {
+          width: 17px;
+          height: 17px;
+          display: none;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  .exchange-table {
+    padding-top: 25px;
+  }
+
+}
+
+.filter-popover {
+  width: 330px;
+
+  .form-control {
+    padding-top: 12px;
+
+    label {
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+    }
+
+    input {
+      border-radius: 5px;
+      border: solid 0.5px #ABABAB;
+      background-color: #fff;
+      margin-top: 10px;
+      height: 40px;
+
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+    button {
+      width: 100%;
+      height: 40px;
+      border-radius: 5px;
+      margin-top: 10px;
+      background-color: #87bfad;
+      font-size: 16px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+      color: #fff;
+    }
+
+    ::ng-deep .ant-picker {
+      display: block;
+      border-radius: 5px;
+      border: solid 0.5px #ABABAB;
+      background-color: #fff;
+      margin-top: 10px;
+      height: 40px;
+
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+
+      .ant-picker-input > input {
+        height: 30px;
+      }
+
+      .ant-picker-suffix {
+        color: black;
+      }
+    }
+
+    .ant-select {
+      width: 100%;
+      ::ng-deep .ant-select-selector {
+        //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
+        border: solid 0.5px #ABABAB;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 14px;
+      }
+
+      ::ng-deep .ant-select-arrow {
+        color: #000000;
+      }
+    }
+  }
+
+  .row-label {
+    padding-top: 12px;
+    label {
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+    }
+    .form-row-1 {
+      padding: 0 5px 0 0;
+    }
+
+    .form-row-2 {
+      padding: 0 0 0 5px;
+    }
+  }
+
+  .form-btn {
+    padding-top: 12px;
+
+    .btn-action1 {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding: 0 8px 0 0;
+
+      .clear-btn {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 10px;
+        background-color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        border: solid 1px #87bfad;
+        color: #87bfad;
+      }
+    }
+
+    .btn-action2 {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding: 0 0 0 8px;
+
+      .save-btn {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 10px;
+        background-color: #87bfad;
+        font-size: 16px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #fff;
+      }
+    }
+  }
+}

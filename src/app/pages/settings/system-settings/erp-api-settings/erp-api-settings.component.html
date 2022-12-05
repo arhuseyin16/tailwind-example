@@ -1,0 +1,21 @@
+<div class="erp-settings">
+  <div class="page-shadow">
+    <div class="first" [formGroup]="createdForm">
+      <div class="form-control">
+        <label>{{'system-settings.serviceUrl' | translate}}</label>
+        <input nz-input formControlName="url" type="text" />
+      </div>
+      <div class="form-control">
+        <label>{{'system-settings.serviceUsername' | translate}}</label>
+        <input nz-input formControlName="username" type="text" />
+      </div>
+      <div class="form-control">
+        <label>{{'system-settings.servicePassword' | translate}}</label>
+        <input nz-input formControlName="password" type="text" />
+      </div>
+    </div>
+  </div>
+  <div class="erp-settings-submit">
+    <button class="erp-settings-btn" (click)="save()">{{'system-settings.save' | translate}}</button>
+  </div>
+</div>

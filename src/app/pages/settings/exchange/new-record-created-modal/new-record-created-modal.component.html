@@ -1,0 +1,38 @@
+<div class="main-title">
+  <div class="title">{{'settings-exchange.newRecordCreate' | translate}}</div>
+  <div class="close-icon" (click)="close()">X</div>
+</div>
+<div class="main-body" [formGroup]="createdForm">
+  <div class="form-control">
+    <label>{{'settings-exchange.currenciesHistory' | translate}}</label>
+    <nz-date-picker  nzFormat="dd/MM/yyyy" nzPlaceHolder="gg/aa/yyyy" formControlName="currenciesHistory"></nz-date-picker>
+  </div>
+  <div class="flex">
+    <div class="form-control form-row-1">
+      <label>{{'settings-exchange.sourceCurrency' | translate}}</label>
+      <nz-select formControlName="sourceCurrency" [nzSize]="'large'" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+    <div class="form-control form-row-2">
+      <label>{{'settings-exchange.targetCurrency' | translate}}</label>
+      <nz-select formControlName="targetCurrency" [nzSize]="'large'" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+  <div class="form-control">
+    <label>{{'settings-exchange.rateType' | translate}}</label>
+    <nz-select formControlName="rateType" [nzSize]="'large'" nzAllowClear>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    </nz-select>
+  </div>
+  <div class="form-control">
+    <label>{{'settings-exchange.rate' | translate}}</label>
+    <input nz-input formControlName="rate"  type="text" />
+  </div>
+</div>
+<div class="main-footer">
+  <button class="cancel" (click)="close()">{{'settings-exchange.cancel' | translate}}</button>
+  <button class="save" (click)="save()">{{'settings-exchange.approve' | translate}}</button>
+</div>
