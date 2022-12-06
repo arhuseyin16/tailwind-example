@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {HEIGHT_PX} from "../../constants/select-height-px";
 
@@ -14,6 +14,7 @@ export class NzSelectComponent implements OnInit {
   @Input() formControlName: any;
   @Input() optionList: any[] = [];
   @Input() label?: string = '';
+  @Output() selectedChange = new EventEmitter();
   allStatus = false;
   nzSelectLoading = true;
   checked = false;
@@ -99,6 +100,7 @@ export class NzSelectComponent implements OnInit {
         });
       }
     }
+    this.selectedChange.emit(this.setOfCheckedId);
     // let list = [] as any;
     // this.optionList.forEach((row: any) => {
     //   row.status = false;

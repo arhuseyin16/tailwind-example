@@ -153,7 +153,7 @@ export class AccountActivitiesListFilterComponent implements OnInit, OnDestroy {
     const t = this.modalService.create({
       nzTitle: this.filterShareComponentTitle,
       nzContent: AccountActivitiesFilterShareComponent,
-      nzBodyStyle: {'padding': '0 54px'},
+      nzBodyStyle: {'padding': '30px 54px 0 54px'},
       nzFooter: this.filterShareComponentFooter,
       nzWidth: 586,
     });

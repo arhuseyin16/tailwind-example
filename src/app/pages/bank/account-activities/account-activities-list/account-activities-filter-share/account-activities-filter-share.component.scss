@@ -10,7 +10,7 @@
   @apply right-[36px]
 }
 ::ng-deep .ant-modal-content {
-  @apply rounded-10px pt-[5px];
+  @apply rounded-10px #{!important};
 }
 
 :host ::ng-deep .ant-form-item-label > label {

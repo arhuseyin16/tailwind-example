@@ -186,7 +186,7 @@ nz-list {
 }
 
 ::ng-deep .ant-modal-content {
-  @apply rounded-10px p-0 #{!important};
+  @apply rounded-10px #{!important};
 }
 
 .dynamic-th {
