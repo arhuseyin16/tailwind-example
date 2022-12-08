@@ -35,7 +35,6 @@
           {{column.name}}
         </div>
         <nz-resize-handle nz-th-extra [nzDirection]="'right'"></nz-resize-handle>
-        <div class="th-drag-preview" *cdkDragPreview>{{column.name}}</div>
         <nz-filter-trigger *ngIf="column.showFilterField" [(nzVisible)]="column.filterVisible" [nzDropdownMenu]="menu">
           <img src="assets/svg/filter.svg" width="20px" height="20px" class="ml-5"/>
         </nz-filter-trigger>

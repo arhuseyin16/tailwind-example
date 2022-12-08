@@ -14,5 +14,10 @@
   {
     "label": "Son 30 Gün",
     "value": 4
+  },
+
+  {
+    "label": "Tarih Aralığı Seçin",
+    "value": 5
   }
 ]

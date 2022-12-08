@@ -48,6 +48,8 @@ export class AccountActivitiesListComponent implements OnInit {
   filterItems$ = this.store.select(FilterState.getFilterItems);
   filterClearChange = new EventEmitter();
   @ViewChild(TemplateRef) templateRef?: TemplateRef<any>;
+  selectedDateFilter?: number;
+  checkSelectedOpen = false;
   date: any;
 
   constructor(
@@ -124,6 +126,13 @@ export class AccountActivitiesListComponent implements OnInit {
     if (templateRef)
       this.templateRef = templateRef;
     console.log(this.templateRef);
+  }
+
+  dateFilterChange(value: any) {
+    console.log(value);
+    if (value === 5) {
+
+    }
   }
 
   onDateChange($event: any) {

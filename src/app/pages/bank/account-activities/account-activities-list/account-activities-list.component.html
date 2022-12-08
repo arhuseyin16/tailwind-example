@@ -37,16 +37,11 @@
 
         <div class="w-full mt-3.5 lg:mt-0 mr-2.5" *ngIf="dateFilters">
           <nz-select nzAllowClear nzSize="large" class="w-[460px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px]"
-                     [nzCustomTemplate]="dateSelectCustomTemplate" [nzPlaceHolder]="dateSelectPlaceholder">
-            <div *ngFor="let dateFilter of dateFilters">
-              <nz-option nzCustomContent nzLabel="{{dateFilter.label}}"
-                         [nzValue]="dateFilter.value">{{dateFilter.label}}</nz-option>
-            </div>
-            <nz-option nzCustomContent nzLabel="Tarih aralığını seçiniz" [nzValue]="false">
-              <nz-date-picker nzPlaceHolder="Tarih aralığını seçiniz" [(ngModel)]="date"
-                              (ngModelChange)="onDateChange($event)"></nz-date-picker>
-            </nz-option>
+                     [nzCustomTemplate]="dateSelectCustomTemplate" [nzPlaceHolder]="dateSelectPlaceholder" [nzOptions]="dateFilters"
+                     [(ngModel)]="selectedDateFilter" (ngModelChange)="dateFilterChange($event)" [(nzOpen)]="checkSelectedOpen">
           </nz-select>
+
+          <nz-date-picker open [(ngModel)]="date" (ngModelChange)="onDateChange($event)"></nz-date-picker>
 
           <ng-template #dateSelectPlaceholder>
           <span class="flex h-full items-center">

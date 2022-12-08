@@ -99,7 +99,7 @@
 
 .base-table {
   .ant-table {
-    @apply bg-cultured-earl;
+    @apply bg-white;
   }
 
   .ant-table-container table > thead > tr > th:first-child {
@@ -110,8 +110,12 @@
     border-radius: 0 15px 0 0;
   }
 
-  .ant-table-thead > tr > th { // +
+  .ant-table-thead > tr > th {
     @apply bg-lapis-lazuli text-white text-15;
+  }
+
+  .ant-table-column-has-sorters:hover {
+    @apply bg-lapis-lazuli #{!important};
   }
 
   .ant-table-thead > tr > th:first-child {
