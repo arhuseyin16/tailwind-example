@@ -1,22 +1,14 @@
 <div class="pl-3.5 pr-9 pt-3">
-  <div class="grid grid-rows-2-0.7fr pl-3.5">
+  <div class="grid grid-rows-2-0.7fr">
 
     <div class="flex flex-col items-start 3xl:flex-row 3xl:justify-between">
 
-      <div class="flex items-center">
-        <div>
-          <ng-container [ngTemplateOutlet]="template">
-          </ng-container>
-          <ng-template #template></ng-template>
-          <label class="text-16">86,356 Kayıttan 1 - 50 Arası</label>
-        </div>
-        <div class="ml-[15px] lg:ml-[25px] xl:ml-[95px] 3xl:ml-[43px] search-input">
-          <nz-input-group class="w-[230px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px] rounded-5px border-0" nzSize="large"
-                          [nzPrefix]="prefixTemplateUser">
-            <input class="hover:shadow-none hover:border-0" type="text" nz-input placeholder="Ara..."/>
-          </nz-input-group>
-          <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
-        </div>
+      <div class="search-input">
+        <nz-input-group class="w-[230px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px] rounded-5px border-0" nzSize="large"
+                        [nzPrefix]="prefixTemplateUser">
+          <input class="hover:shadow-none hover:border-0" type="text" nz-input placeholder="Ara..."/>
+        </nz-input-group>
+        <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
       </div>
 
       <div class="flex flex-col mt-3 3xl:mt-0 lg:flex-row lg:justify-end">
@@ -45,11 +37,15 @@
 
         <div class="w-full mt-3.5 lg:mt-0 mr-2.5" *ngIf="dateFilters">
           <nz-select nzAllowClear nzSize="large" class="w-[460px] lg:w-[230px] xl:w-[300px] 3xl:w-[230px]"
-                     [nzOptions]="dateFilters"
                      [nzCustomTemplate]="dateSelectCustomTemplate" [nzPlaceHolder]="dateSelectPlaceholder">
-            <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-            <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-            <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+            <div *ngFor="let dateFilter of dateFilters">
+              <nz-option nzCustomContent nzLabel="{{dateFilter.label}}"
+                         [nzValue]="dateFilter.value">{{dateFilter.label}}</nz-option>
+            </div>
+            <nz-option nzCustomContent nzLabel="Tarih aralığını seçiniz" [nzValue]="false">
+              <nz-date-picker nzPlaceHolder="Tarih aralığını seçiniz" [(ngModel)]="date"
+                              (ngModelChange)="onDateChange($event)"></nz-date-picker>
+            </nz-option>
           </nz-select>
 
           <ng-template #dateSelectPlaceholder>
@@ -121,6 +117,7 @@
   </div>
 
   <div class="w-full mt-5">
-    <app-account-activities-list-table [filterClearChange]="filterClearChange" (rangeAndTotalValueChange)="setRangeAndTotalValueTemplate($event)"></app-account-activities-list-table>
+    <app-account-activities-list-table [filterClearChange]="filterClearChange"
+                                       (rangeAndTotalValueChange)="setRangeAndTotalValueTemplate($event)"></app-account-activities-list-table>
   </div>
 </div>

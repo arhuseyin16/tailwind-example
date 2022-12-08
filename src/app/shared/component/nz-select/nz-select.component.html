@@ -1,6 +1,6 @@
 <div class="form-element-select" [formGroup]="fg">
   <div class="pb-2">
-    <label>{{label || '' |translate}}</label>
+    <label [ngClass]="labelClass">{{label || '' |translate}}</label>
   </div>
   <nz-select nzShowSearch nzAllowClear [nzShowArrow]="true" [nzMaxTagCount]="controlName?.length === 1 ? 1 : 0"
              [nzMaxTagPlaceholder]="controlName?.length === 1 ? null : formLength" ngDefaultControl

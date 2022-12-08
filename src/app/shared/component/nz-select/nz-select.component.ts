@@ -14,6 +14,7 @@ export class NzSelectComponent implements OnInit {
   @Input() formControlName: any;
   @Input() optionList: any[] = [];
   @Input() label?: string = '';
+  @Input() labelClass: string = '';
   @Output() selectedChange = new EventEmitter();
   allStatus = false;
   nzSelectLoading = true;

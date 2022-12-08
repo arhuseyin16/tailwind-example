@@ -1,121 +1,7 @@
 .filter-list-table {
 
-  ::ng-deep .ant-pagination-prev {
-    @apply pr-0 py-3 pl-6;
-  }
-
-  ::ng-deep .ant-pagination-next {
-    @apply px-0 py-3;
-  }
-
-  ::ng-deep .ant-pagination-jump-prev {
-    @apply pr-0 py-3 pl-2.5;
-  }
-
-  ::ng-deep .ant-pagination-jump-next {
-    @apply pr-0 py-3 pl-2.5;
-  }
-
-  ::ng-deep .ant-pagination-options {
-    @apply ml-0;
-
-    .ant-select-selector {
-      @apply border-0.5 border-solid border-american-silver #{!important};
-    }
-
-    .ant-select {
-      @apply text-toupe-gray;
-    }
-  }
-
-  ::ng-deep .ant-pagination-item {
-    @apply rounded-50% h-[25px] min-w-[25px] leading-25px border-0 bg-transparent;
-    :hover {
-      @apply text-lapis-lazuli
-    }
-    a {
-      @apply text-toupe-gray
-    }
-  }
-
-
   ::ng-deep .ant-table-selection-extra .anticon {
     font-size: 12px !important;
-    color: #fff;
-  }
-
-  ::ng-deep .ant-pagination-item-active {
-    @apply border-0 font-medium bg-white;
-  }
-
-  ::ng-deep .ant-pagination-item-active a{
-    @apply text-lapis-lazuli;
-  }
-
-  ::ng-deep .ant-checkbox-inner {
-    border-radius: 5px;
-    width: 25px;
-    height: 25px;
-  }
-
-  ::ng-deep .ant-checkbox-inner::after {
-    left: 34.5%;
-  }
-
-  ::ng-deep .ant-checkbox-indeterminate .ant-checkbox-inner::after {
-    display: none;
-  }
-  ::ng-deep .ant-table {
-    background-color: white;
-  }
-
-  ::ng-deep .ant-table-container table > thead > tr > th:first-child {
-    border-radius: 15px 0 0 0;
-  }
-
-  ::ng-deep .ant-table-container table > thead > tr > th:last-child {
-    border-radius: 0 15px 0 0;
-  }
-
-  ::ng-deep .ant-table-thead > tr > th {
-    background: #2d639f;
-    color: #fff;
-    font-size: 15px;
-  }
-
-  ::ng-deep .ant-table-thead > tr > th:first-child {
-    border-right: 0 !important;
-  }
-
-  ::ng-deep .ant-table-thead > tr > th:nth-last-child(2) {
-    border-right: 0 !important;
-  }
-
-  ::ng-deep .ant-table-tbody > tr > td {
-    font-size: 15px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #000;
-    border-bottom: solid 0.5px #d3d3d3 !important;
-    border-right: solid 0.5px #d3d3d3 !important;
-  }
-
-  ::ng-deep .ant-table-tbody > tr > td:first-child {
-    border-right: 0 !important;
-  }
-
-  ::ng-deep .ant-table-tbody > tr > td:last-child {
-    border-right: 0 !important;
-  }
-
-  ::ng-deep .ant-table-tbody > tr > td:nth-last-child(2) {
-    border-right: 0 !important;
-  }
-
-  ::ng-deep .ant-table-column-sorter {
     color: #fff;
   }
 }
@@ -185,20 +71,6 @@ nz-list {
   @apply cursor-pointer;
 }
 
-::ng-deep .ant-modal-content {
-  @apply rounded-10px #{!important};
-}
-
-.dynamic-th {
-  ::ng-deep .ant-table-filter-column {
-    @apply w-max #{!important};
-  }
-
-  ::ng-deep .ant-table-column-sorter {
-    @apply ml-2.5;
-  }
-}
-
 .cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
@@ -231,13 +103,4 @@ nz-list {
   top: -2px;
   height: 50px;
 }
-
-.table-header-cell-utils {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 28px;
-}
-
 

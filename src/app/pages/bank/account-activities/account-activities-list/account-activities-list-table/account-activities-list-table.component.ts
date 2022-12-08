@@ -13,6 +13,7 @@ import {
 } from "../../../../../store/filter/filter.action";
 import { KeyLabelValueType } from "../../../../../models/shared/key-label-value.type";
 import { FilterState } from "../../../../../store/filter/filter.state";
+import { PAGE_SIZE } from "../../../../../shared/constants/table-page-size";
 
 interface ItemData {
   id: any;
@@ -95,9 +96,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
   router = inject(Router);
   store = inject(Store);
   filterItemCount = this.store.select(FilterState.getFilterItemsCount);
+  PAGE_SIZE = PAGE_SIZE;
 
   ngOnInit(): void {
-    this.listOfDisplayData = new Array(200).fill(0).map((_, index) => ({
+    this.listOfDisplayData = new Array(2698).fill(0).map((_, index) => ({
       id: index,
       date: {
         value: '07.02.2022 00:00',

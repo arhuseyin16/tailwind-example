@@ -48,6 +48,7 @@ export class AccountActivitiesListComponent implements OnInit {
   filterItems$ = this.store.select(FilterState.getFilterItems);
   filterClearChange = new EventEmitter();
   @ViewChild(TemplateRef) templateRef?: TemplateRef<any>;
+  date: any;
 
   constructor(
     private router: Router,
@@ -123,5 +124,9 @@ export class AccountActivitiesListComponent implements OnInit {
     if (templateRef)
       this.templateRef = templateRef;
     console.log(this.templateRef);
+  }
+
+  onDateChange($event: any) {
+
   }
 }

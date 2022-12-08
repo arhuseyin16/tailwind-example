@@ -28,6 +28,7 @@ module.exports = {
       '5px': '5px',
       '20px': '20px',
       '10px': '10px',
+      '15px': '10px',
       "50%": '50%'
     },
     screens: {
@@ -68,7 +69,8 @@ module.exports = {
         'dark-silver-conf': '#707070',
         'dark-charcoal': '#ABABAB',
         'boston-university-red': '#CE0000',
-        'toupe-gray': '#898989'
+        'toupe-gray': '#898989',
+        'sonic-silver': '#757373'
       },
       gridTemplateRows: {
         '10': 'repeat(10, minmax(0, 1fr))',

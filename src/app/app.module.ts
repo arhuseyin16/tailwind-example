@@ -6,6 +6,7 @@ import { NZ_I18N, tr_TR } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import tr from '@angular/common/locales/tr';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +18,7 @@ import { StoreModule } from "./store/store.module";
 import { NgxTranslateRoutesModule } from "ngx-translate-routes";
 import { CustomMissingTranslationHandler } from "./shared/translate/custom-missing-translation-handler";
 import { AngularSvgIconModule } from "angular-svg-icon";
-registerLocaleData(en);
+registerLocaleData(tr);
 
 @NgModule({
   declarations: [
