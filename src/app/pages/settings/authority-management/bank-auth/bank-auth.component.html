@@ -1,0 +1,26 @@
+<div class="bank-auth-page">
+  <div class="header-title">
+    Kullanıcı: Hüseyin Ar
+  </div>
+  <div class="page-shadow">
+    <div class="header">
+      <div (click)="stepClick('1')" [ngClass]="head1 ? 'flex-active': 'group-flex'">{{'auth-management.accountActivities' |translate }}</div>
+      <div (click)="stepClick('2')" [ngClass]="head2 ? 'flex-active': 'group-flex'">POS</div>
+      <div (click)="stepClick('3')" [ngClass]="head3 ? 'flex-active': 'group-flex'">DBS</div>
+      <div (click)="stepClick('4')" [ngClass]="head4 ? 'flex-active': 'group-flex'">{{'auth-management.e-payment' |translate }}</div>
+    </div>
+    <div class="body">
+      <app-selected-auth
+        [saveButtonClickEvent]="saveClickEvent"
+        (authFormEvent)="selectedAuthForm = $event">
+      </app-selected-auth>
+      <app-account-activities *ngIf="head1"></app-account-activities>
+      <app-pos *ngIf="head2"></app-pos>
+      <app-dbs *ngIf="head3"></app-dbs>
+      <app-e-payment *ngIf="head4"></app-e-payment>
+    </div>
+  </div>
+  <div class="bank-submit">
+    <button class="bank-btn" (click)="save()">{{'system-settings.save' | translate}}</button>
+  </div>
+</div>

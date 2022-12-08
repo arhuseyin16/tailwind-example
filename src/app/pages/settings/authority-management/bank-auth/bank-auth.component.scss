@@ -1,0 +1,78 @@
+.bank-auth-page {
+  padding: 15px 30px 10px 25px;
+
+  .header-title {
+    font-size: 18px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+    margin-bottom: 28px;
+  }
+
+  .page-shadow {
+    border-radius: 15px;
+    box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
+    background-color: #fff;
+
+    .header {
+      background-image: linear-gradient(to right, #2d639f, #87bfad);
+      border-radius: 15px 15px 0 0;
+      display: flex;
+
+      .group-flex {
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #fff;
+        padding: 18px 25px;
+        cursor: pointer;
+      }
+
+      .flex-active {
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #2e649f;
+        padding: 18px 25px;
+        cursor: pointer;
+        border-radius: 13px 13px 0 0;
+        background-color: #fff;
+      }
+    }
+
+    .body {
+      margin-top: 27px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .bank-submit {
+    margin-top: 30px;
+
+    button {
+      width: 241px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: #87bfad;
+      font-size: 20px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #fff;
+    }
+  }
+}

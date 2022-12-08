@@ -11,10 +11,13 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [AccountActivitiesListComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    declarations: [AccountActivitiesListComponent],
+    exports: [
+        AccountActivitiesListComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes)
+    ]
 })
 export class AccountActivitiesListModule { }

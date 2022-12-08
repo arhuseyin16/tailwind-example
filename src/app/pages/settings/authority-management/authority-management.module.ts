@@ -18,11 +18,22 @@ import {NotificationService} from "../../../service/notification/notification.se
 import {NzNotificationService} from "ng-zorro-antd/notification";
 import { UserGroupDeleteModalComponent } from './user-group/user-group-delete-modal/user-group-delete-modal.component';
 import { UserGroupEditModalComponent } from './user-group/user-group-edit-modal/user-group-edit-modal.component';
+import { BankAuthComponent } from './bank-auth/bank-auth.component';
+import {NzRadioModule} from "ng-zorro-antd/radio";
+import { AccountActivitiesComponent } from './bank-auth/account-activities/account-activities.component';
+import { PosComponent } from './bank-auth/pos/pos.component';
+import { DbsComponent } from './bank-auth/dbs/dbs.component';
+import { EPaymentComponent } from './bank-auth/e-payment/e-payment.component';
+import { SelectedAuthComponent } from './bank-auth/selected-auth/selected-auth.component';
 
 const routes: Routes = [
   {
     path: 'user-group',
     component: UserGroupComponent
+  },
+  {
+    path: 'bank-auth',
+    component: BankAuthComponent
   },
   {
     path: '',
@@ -38,7 +49,13 @@ const routes: Routes = [
     UserGroupTableComponent,
     UserGroupNewRecordModalComponent,
     UserGroupDeleteModalComponent,
-    UserGroupEditModalComponent
+    UserGroupEditModalComponent,
+    BankAuthComponent,
+    AccountActivitiesComponent,
+    PosComponent,
+    DbsComponent,
+    EPaymentComponent,
+    SelectedAuthComponent
   ],
     imports: [
         CommonModule,
@@ -51,7 +68,8 @@ const routes: Routes = [
         NzMenuModule,
         NzDropDownModule,
         NzTableModule,
-        FormsModule
+        FormsModule,
+        NzRadioModule
     ],
   providers: [
     ModalService,
