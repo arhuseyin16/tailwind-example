@@ -259,7 +259,11 @@
     "userName": "Kullanıcı Adı",
     "created": "Oluşturma",
     "groupEdit": "Grup Düzenle",
-    "bankAuthEdit": "Banka Erişim Yetkiri Düzenle"
-
+    "bankAuthEdit": "Banka Erişim Yetkiri Düzenle",
+    "edit": "Düzenle",
+    "authEdit": "Yetkileri Düzenle",
+    "modules": "Moduller",
+    "screen": "Ekranlar",
+    "auth": "Yetkiler"
   }
 }

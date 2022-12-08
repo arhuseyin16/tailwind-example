@@ -24,6 +24,9 @@ import {
 import {
   UserGroupDeleteModalComponent
 } from "../../pages/settings/authority-management/user-group/user-group-delete-modal/user-group-delete-modal.component";
+import {
+  UserGroupEditModalComponent
+} from "../../pages/settings/authority-management/user-group/user-group-edit-modal/user-group-edit-modal.component";
 
 @Injectable()
 export class ModalService {
@@ -35,6 +38,7 @@ export class ModalService {
   tagNewRecordCreatedRef?: NzModalRef;
   userGroupNewRecordRef?: NzModalRef
   userGroupDeleteRef?: NzModalRef;
+  userGroupEditRef?: NzModalRef;
 
   constructor(private nzModalService: NzModalService) {
   }
@@ -141,5 +145,18 @@ export class ModalService {
       nzWidth: '586px',
     });
     return this.userGroupDeleteRef;
+  }
+
+  userGroupEditModal(): NzModalRef {
+    this.userGroupEditRef = this.nzModalService.create({
+      nzContent: UserGroupEditModalComponent,
+      nzComponentParams: {},
+      nzClosable: false,
+      nzFooter: null,
+      nzKeyboard: false,
+      nzMaskClosable: false,
+      nzWidth: '586px',
+    });
+    return this.userGroupEditRef;
   }
 }

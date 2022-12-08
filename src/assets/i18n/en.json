@@ -259,6 +259,11 @@
     "userName": "User Name",
     "created": "Created",
     "groupEdit": "Group Edit",
-    "bankAuthEdit": "Bank Auth. Edit"
+    "bankAuthEdit": "Bank Auth. Edit",
+    "edit": "Edit",
+    "authEdit": "Auth Edit",
+    "modules": "Modules",
+    "screen": "Screen",
+    "auth": "Auth."
   }
 }

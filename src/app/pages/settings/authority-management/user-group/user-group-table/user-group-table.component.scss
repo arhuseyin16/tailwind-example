@@ -32,6 +32,58 @@
     border-right: solid 0.5px #d3d3d3;
   }
 
+  ::ng-deep .ant-table-tbody > tr.child-table > td {
+    background-color: #e8f3ff;
+  }
+
+  ///child table scss start
+
+  ::ng-deep nz-table.ant-table-wrapper.child-detail.ng-star-inserted {
+    background: #e8f3ff;
+
+    ::ng-deep .ant-table-row {
+      &:hover {
+        background-color:  #e8f3ff;
+      }
+    }
+
+    ::ng-deep .ant-table {
+      background-color: #e8f3ff;
+    }
+
+    ::ng-deep tr.ant-table-expanded-row > td, tr.ant-table-expanded-row:hover > td {
+      background: red;
+    }
+
+    ::ng-deep .ant-table-thead > tr > th {
+      background-color: #e8f3ff;
+      font-size: 15px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+      border: none;
+    }
+
+    ::ng-deep .ant-table-tbody > tr > td {
+      font-size: 15px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+      border: none;
+      border-bottom: solid 0.5px #ffffff;
+    }
+  }
+
+  ///child table scss end
+
   ::ng-deep .ant-table-tbody > tr > td.check-td {
     font-size: 15px;
     font-weight: normal;
@@ -53,6 +105,7 @@
   .userName-option {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     .right-ok {
       width: 10px;
@@ -81,6 +134,28 @@
     }
   }
 
+  .ant-select {
+    width: 100%;
+    ::ng-deep .ant-select-selector {
+      //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
+      border: solid 0.5px #ABABAB;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 14px;
+    }
+
+    ::ng-deep .ant-select-arrow {
+      color: #000000;
+    }
+  }
+
+  input {
+    border: solid 0.5px #ABABAB;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 14px;
+  }
+
   .action-tab {
     position: relative;
 
@@ -94,6 +169,35 @@
         width: 6px;
         height: 20px;
         object-fit: contain;
+      }
+    }
+
+    .other-process {
+      position: absolute;
+      top: 14px;
+      display: grid;
+      right: 10px;
+
+      .save {
+        font-size: 15px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0079ff;
+      }
+
+      .delete {
+        font-size: 15px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #e53030;
       }
     }
   }

@@ -5,7 +5,7 @@ import {NzPopoverModule} from "ng-zorro-antd/popover";
 import {TranslateModule} from "@ngx-translate/core";
 import {NzSelectModule} from "ng-zorro-antd/select";
 import {NzInputModule} from "ng-zorro-antd/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzTableModule} from "ng-zorro-antd/table";
 import { UserGroupComponent } from './user-group/user-group.component';
 import { UserGroupTableComponent } from './user-group/user-group-table/user-group-table.component';
@@ -17,6 +17,7 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 import {NotificationService} from "../../../service/notification/notification.service";
 import {NzNotificationService} from "ng-zorro-antd/notification";
 import { UserGroupDeleteModalComponent } from './user-group/user-group-delete-modal/user-group-delete-modal.component';
+import { UserGroupEditModalComponent } from './user-group/user-group-edit-modal/user-group-edit-modal.component';
 
 const routes: Routes = [
   {
@@ -36,20 +37,22 @@ const routes: Routes = [
     UserGroupComponent,
     UserGroupTableComponent,
     UserGroupNewRecordModalComponent,
-    UserGroupDeleteModalComponent
+    UserGroupDeleteModalComponent,
+    UserGroupEditModalComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NzPopoverModule,
-    TranslateModule,
-    NzSelectModule,
-    NzInputModule,
-    ReactiveFormsModule,
-    NzMenuModule,
-    NzDropDownModule,
-    NzTableModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        NzPopoverModule,
+        TranslateModule,
+        NzSelectModule,
+        NzInputModule,
+        ReactiveFormsModule,
+        NzMenuModule,
+        NzDropDownModule,
+        NzTableModule,
+        FormsModule
+    ],
   providers: [
     ModalService,
     NzModalService,

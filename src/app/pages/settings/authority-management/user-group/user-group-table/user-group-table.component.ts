@@ -10,6 +10,7 @@ import {ModalService} from "../../../../../service/modal-service/modal.service";
 })
 export class UserGroupTableComponent implements OnInit {
   pageSize = PAGE_SIZE;
+  editCache: { [key: string]: { edit: boolean; data: any } } = {};
   listOfColumn = [
     {
       title:'auth-management.groupName',
@@ -23,7 +24,7 @@ export class UserGroupTableComponent implements OnInit {
       compare: (a: any, b: any) => a.userName - b.userName,
       sort: false,
       sortOrder: null,
-      width: "auto"
+      width: "540px"
     },
     {
       title:'auth-management.authScheme',
@@ -61,6 +62,13 @@ export class UserGroupTableComponent implements OnInit {
   listOfCurrentPageData: readonly any[] = [];
   listOfData: readonly any[] = [];
   setOfCheckedId = new Set<number>();
+  authSchemeList: any[] = [];
+  userNameList: any[] = [];
+  userAndAuthList: any[] = [];
+  accordionUserIndex: any[] = [];
+  accordionAuthIndex: any[] = [];
+  lastSchemeId?: number;
+  lastAuthId?: number;
 
   constructor( private notificationService: NotificationService,
                private modalService: ModalService) { }
@@ -71,30 +79,79 @@ export class UserGroupTableComponent implements OnInit {
         id: 1,
         name: 'IT Yetki Şeması',
         auth: [
-          {id: 1, name: 'Banka İşlemleri'},
-          {id: 2, name: 'DBS'},
-          {id: 3, name: 'Pos'},
-          {id: 4, name: 'E Ödeme'},
+          {id: 1, authName: 'Banka İşlemleri'},
+          {id: 2, authName: 'DBS'},
+          {id: 3, authName: 'Pos'},
+          {id: 4, authName: 'E Ödeme'},
         ]
       },
       {
         id: 2,
         name: 'Muasebe Yetki Şeması',
         auth: [
-          {id: 1, name: 'Banka İşlemleri'},
-          {id: 2, name: 'DBS'},
-          {id: 3, name: 'Pos'},
-          {id: 4, name: 'E Ödeme'},
+          {id: 1, authName: 'Banka İşlemleri'},
+          {id: 2, authName: 'DBS'},
+          // {id: 3, authName: 'Pos'},
+          // {id: 4, authName: 'E Ödeme'}
         ]
+      }
+    ];
+    const userName = [
+      {
+        id: 1,
+        name: 'Hüseyin Ar',
+      },
+      {
+        id: 2,
+        name: 'Büşra Çetinkaya',
+      },
+      {
+        id: 3,
+        name: 'Ömer Faruk Arslan',
+      },
+      {
+        id: 4,
+        name: 'Ersoy Vatansever',
+      },
+      {
+        id: 5,
+        name: 'Vesile Soytürk',
+      },
+      {
+        id: 6,
+        name: 'Ali Veli',
+      },
+      {
+        id: 7,
+        name: 'Ahmet Mehmet',
+      },
+    ]
+    const userName2 = [
+      {
+        id: 1,
+        name: 'Hüseyin Ar',
+      },
+      {
+        id: 2,
+        name: 'Büşra Çetinkaya',
+      },
+      {
+        id: 3,
+        name: 'Ömer Faruk Arslan',
+      },
+      {
+        id: 4,
+        name: 'Vesile Soytürk',
       }
     ]
     this.listOfData = new Array(20).fill(0).map((_, index) => ({
       id: index,
       groupName: 'Frontend',
-      userName: index % 2 === 0 ? ['Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar']: ['Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar', 'Hüseyin Ar'],
+      userName: index%2 === 0 ? userName: userName2,
       authScheme: scheme,
-      created: '12.10.2022 17:50',
+      created: '12.10.2022 17:50'
     }));
+    this.updateEditCache();
   }
 
   updateCheckedSet(id: number, checked: boolean): void {
@@ -128,6 +185,113 @@ export class UserGroupTableComponent implements OnInit {
   delete(id: number) {
     this.modalService.userGroupDeleteModal(id).afterClose.subscribe(res => {
       console.log(res);
+    });
+  }
+
+  rowUserNameDetail(id: number, data: any) {
+    this.listOfData.map((row: any, index: number) => {
+      if (row.id === id) {
+        this.accordionUserIndex[index] = this.accordionUserIndex[index] === undefined ? true : !this.accordionUserIndex[index];
+        this.userNameList = [];
+        if (this.accordionUserIndex[index]) {
+          this.userNameList = data.userName;
+          if (this.accordionAuthIndex[index]) {
+            this.userAndAuthList = [];
+            this.authSchemeList.map(x => {
+              this.userAndAuthList.push({
+                id: x.id,
+                userName: '**',
+                authName: x.authName
+              });
+            });
+            this.userNameList.map((x, i) => {
+              if (this.userAndAuthList[i]?.userName) {
+                this.userAndAuthList[i].userName = x.name;
+              } else {
+                this.userAndAuthList.push({
+                  id: x.id,
+                  userName: x.name
+                });
+              }
+            });
+          }
+        }
+      } else {
+        this.accordionUserIndex[index] = false;
+      }
+    });
+  }
+
+  rowAuthSchemeDetail(id: number, auth: any) {
+    this.listOfData.map((row: any, index: number) => {
+      if (row.id === id) {
+        if (this.lastSchemeId === row.id && this.lastAuthId !== auth.id) {
+          this.accordionAuthIndex[index] = true;
+        } else {
+          this.accordionAuthIndex[index] = this.accordionAuthIndex[index] === undefined ? true : !this.accordionAuthIndex[index];
+        }
+        this.authSchemeList = [];
+        if (this.accordionAuthIndex[index]) {
+          this.authSchemeList = auth.auth;
+          if (this.accordionUserIndex[index]) {
+            this.userAndAuthList = [];
+            this.authSchemeList.map(x => {
+              this.userAndAuthList.push({
+                id: x.id,
+                userName: '**',
+                authName: x.authName
+              });
+            });
+            this.userNameList.map((x, i) => {
+              if (this.userAndAuthList[i]?.userName) {
+                this.userAndAuthList[i].userName = x.name;
+              } else {
+                this.userAndAuthList.push({
+                  id: x.id,
+                  userName: x.name
+                });
+              }
+            });
+          }
+        }
+      } else {
+        this.accordionAuthIndex[index] = false;
+      }
+    });
+    this.lastSchemeId = id;
+    this.lastAuthId = auth.id;
+  }
+
+  authEditModalClick() {
+    this.modalService.userGroupEditModal().afterClose.subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  startEdit(id: string): void {
+    this.editCache[id].edit = true;
+  }
+
+  cancelEdit(id: string): void {
+    const index = this.listOfData.findIndex(item => item.id === id);
+    this.editCache[id] = {
+      data: { ...this.listOfData[index] },
+      edit: false
+    };
+  }
+
+  saveEdit(id: string): void {
+    const index = this.listOfData.findIndex(item => item.id === id);
+    Object.assign(this.listOfData[index], this.editCache[id].data);
+    this.editCache[id].edit = false;
+  }
+
+  updateEditCache(): void {
+    this.listOfData.forEach(item => {
+      this.editCache[item.id] = {
+        edit: false,
+        data: { ...item }
+      };
     });
   }
 }
