@@ -1,7 +1,7 @@
 <div class="w-full">
   <div class="bg-eton-blue rounded-t-10px px-[30px] py-[17px]">
     <div class="w-full flex justify-between">
-      <div class="text-white text-20-normal">Kullanıcı Açıklamasını Düzenle</div>
+      <div class="text-white text-20-normal">{{'account-activities-list-filter.edit-description.title' | translate}}</div>
       <div>
         <svg-icon src="assets/svg/close-icon.svg" [svgClass]="'filter-white'"
                   (click)="closeEditUserDescriptionModal()"></svg-icon>
@@ -12,11 +12,11 @@
   <div class="pt-[24px] px-[45px]">
     <div class="w-full">
       <div class="w-full">
-        <label class="text-20-normal width-full font-light">İşlem Id: {{processId}}</label>
+        <label class="text-20-normal width-full font-light">{{'account-activities-list-filter.edit-description.processId' | translate}}: {{processId}}</label>
       </div>
       <div class="mt-2.5">
         <div class="w-full">
-          <label class="text-20-normal width-full font-light">Açıklama</label>
+          <label class="text-20-normal width-full font-light">{{'account-activities-list-filter.edit-description.description' | translate}}</label>
         </div>
         <div class="w-full mt-3.5">
           <textarea class="border-black rounded-10px shadow-none hover:border-black hover:shadow-none focus:border-black focus:shadow-none" nz-input
@@ -29,13 +29,13 @@
         <button
           class="w-full px-[98px] py-[11px] bg-white text-eton-blue border-2 border-eton-blue text-20-normal rounded-10px hover:bg-white hover:text-eton-blue focus:bg-white focus:text-eton-blue active:border-eton-blue"
           (click)="cancel()"
-        >İptal</button>
+        >{{'account-activities-list-filter.edit-description.cancel' | translate}}</button>
       </div>
       <div class="w-full pl-2">
         <button
           class="w-full px-[84px] py-[11px] bg-eton-blue text-white text-20-normal rounded-10px hover:bg-eton-blue hover:text-white focus:bg-eton-blue focus:text-white"
           (click)="save()"
-        >Kaydet</button>
+        >{{'account-activities-list-filter.edit-description.save' | translate}}</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
-import { CdkDragDrop, CdkDragStart, moveItemInArray } from "@angular/cdk/drag-drop";
+import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { ModalService } from "../../../../../service/modal/modal.service";
 import { PrintReceiptModalComponent } from "../print-receipt-modal/print-receipt-modal.component";
 import { SelectDeleteRecordModalComponent } from "../select-delete-record-modal/select-delete-record-modal.component";
@@ -154,7 +154,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
     this.listOfAddColumn = [
       {
         key: 'date',
-        name: 'Tarih',
+        name: 'account-activities-list-filter.table.date',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.date.value.localeCompare(b.date.value),
         listOfFilter: [],
@@ -167,10 +167,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'firm',
-        name: 'Firma',
+        name: 'account-activities-list-filter.table.firm',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.firm.value.localeCompare(b.firm.value),
-        listOfFilter: this.getColumnsByColumnName('firm'),
+        listOfFilter: this.getColumnsByColumnKey('firm'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -180,10 +180,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'bank',
-        name: 'Banka',
+        name: 'account-activities-list-filter.table.bank',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.bank.value.localeCompare(b.bank.value),
-        listOfFilter: this.getColumnsByColumnName('bank'),
+        listOfFilter: this.getColumnsByColumnKey('bank'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -193,10 +193,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'branch',
-        name: 'Şube',
+        name: 'account-activities-list-filter.table.branch',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.branch.value.localeCompare(b.branch.value),
-        listOfFilter: this.getColumnsByColumnName('branch'),
+        listOfFilter: this.getColumnsByColumnKey('branch'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -206,10 +206,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'accountType',
-        name: 'Hesap Türü',
+        name: 'account-activities-list-filter.table.accountType',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.accountType.value.localeCompare(b.accountType.value),
-        listOfFilter: this.getColumnsByColumnName('accountType'),
+        listOfFilter: this.getColumnsByColumnKey('accountType'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -219,10 +219,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'accountNumber',
-        name: 'Hesap Numarası',
+        name: 'account-activities-list-filter.table.accountNumber',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.accountNumber.value.localeCompare(b.accountNumber.value),
-        listOfFilter: this.getColumnsByColumnName('accountNumber'),
+        listOfFilter: this.getColumnsByColumnKey('accountNumber'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -232,10 +232,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'amount',
-        name: 'Tutar',
+        name: 'account-activities-list-filter.table.amount',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.amount.value.localeCompare(b.amount.value),
-        listOfFilter: this.getColumnsByColumnName('amount'),
+        listOfFilter: this.getColumnsByColumnKey('amount'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -245,10 +245,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'balance',
-        name: 'Bakiye',
+        name: 'account-activities-list-filter.table.balance',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.balance.value.localeCompare(b.balance.value),
-        listOfFilter: this.getColumnsByColumnName('balance'),
+        listOfFilter: this.getColumnsByColumnKey('balance'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -258,7 +258,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'endDate',
-        name: 'Bitiş Tarihi',
+        name: 'account-activities-list-filter.table.endDate',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.endDate.value.localeCompare(b.endDate.value),
         listOfFilter: [],
@@ -271,10 +271,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'currencyType',
-        name: 'Para Birimi',
+        name: 'account-activities-list-filter.table.currencyType',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.currencyType.value.localeCompare(b.currencyType.value),
-        listOfFilter: this.getColumnsByColumnName('currencyType'),
+        listOfFilter: this.getColumnsByColumnKey('currencyType'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -284,10 +284,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'willBorrow',
-        name: 'Borç/Alacak',
+        name: 'account-activities-list-filter.table.willBorrow',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.willBorrow.value.localeCompare(b.willBorrow.value),
-        listOfFilter: this.getColumnsByColumnName('willBorrow'),
+        listOfFilter: this.getColumnsByColumnKey('willBorrow'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -297,10 +297,10 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'account',
-        name: 'Hesap',
+        name: 'account-activities-list-filter.table.account',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.account.value.localeCompare(b.account.value),
-        listOfFilter: this.getColumnsByColumnName('account'),
+        listOfFilter: this.getColumnsByColumnKey('account'),
         showFilterField: true,
         filterVisible: false,
         filterValue: '',
@@ -364,7 +364,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
     this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
   }
 
-  getColumnsByColumnName(key: string): Array<TableFilterList> {
+  getColumnsByColumnKey(key: string): Array<TableFilterList> {
     let filterList: Array<TableFilterList> = [];
     this.listOfData.forEach((data) => {
       filterList.push({
@@ -385,7 +385,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
     let filterList: TableFilterList[] | null = [];
 
     // Kolon bazlı, filtre içerisinde ki search inputuna girilen değerlere göre filtre yapılıyor.
-    filterList = column.filterValue ? this.getColumnsByColumnName(column.key)?.filter((item) => item.label.toLowerCase().indexOf(column.filterValue.toLowerCase()) !== -1) : this.getColumnsByColumnName(column.key);
+    filterList = column.filterValue ? this.getColumnsByColumnKey(column.key)?.filter((item) => item.label.toLowerCase().indexOf(column.filterValue.toLowerCase()) !== -1) : this.getColumnsByColumnKey(column.key);
     // Filtre sonucuna göre checked alanı true olanlar listeye setleniyor.
     filterList.forEach(item => {
       this.filterOfCheckedItems.forEach(filterItem => {

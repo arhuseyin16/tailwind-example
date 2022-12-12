@@ -92,7 +92,7 @@
     "total": "Toplam",
     "creditLimit": "Kredi Limiti",
     "availableCreditLimit": "Kullanılabilir Kredi Limiti",
-    "blockedBalance":  "Bloklu Bakiye",
+    "blockedBalance": "Bloklu Bakiye",
     "availableBalance": "Kullanılabilir Bakiye",
     "creditAvailableBalance": "Kredili Kullanılabilir Bakiye"
   },
@@ -293,8 +293,8 @@
     "currency-unit": "Para Birimi",
     "willBorrows": "Borç/Alacak",
     "companies": "Firmalar",
-    "banks" : "Bankalar",
-    "branches" : "Şubeler",
+    "banks": "Bankalar",
+    "branches": "Şubeler",
     "account-types": "Hesap Türleri",
     "accounts": "Hesaplar",
     "transaction-types": "İşlem Türleri",
@@ -326,11 +326,53 @@
     "additional-field-fifth": "Ek Alan 5",
     "additional-field-sixth": "Ek Alan 6",
     "save": "Kaydet",
+    "filterSave": "Filtreyi Kaydet",
     "share": "Paylaş",
     "clear-all": "Hepsini Temizle",
+    "clear": "Temizle",
     "inquire": "Sorgula",
     "filter-share": "Filtre Paylaş",
+    "search-dots": "Ara...",
     "users-send": "Kullanıcıya Gönder",
-    "groups-send": "Gruba Gönder"
+    "groups-send": "Gruba Gönder",
+    "table": {
+      "date": "Tarih",
+      "firm": "Firma",
+      "bank": "Banka",
+      "branch": "Şube",
+      "accountType": "Hesap Türü",
+      "accountNumber": "Hesap Numarası",
+      "amount": "Tutar",
+      "balance": "Bakiye",
+      "endDate": "Bitiş Tarihi",
+      "currencyUnit": "Para Birimi",
+      "willBorrow": "Borç/Alacak",
+      "account": "Hesap"
+    },
+    "favorite-filter": {
+      "title": "Favori filtre oluştur",
+      "name": "Filtre Adı",
+      "create": "Oluştur"
+    },
+    "edit-description": {
+      "title": "Kullanıcı Açıklamasını Düzenle",
+      "processId": "İşlem Id",
+      "description": "Açıklama",
+      "cancel": "İptal",
+      "save": "Kaydet"
+    },
+    "receipt": {
+      "title": "Dekont Yazdır",
+      "confirmQuestion": "Seçili Kayıtlar yazdırılacak. Onaylıyor musunuz?",
+      "cancel": "İptal",
+      "approve": "Onayla"
+    },
+    "delete-record": {
+      "title": "Seçili Kayıtları Sil",
+      "confirmQuestion": "Silmek istediğinize emin misiniz?",
+      "note": "Not: Sildiğiniz işlem kayıt altına alınacaktır. Daha sonra işlemi geri alabilirsiniz.",
+      "cancel": "İptal",
+      "approve": "Onayla"
+    }
   }
 }

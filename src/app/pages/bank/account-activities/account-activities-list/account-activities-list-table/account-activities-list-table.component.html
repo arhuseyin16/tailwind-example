@@ -32,7 +32,7 @@
           [nzWidth]="column.width ? column.width : 'auto'"
       >
         <div cdkDragHandle>
-          {{column.name}}
+          {{column.name | translate}}
         </div>
         <nz-resize-handle nz-th-extra [nzDirection]="'right'"></nz-resize-handle>
         <nz-filter-trigger *ngIf="column.showFilterField" [(nzVisible)]="column.filterVisible" [nzDropdownMenu]="menu">

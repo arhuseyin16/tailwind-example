@@ -1,7 +1,7 @@
 <div class="w-full">
   <div class="bg-eton-blue rounded-t-10px px-[30px] py-[17px]">
     <div class="w-full flex justify-between">
-      <div class="text-white text-20-normal">Dekont Yazdır</div>
+      <div class="text-white text-20-normal">{{'account-activities-list-filter.receipt.title' | translate}}</div>
       <div>
         <svg-icon src="assets/svg/close-icon.svg" [svgClass]="'filter-white'"
                   (click)="closePrintReceiptModal()"></svg-icon>
@@ -11,7 +11,7 @@
 
   <div class="pt-[60px] px-[45px]">
     <div class="text-center w-full">
-      <label class="text-20-normal font-light">Seçili Kayıtlar yazdırılacak. Onaylıyor musunuz?</label>
+      <label class="text-20-normal font-light">{{'account-activities-list-filter.receipt.confirmQuestion' | translate}}</label>
     </div>
     <div class="flex py-[46px]">
       <div class="w-full pr-2">
@@ -19,13 +19,13 @@
           class="w-full px-[98px] py-[11px] bg-white text-eton-blue border-2 border-eton-blue text-20-normal rounded-10px hover:bg-white hover:text-eton-blue
           focus:bg-white focus:text-eton-blue active:border-eton-blue focus-visible:border-eton-blue"
           (click)="cancel()"
-        >İptal</button>
+        >{{'account-activities-list-filter.receipt.cancel' | translate}}</button>
       </div>
       <div class="w-full pl-2">
         <button
           class="w-full px-[84px] py-[11px] bg-eton-blue text-white text-20-normal rounded-10px hover:bg-eton-blue hover:text-white focus:bg-eton-blue focus:text-white"
           (click)="approve()"
-        >Onayla</button>
+        >{{'account-activities-list-filter.receipt.approve' | translate}}</button>
       </div>
     </div>
   </div>

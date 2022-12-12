@@ -326,9 +326,51 @@
     "additional-field-fifth": "Additional Field 5",
     "additional-field-sixth": "Additional Field 6",
     "save": "Save",
+    "filterSave": "Filter Save",
     "share": "Share",
     "clear-all": "Clear All",
+    "clear": "Clear",
     "inquire": "Inquire",
-    "filter-share": "Filter Share"
+    "filter-share": "Filter Share",
+    "search-dots": "Search...",
+    "table": {
+      "date": "Date",
+      "firm": "Firm",
+      "bank": "Bank",
+      "branch": "Branch",
+      "accountType": "Account Type",
+      "accountNumber": "Account Number",
+      "amount": "Amount",
+      "balance": "Balance",
+      "endDate": "End Date",
+      "currencyUnit": "Currency Type",
+      "willBorrow": "Debt/Receivable",
+      "account": "Account"
+    },
+    "favorite-filter": {
+      "title": "Create favorite filter",
+      "name": "Filter Name",
+      "create": "Create"
+    },
+    "edit-description": {
+      "title": "Editing User Description",
+      "processId": "Process Id",
+      "description": "Description",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "receipt": {
+      "title": "Print Receipt",
+      "confirmQuestion": "The selected Records will be printed. Do you confirm?",
+      "cancel": "Cancel",
+      "approve": "Approve"
+    },
+    "delete-record": {
+      "title": "Delete Selected Records",
+      "confirmQuestion": "Are you sure you want to delete?",
+      "note": "Note: The transaction you deleted will be recorded. You can then undo the action.",
+      "cancel": "Cancel",
+      "approve": "Approve"
+    }
   }
 }
