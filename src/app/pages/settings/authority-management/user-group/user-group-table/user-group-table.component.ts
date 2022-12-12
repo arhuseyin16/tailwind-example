@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PAGE_SIZE} from "../../../../../shared/constants/table-page-size";
 import {NotificationService} from "../../../../../service/notification/notification.service";
 import {ModalService} from "../../../../../service/modal-service/modal.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-group-table',
@@ -71,6 +72,7 @@ export class UserGroupTableComponent implements OnInit {
   lastAuthId?: number;
 
   constructor( private notificationService: NotificationService,
+               private router: Router,
                private modalService: ModalService) { }
 
   ngOnInit(): void {
@@ -293,5 +295,9 @@ export class UserGroupTableComponent implements OnInit {
         data: { ...item }
       };
     });
+  }
+
+  bankAuthClick() {
+    this.router.navigate(['ui/setting/auth-management/bank-auth'], {queryParams: {id: 1, type: 'group', name: 'IT'}});
   }
 }

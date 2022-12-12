@@ -1,6 +1,7 @@
 <div class="bank-auth-page">
-  <div class="header-title">
-    Kullanıcı: Hüseyin Ar
+  <div class="header-title" *ngIf="type && headerName">
+    <span *ngIf="type === 'user'">{{'auth-management.user' | translate}}: {{headerName}}</span>
+    <span *ngIf="type === 'group'">{{'auth-management.group' | translate}}: {{headerName}}</span>
   </div>
   <div class="page-shadow">
     <div class="header">
@@ -10,14 +11,31 @@
       <div (click)="stepClick('4')" [ngClass]="head4 ? 'flex-active': 'group-flex'">{{'auth-management.e-payment' |translate }}</div>
     </div>
     <div class="body">
-      <app-selected-auth
-        [saveButtonClickEvent]="saveClickEvent"
+      <app-selected-auth *ngIf="!type && !headerName"
+        [saveButtonClickEvent]="saveAuthClickEvent"
         (authFormEvent)="selectedAuthForm = $event">
       </app-selected-auth>
-      <app-account-activities *ngIf="head1"></app-account-activities>
-      <app-pos *ngIf="head2"></app-pos>
-      <app-dbs *ngIf="head3"></app-dbs>
-      <app-e-payment *ngIf="head4"></app-e-payment>
+      <app-account-activities
+        *ngIf="head1"
+        [saveButtonClickEvent]="saveAccountClickEvent"
+        (accountFormEvent)="selectedAccountForm = $event">
+      </app-account-activities>
+      <app-pos
+        *ngIf="head2"
+        [saveButtonClickEvent]="savePosClickEvent"
+        (posFormEvent)="selectedPosForm = $event"
+      >
+      </app-pos>
+      <app-dbs
+        *ngIf="head3"
+        [saveButtonClickEvent]="saveDbsClickEvent"
+        (dbsFormEvent)="selectedDbsForm = $event">
+      </app-dbs>
+      <app-e-payment
+        *ngIf="head4"
+        [saveButtonClickEvent]="savePaymentClickEvent"
+        (paymentFormEvent)="selectedPaymentForm = $event">
+      </app-e-payment>
     </div>
   </div>
   <div class="bank-submit">

@@ -19,10 +19,10 @@ export class SelectedAuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.saveButtonClickEvent.subscribe(res => {
-      if(res) {
-        this.authFormEvent.emit(this.authForm)
+      if (res) {
+        this.authFormEvent.emit(this.authForm);
       }
-    })
+    });
   }
 
 }

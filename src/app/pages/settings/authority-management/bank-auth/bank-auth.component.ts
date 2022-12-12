@@ -1,11 +1,12 @@
-import {ChangeDetectorRef, Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {HeaderConfigAction} from "../../../../store/header-config/header-config.action";
 import {FavoriteAction} from "../../../../store/favorite/favorite.action";
 import {HeaderConfigModel} from "../../../../models/header-config-model";
 import {FavoriteStateModel} from "../../../../models/favorite-state.model";
 import {Store} from "@ngxs/store";
-import {Router} from "@angular/router";
-import {Form, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {FormGroup} from "@angular/forms";
+import {NotificationService} from "../../../../service/notification/notification.service";
 
 @Component({
   selector: 'app-bank-auth',
@@ -19,15 +20,30 @@ export class BankAuthComponent implements OnInit {
   head2 = false;
   head3 = false;
   head4 = false;
+  type: any = undefined;
+  headerName: any = undefined;
 
-  saveClickEvent = new EventEmitter();
+  //auth
+  saveAuthClickEvent = new EventEmitter();
   selectedAuthForm?: FormGroup;
+  //accountActivities
+  saveAccountClickEvent = new EventEmitter();
+  selectedAccountForm?: FormGroup;
+  //pos
+  savePosClickEvent = new EventEmitter();
+  selectedPosForm?: FormGroup;
+  //dbs
+  saveDbsClickEvent = new EventEmitter();
+  selectedDbsForm?: FormGroup;
+  //payment
+  savePaymentClickEvent = new EventEmitter();
+  selectedPaymentForm?: FormGroup;
 
   constructor(
               private store: Store,
               private router: Router,
-              private fb: FormBuilder,
-              private cdr: ChangeDetectorRef) {
+              private activatedRoute: ActivatedRoute,
+              private notificationService: NotificationService) {
     const dataObj = {
       title: 'Banka Erişim Yetkileri',
     }
@@ -41,9 +57,19 @@ export class BankAuthComponent implements OnInit {
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));
+    this.urlActivatedParams();
   }
 
   ngOnInit(): void {
+  }
+
+  urlActivatedParams() {
+    this.activatedRoute.queryParams.pipe().subscribe((params: any) => {
+      if (params) {
+       this.type = params.type;
+       this.headerName = params.name;
+      }
+    });
   }
 
   stepClick(active: string) {
@@ -71,12 +97,19 @@ export class BankAuthComponent implements OnInit {
   }
 
   save() {
-    console.log('dsds');
-    this.saveClickEvent.emit(true);
-    console.log(this.selectedAuthForm);
-  }
-
-  authFormChange(authForm: any) {
-    console.log(authForm);
+    this.type && this.headerName ? this.saveAuthClickEvent.emit(false) : this.saveAuthClickEvent.emit(true);
+    this.saveAccountClickEvent.emit(true);
+    this.savePosClickEvent.emit(true);
+    this.saveDbsClickEvent.emit(true);
+    this.savePaymentClickEvent.emit(true);
+    if (this.selectedAuthForm === undefined || this.selectedAuthForm?.status === 'VALID') {
+      console.log(this.selectedAuthForm);
+      console.log(this.selectedAccountForm);
+      console.log(this.selectedPosForm);
+      console.log(this.selectedDbsForm);
+      console.log(this.selectedPaymentForm);
+    } else {
+      this.notificationService.warning('Uyarı', 'Yetkili Seçiniz!');
+    }
   }
 }

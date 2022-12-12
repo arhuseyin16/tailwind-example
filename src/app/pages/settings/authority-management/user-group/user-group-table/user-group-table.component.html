@@ -55,7 +55,7 @@
 
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu style="width: 250px">
-              <li nz-menu-item>{{'auth-management.bankAuthEdit' | translate}}</li>
+              <li nz-menu-item (click)="bankAuthClick()">{{'auth-management.bankAuthEdit' | translate}}</li>
               <li nz-menu-item (click)="startEdit(data.id)">{{'auth-management.groupEdit' | translate}}</li>
               <li nz-menu-item (click)="delete(data.id)">{{'settings-exchange.delete' | translate}}</li>
             </ul>
