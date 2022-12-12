@@ -345,7 +345,8 @@
       "endDate": "End Date",
       "currencyUnit": "Currency Type",
       "willBorrow": "Debt/Receivable",
-      "account": "Account"
+      "account": "Account",
+      "between": "between"
     },
     "favorite-filter": {
       "title": "Create favorite filter",

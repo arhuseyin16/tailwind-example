@@ -69,7 +69,7 @@
                   <nz-list>
                     <nz-list-item *cdkVirtualFor="let column of listOfAddColumn; trackBy: trackByName">
                       <label nz-checkbox [(nzChecked)]="column.checked"
-                             (nzCheckedChange)="selectedColumnCheckedChange(column)">{{column.name}}</label>
+                             (nzCheckedChange)="selectedColumnCheckedChange(column)">{{column.name | translate}}</label>
                     </nz-list-item>
                   </nz-list>
                 </cdk-virtual-scroll-viewport>

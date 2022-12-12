@@ -271,7 +271,7 @@ export class AccountActivitiesListTableComponent implements OnInit {
       },
       {
         key: 'currencyType',
-        name: 'account-activities-list-filter.table.currencyType',
+        name: 'account-activities-list-filter.table.currencyUnit',
         sortOrder: null,
         sortFn: (a: ItemData, b: ItemData) => a.currencyType.value.localeCompare(b.currencyType.value),
         listOfFilter: this.getColumnsByColumnKey('currencyType'),

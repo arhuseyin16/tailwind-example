@@ -347,7 +347,8 @@
       "endDate": "Bitiş Tarihi",
       "currencyUnit": "Para Birimi",
       "willBorrow": "Borç/Alacak",
-      "account": "Hesap"
+      "account": "Hesap",
+      "between": "arası"
     },
     "favorite-filter": {
       "title": "Favori filtre oluştur",
