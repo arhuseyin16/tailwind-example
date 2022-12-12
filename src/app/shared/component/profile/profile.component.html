@@ -2,7 +2,7 @@
     {{avatar}}
   <nz-dropdown-menu class="profile-dropdown"  #menu="nzDropdownMenu">
     <ul class="profile-ul" nz-menu>
-      <li class="profile-li" nz-menu-item>{{"profile.account" | translate}}</li>
+      <li class="profile-li" (click)="goToProfile()" nz-menu-item>{{"profile.account" | translate}}</li>
       <li class="profile-li" (click)="goToSetting()" nz-menu-item>{{"profile.settings" | translate}}</li>
       <li class="profile-li" nz-menu-item routerLink="/login">{{"profile.logout" | translate}}</li>
     </ul>
