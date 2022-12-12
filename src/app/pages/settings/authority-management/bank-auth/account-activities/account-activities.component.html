@@ -1,0 +1,53 @@
+<div [formGroup]="accountActivities">
+  <div class="flex">
+    <div class="form-control">
+      <label>{{'auth-management.currencyUnit' | translate}}</label>
+      <nz-select [nzSize]="'large'" formControlName="currencyUnit" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+    <div class="form-control">
+      <label>{{'auth-management.companies' | translate}}</label>
+      <nz-select [nzSize]="'large'" formControlName="companies" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+    <div class="form-control">
+      <label>{{'auth-management.banks' | translate}}</label>
+      <nz-select [nzSize]="'large'" formControlName="banks" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+    <div class="form-control">
+      <label>{{'auth-management.branches' | translate}}</label>
+      <nz-select [nzSize]="'large'" formControlName="branches" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+    <div class="form-control">
+      <label>{{'auth-management.accountTypes' | translate}}</label>
+      <nz-select [nzSize]="'large'" formControlName="accountTypes" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-control">
+      <label>{{'auth-management.accounts' | translate}}</label>
+      <nz-select [nzSize]="'large'" formControlName="accounts" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+    <div class="form-control">
+      <label>{{'auth-management.willBorrow' | translate}}</label>
+      <nz-select [nzSize]="'large'" formControlName="willBorrow" nzAllowClear>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </div>
+    <div class="form-control">
+      <div class="pt-11">
+        <label formControlName="viewBalance" nz-radio>{{'auth-management.viewBalance' | translate}}</label> `
+      </div>
+    </div>
+  </div>
+</div>

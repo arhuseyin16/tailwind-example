@@ -87,5 +87,4 @@ const routes: Routes = [
     NzDrawerService
   ]
 })
-export class AccountActivitiesListModule {
-}
+export class AccountActivitiesListModule { }

@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="filter-img">
-    <div [ngClass]="dashboardView ? 'back-image' : ''">
+    <div class="hover-filter" [ngClass]="dashboardView ? 'back-image' : ''">
       <img src="../../../../assets/img/dashboard-header/dashboard-header-view.png" (click)="dashboardViewClick()" />
     </div>
     <div class="card" *ngIf="dashboardView">
@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="favorite-img" (click)="favoriteViewClick()">
-    <div [ngClass]="favoriteView ? 'back-image' : ''">
+    <div class="hover-favorite" [ngClass]="favoriteView ? 'back-image' : ''">
       <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
     </div>
     <div class="dropdown-favorite" *ngIf="favoriteView">

@@ -1,5 +1,5 @@
 <div class="favorite-img" (click)="favoriteImageClick()">
-  <div [ngClass]="favoriteView ? 'back-image' : ''">
+  <div class="hover-favorite" [ngClass]="favoriteView ? 'back-image' : ''">
     <img src="../../../../assets/img/dashboard-header/dashboard-header-favorite.png" />
   </div>
   <div class="dropdown-favorite" *ngIf="favoriteView">

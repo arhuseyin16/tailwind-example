@@ -1,0 +1,204 @@
+.user-group-table {
+  padding-top: 30px;
+
+  ::ng-deep .ant-table {
+    background-color: #f5f5f5;
+  }
+
+  ::ng-deep .ant-table-container table > thead > tr > th:first-child {
+    border-radius: 15px 0 0 0;
+  }
+
+  ::ng-deep .ant-table-container table > thead > tr > th:last-child {
+    border-radius: 0 15px 0 0;
+  }
+
+  ::ng-deep .ant-table-thead > tr > th {
+    background: #2d639f;
+    color: #fff;
+    font-size: 15px;
+  }
+
+  ::ng-deep .ant-table-tbody > tr > td {
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+    border-bottom: solid 0.5px #d3d3d3;
+    border-right: solid 0.5px #d3d3d3;
+  }
+
+  ::ng-deep .ant-table-tbody > tr.child-table > td {
+    background-color: #e8f3ff;
+  }
+
+  ///child table scss start
+
+  ::ng-deep nz-table.ant-table-wrapper.child-detail.ng-star-inserted {
+    background: #e8f3ff;
+
+    ::ng-deep .ant-table-row {
+      &:hover {
+        background-color:  #e8f3ff;
+      }
+    }
+
+    ::ng-deep .ant-table {
+      background-color: #e8f3ff;
+    }
+
+    ::ng-deep tr.ant-table-expanded-row > td, tr.ant-table-expanded-row:hover > td {
+      background: red;
+    }
+
+    ::ng-deep .ant-table-thead > tr > th {
+      background-color: #e8f3ff;
+      font-size: 15px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+      border: none;
+    }
+
+    ::ng-deep .ant-table-tbody > tr > td {
+      font-size: 15px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
+      border: none;
+      border-bottom: solid 0.5px #ffffff;
+    }
+  }
+
+  ///child table scss end
+
+  ::ng-deep .ant-table-tbody > tr > td.check-td {
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+    border-bottom: solid 0.5px #d3d3d3;
+    border-right: none;
+  }
+
+  .authScheme {
+    color: #0079ff;
+    cursor: pointer;
+  }
+
+  .userName-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .right-ok {
+      width: 10px;
+      height: 10px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+
+    .layers {
+      width: 20px;
+      height: 15px;
+      object-fit: contain;
+      padding-left: 5px;
+    }
+
+    span {
+      padding-left: 5px;
+      font-size: 15px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #0079ff;
+    }
+  }
+
+  .ant-select {
+    width: 100%;
+    ::ng-deep .ant-select-selector {
+      //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
+      border: solid 0.5px #ABABAB;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 14px;
+    }
+
+    ::ng-deep .ant-select-arrow {
+      color: #000000;
+    }
+  }
+
+  input {
+    border: solid 0.5px #ABABAB;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 14px;
+  }
+
+  .action-tab {
+    position: relative;
+
+    .other {
+      position: absolute;
+      top: 14px;
+      left: -20px;
+      cursor: pointer;
+
+      img {
+        width: 6px;
+        height: 20px;
+        object-fit: contain;
+      }
+    }
+
+    .other-process {
+      position: absolute;
+      top: 14px;
+      display: grid;
+      right: 10px;
+
+      .save {
+        font-size: 15px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0079ff;
+      }
+
+      .delete {
+        font-size: 15px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #e53030;
+      }
+    }
+  }
+}

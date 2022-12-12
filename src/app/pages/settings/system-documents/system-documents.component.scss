@@ -6,7 +6,7 @@
     justify-content: end;
 
     .filter {
-      margin-right: 20px;
+      //margin-right: 20px;
 
       button {
         display: flex;
@@ -62,46 +62,46 @@
       }
     }
 
-    .excel-export {
-
-      button {
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        background-color: #ffffff;
-
-        &:hover {
-          background-color: #2d639f;
-          .hover-excel {
-            width: 17px;
-            height: 17px;
-            display: inherit;
-            object-fit: contain;
-          }
-
-          .normal-excel {
-            width: 17px;
-            height: 17px;
-            display: none;
-            object-fit: contain;
-          }
-        }
-
-        .normal-excel {
-          width: 17px;
-          height: 17px;
-          display: inherit;
-          object-fit: contain;
-        }
-
-        .hover-excel {
-          width: 17px;
-          height: 17px;
-          display: none;
-          object-fit: contain;
-        }
-      }
-    }
+    //.excel-export {
+    //
+    //  button {
+    //    width: 40px;
+    //    height: 40px;
+    //    border-radius: 5px;
+    //    background-color: #ffffff;
+    //
+    //    &:hover {
+    //      background-color: #2d639f;
+    //      .hover-excel {
+    //        width: 17px;
+    //        height: 17px;
+    //        display: inherit;
+    //        object-fit: contain;
+    //      }
+    //
+    //      .normal-excel {
+    //        width: 17px;
+    //        height: 17px;
+    //        display: none;
+    //        object-fit: contain;
+    //      }
+    //    }
+    //
+    //    .normal-excel {
+    //      width: 17px;
+    //      height: 17px;
+    //      display: inherit;
+    //      object-fit: contain;
+    //    }
+    //
+    //    .hover-excel {
+    //      width: 17px;
+    //      height: 17px;
+    //      display: none;
+    //      object-fit: contain;
+    //    }
+    //  }
+    //}
   }
 }
 
