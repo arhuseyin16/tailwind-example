@@ -70,7 +70,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           },
           {
             title: 'sidebar.bankAccessAuth',
-            routerLink: '/ui/setting/exchange',
+            routerLink: '/ui/setting/auth-management/bank-auth',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {

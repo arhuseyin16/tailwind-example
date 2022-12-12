@@ -1,0 +1,15 @@
+<div class="title">{{'auth-management.selectAuth' | translate}}</div>
+<div class="flex" [formGroup]="authForm">
+  <div class="form-control">
+    <label>{{'auth-management.user' | translate}}</label>
+    <nz-select [nzSize]="'large'" formControlName="user"  nzAllowClear>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    </nz-select>
+  </div>
+  <div class="form-control">
+    <label>{{'auth-management.group' | translate}}</label>
+    <nz-select [nzSize]="'large'" formControlName="group"  nzAllowClear>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    </nz-select>
+  </div>
+</div>

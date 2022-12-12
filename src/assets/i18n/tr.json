@@ -264,6 +264,18 @@
     "authEdit": "Yetkileri Düzenle",
     "modules": "Moduller",
     "screen": "Ekranlar",
-    "auth": "Yetkiler"
+    "auth": "Yetkiler",
+    "selectAuth": "Yetkili Seçiniz",
+    "group": "Grup",
+    "currencyUnit": "Para Birimi",
+    "companies": "Firmalar",
+    "banks": "Bankalar",
+    "branches": "Şubeler",
+    "accountTypes": "Hesap Türleri",
+    "accounts": "Hesaplar",
+    "willBorrow": "Borç/Alacak",
+    "viewBalance": "Bakiye Görüntüle",
+    "accountActivities": "Hesap Hareketleri",
+    "e-payment": "E-Ödeme"
   }
 }

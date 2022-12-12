@@ -264,6 +264,18 @@
     "authEdit": "Auth Edit",
     "modules": "Modules",
     "screen": "Screen",
-    "auth": "Auth."
+    "auth": "Auth.",
+    "selectAuth": "Select Auth.",
+    "group": "Group",
+    "currencyUnit": "Currency Unit",
+    "companies": "Companies",
+    "banks": "Banks",
+    "branches": "Branches",
+    "accountTypes": "Account Types",
+    "accounts": "Accounts",
+    "willBorrow": "Will/Borrow",
+    "viewBalance": "View Balance",
+    "accountActivities": "Account Activities",
+    "e-payment": "E-Payment"
   }
 }
