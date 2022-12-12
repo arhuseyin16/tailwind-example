@@ -6,47 +6,47 @@
     justify-content: end;
     padding: 0 7px 0 0;
 
-    .excel-export {
-      width: 40px;
-
-      button {
-        width: 100%;
-        height: 40px;
-        border-radius: 5px;
-        background-color: #ffffff;
-
-        &:hover {
-          background-color: #2d639f;
-          .hover-excel {
-            width: 17px;
-            height: 17px;
-            display: inherit;
-            object-fit: contain;
-          }
-
-          .normal-excel {
-            width: 17px;
-            height: 17px;
-            display: none;
-            object-fit: contain;
-          }
-        }
-
-        .normal-excel {
-          width: 17px;
-          height: 17px;
-          display: inherit;
-          object-fit: contain;
-        }
-
-        .hover-excel {
-          width: 17px;
-          height: 17px;
-          display: none;
-          object-fit: contain;
-        }
-      }
-    }
+    //.excel-export {
+    //  width: 40px;
+    //
+    //  button {
+    //    width: 100%;
+    //    height: 40px;
+    //    border-radius: 5px;
+    //    background-color: #ffffff;
+    //
+    //    &:hover {
+    //      background-color: #2d639f;
+    //      .hover-excel {
+    //        width: 17px;
+    //        height: 17px;
+    //        display: inherit;
+    //        object-fit: contain;
+    //      }
+    //
+    //      .normal-excel {
+    //        width: 17px;
+    //        height: 17px;
+    //        display: none;
+    //        object-fit: contain;
+    //      }
+    //    }
+    //
+    //    .normal-excel {
+    //      width: 17px;
+    //      height: 17px;
+    //      display: inherit;
+    //      object-fit: contain;
+    //    }
+    //
+    //    .hover-excel {
+    //      width: 17px;
+    //      height: 17px;
+    //      display: none;
+    //      object-fit: contain;
+    //    }
+    //  }
+    //}
   }
 
   .holiday-table {
