@@ -7,21 +7,29 @@ module.exports = {
     fontSize: {
       '18': ['18px', 'normal'],
       '15': ['15px', 'normal'],
+      '16': ['16px', 'normal'],
       '14': ['14px', 'normal'],
       '13': ['13px', 'normal'],
       '25': ['25px', 'normal'],
       '20-normal': ['20px', 'normal'],
       '20': ['20px', '1.5rem'],
-      borderWidth: {
-        '1': '1px'
-      }
+      '22': ['22px', '1.5rem']
+    },
+    borderWidth: {
+      '1': '1px',
+      '0.5': '0.5px',
+      '0': '0',
+      '2': '2px'
     },
     fontFamily: {
       'poppins': ['Poppins'],
     },
     borderRadius: {
       '5px': '5px',
-      '20px': '20px'
+      '20px': '20px',
+      '10px': '10px',
+      '15px': '10px',
+      "50%": '50%'
     },
     screens: {
       'sm': '640px',
@@ -36,10 +44,13 @@ module.exports = {
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
 
-      '2xl': '1536px',
+      '2xl': '1440px',
+      // => @media (min-width: 1280px) { ... }
+
+      '3xl': '1536px',
       // => @media (min-width: 1536px) { ... }
 
-      '3xl': '1900px',
+      '4xl': '1900px',
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
@@ -54,10 +65,20 @@ module.exports = {
         'prussian-blue': '#003249',
         'gray-x11': '#b9b9b9',
         'anti-flash-white': '#f2f2f2',
-        'american-silver': '#d1d1d1'
+        'american-silver': '#d1d1d1',
+        'dark-silver-conf': '#707070',
+        'dark-charcoal': '#ABABAB',
+        'boston-university-red': '#CE0000',
+        'toupe-gray': '#898989',
+        'sonic-silver': '#757373'
+      },
+      gridTemplateRows: {
+        '10': 'repeat(10, minmax(0, 1fr))',
+        '2-0.7fr': 'repeat(2, minmax(0, 0.7fr))'
       },
       gap: {
         '30': '1.875rem',
+        '177': '11.0625rem'
       },
       padding: {
         '30px': '30px',
@@ -71,6 +92,7 @@ module.exports = {
       },
       lineHeight: {
         '47px': '2.9655',
+        '25px': '1.5625'
       }
     },
   },

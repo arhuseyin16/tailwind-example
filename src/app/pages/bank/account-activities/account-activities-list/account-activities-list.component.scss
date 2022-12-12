@@ -1,0 +1,19 @@
+:host ::ng-deep .ant-select-selector {
+  @apply border-0 rounded-5px #{!important};
+}
+
+:host ::ng-deep .ant-btn-lg {
+  padding: 6.4px 9px;
+  @apply border-0 rounded-5px #{!important};
+}
+
+nz-badge {
+  margin-right: 10px;
+}
+
+.search-input {
+  ::ng-deep .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    @apply border-0 #{!important};
+  }
+}
+

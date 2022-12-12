@@ -1,0 +1,106 @@
+.filter-list-table {
+
+  ::ng-deep .ant-table-selection-extra .anticon {
+    font-size: 12px !important;
+    color: #fff;
+  }
+}
+
+.search-box {
+  padding: 8px;
+}
+
+.search-box button {
+  width: 90px;
+}
+
+.search-button {
+  margin-right: 8px;
+}
+
+.filter-infinite-container {
+  height: 110px;
+}
+
+.add-column-infinite-container {
+  height: 290px;
+  width: 200px;
+}
+
+.add-column-container {
+  @apply rounded-5px;
+}
+
+.column-save-button {
+  @apply py-[9px] px-[55px] rounded-10px w-full mt-[25px] #{!important};
+}
+
+::ng-deep .cdk-drag-preview {
+  display: table;
+}
+
+::ng-deep .cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.ant-list-split .ant-list-item {
+  @apply border-b-0;
+}
+
+.ant-list-item {
+  @apply py-1.5 px-0 #{!important};
+}
+
+nz-list {
+  @apply px-1;
+}
+
+.ant-checkbox-wrapper {
+  @apply text-15 #{!important};
+}
+
+.table-td {
+  @apply border-0 border-transparent text-15 #{!important};
+}
+
+.background-anti-flash-white {
+  @apply bg-anti-flash-white #{!important};
+}
+
+.other-img {
+  @apply cursor-pointer;
+}
+
+.cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+
+  min-width: 100px;
+  padding: 15px;
+
+  text-align: center;
+  font-weight: bold;
+
+  background-color: #fff;
+
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  background: #efefef;
+}
+
+
+:host ::ng-deep .ant-table-filter-icon,
+:host ::ng-deep .anticon-filter {
+  right: auto !important;
+  top: -2px;
+  height: 50px;
+}
+

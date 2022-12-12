@@ -1,0 +1,31 @@
+<div class="w-full">
+  <div class="bg-eton-blue rounded-t-10px px-[30px] py-[17px]">
+    <div class="w-full flex justify-between">
+      <div class="text-white text-20-normal">{{'account-activities-list-filter.favorite-filter.title' | translate}}</div>
+      <div>
+        <svg-icon src="assets/svg/close-icon.svg" [svgClass]="'filter-white'"
+                  (click)="closeFavoriteFilterModal()"></svg-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="pt-[24px] px-[45px]">
+    <div class="w-full">
+      <div class="w-full">
+        <label class="text-20-normal width-full font-light">{{'account-activities-list-filter.favorite-filter.name' | translate}}</label>
+      </div>
+      <div class="w-full mt-2.5">
+        <input nzSize="large"
+               class="border-black rounded-10px shadow-none hover:border-black hover:shadow-none focus:border-black focus:shadow-none"
+               nz-input>
+      </div>
+    </div>
+    <div class="pt-[28px] pb-[61px] w-full">
+      <button
+        class="w-full px-[84px] py-[11px] bg-eton-blue text-white text-20-normal rounded-10px hover:bg-eton-blue hover:text-white focus:bg-eton-blue focus:text-white"
+        (click)="create()"
+      >{{'account-activities-list-filter.favorite-filter.create' | translate}}
+      </button>
+    </div>
+  </div>
+</div>

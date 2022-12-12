@@ -1,0 +1,15 @@
+::ng-deep .ant-modal-header {
+  @apply border-b-0 px-[54px] #{!important};
+}
+
+::ng-deep .ant-modal-footer {
+  @apply border-t-0 px-[54px] pt-0 pb-[50px] #{!important};
+}
+
+::ng-deep .ant-modal-close {
+  @apply right-[36px]
+}
+
+:host ::ng-deep .ant-form-item-label > label {
+  @apply text-20-normal #{!important};
+}

@@ -32,7 +32,8 @@
     "settings": "Settings"
   },
   "favorite": {
-    "add-favorite-transactions": "Add Favorite Transactions"
+    "add-favorite-transactions": "Add Favorite Transactions",
+    "filters": "Favorite Filters"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -277,5 +278,100 @@
     "viewBalance": "View Balance",
     "accountActivities": "Account Activities",
     "e-payment": "E-Payment"
+  },
+  "account-activities-list": {
+    "date": "Date",
+    "all-filters": "All Filters",
+    "export": "Export",
+    "filters": "Filters",
+    "filter": "Filter",
+    "inquire": "Inquire"
+  },
+  "account-activities-list-filter": {
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "currency-unit": "Currency Unit",
+    "willBorrows": "Debt/Receive",
+    "companies": "Companies",
+    "banks": "Banks",
+    "branches" : "Branches",
+    "account-types": "Account Types",
+    "accounts": "Accounts",
+    "transaction-types": "Transaction Types",
+    "document-groups": "Document Group",
+    "document-types": "Document Type",
+    "target-document-types": "Target Document Type",
+    "type-conversion": "Type Conversion",
+    "conversion-type": "Conversion Type",
+    "amount-range": "Amount Range",
+    "account-number": "Account Number",
+    "tax-or-tckn": "Tax or Tckn",
+    "iban-number": "IBAN Number",
+    "reference-number": "Reference Number",
+    "receipt-number": "Receipt Number",
+    "description": "Description",
+    "description-second": "Description 2",
+    "customer-description": "Customer Description",
+    "valor-start-end-date": "Valor Start - End Date",
+    "creation-timeframe": "Creation Timeframe",
+    "update-timeframe": "Update Timeframe",
+    "erp-status": "ERP Status",
+    "erp-timeframe": "ERP Timeframe",
+    "erp-processing-update-timeframe": "Erp Processing Update Timeframe",
+    "user-updating-erp-processing": "User Updating ERP Processing",
+    "additional-field-first": "Additional Field 1",
+    "additional-field-second": "Additional Field 2",
+    "additional-field-third": "Additional Field 3",
+    "additional-field-fourth": "Additional Field 4",
+    "additional-field-fifth": "Additional Field 5",
+    "additional-field-sixth": "Additional Field 6",
+    "save": "Save",
+    "filterSave": "Filter Save",
+    "share": "Share",
+    "clear-all": "Clear All",
+    "clear": "Clear",
+    "inquire": "Inquire",
+    "filter-share": "Filter Share",
+    "search-dots": "Search...",
+    "table": {
+      "date": "Date",
+      "firm": "Firm",
+      "bank": "Bank",
+      "branch": "Branch",
+      "accountType": "Account Type",
+      "accountNumber": "Account Number",
+      "amount": "Amount",
+      "balance": "Balance",
+      "endDate": "End Date",
+      "currencyUnit": "Currency Type",
+      "willBorrow": "Debt/Receivable",
+      "account": "Account",
+      "between": "between"
+    },
+    "favorite-filter": {
+      "title": "Create favorite filter",
+      "name": "Filter Name",
+      "create": "Create"
+    },
+    "edit-description": {
+      "title": "Editing User Description",
+      "processId": "Process Id",
+      "description": "Description",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "receipt": {
+      "title": "Print Receipt",
+      "confirmQuestion": "The selected Records will be printed. Do you confirm?",
+      "cancel": "Cancel",
+      "approve": "Approve"
+    },
+    "delete-record": {
+      "title": "Delete Selected Records",
+      "confirmQuestion": "Are you sure you want to delete?",
+      "note": "Note: The transaction you deleted will be recorded. You can then undo the action.",
+      "cancel": "Cancel",
+      "approve": "Approve"
+    }
   }
 }

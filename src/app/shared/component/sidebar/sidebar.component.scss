@@ -27,7 +27,7 @@
 
 :host ::ng-deep .ant-menu-submenu:hover > .ant-menu-submenu-title{
   .ant-menu-submenu-arrow .ant-menu-submenu-arrow::before .ant-menu-submenu-arrow::after {
-    @apply ml-0.5 border w-[9px] bg-sapphire border-sapphire text-sapphire border-solid #{!important}
+    @apply ml-0.5 border-1 w-[9px] bg-sapphire border-sapphire text-sapphire border-solid #{!important}
   }
 }
 
@@ -36,11 +36,11 @@
 }
 
 :host ::ng-deep .ant-menu-submenu-arrow::before {
-  @apply ml-0.5 border w-[9px] border-solid border-black #{!important}
+  @apply ml-0.5 border-1 w-[9px] border-solid border-black #{!important}
 }
 
 :host ::ng-deep .ant-menu-submenu-arrow::after {
-  @apply border w-[9px] border-solid border-black #{!important}
+  @apply border-1 w-[9px] border-solid border-black #{!important}
 }
 
 .ml9-minus {
