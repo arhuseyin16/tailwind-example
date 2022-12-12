@@ -1,0 +1,40 @@
+::ng-deep .ant-select-selector {
+  @apply border-0.5 border-dark-charcoal border-solid rounded-5px #{!important};
+}
+
+::ng-deep .ant-picker {
+  @apply border-0.5 border-dark-charcoal border-solid rounded-5px #{!important};
+}
+
+::ng-deep .ant-select-arrow {
+  @apply text-black #{!important};
+}
+
+::ng-deep .ant-popover-inner-content {
+  padding: 1px 26px 12px 19px;
+}
+
+::ng-deep .ant-popover-title {
+  @apply hidden;
+}
+
+.f-input {
+  @apply rounded-5px border-dark-charcoal border-solid border-0.5 #{!important}
+}
+
+.font-size-16 {
+  @apply text-16 #{!important};
+}
+
+::ng-deep .ant-drawer-body {
+  @apply overflow-x-hidden p-0 #{!important};
+}
+
+nz-badge {
+  margin-right: 10px;
+}
+
+.margin-b-0 {
+  @apply mb-0 #{!important};
+}
+

@@ -1,4 +1,4 @@
-<div class="system-document-table">
+<div class="base-table system-document-table">
   <nz-table
     #rowSelectionTable
     nzShowSizeChanger
@@ -6,6 +6,8 @@
     [nzPageSize]="10"
     [nzShowSizeChanger]="true"
     [nzPageSizeOptions]="pageSize"
+    [nzItemRender]="paginationItemRender"
+    [nzShowTotal]="rangeTemplate"
   >
     <thead>
     <tr>
@@ -24,5 +26,19 @@
       </ng-container>
     </tr>
     </tbody>
+    <ng-template #rangeTemplate let-range="range" let-total>
+      <div class="absolute left-0 text-16">
+        {{ total | number: '2.0' }} Kayıttan {{ range[0] }}-{{ range[1] }} arası
+      </div>
+    </ng-template>
+    <ng-template #paginationItemRender let-type let-page="page">
+      <ng-container [ngSwitch]="type">
+        <a *ngSwitchCase="'page'">{{ page }}</a>
+        <a *ngSwitchCase="'prev'"><img src="assets/svg/left-single-arrow.svg"/></a>
+        <a *ngSwitchCase="'next'"><img src="assets/svg/right-single-arrow.svg"/></a>
+        <a *ngSwitchCase="'prev_5'"><img src="assets/svg/left-double-arrow.svg"/></a>
+        <a *ngSwitchCase="'next_5'"><img src="assets/svg/right-double-arrow.svg"/></a>
+      </ng-container>
+    </ng-template>
   </nz-table>
 </div>

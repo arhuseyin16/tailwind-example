@@ -20,4 +20,12 @@ export class BankService {
   getCurrencyTotals(): Observable<Array<LabelValueType>> {
     return this.http.get<Array<LabelValueType>>('assets/mock/currency-totals.json');
   }
+
+  getDateFilters(): Observable<Array<LabelValueType>> {
+    return this.http.get<Array<LabelValueType>>('assets/mock/date-filters.json');
+  }
+
+  getFavoriteFilters(): Observable<Array<LabelValueType>> {
+    return this.http.get<Array<LabelValueType>>('assets/mock/favorite-filters.json');
+  }
 }

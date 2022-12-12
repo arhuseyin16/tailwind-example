@@ -21,6 +21,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.2.0",
+    "@angular/cdk": "^14.2.7",
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
@@ -28,14 +29,16 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@ngneat/svg-icon": "^6.0.0",
     "@ngneat/until-destroy": "^9.2.2",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@ngxs/router-plugin": "^3.7.5",
     "@ngxs/storage-plugin": "^3.7.5",
     "@ngxs/store": "^3.7.5",
+    "angular-svg-icon": "^14.0.0",
     "echarts": "^5.4.0",
-    "ng-zorro-antd": "^14.0.0",
+    "ng-zorro-antd": "^14.1.1",
     "ngx-echarts": "^14.0.0",
     "ngx-translate-routes": "^1.4.1",
     "ngx-ui-loader": "^13.0.0",
@@ -61,5 +64,15 @@
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8",
     "typescript": "~4.7.2"
+  },
+  "svgGenerator": {
+    "outputPath": "./src/app/svg",
+    "srcPath": "./src/assets/svg",
+    "svgoConfig": {
+      "plugins": [
+        "removeDimensions",
+        "cleanupAttrs"
+      ]
+    }
   }
 }

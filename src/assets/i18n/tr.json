@@ -32,7 +32,8 @@
     "settings": "Ayarlar"
   },
   "favorite": {
-    "add-favorite-transactions": "Favori İşlemlere Ekle"
+    "add-favorite-transactions": "Favori İşlemlere Ekle",
+    "filters": "Favori Filtreler"
   },
   "sidebar": {
     "dashboard": "Dashboard",
@@ -91,7 +92,7 @@
     "total": "Toplam",
     "creditLimit": "Kredi Limiti",
     "availableCreditLimit": "Kullanılabilir Kredi Limiti",
-    "blockedBalance":  "Bloklu Bakiye",
+    "blockedBalance": "Bloklu Bakiye",
     "availableBalance": "Kullanılabilir Bakiye",
     "creditAvailableBalance": "Kredili Kullanılabilir Bakiye"
   },
@@ -277,5 +278,102 @@
     "viewBalance": "Bakiye Görüntüle",
     "accountActivities": "Hesap Hareketleri",
     "e-payment": "E-Ödeme"
+  },
+  "account-activities-list": {
+    "date": "Tarih",
+    "all-filters": "Tüm Filtreler",
+    "export": "Dışa Aktar",
+    "filters": "Filtreler",
+    "filter": "Filtre",
+    "inquire": "Sorgula"
+  },
+  "account-activities-list-filter": {
+    "startDate": "Başlangıç Tarihi",
+    "endDate": "Bitiş Tarihi",
+    "currency-unit": "Para Birimi",
+    "willBorrows": "Borç/Alacak",
+    "companies": "Firmalar",
+    "banks": "Bankalar",
+    "branches": "Şubeler",
+    "account-types": "Hesap Türleri",
+    "accounts": "Hesaplar",
+    "transaction-types": "İşlem Türleri",
+    "document-groups": "Belge Grubu",
+    "document-types": "Belge Tipi",
+    "target-document-types": "Hedef Belge Tipi",
+    "type-conversion": "Tip Dönüştürme",
+    "conversion-type": "Dönüşüm Tipi",
+    "amount-range": "Tutar Aralığı",
+    "account-number": "Hesap Numarası",
+    "tax-or-tckn": "Vergi veya Tckn",
+    "iban-number": "IBAN Numarası",
+    "reference-number": "Referans Numarası",
+    "receipt-number": "Dekont Numarası",
+    "description": "Açıklama",
+    "description-second": "Açıklama 2",
+    "customer-description": "Müşteri Açıklama",
+    "valor-start-end-date": "Valor Başlangıç - Bitiş Tarihi",
+    "creation-timeframe": "Oluşturma Zaman Aralığı",
+    "update-timeframe": "Güncelleme Aralığı",
+    "erp-status": "ERP Statü",
+    "erp-timeframe": "ERP Zaman Aralığı",
+    "erp-processing-update-timeframe": "ERP İşlenme Güncelleme Zaman Aralığı",
+    "user-updating-erp-processing": "ERP İşleme Güncelleyen Kullanıcı",
+    "additional-field-first": "Ek Alan 1",
+    "additional-field-second": "Ek Alan 2",
+    "additional-field-third": "Ek Alan 3",
+    "additional-field-fourth": "Ek Alan 4",
+    "additional-field-fifth": "Ek Alan 5",
+    "additional-field-sixth": "Ek Alan 6",
+    "save": "Kaydet",
+    "filterSave": "Filtreyi Kaydet",
+    "share": "Paylaş",
+    "clear-all": "Hepsini Temizle",
+    "clear": "Temizle",
+    "inquire": "Sorgula",
+    "filter-share": "Filtre Paylaş",
+    "search-dots": "Ara...",
+    "users-send": "Kullanıcıya Gönder",
+    "groups-send": "Gruba Gönder",
+    "table": {
+      "date": "Tarih",
+      "firm": "Firma",
+      "bank": "Banka",
+      "branch": "Şube",
+      "accountType": "Hesap Türü",
+      "accountNumber": "Hesap Numarası",
+      "amount": "Tutar",
+      "balance": "Bakiye",
+      "endDate": "Bitiş Tarihi",
+      "currencyUnit": "Para Birimi",
+      "willBorrow": "Borç/Alacak",
+      "account": "Hesap",
+      "between": "arası"
+    },
+    "favorite-filter": {
+      "title": "Favori filtre oluştur",
+      "name": "Filtre Adı",
+      "create": "Oluştur"
+    },
+    "edit-description": {
+      "title": "Kullanıcı Açıklamasını Düzenle",
+      "processId": "İşlem Id",
+      "description": "Açıklama",
+      "cancel": "İptal",
+      "save": "Kaydet"
+    },
+    "receipt": {
+      "title": "Dekont Yazdır",
+      "confirmQuestion": "Seçili Kayıtlar yazdırılacak. Onaylıyor musunuz?",
+      "cancel": "İptal",
+      "approve": "Onayla"
+    },
+    "delete-record": {
+      "title": "Seçili Kayıtları Sil",
+      "confirmQuestion": "Silmek istediğinize emin misiniz?",
+      "note": "Not: Sildiğiniz işlem kayıt altına alınacaktır. Daha sonra işlemi geri alabilirsiniz.",
+      "cancel": "İptal",
+      "approve": "Onayla"
+    }
   }
 }

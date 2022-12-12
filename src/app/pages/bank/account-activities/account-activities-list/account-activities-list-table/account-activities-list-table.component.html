@@ -1,0 +1,128 @@
+<div class="filter-list-table base-table">
+  <nz-table
+    #rowSelectionTable
+    nzBordered
+    [nzScroll]="{ x: '240px' }"
+    [nzData]="listOfDisplayData"
+    class="pt-8"
+    [ngClass]="(filterItemCount | async) === 0 ? 'pt-0': 'pt-8'"
+    [nzShowSizeChanger]="true"
+    [nzPageSizeOptions]="PAGE_SIZE"
+    [nzPageSize]="10"
+    [nzItemRender]="paginationItemRender"
+    [nzShowTotal]="rangeTemplate"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+    (nzPageSizeChange)="pageSizeChange($event)"
+    (nzPageIndexChange)="pageIndexChange($event)"
+  >
+    <thead>
+    <tr cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+      <th
+        [nzSelections]="listOfSelection"
+        [(nzChecked)]="checked"
+        [nzIndeterminate]="indeterminate"
+        (nzCheckedChange)="onAllChecked($event)"
+        nzWidth="50px"
+      ></th>
+
+      <th *ngFor="let column of listOfColumns; let i = index; trackBy: trackByName"
+          [(nzSortOrder)]="column.sortOrder"
+          [nzSortFn]="column.sortFn"
+          nzCustomFilter cdkDrag nz-resizable cdkDragLockAxis="x"
+          [nzWidth]="column.width ? column.width : 'auto'"
+      >
+        <div cdkDragHandle>
+          {{column.name | translate}}
+        </div>
+        <nz-resize-handle nz-th-extra [nzDirection]="'right'"></nz-resize-handle>
+        <nz-filter-trigger *ngIf="column.showFilterField" [(nzVisible)]="column.filterVisible" [nzDropdownMenu]="menu">
+          <img src="assets/svg/filter.svg" width="20px" height="20px" class="ml-5"/>
+        </nz-filter-trigger>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <div class="ant-table-filter-dropdown">
+            <div class="search-box">
+              <nz-input-group class="width-[230px] border-dark-charcoal border-solid border-0.5 rounded-5px"
+                              nzSize="default"
+                              [nzPrefix]="prefixTemplateUser">
+                <input type="text" nz-input [(ngModel)]="column.filterValue" (ngModelChange)="filterChange(column)"/>
+              </nz-input-group>
+              <ng-template #prefixTemplateUser><span nz-icon nzType="search"></span></ng-template>
+              <cdk-virtual-scroll-viewport itemSize="30" class="filter-infinite-container">
+                <nz-list>
+                  <nz-list-item *cdkVirtualFor="let item of column.listOfFilter">
+                    <label nz-checkbox [(nzChecked)]="item.checked"
+                           (nzCheckedChange)="filterCheckedChange(item, column)">{{item.label}}</label>
+                  </nz-list-item>
+                </nz-list>
+              </cdk-virtual-scroll-viewport>
+            </div>
+          </div>
+        </nz-dropdown-menu>
+      </th>
+      <th nzWidth="100px">
+        <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="addColumnMenu">
+          <img width="24px" height="22px" src="assets/icon/table-add-column.svg">
+          <nz-dropdown-menu #addColumnMenu="nzDropdownMenu">
+            <div class="ant-table-filter-dropdown add-column-container">
+              <div class="px-5 py-[19px]">
+                <cdk-virtual-scroll-viewport itemSize="10" class="add-column-infinite-container">
+                  <nz-list>
+                    <nz-list-item *cdkVirtualFor="let column of listOfAddColumn; trackBy: trackByName">
+                      <label nz-checkbox [(nzChecked)]="column.checked"
+                             (nzCheckedChange)="selectedColumnCheckedChange(column)">{{column.name | translate}}</label>
+                    </nz-list-item>
+                  </nz-list>
+                </cdk-virtual-scroll-viewport>
+                <button nz-button nzSize="large"
+                        class="column-save-button text-white text-16 bg-eton-blue hover:bg-eton-blue hover:text-white focus:bg-eton-blue focuns:text-white"
+                        (click)="saveAddColumn()">Kaydet
+                </button>
+              </div>
+            </div>
+          </nz-dropdown-menu>
+        </div>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of rowSelectionTable.data; let i = index;">
+      <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"
+          [nzEllipsis]="true" class="table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}"></td>
+      <td [nzEllipsis]="true" class="table-td"
+          [ngClass]="{'background-anti-flash-white': i%2 === 1}"
+          *ngFor="let column of listOfColumns"
+      >
+        {{data[column.key].value}}
+      </td>
+      <td class="table-td" [ngClass]="{'background-anti-flash-white': i%2 === 1}" nzAlign="right">
+        <div class="other-img flex justify-center" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+          <img width="6px" height="22.9px" src="assets/img/bank-account/bank-detail-other.png">
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item (click)="openPrintReceiptModal()">Dekont Yazdır</li>
+              <li nz-menu-item (click)="openEditUserDescription(data.id)">Kullanıcı Açıklamasını Güncelle</li>
+              <li nz-menu-item>Sil</li>
+              <li nz-menu-item (click)="accountActivityDetail(data.id)">Detay Görüntüle</li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+    <ng-template #rangeTemplate let-range="range" let-total>
+      <div class="absolute left-0 text-16">
+        {{ total | number: '2.0' }} Kayıttan {{ range[0] }}-{{ range[1] }} arası
+      </div>
+    </ng-template>
+    <ng-template #paginationItemRender let-type let-page="page">
+      <ng-container [ngSwitch]="type">
+        <a *ngSwitchCase="'page'">{{ page }}</a>
+        <a *ngSwitchCase="'prev'"><img src="assets/svg/left-single-arrow.svg"/></a>
+        <a *ngSwitchCase="'next'"><img src="assets/svg/right-single-arrow.svg"/></a>
+        <a *ngSwitchCase="'prev_5'"><img src="assets/svg/left-double-arrow.svg"/></a>
+        <a *ngSwitchCase="'next_5'"><img src="assets/svg/right-double-arrow.svg"/></a>
+      </ng-container>
+    </ng-template>
+  </nz-table>
+
+</div>
