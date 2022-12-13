@@ -9,6 +9,9 @@ import {PdfModule} from "../../shared/component/pdf/pdf.module";
 import {FavoriteModule} from "../../shared/component/favorite/favorite.module";
 import {TranslatePageModule} from "../../shared/component/translate-page/translate-page.module";
 import {ProfileModule} from "../../shared/component/profile/profile.module";
+import {TranslateModule} from "@ngx-translate/core";
+import {NzInputModule} from "ng-zorro-antd/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -29,7 +32,11 @@ const routes: Routes = [
     PdfModule,
     FavoriteModule,
     TranslatePageModule,
-    ProfileModule
+    ProfileModule,
+    TranslateModule,
+    NzInputModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     NotificationService,

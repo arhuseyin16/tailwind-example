@@ -29,7 +29,20 @@
   "profile": {
     "account": "Hesabım",
     "logout": "Çıkış",
-    "settings": "Ayarlar"
+    "settings": "Ayarlar",
+    "userInfo": "Kullanıcı Biligileri",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "companyCode": "Şirket Kodu",
+    "userName": "Kullanıcı Adı",
+    "title": "Ünvan",
+    "gsmNo": "GSM No",
+    "email": "E-mail",
+    "lastEntry": "Son Giriş",
+    "password": "Şifre",
+    "oldPass": "Eski Şifre",
+    "newPass": "Yeni Şifre",
+    "repeatPass": "Yeni Şifre Tekrar"
   },
   "favorite": {
     "add-favorite-transactions": "Favori İşlemlere Ekle",

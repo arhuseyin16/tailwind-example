@@ -29,7 +29,20 @@
   "profile": {
     "account": "Account",
     "logout": "Logout",
-    "settings": "Settings"
+    "settings": "Settings",
+    "userInfo": "User Info",
+    "cancel": "Cancel",
+    "save": "Save",
+    "companyCode": "Company Code",
+    "userName": "User Name",
+    "title": "Title",
+    "gsmNo": "GSM No",
+    "email": "E-mail",
+    "lastEntry": "Last Entry",
+    "password": "Password",
+    "oldPass": "Old Password",
+    "newPass": "New Password",
+    "repeatPass": "Repeat New Password"
   },
   "favorite": {
     "add-favorite-transactions": "Add Favorite Transactions",

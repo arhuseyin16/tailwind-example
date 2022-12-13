@@ -1,3 +1,238 @@
 .profile-settings-page {
-  //padding: 20px;
+  padding: 15px 30px 10px 32px;
+
+  .page-shadow {
+    border-radius: 15px;
+    box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
+    background-color: #fff;
+
+    .header {
+      background-image: linear-gradient(to right, #2d639f, #87bfad);
+      border-radius: 15px 15px 0 0;
+      display: flex;
+      align-items: center;
+
+      .title {
+        font-size: 15px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.53;
+        letter-spacing: normal;
+        text-align: left;
+        color: #fff;
+        padding: 18px 25px;
+      }
+
+      .edit-img {
+        justify-content: end;
+        display: flex;
+        padding: 18px 25px;
+
+        img {
+          width: 31px;
+          height: 31px;
+          cursor: pointer;
+          object-fit: contain;
+        }
+      }
+
+      .action-btn {
+        justify-content: end;
+        display: flex;
+        padding: 18px 25px;
+
+        .cancel-btn {
+          width: 150px;
+          button {
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            border: solid 2px #fff;
+            font-size: 15px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.53;
+            letter-spacing: normal;
+            text-align: center;
+            color: #fff;
+          }
+        }
+
+        .save-btn {
+          width: 150px;
+
+          button {
+            background-color: #fff;
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            border: solid 2px #fff;
+            font-size: 15px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.53;
+            letter-spacing: normal;
+            text-align: center;
+            color: #2d639f;
+          }
+        }
+      }
+    }
+
+    .body {
+      margin-top: 10px;
+      padding-bottom: 5px;
+
+      .form-control {
+        flex: 0 0 14%;
+        max-width: 14%;
+        margin: 20px 0 24px 23px;
+        display: flex;
+
+        .label {
+          font-size: 15px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.53;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000;
+        }
+
+        .data {
+          padding-left: 10px;
+          span {
+            font-size: 15px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.53;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000;
+          }
+          input {
+            border-radius: 10px;
+            border: solid 0.5px #ABABAB;
+            background-color: #fff;
+            //margin-top: 10px;
+            height: 40px;
+
+            &:focus {
+              box-shadow: none;
+              outline: none;
+            }
+          }
+        }
+      }
+
+      .editing {
+        flex: 0 0 15% !important;
+        max-width: 15% !important;
+        align-items: baseline;
+        margin: 15px 0 24px 23px !important;
+      }
+
+      .password {
+        display: flex;
+        margin: 10px 0 24px 23px;
+        align-items: center;
+
+        .label {
+          font-size: 15px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.53;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000;
+
+          span {
+            font-size: 15px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.53;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000;
+          }
+        }
+
+        .icon-edit {
+          img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            object-fit: contain;
+          }
+        }
+
+        .password-editing {
+          display: flex;
+          width: 100%;
+
+          .dataCreated {
+            flex: 0 0 16%;
+            max-width: 25%;
+            margin: 0 10px 0 10px;
+
+            input {
+              border-radius: 10px;
+              border: solid 0.5px #ABABAB;
+              background-color: #fff;
+              //margin-top: 10px;
+              height: 40px;
+
+              &:focus {
+                box-shadow: none;
+                outline: none;
+              }
+            }
+          }
+
+          .passwordSaveBtn {
+            width: 150px;
+            button {
+              width: 100%;
+              height: 40px;
+              border-radius: 10px;
+              background-color: #87bfad;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.53;
+              letter-spacing: normal;
+              text-align: center;
+              color: #fff;
+            }
+          }
+
+          .passwordCancelBtn {
+            width: 150px;
+            button {
+              width: 150px;
+              height: 40px;
+              border-radius: 10px;
+              background-color: #fff;
+              font-size: 15px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.53;
+              letter-spacing: normal;
+              text-align: center;
+              color: #87bfad;
+              border: solid 1px #87bfad;
+            }
+          }
+        }
+      }
+    }
+  }
 }

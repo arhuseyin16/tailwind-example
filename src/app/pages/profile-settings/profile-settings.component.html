@@ -1,4 +1,91 @@
+<app-profile-settings-header></app-profile-settings-header>
 <div class="profile-settings-page">
-  <app-profile-settings-header></app-profile-settings-header>
-  <p>profile-settings works!</p>
+  <div class="page-shadow">
+    <div class="header">
+      <div class="basis-1/2 title">
+        {{'profile.userInfo' | translate}}
+      </div>
+      <div class="basis-1/2">
+        <div class="edit-img" *ngIf="!editingHidden">
+          <img src="assets/img/profile/profile-settings.svg" (click)="editingHidden = !editingHidden">
+        </div>
+        <div class="action-btn" *ngIf="editingHidden">
+          <div class="cancel-btn">
+            <button (click)="editingCancel()">{{'profile.cancel' | translate}}</button>
+          </div>
+          <div class="save-btn pl-4">
+            <button>{{'profile.save' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="flex">
+        <div class="form-control">
+          <div class="label">{{'profile.companyCode' | translate}}:</div>
+          <div class="data">
+            <span>{{profileForm.companyCode}}</span>
+          </div>
+        </div>
+        <div class="form-control">
+          <div class="label">{{'profile.userName' | translate}}:</div>
+          <div class="data">
+            <span>{{profileForm.userName}}</span>
+          </div>
+        </div>
+        <div class="form-control" [ngClass]="editingHidden ? 'editing': ''">
+          <div class="label">{{'profile.title' | translate}}:</div>
+          <div class="data">
+            <span *ngIf="!editingHidden">{{profileForm.title}}</span>
+            <input *ngIf="editingHidden" [(ngModel)]="profileForm.title" nz-input type="text" />
+          </div>
+        </div>
+        <div class="form-control" [ngClass]="editingHidden ? 'editing': ''">
+          <div class="label">{{'profile.gsmNo' | translate}}:</div>
+          <div class="data">
+            <span *ngIf="!editingHidden">{{profileForm.gsmNo}}</span>
+            <input *ngIf="editingHidden" [(ngModel)]="profileForm.gsmNo" nz-input type="text" />
+          </div>
+        </div>
+        <div class="form-control" [ngClass]="editingHidden ? 'editing': ''">
+          <div class="label">{{'profile.email' | translate}}:</div>
+          <div class="data">
+            <span *ngIf="!editingHidden">{{profileForm.email}}</span>
+            <input *ngIf="editingHidden" [(ngModel)]="profileForm.email" nz-input type="text" />
+          </div>
+        </div>
+        <div class="form-control">
+          <div class="label">{{'profile.lastEntry' | translate}}:</div>
+          <div class="data">
+            <span>{{profileForm.lastEntry}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="password" [formGroup]="passwordForm">
+        <div class="label">{{'profile.password' | translate}}:
+          <span class="pl-3" *ngIf="!passwordEditing">**********</span>
+        </div>
+        <div class="icon-edit pl-4" *ngIf="!passwordEditing">
+          <img src="assets/img/profile/profile-password.svg" (click)="passwordEditing = !passwordEditing">
+        </div>
+        <div class="password-editing" *ngIf="passwordEditing">
+          <div class="dataCreated">
+            <input nz-input formControlName="oldPassword" placeholder="{{'profile.oldPass' | translate}}" type="text" />
+          </div>
+          <div class="dataCreated">
+            <input nz-input formControlName="newPassword" placeholder="{{'profile.newPass' | translate}}" type="text" />
+          </div>
+          <div class="dataCreated">
+            <input nz-input formControlName="repeatNewPassword" placeholder="{{'profile.repeatPass' | translate}}" type="text" />
+          </div>
+          <div class="passwordSaveBtn">
+            <button>{{'profile.save' | translate}}</button>
+          </div>
+          <div class="passwordCancelBtn pl-4">
+            <button (click)="PasswordEditingCancel()">{{'profile.cancel' | translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
