@@ -1,0 +1,14 @@
+<div class="bank-process">
+  <div *ngFor="let bank of data; let index = index;">
+    <div class="title" [ngStyle]="index === 0 ? {'padding-top': '0'}: {'padding-top': '27px'}">{{bank.main}}</div>
+    <div class="line"></div>
+    <div *ngFor="let auth of bank?.child">
+      <div class="flex">
+        <div class="auth-name">{{auth.name}}</div>
+        <div class="auth-status">
+          {{auth.status ? 'Evet' : 'Hayır'}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

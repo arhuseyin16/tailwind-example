@@ -42,7 +42,14 @@
     "password": "Şifre",
     "oldPass": "Eski Şifre",
     "newPass": "Yeni Şifre",
-    "repeatPass": "Yeni Şifre Tekrar"
+    "repeatPass": "Yeni Şifre Tekrar",
+    "groups": "Gruplar",
+    "bankProcess": "Banka İşlemleri",
+    "posProcess": "Pos İşlemleri",
+    "onlineDbs": "Online DBS",
+    "ePayment": "E-Ödeme",
+    "requestAuth": "Yetki Talep Et",
+    "includedGroups": "Dahil Olunan Gruplar"
   },
   "favorite": {
     "add-favorite-transactions": "Favori İşlemlere Ekle",

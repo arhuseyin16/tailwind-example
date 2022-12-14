@@ -12,6 +12,12 @@ import {ProfileModule} from "../../shared/component/profile/profile.module";
 import {TranslateModule} from "@ngx-translate/core";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ProfileAuthComponent } from './profile-auth/profile-auth.component';
+import { GroupComponent } from './group/group.component';
+import { BankProcessComponent } from './bank-process/bank-process.component';
+import { PosProcessComponent } from './pos-process/pos-process.component';
+import { OnlineDbsComponent } from './online-dbs/online-dbs.component';
+import { EPaymentComponent } from './e-payment/e-payment.component';
 
 const routes: Routes = [
   {
@@ -24,7 +30,13 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ProfileSettingsComponent,
-    ProfileSettingsHeaderComponent
+    ProfileSettingsHeaderComponent,
+    ProfileAuthComponent,
+    GroupComponent,
+    BankProcessComponent,
+    PosProcessComponent,
+    OnlineDbsComponent,
+    EPaymentComponent
   ],
   imports: [
     CommonModule,

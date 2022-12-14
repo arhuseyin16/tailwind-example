@@ -42,7 +42,14 @@
     "password": "Password",
     "oldPass": "Old Password",
     "newPass": "New Password",
-    "repeatPass": "Repeat New Password"
+    "repeatPass": "Repeat New Password",
+    "groups": "Groups",
+    "bankProcess": "Bank Process",
+    "posProcess": "Pos Process",
+    "onlineDbs": "Online DBS",
+    "ePayment": "E-Payment",
+    "requestAuth": "Request Authorization",
+    "includedGroups": "Includes Groups"
   },
   "favorite": {
     "add-favorite-transactions": "Add Favorite Transactions",

@@ -44,19 +44,19 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [
-    UserGroupComponent,
-    UserGroupTableComponent,
-    UserGroupNewRecordModalComponent,
-    UserGroupDeleteModalComponent,
-    UserGroupEditModalComponent,
-    BankAuthComponent,
-    AccountActivitiesComponent,
-    PosComponent,
-    DbsComponent,
-    EPaymentComponent,
-    SelectedAuthComponent
-  ],
+    declarations: [
+        UserGroupComponent,
+        UserGroupTableComponent,
+        UserGroupNewRecordModalComponent,
+        UserGroupDeleteModalComponent,
+        UserGroupEditModalComponent,
+        BankAuthComponent,
+        AccountActivitiesComponent,
+        PosComponent,
+        DbsComponent,
+        EPaymentComponent,
+        SelectedAuthComponent
+    ],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
@@ -71,11 +71,14 @@ const routes: Routes = [
         FormsModule,
         NzRadioModule
     ],
-  providers: [
-    ModalService,
-    NzModalService,
-    NotificationService,
-    NzNotificationService
-  ]
+    exports: [
+        EPaymentComponent
+    ],
+    providers: [
+        ModalService,
+        NzModalService,
+        NotificationService,
+        NzNotificationService
+    ]
 })
 export class AuthorityManagementModule { }
