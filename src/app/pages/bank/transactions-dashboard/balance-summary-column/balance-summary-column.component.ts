@@ -9,7 +9,8 @@ export class BalanceSummaryColumnComponent implements OnInit {
 
   @Input() summary: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

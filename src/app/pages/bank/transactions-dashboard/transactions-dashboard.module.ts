@@ -18,6 +18,7 @@ import { CurrenciesSummariesComponent } from './currencies-summaries/currencies-
 import { DoughnutEchartModule } from "../../../shared/component/chart/doughnut-echart/doughnut-echart.module";
 import { BankService } from "../../../service/bank/bank.service";
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from "ngx-ui-loader";
+import { AngularSvgIconModule } from "angular-svg-icon";
 
 const routes: Routes = [
   {
@@ -48,7 +49,8 @@ const routes: Routes = [
     SwiperModule,
     DoughnutEchartModule,
     NgxUiLoaderModule,
-    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
+    NgxUiLoaderHttpModule.forRoot({showForeground: true}),
+    AngularSvgIconModule
   ],
   providers: [BankService]
 })
