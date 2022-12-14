@@ -250,6 +250,24 @@
     "documentName": "Dokümanın Adı",
     "version": "Versiyon"
   },
+  "system-tools": {
+    "title": "Sistem Araçları",
+    "e-signature-links": {
+      "title": "E-İmza Linkleri",
+      "description": "E-İmza uygulamasının bilgisayarınızda çalışması için aşağıdaki adımları takip ederek kurulumu yapabilirsiniz;",
+      "first-item": "NetCore 5.0 Runtime Paketi. Uygulamayı çalıştırdığınızda sizi bu sayfaya yönlendirecek ve kurulum işlemini gerçekleştirecektir.",
+      "first-item-link": "Uygulama için Tıklayınız.",
+      "second-item": "Java Runtime Environment-JRE. Kütüphanenin indirilmesi ve kurulumunun yapılması gerekmektedir.",
+      "second-item-link": "Kütüphane için Tıklayınız.",
+      "third-item": "E-imza usb cihazınıza uygun driverların yüklenmesi gerekmektedir. (Ör: e-güven imza cihazı için “Aladdin 64 Bit” yüklenmelidir.)",
+      "four-item": "EhoSigner exe uygulaması indirilmelidir.",
+      "four-item-link": "İmza Uygulamasını indirmek İçin Tıklayınız."
+    },
+    "api-information": {
+      "title": "EhoSigner Api Bilgileri",
+      "first-item": "İmzalama işlemi yapabilmek için uygulamadaki Api Url alanına aşağıdaki adresi bir seferlik kopyalayıp kaydetmeniz gerekmektedir. "
+    }
+  },
   "auth-management": {
     "user": "Kullanıcı",
     "groupName": "Grup Adı",

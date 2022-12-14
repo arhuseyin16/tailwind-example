@@ -92,7 +92,7 @@
     "total": "Total",
     "creditLimit": "Credit Limit",
     "availableCreditLimit": "Available Credit Limit",
-    "blockedBalance":  "Blocked Balance",
+    "blockedBalance": "Blocked Balance",
     "availableBalance": "Available Balance",
     "creditAvailableBalance": "Credit Available Balance"
   },
@@ -250,6 +250,24 @@
     "documentName": "Document Name",
     "version": "Version"
   },
+  "system-tools": {
+    "title": "System Tools",
+    "e-signature-links": {
+      "title": "E-Signature Links",
+      "description": "In order for the E-Signature application to work on your computer, you can install it by following the steps below;",
+      "first-item": "Net Core 5.0 Runtime Package. When we run the application, it will direct you to this page and perform the installation process.",
+      "first-item-link": "Click for application.",
+      "second-item": "Java Runtime Environment-JRE. The library needs to be downloaded and installed.",
+      "second-item-link": "Click for the library.",
+      "third-item": "It is necessary to install the appropriate drivers for your e-signature usb device. (For example: \"Aladdin 64 Bit\" must be installed for the e-trust signature device.)",
+      "four-item": "The EhoSigner exe application must be downloaded.",
+      "four-item-link": "Click to download Signature Application."
+    },
+    "api-information": {
+      "title": "EhoSigner Api Information",
+      "first-item": "In order to be able to sign, you need to copy and save the following address for once in the Api Url field in the application."
+    }
+  },
   "auth-management": {
     "user": "User",
     "groupName": "Group Name",
@@ -294,7 +312,7 @@
     "willBorrows": "Debt/Receive",
     "companies": "Companies",
     "banks": "Banks",
-    "branches" : "Branches",
+    "branches": "Branches",
     "account-types": "Account Types",
     "accounts": "Accounts",
     "transaction-types": "Transaction Types",
