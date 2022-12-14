@@ -177,7 +177,7 @@ export class TransactionsDashboardComponent implements OnInit {
           type: 'pie',
           selectedMode: 'single',
           radius: [0, '36%'],
-          right: '45%',
+          right: '50%',
           label: {
             position: 'center',
             fontSize: 18,
@@ -194,8 +194,8 @@ export class TransactionsDashboardComponent implements OnInit {
         {
           type: `pie`,
           id: 'chart-2',
-          radius: ['55%', '72%'],
-          right: '45%',
+          radius: ['56%', '72%'],
+          right: '50%',
           label: {
             show: false,
           },
@@ -303,7 +303,7 @@ export class TransactionsDashboardComponent implements OnInit {
           type: `pie`,
           id: 'chart-2',
           bottom: 80,
-          radius: ['55%', '80%'],
+          radius: ['56%', '72%'],
           label: {
             show: false,
           },

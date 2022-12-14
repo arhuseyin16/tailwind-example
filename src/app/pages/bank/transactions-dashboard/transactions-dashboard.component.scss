@@ -1,0 +1,5 @@
+.currency-type {
+  ::ng-deep .ant-segmented-item-label {
+    @apply min-h-[41px] flex justify-center items-center text-clip text-14 #{!important};
+  }
+}

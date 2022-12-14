@@ -1,8 +1,6 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SegmentBarConfig } from "../../../../shared/component/segment-bar/segment-bar.config";
 import { EChartsOption } from "echarts";
-import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: 'app-balance-type',
