@@ -2,13 +2,8 @@
   @apply bg-eton-blue text-white #{!important};
 }
 
-:host ::ng-deep .ant-segmented-item-label {
-  @apply min-h-[41px] flex justify-center items-center text-clip text-13 #{!important};
-}
-
-/*
-:host ::ng-deep .ant-segmented:not(.ant-segmented-disabled):hover, .ant-segmented:not(.ant-segmented-disabled):focus {
-  @apply
+/*:host ::ng-deep .ant-segmented-item-label {
+  @apply min-h-[41px] flex justify-center items-center text-clip text-14 #{!important};
 }*/
 
 .center {

@@ -18,6 +18,17 @@
     @apply overflow-hidden #{!important};
 }
 
+.summaries {
+  ::ng-deep .ant-segmented-item-label {
+    @apply min-h-[41px] flex justify-center items-center text-clip text-16 #{!important};
+  }
+}
+
+.currency-type {
+  ::ng-deep .ant-segmented-item-label {
+    @apply min-h-[41px] flex justify-center items-center text-clip text-14 #{!important};
+  }
+}
 
 ::-webkit-scrollbar {
   width: 2px;

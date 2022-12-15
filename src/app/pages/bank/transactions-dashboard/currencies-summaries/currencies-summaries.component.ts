@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NzSegmentedOptions } from "ng-zorro-antd/segmented/types";
 import { SegmentPositionEnum } from "../../../../shared/component/segment-bar/segment-position.enum";
 import { SegmentBarConfig } from "../../../../shared/component/segment-bar/segment-bar.config";
+import { CurrencyUtil } from "../../../../shared/util/currency.util";
 
 @Component({
   selector: 'app-currencies-summaries',
@@ -395,16 +396,17 @@ export class CurrenciesSummariesComponent implements OnInit {
       ]
     },
   ]
-
   bankAccountsByCurrency = new Array<any>;
+  currencyConversionType = '';
+
   constructor() {
-      this.data = [
-        {label: 'Döviz Toplamları', value: 1},
-        {label: 'Döviz Dönüşüm', value: 2},
-      ];
-      this.currencySummariesSegmentBarConfigInitialize();
-      this.currenciesSegmentBarConfigInitialize();
-      this.currencyBarChange({label: 'TRY'})
+    this.data = [
+      {label: 'Döviz Toplamları', value: 1},
+      {label: 'Döviz Dönüşüm', value: 2},
+    ];
+    this.currencySummariesSegmentBarConfigInitialize();
+    this.currenciesSegmentBarConfigInitialize();
+    this.currencyBarChange({label: 'TRY'})
   }
 
   ngOnInit(): void {
@@ -435,6 +437,7 @@ export class CurrenciesSummariesComponent implements OnInit {
   }
 
   currencyBarChange(event: any) {
+    this.currencyConversionType = event.label;
     this.bankAccountsByCurrency = new Array<any>();
     this.bankAccounts.forEach(bankAccount => {
       let information = bankAccount.information.find(i => i.currency === event.label);

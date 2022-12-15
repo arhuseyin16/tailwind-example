@@ -32,7 +32,7 @@ export class BankResolver implements Resolve<Array<SidebarDataModel>> {
       {
         title: 'sidebar.bank-transactions',
         menuItemClass: 'mt20',
-        icon: 'assets/img/sidebar/dashboard-icon.svg',
+        icon: 'assets/img/sidebar/three-dots.svg',
         iconSpanClass: 'w-[22px] block',
         titleClass: 'sidebar-menu-title uppercase font-bold',
         isCollapseClass: 'pl-50',
@@ -165,7 +165,7 @@ export class BankResolver implements Resolve<Array<SidebarDataModel>> {
       {
         title: 'sidebar.erp-integration-processes',
         menuItemClass: 'mt16 sidebar-base-menu-label mb0',
-        icon: 'assets/img/sidebar/profit.svg',
+        icon: 'assets/img/sidebar/erp.svg',
         iconSpanClass: 'w-[22px] block',
         iconClass: 'w-[22px] h-[23px]',
         isCollapseClass: 'ml4-minus',

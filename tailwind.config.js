@@ -53,6 +53,10 @@ module.exports = {
       '4xl': '1900px',
       // => @media (min-width: 1536px) { ... }
     },
+    minWidth: {
+      '98%': '98%',
+      '97%': '97%'
+    },
     extend: {
       colors: {
         'sapphire': '#2d64a0',
@@ -93,6 +97,10 @@ module.exports = {
       lineHeight: {
         '47px': '2.9655',
         '25px': '1.5625'
+      },
+      width: {
+        '98%': '98%',
+        '97%': '97%'
       }
     },
   },

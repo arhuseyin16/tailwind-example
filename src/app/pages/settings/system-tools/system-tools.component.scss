@@ -1,0 +1,5 @@
+.system-tools {
+  ::ng-deep .ant-divider-horizontal {
+    @apply m-0 ml-5 w-97% min-w-97% #{!important};
+  }
+}
