@@ -31,7 +31,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
       {
         title: 'sidebar.settings',
         menuItemClass: 'mt20',
-        icon: 'assets/img/sidebar/dashboard-icon.svg',
+        icon: 'assets/img/sidebar/three-dots.svg',
         iconSpanClass: 'w-[22px] block',
         titleClass: 'sidebar-menu-title uppercase font-bold',
         isCollapseClass: 'pl-50',
