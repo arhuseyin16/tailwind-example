@@ -1,0 +1,52 @@
+.profile-settings-header {
+  display: flex;
+  padding: 20px 30px 5px 20px;
+
+  .action-leftSide {
+    display: flex;
+    justify-content: left;
+
+    .eho-img {
+      cursor: pointer;
+
+       img {
+         width: 106px;
+         height: 106px;
+         object-fit: contain;
+       }
+    }
+  }
+
+  .action-rightSide {
+    display: flex;
+    justify-content: end;
+    padding-top: 20px;
+
+    .pdf {
+      margin: 14px 15px 0 0;
+    }
+
+    .favorite {
+      //margin: 20px 30px 0 0;
+    }
+
+    .translate {
+      margin: 14px 15px 0 0;
+    }
+
+    .profile {
+      margin: 6px 0 0 0;
+    }
+
+    .up-line {
+      border: solid 1px #d0d0d0;
+      height: 36px;
+      margin: 12px 15px 0 0;
+    }
+  }
+}
+
+.long-line {
+  border: solid 1px #2d639f;
+  width: 100%;
+}

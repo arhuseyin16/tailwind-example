@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile-settings/profile-settings.module').then(m => m.ProfileSettingsModule)
+  },
   { path: 'ui',
     canActivate: [],
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)

@@ -1,0 +1,47 @@
+.pos-process {
+  padding: 15px 30px 10px 25px;
+
+  .title {
+    font-size: 15px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.53;
+    letter-spacing: normal;
+    text-align: left;
+    color: #356ba1;
+  }
+
+  .line {
+    margin-top: 10px;
+    width: 100%;
+    border: solid 1px #2d639f;
+  }
+
+  .auth-name {
+    font-size: 15px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.53;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+    padding-top: 20px;
+    width: 560px;
+    justify-content: left;
+    display: flex;
+  }
+
+  .auth-status {
+    font-size: 15px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.53;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
+    padding-top: 20px;
+  }
+}
