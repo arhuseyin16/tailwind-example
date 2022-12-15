@@ -58,6 +58,10 @@
   @apply text-14 #{!important};
 }
 
+.text-size-18 {
+  @apply text-18 #{!important};
+}
+
 .ant-pagination-item {
   @apply rounded-50% h-[25px] min-w-[25px] leading-25px border-0 bg-transparent;
   :hover {
@@ -184,4 +188,12 @@
 
 .ant-pagination-item-active a {
   @apply text-lapis-lazuli;
+}
+
+.basic-input {
+ @apply rounded-5px border-light-silver border-solid border-0.5 #{!important}
+}
+
+.ant-btn {
+  @apply rounded-10px #{!important};
 }

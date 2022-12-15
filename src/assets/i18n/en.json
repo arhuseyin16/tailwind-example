@@ -391,5 +391,16 @@
       "cancel": "Cancel",
       "approve": "Approve"
     }
+  },
+  "auth-scheme": {
+    "name": "Scheme Name",
+    "module": "Module",
+    "create": "Create",
+    "authorization": "Authorization",
+    "edit": "Edit",
+    "delete": "Delete",
+    "error-message": {
+      "name-required": "Name is Required"
+    }
   }
 }

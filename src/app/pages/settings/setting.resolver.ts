@@ -65,7 +65,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
         children: [
           {
             title: 'sidebar.authScheme',
-            routerLink: '/ui/setting/exchange',
+            routerLink: '/ui/setting/auth-management/authorization-scheme',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {

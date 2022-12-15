@@ -36,6 +36,10 @@ const routes: Routes = [
     component: BankAuthComponent
   },
   {
+    path: 'authorization-scheme',
+    loadChildren: () => import('./authorization-scheme/authorization-scheme.module').then(m => m.AuthorizationSchemeModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: ''

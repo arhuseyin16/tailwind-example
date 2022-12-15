@@ -1,0 +1,44 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { HeaderConfigAction } from "../../../../../store/header-config/header-config.action";
+import { FavoriteAction } from "../../../../../store/favorite/favorite.action";
+import { Store } from "@ngxs/store";
+import { Router } from "@angular/router";
+import { HeaderConfigModel } from "../../../../../models/header-config-model";
+import { FavoriteStateModel } from "../../../../../models/favorite-state.model";
+
+@Component({
+  selector: 'app-scheme-crud',
+  templateUrl: './scheme-crud.component.html',
+  styleUrls: ['./scheme-crud.component.scss']
+})
+export class SchemeCrudComponent implements OnInit {
+
+  store = inject(Store);
+  router = inject(Router);
+
+  headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
+  favoriteModel: FavoriteStateModel = new FavoriteStateModel();
+
+  constructor() {
+    const dataObj = {
+      title: 'İşlem Yetkilendirme',
+    }
+    this.headerConfig.push({
+      component: () => import('../../../../../shared/component/header-title/header-title.component').then(it => it.HeaderTitleComponent),
+      dataObj: dataObj
+    });
+    this.store.dispatch(new HeaderConfigAction(this.headerConfig));
+    this.favoriteModel = {
+      name: 'sidebar.authScheme',
+      url: this.router.url
+    }
+    this.store.dispatch(new FavoriteAction(this.favoriteModel));
+  }
+
+  ngOnInit(): void {
+  }
+
+  createScheme(createScheme: any) {
+    console.log(createScheme);
+  }
+}

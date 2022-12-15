@@ -44,7 +44,7 @@
             [nzSpan]="24"
             class="padding-0">{{'account-activities-list-filter.receipt-number' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" nz-input formControlName="receiptNumber"/>
+            <input class="basic-input" nzSize="large" nz-input formControlName="receiptNumber"/>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -53,7 +53,7 @@
           <nz-form-label
             [nzSpan]="24">{{'account-activities-list-filter.user-updating-erp-processing' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" nz-input formControlName="userUpdatingErpProcessing"/>
+            <input class="basic-input" nzSize="large" nz-input formControlName="userUpdatingErpProcessing"/>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -92,7 +92,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="description">{{'account-activities-list-filter.document-groups' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="description" nz-input formControlName="description"/>
+            <input class="basic-input" nzSize="large" id="description" nz-input formControlName="description"/>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -101,7 +101,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="additionalFieldFirst">{{'account-activities-list-filter.additional-field-first' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="additionalFieldFirst" nz-input
+            <input class="basic-input" nzSize="large" id="additionalFieldFirst" nz-input
                    formControlName="additionalFieldFirst"/>
           </nz-form-control>
         </nz-form-item>
@@ -141,7 +141,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="descriptionSecond">{{'account-activities-list-filter.description-second' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="descriptionSecond" nz-input
+            <input class="basic-input" nzSize="large" id="descriptionSecond" nz-input
                    formControlName="descriptionSecond"/>
           </nz-form-control>
         </nz-form-item>
@@ -151,7 +151,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="additionalFieldSecond">{{'account-activities-list-filter.additional-field-second' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="additionalFieldSecond" nz-input
+            <input class="basic-input" nzSize="large" id="additionalFieldSecond" nz-input
                    formControlName="additionalFieldSecond"/>
           </nz-form-control>
         </nz-form-item>
@@ -195,7 +195,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="customerDescription">{{'account-activities-list-filter.customer-description' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="customerDescription" nz-input
+            <input class="basic-input" nzSize="large" id="customerDescription" nz-input
                    formControlName="customerDescription"/>
           </nz-form-control>
         </nz-form-item>
@@ -205,7 +205,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="additionalFieldThird">{{'account-activities-list-filter.additional-field-third' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="additionalFieldThird" nz-input
+            <input class="basic-input" nzSize="large" id="additionalFieldThird" nz-input
                    formControlName="additionalFieldThird"/>
           </nz-form-control>
         </nz-form-item>
@@ -262,7 +262,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="additionalFieldFourth">{{'account-activities-list-filter.additional-field-fourth' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="additionalFieldFourth" nz-input
+            <input class="basic-input" nzSize="large" id="additionalFieldFourth" nz-input
                    formControlName="additionalFieldFourth"/>
           </nz-form-control>
         </nz-form-item>
@@ -290,13 +290,13 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="amountRangeStart">{{'account-activities-list-filter.amount-range' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="11">
-            <nz-input-number class="f-input w-full" nzSize="large" formControlName="amountRangeStart" [nzMin]="0"
+            <nz-input-number class="basic-input w-full" nzSize="large" formControlName="amountRangeStart" [nzMin]="0"
                              [nzMax]="100000000000"
                              nzPlaceHolder="En az"
                              [nzStep]="1"></nz-input-number>
           </nz-form-control>
           <nz-form-control [nzSpan]="11">
-            <nz-input-number class="f-input w-full ml-[25px]" nzSize="large" formControlName="amountRangeEnd"
+            <nz-input-number class="basic-input w-full ml-[25px]" nzSize="large" formControlName="amountRangeEnd"
                              [nzMin]="0"
                              [nzMax]="100000000000"
                              nzPlaceHolder="En çok"
@@ -323,7 +323,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="additionalFieldFifth">{{'account-activities-list-filter.additional-field-fifth' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="additionalFieldFifth" nz-input
+            <input class="basic-input" nzSize="large" id="additionalFieldFifth" nz-input
                    formControlName="additionalFieldFifth"/>
           </nz-form-control>
         </nz-form-item>
@@ -351,7 +351,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="accountNumber">{{'account-activities-list-filter.account-number' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="accountNumber" nz-input formControlName="accountNumber"/>
+            <input class="basic-input" nzSize="large" id="accountNumber" nz-input formControlName="accountNumber"/>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -374,7 +374,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="additionalFieldSixth">{{'account-activities-list-filter.additional-field-sixth' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="additionalFieldSixth" nz-input
+            <input class="basic-input" nzSize="large" id="additionalFieldSixth" nz-input
                    formControlName="additionalFieldSixth"/>
           </nz-form-control>
         </nz-form-item>
@@ -402,7 +402,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="taxOrTckn">{{'account-activities-list-filter.tax-or-tckn' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="taxOrTckn" nz-input formControlName="taxOrTckn"/>
+            <input class="basic-input" nzSize="large" id="taxOrTckn" nz-input formControlName="taxOrTckn"/>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -442,7 +442,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="ibanNumber">{{'account-activities-list-filter.iban-number' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="ibanNumber" nz-input formControlName="ibanNumber"/>
+            <input class="basic-input" nzSize="large" id="ibanNumber" nz-input formControlName="ibanNumber"/>
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -485,7 +485,7 @@
           <nz-form-label class="padding-0" [nzSpan]="24"
                          nzFor="referenceNumber">{{'account-activities-list-filter.reference-number' | translate}}</nz-form-label>
           <nz-form-control [nzSpan]="24">
-            <input class="f-input" nzSize="large" id="referenceNumber" nz-input formControlName="referenceNumber"/>
+            <input class="basic-input" nzSize="large" id="referenceNumber" nz-input formControlName="referenceNumber"/>
 
           </nz-form-control>
         </nz-form-item>

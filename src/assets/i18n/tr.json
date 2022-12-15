@@ -393,5 +393,16 @@
       "cancel": "İptal",
       "approve": "Onayla"
     }
+  },
+  "auth-scheme": {
+    "name": "Şema İsmi",
+    "module": "Modül",
+    "create": "Oluştur",
+    "authorization": "Yetkilendirme",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "error-message": {
+      "name-required": "İsim Zorunludur"
+    }
   }
 }

@@ -1,0 +1,24 @@
+<div class="grid grid-cols-4">
+  <div>
+    <label class="text-18">{{'auth-scheme.name' | translate}}</label>
+  </div>
+  <div class="pl-[26px]">
+    <label class="text-18">{{'auth-scheme.module' | translate}}</label>
+  </div>
+</div>
+
+<div class="grid grid-cols-4 scheme-list" *ngFor="let scheme of schemeList">
+  <nz-divider class="col-span-4"></nz-divider>
+  <div><label class="text-16">{{scheme.name}}</label></div>
+  <div class="pl-[26px]">
+    <div *ngFor="let module of scheme.modules">
+      <label class="mt-1.5 text-16">{{module.name}}</label>
+    </div>
+  </div>
+  <div></div>
+  <div class="flex flex-col xl:flex-row xl:justify-around">
+    <div><a href="#" class="text-14 text-azure">{{'auth-scheme.authorization' | translate}}</a></div>
+    <div><a href="#" class="text-14 text-azure">{{'auth-scheme.edit' | translate}}</a></div>
+    <div><a href="#" class="text-14 text-azure">{{'auth-scheme.delete' | translate}}</a></div>
+  </div>
+</div>

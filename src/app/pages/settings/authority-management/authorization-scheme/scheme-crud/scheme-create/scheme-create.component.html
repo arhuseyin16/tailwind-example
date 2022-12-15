@@ -1,0 +1,67 @@
+<form nz-form [formGroup]="schemeCreateFormGroup">
+  <div nz-row>
+    <div nz-col
+         [nzXs]="{span:20, pull: 2, push: 2}"
+         [nzSm]="{span:20, pull: 2, push: 2}"
+         [nzMd]="{span:20, pull: 2, push: 2}"
+         [nzLg]="{span:20, pull: 2, push: 2}"
+         [nzXl]="{span:6, pull: 0, push: 0}"
+         [nzXXl]="{span:4, pull: 0, push: 0}"
+    >
+      <nz-form-item>
+        <nz-form-label
+          [nzSpan]="24" nzFor="name"
+          class="padding-0 text-size-18">{{'auth-scheme.name' | translate}}</nz-form-label>
+        <nz-form-control [nzSpan]="24" nzErrorTip="{{'auth-scheme.error-message.name-required' | translate}}">
+          <input class="basic-input" id="name" nzSize="large" type="text" nz-input formControlName="name"/>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col
+         [nzXs]="{span:20, pull: 2, push: 2}"
+         [nzSm]="{span:20, pull: 2, push: 2}"
+         [nzMd]="{span:20, pull: 2, push: 2}"
+         [nzLg]="{span:20, pull: 2, push: 2}"
+         [nzXl]="{span:6, pull: 0, push: 0}"
+         [nzXXl]="{span:4, pull: 0, push: 0}"
+         class="xl:ml-[25px]"
+    >
+      <nz-form-item>
+        <!--          <nz-form-label
+                    [nzSpan]="24"
+                    class="padding-0">{{'account-activities-list-filter.transaction-types' | translate}}</nz-form-label>-->
+        <nz-form-control [nzSpan]="24">
+          <app-nz-select
+            [fg]="schemeCreateFormGroup"
+            [controlName]="schemeCreateFormGroup.value.modules"
+            [formControlName]="'modules'"
+            [optionList]="modules"
+            [label]="'auth-scheme.module'"
+            [labelClass]="'text-size-18'"
+            ngDefaultControl
+          ></app-nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col
+         [nzXs]="{span:20, pull: 2, push: 2}"
+         [nzSm]="{span:20, pull: 2, push: 2}"
+         [nzMd]="{span:20, pull: 2, push: 2}"
+         [nzLg]="{span:20, pull: 2, push: 2}"
+         [nzXl]="{span:6, pull: 0, push: 0}"
+         [nzXXl]="{span:4, pull: 0, push: 0}"
+         class="xl:ml-[25px]"
+    >
+      <nz-form-label class="padding-0 button-label"></nz-form-label>
+      <nz-form-item>
+        <button nz-button nzSize="large" (click)="createScheme()"
+                class="bg-eton-blue text-20-normal text-white px-[84px] py-[5px] focus:border-eton-blue focus:bg-eton-blue focus:text-white hover:bg-eton-blue hover:border-eton-blue hover:text-white">
+          {{'auth-scheme.create' | translate}}
+        </button>
+      </nz-form-item>
+    </div>
+
+  </div>
+</form>
