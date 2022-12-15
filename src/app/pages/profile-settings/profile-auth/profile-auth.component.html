@@ -8,12 +8,12 @@
       <div (click)="stepClick('5')" [ngClass]="head5 ? 'flex-active': 'group-flex'">{{'profile.ePayment' |translate }}</div>
     </div>
     <div class="body">
-      <div *ngIf="!head1" class="auth-request">{{'profile.requestAuth' | translate}}</div>
+      <div *ngIf="!head1" (click)="editModal()" class="auth-request">{{'profile.requestAuth' | translate}}</div>
       <app-group *ngIf="head1"></app-group>
-      <app-bank-process *ngIf="head2"></app-bank-process>
-      <app-pos-process *ngIf="head3"></app-pos-process>
-      <app-online-dbs *ngIf="head4"></app-online-dbs>
-      <app-e-payment *ngIf="head5"></app-e-payment>
+      <app-bank-process [authData]="data" *ngIf="head2"></app-bank-process>
+      <app-pos-process [authData]="data" *ngIf="head3"></app-pos-process>
+      <app-online-dbs [authData]="data" *ngIf="head4"></app-online-dbs>
+      <app-e-payment [authData]="data" *ngIf="head5"></app-e-payment>
     </div>
   </div>
 </div>

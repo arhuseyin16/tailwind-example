@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-e-payment',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./e-payment.component.scss']
 })
 export class EPaymentComponent implements OnInit {
+  @Input() authData: any;
 
   constructor() { }
 

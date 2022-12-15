@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ModalService} from "../../../service/modal-service/modal.service";
 
 @Component({
   selector: 'app-profile-auth',
@@ -12,7 +13,40 @@ export class ProfileAuthComponent implements OnInit {
   head4 = false;
   head5 = false;
 
-  constructor() { }
+  data = [
+    {
+      id: 1,
+      main: 'Nakit Durumu',
+      child: [
+        {id: 1, name: 'Nakit Akışı Genel Rapor', status: true},
+        {id: 2, name: 'Nakit Akışı ', status: true},
+        {id: 3, name: 'Varlık Akışı Genel Rapor', status: false},
+        {id: 4, name: 'Varlık Akışı Detay Rapor', status: true},
+      ]
+    },
+    {
+      id: 2,
+      main: 'Hesap Hareketleri Sistemi',
+      child: [
+        {id: 1, name: 'Nakit Akışı Genel Rapor', status: false},
+        {id: 2, name: 'Nakit Akışı Detay Rapor', status: true},
+        {id: 3, name: 'Varlık Akışı Genel Rapor', status: false},
+        {id: 4, name: 'Varlık Akışı Detay Rapor', status: true},
+      ]
+    },
+    {
+      id: 1,
+      main: 'Nakit Durumu',
+      child: [
+        {id: 1, name: 'Nakit Akışı Genel Rapor', status: true},
+        {id: 2, name: 'Nakit Akışı ', status: true},
+        {id: 3, name: 'Varlık Akışı Genel Rapor', status: false},
+        {id: 4, name: 'Varlık Akışı Detay Rapor', status: true},
+      ]
+    }
+  ]
+
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
   }
@@ -51,4 +85,9 @@ export class ProfileAuthComponent implements OnInit {
     }
   }
 
+  editModal() {
+    this.modalService.bankAuthEditModal().afterClose.subscribe((res: any) => {
+      console.log(res);
+    });
+  }
 }

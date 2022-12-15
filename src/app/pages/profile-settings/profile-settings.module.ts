@@ -18,6 +18,10 @@ import { BankProcessComponent } from './bank-process/bank-process.component';
 import { PosProcessComponent } from './pos-process/pos-process.component';
 import { OnlineDbsComponent } from './online-dbs/online-dbs.component';
 import { EPaymentComponent } from './e-payment/e-payment.component';
+import { AuthEditModalComponent } from './auth-edit-modal/auth-edit-modal.component';
+import {NzModalService} from "ng-zorro-antd/modal";
+import {ModalService} from "../../service/modal-service/modal.service";
+import {NzSelectModule} from "ng-zorro-antd/select";
 
 const routes: Routes = [
   {
@@ -36,7 +40,8 @@ const routes: Routes = [
     BankProcessComponent,
     PosProcessComponent,
     OnlineDbsComponent,
-    EPaymentComponent
+    EPaymentComponent,
+    AuthEditModalComponent
   ],
   imports: [
     CommonModule,
@@ -48,11 +53,14 @@ const routes: Routes = [
     TranslateModule,
     NzInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NzSelectModule
   ],
   providers: [
     NotificationService,
-    NzNotificationService
+    NzNotificationService,
+    NzModalService,
+    ModalService
   ]
 })
 export class ProfileSettingsModule { }

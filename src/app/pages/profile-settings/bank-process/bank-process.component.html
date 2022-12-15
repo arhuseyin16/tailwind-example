@@ -1,5 +1,5 @@
 <div class="bank-process">
-  <div *ngFor="let bank of data; let index = index;">
+  <div *ngFor="let bank of authData; let index = index;">
     <div class="title" [ngStyle]="index === 0 ? {'padding-top': '0'}: {'padding-top': '27px'}">{{bank.main}}</div>
     <div class="line"></div>
     <div *ngFor="let auth of bank?.child">
