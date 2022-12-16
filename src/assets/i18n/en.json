@@ -399,6 +399,8 @@
     "authorization": "Authorization",
     "edit": "Edit",
     "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
     "error-message": {
       "name-required": "Name is Required"
     }

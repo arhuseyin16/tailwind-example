@@ -3,3 +3,11 @@
     margin: 7px 0;
   }
 }
+
+.button-label {
+  ::ng-deep label {
+    &:after {
+      content: '';
+    }
+  }
+}

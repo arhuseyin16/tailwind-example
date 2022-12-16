@@ -401,6 +401,8 @@
     "authorization": "Yetkilendirme",
     "edit": "Düzenle",
     "delete": "Sil",
+    "save": "Kaydet",
+    "cancel": "İptal",
     "error-message": {
       "name-required": "İsim Zorunludur"
     }

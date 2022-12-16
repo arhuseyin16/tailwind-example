@@ -7,18 +7,50 @@
   </div>
 </div>
 
-<div class="grid grid-cols-4 scheme-list" *ngFor="let scheme of schemeList">
+<div [ngClass]="editCache[scheme.id].edit ? 'grid-cols-1' : 'grid-cols-4'" class="grid scheme-list"
+     *ngFor="let scheme of schemeList">
   <nz-divider class="col-span-4"></nz-divider>
-  <div><label class="text-16">{{scheme.name}}</label></div>
-  <div class="pl-[26px]">
-    <div *ngFor="let module of scheme.modules">
-      <label class="mt-1.5 text-16">{{module.name}}</label>
+
+  <ng-container *ngIf="!editCache[scheme.id].edit; else editTemplate">
+    <div><label class="text-16">{{scheme.name}}</label></div>
+    <div class="pl-[26px]">
+      <div *ngFor="let module of scheme.modules">
+        <label class="mt-1.5 text-16">{{module.name}}</label>
+      </div>
     </div>
-  </div>
-  <div></div>
-  <div class="flex flex-col xl:flex-row xl:justify-around">
-    <div><a href="#" class="text-14 text-azure">{{'auth-scheme.authorization' | translate}}</a></div>
-    <div><a href="#" class="text-14 text-azure">{{'auth-scheme.edit' | translate}}</a></div>
-    <div><a href="#" class="text-14 text-azure">{{'auth-scheme.delete' | translate}}</a></div>
-  </div>
+    <div></div>
+    <div class="flex flex-col mr-0 lg:mr-5 lg:justify-end lg:flex-row">
+      <div><a routerLink="setting/auth-management/authorization-scheme/authorization-scheme-edit"
+              class="text-14 text-azure mr-0 lg:mr-[15px]">{{'auth-scheme.authorization' | translate}}</a></div>
+      <div><a class="text-14 text-azure mr-0 lg:mr-[15px]" (click)="schemeEdit(scheme.id)">{{'auth-scheme.edit' | translate}}</a></div>
+      <div><a class="text-14 text-azure" (click)="schemeDelete()">{{'auth-scheme.delete' | translate}}</a></div>
+    </div>
+  </ng-container>
+
+  <ng-template #editTemplate>
+    <form nz-form [formGroup]="schemeUpdateFormGroup">
+      <div class="grid grid-cols-4">
+        <div>
+          <input class="basic-input" id="name" nzSize="large" type="text" nz-input formControlName="name"/>
+        </div>
+        <div class="pl-[26px]">
+          <app-nz-select
+            [fg]="schemeUpdateFormGroup"
+            [controlName]="schemeUpdateFormGroup.value.modules"
+            [formControlName]="'modules'"
+            [optionList]="editCache[scheme.id].data.modules"
+            [label]=""
+            [labelClass]="'text-size-18'"
+            ngDefaultControl
+          ></app-nz-select>
+        </div>
+        <div></div>
+        <div class="flex flex-col mr-0 lg:mr-5 lg:flex-row lg:justify-end">
+          <div><a class="text-14 text-azure mr-0 lg:mr-[15px]"
+                  (click)="schemeEditSave()">{{'auth-scheme.save' | translate}}</a></div>
+          <div><a class="text-14 text-azure" (click)="schemeEditCancel()">{{'auth-scheme.cancel' | translate}}</a></div>
+        </div>
+      </div>
+    </form>
+  </ng-template>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 export interface SchemeModel {
   id: number,
@@ -20,6 +21,8 @@ export class SchemeListComponent implements OnInit {
 
   constructor() { }
 
+  editCache: {[key: string]: {edit: boolean; data: SchemeModel}} = {};
+
   schemeList: Array<SchemeModel> = [
     {
       id: 1,
@@ -35,7 +38,7 @@ export class SchemeListComponent implements OnInit {
         },
         {
           id: 3,
-            name: 'E Ödeme'
+          name: 'E Ödeme'
         },
         {
           id: 4,
@@ -55,7 +58,31 @@ export class SchemeListComponent implements OnInit {
     }
   ]
 
+  schemeUpdateFormGroup = new FormGroup({
+    name: new FormControl('', {initialValueIsDefault: true, nonNullable: true, validators: Validators.required}),
+    modules: new FormControl([], {initialValueIsDefault: true, nonNullable: true, validators: Validators.required}),
+  });
+
   ngOnInit(): void {
+    this.schemeList.forEach(item => {
+      this.editCache[item.id] = {
+        edit: false,
+        data: { ...item }
+      };
+    });
   }
 
+  schemeEdit(id: number) {
+    this.editCache[id].edit = true;
+  }
+
+  schemeEditCancel() {
+  }
+
+  schemeDelete() {
+  }
+
+  schemeEditSave() {
+
+  }
 }
