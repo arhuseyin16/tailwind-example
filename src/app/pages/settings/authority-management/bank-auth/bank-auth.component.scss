@@ -22,6 +22,7 @@
       background-image: linear-gradient(to right, #2d639f, #87bfad);
       border-radius: 15px 15px 0 0;
       display: flex;
+      flex-wrap: wrap;
 
       .group-flex {
         font-size: 20px;

@@ -159,7 +159,7 @@
               <td>
                 <div class="flex" style="justify-content: space-between">
                   <div class="name">{{x.authName}}</div>
-                  <div *ngIf="x.authName" class="edit" style=" color: #0079ff; cursor: pointer">Düzenle</div>
+                  <div *ngIf="x.authName" class="edit" style=" color: #0079ff; cursor: pointer" (click)="authEditModalClick()">Düzenle</div>
                 </div>
               </td>
               <td style="width: 200px"></td>
