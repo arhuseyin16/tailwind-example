@@ -7,11 +7,11 @@ import { HeaderConfigModel } from "../../../../../models/header-config-model";
 import { FavoriteStateModel } from "../../../../../models/favorite-state.model";
 
 @Component({
-  selector: 'app-scheme-crud',
-  templateUrl: './scheme-crud.component.html',
-  styleUrls: ['./scheme-crud.component.scss']
+  selector: 'app-authorization-schema-edit',
+  templateUrl: './authorization-schema-edit.component.html',
+  styleUrls: ['./authorization-schema-edit.component.scss']
 })
-export class SchemeCrudComponent implements OnInit {
+export class AuthorizationSchemaEditComponent implements OnInit {
 
   store = inject(Store);
   router = inject(Router);
@@ -38,7 +38,4 @@ export class SchemeCrudComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createScheme(createScheme: any) {
-    console.log(createScheme);
-  }
 }

@@ -25,7 +25,7 @@ import { LabelValueType } from "../../../../models/bank/label-value.type";
 import { browserRefresh } from "../../../../app.component";
 import { KeyLabelValueType } from "../../../../models/shared/key-label-value.type";
 import { CreateFavoriteFilterComponent } from "./create-favorite-filter/create-favorite-filter.component";
-import { ModalService } from "../../../../service/modal/modal.service";
+import { ModalService } from "../../../../service/modal-service/modal.service";
 
 @Component({
   selector: 'app-account-activities',

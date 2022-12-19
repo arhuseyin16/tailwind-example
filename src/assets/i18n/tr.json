@@ -405,6 +405,9 @@
     "cancel": "İptal",
     "error-message": {
       "name-required": "İsim Zorunludur"
-    }
+    },
+    "no-schema": "Şema Bulunmamaktadır",
+    "delete-authority-schema": "Yetki Şeması Sil",
+    "delete-authority-schema-question": "Yetki şeması silinecek. Onaylıyor musunuz?"
   }
 }

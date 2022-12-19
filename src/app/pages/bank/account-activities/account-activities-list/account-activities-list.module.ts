@@ -24,7 +24,6 @@ import {
   AccountActivitiesFilterShareComponent
 } from './account-activities-filter-share/account-activities-filter-share.component';
 import { NzModalService } from "ng-zorro-antd/modal";
-import { ModalService } from "../../../../service/modal/modal.service";
 import { DrawerService } from "../../../../service/drawer/drawer.service";
 import {
   AccountActivitiesListTableComponent
@@ -41,6 +40,7 @@ import { AngularSvgIconModule } from "angular-svg-icon";
 import { SelectDeleteRecordModalComponent } from './select-delete-record-modal/select-delete-record-modal.component';
 import { EditUserDescriptionComponent } from './edit-user-description/edit-user-description.component';
 import { CreateFavoriteFilterComponent } from './create-favorite-filter/create-favorite-filter.component';
+import { ModalService } from "../../../../service/modal-service/modal.service";
 
 const routes: Routes = [
   {

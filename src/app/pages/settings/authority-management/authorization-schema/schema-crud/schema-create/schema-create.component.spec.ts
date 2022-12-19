@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SchemeCrudComponent } from './scheme-crud.component';
+import { SchemaCreateComponent } from './schema-create.component';
 
-describe('SchemeCrudComponent', () => {
-  let component: SchemeCrudComponent;
-  let fixture: ComponentFixture<SchemeCrudComponent>;
+describe('SchemeCreateComponent', () => {
+  let component: SchemaCreateComponent;
+  let fixture: ComponentFixture<SchemaCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SchemeCrudComponent ]
+      declarations: [ SchemaCreateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SchemeCrudComponent);
+    fixture = TestBed.createComponent(SchemaCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

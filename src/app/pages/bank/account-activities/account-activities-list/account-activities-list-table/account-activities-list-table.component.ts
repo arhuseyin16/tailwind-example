@@ -1,7 +1,6 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
 import { NzTableFilterFn, NzTableSortFn, NzTableSortOrder } from "ng-zorro-antd/table";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { ModalService } from "../../../../../service/modal/modal.service";
 import { PrintReceiptModalComponent } from "../print-receipt-modal/print-receipt-modal.component";
 import { SelectDeleteRecordModalComponent } from "../select-delete-record-modal/select-delete-record-modal.component";
 import { EditUserDescriptionComponent } from "../edit-user-description/edit-user-description.component";
@@ -14,6 +13,7 @@ import {
 import { KeyLabelValueType } from "../../../../../models/shared/key-label-value.type";
 import { FilterState } from "../../../../../store/filter/filter.state";
 import { PAGE_SIZE } from "../../../../../shared/constants/table-page-size";
+import { ModalService } from "../../../../../service/modal-service/modal.service";
 
 interface ItemData {
   id: any;

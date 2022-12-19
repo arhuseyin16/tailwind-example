@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthorizationSchemeEditComponent } from './authorization-scheme-edit.component';
+import { AuthorizationSchemaEditComponent } from './authorization-schema-edit.component';
 import { RouterModule, Routes } from "@angular/router";
 
 export const routes: Routes = [
   {
     path: '',
-    component: AuthorizationSchemeEditComponent
+    component: AuthorizationSchemaEditComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    AuthorizationSchemeEditComponent
+    AuthorizationSchemaEditComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ]
 })
-export class AuthorizationSchemeEditModule { }
+export class AuthorizationSchemaEditModule { }

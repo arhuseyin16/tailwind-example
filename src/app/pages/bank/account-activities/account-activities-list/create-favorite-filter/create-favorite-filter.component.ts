@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ModalService } from "../../../../../service/modal/modal.service";
+import { ModalService } from "../../../../../service/modal-service/modal.service";
 
 @Component({
   selector: 'app-create-favorite-filter',

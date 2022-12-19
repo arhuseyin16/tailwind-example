@@ -76,7 +76,9 @@ module.exports = {
         'toupe-gray': '#898989',
         'sonic-silver': '#757373',
         'light-silver': '#d9d9d9',
-        'azure': '#0079ff'
+        'azure': '#0079ff',
+        'permanent-geranium-lake': '#e53030',
+        'silver-foil': '#afafaf'
       },
       gridTemplateRows: {
         '10': 'repeat(10, minmax(0, 1fr))',

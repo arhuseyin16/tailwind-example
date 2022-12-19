@@ -2,13 +2,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-scheme-create',
-  templateUrl: './scheme-create.component.html',
-  styleUrls: ['./scheme-create.component.scss']
+  selector: 'app-schema-create',
+  templateUrl: './schema-create.component.html',
+  styleUrls: ['./schema-create.component.scss']
 })
-export class SchemeCreateComponent implements OnInit {
+export class SchemaCreateComponent implements OnInit {
 
-  schemeCreateFormGroup = new FormGroup({
+  schemaCreateFormGroup = new FormGroup({
     name: new FormControl('', {initialValueIsDefault: true, nonNullable: true, validators: Validators.required}),
     modules: new FormControl([], {initialValueIsDefault: true, nonNullable: true, validators: Validators.required}),
   });
@@ -35,17 +35,17 @@ export class SchemeCreateComponent implements OnInit {
         status: false
       }
     ];
-  @Output() createSchemeEvent = new EventEmitter();
+  @Output() createSchemaEvent = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  createScheme() {
-    if (this.schemeCreateFormGroup.valid) {
-      this.createSchemeEvent.emit(this.schemeCreateFormGroup.value);
+  createSchema() {
+    if (this.schemaCreateFormGroup.valid) {
+      this.createSchemaEvent.emit(this.schemaCreateFormGroup.value);
     } else {
-      Object.values(this.schemeCreateFormGroup.controls).forEach(control => {
+      Object.values(this.schemaCreateFormGroup.controls).forEach(control => {
         if (control.invalid) {
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });

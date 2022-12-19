@@ -1,4 +1,4 @@
-<form nz-form [formGroup]="schemeCreateFormGroup">
+<form nz-form [formGroup]="schemaCreateFormGroup">
   <div nz-row>
     <div nz-col
          [nzXs]="{span:20, pull: 2, push: 2}"
@@ -33,8 +33,8 @@
                     class="padding-0">{{'account-activities-list-filter.transaction-types' | translate}}</nz-form-label>-->
         <nz-form-control [nzSpan]="24">
           <app-nz-select
-            [fg]="schemeCreateFormGroup"
-            [controlName]="schemeCreateFormGroup.value.modules"
+            [fg]="schemaCreateFormGroup"
+            [controlName]="schemaCreateFormGroup.value.modules"
             [formControlName]="'modules'"
             [optionList]="modules"
             [label]="'auth-scheme.module'"
@@ -56,7 +56,7 @@
     >
       <nz-form-label class="padding-0 button-label"></nz-form-label>
       <nz-form-item>
-        <button nz-button nzSize="large" (click)="createScheme()"
+        <button nz-button nzSize="large" (click)="createSchema()"
                 class="bg-eton-blue text-20-normal text-white px-[84px] py-[5px] focus:border-eton-blue focus:bg-eton-blue focus:text-white hover:bg-eton-blue hover:border-eton-blue hover:text-white">
           {{'auth-scheme.create' | translate}}
         </button>

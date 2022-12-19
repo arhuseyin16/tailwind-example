@@ -201,3 +201,11 @@
 .ant-btn {
   @apply rounded-10px #{!important};
 }
+
+.ant-divider {
+  @apply border-t-silver-foil border-t-0.5 border-solid #{!important};
+}
+
+.ant-divider-horizontal {
+  @apply w-98% min-w-98% #{!important};
+}

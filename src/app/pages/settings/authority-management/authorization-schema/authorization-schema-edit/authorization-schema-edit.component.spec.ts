@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthorizationSchemeEditComponent } from './authorization-scheme-edit.component';
+import { AuthorizationSchemaEditComponent } from './authorization-schema-edit.component';
 
 describe('AuthorizationSchemeEditComponent', () => {
-  let component: AuthorizationSchemeEditComponent;
-  let fixture: ComponentFixture<AuthorizationSchemeEditComponent>;
+  let component: AuthorizationSchemaEditComponent;
+  let fixture: ComponentFixture<AuthorizationSchemaEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthorizationSchemeEditComponent ]
+      declarations: [ AuthorizationSchemaEditComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AuthorizationSchemeEditComponent);
+    fixture = TestBed.createComponent(AuthorizationSchemaEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

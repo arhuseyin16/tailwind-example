@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {NzModalRef, NzModalService} from "ng-zorro-antd/modal";
+import { inject, Injectable } from '@angular/core';
+import { ModalOptions, NzModalRef, NzModalService } from "ng-zorro-antd/modal";
 import {
   ExchangeDeleteModalComponent
 } from "../../pages/settings/exchange/exchange-delete-modal/exchange-delete-modal.component";
@@ -40,7 +40,19 @@ export class ModalService {
   userGroupDeleteRef?: NzModalRef;
   userGroupEditRef?: NzModalRef;
 
-  constructor(private nzModalService: NzModalService) {
+  private nzModalService = inject(NzModalService);
+  private modalRef?: NzModalRef;
+  create(options: ModalOptions) {
+    this.modalRef = this.nzModalService.create(options);
+    return this.modalRef;
+  }
+
+  getModalRef() {
+    return this.modalRef;
+  }
+
+  closeAll() {
+    this.nzModalService.closeAll();
   }
 
   exchangeTableDeleteModal(ids: any): NzModalRef {

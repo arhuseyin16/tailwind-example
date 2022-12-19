@@ -393,7 +393,7 @@
     }
   },
   "auth-scheme": {
-    "name": "Scheme Name",
+    "name": "Schema Name",
     "module": "Module",
     "create": "Create",
     "authorization": "Authorization",
@@ -403,6 +403,9 @@
     "cancel": "Cancel",
     "error-message": {
       "name-required": "Name is Required"
-    }
+    },
+    "no-scheme": "No Schema",
+    "delete-authority-schema": "Delete Authority Scheme",
+    "delete-authority-schema-question": "The authorization scheme will be deleted. Do you confirm?"
   }
 }

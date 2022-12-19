@@ -36,8 +36,8 @@ const routes: Routes = [
     component: BankAuthComponent
   },
   {
-    path: 'authorization-scheme',
-    loadChildren: () => import('./authorization-scheme/authorization-scheme.module').then(m => m.AuthorizationSchemeModule)
+    path: 'authorization-schema',
+    loadChildren: () => import('./authorization-schema/authorization-schema.module').then(m => m.AuthorizationSchemaModule)
   },
   {
     path: '',
@@ -76,6 +76,7 @@ const routes: Routes = [
         NzRadioModule
     ],
   providers: [
+    ModalService,
     ModalService,
     NzModalService,
     NotificationService,

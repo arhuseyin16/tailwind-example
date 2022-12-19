@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SchemeCrudComponent } from './scheme-crud.component';
-import { SchemeCreateComponent } from './scheme-create/scheme-create.component';
-import { SchemeListComponent } from './scheme-list/scheme-list.component';
+import { SchemaCrudComponent } from './schema-crud.component';
+import { SchemaCreateComponent } from './schema-create/schema-create.component';
+import { SchemaListComponent } from './schema-list/schema-list.component';
 import { RouterModule, Routes } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NzFormModule } from "ng-zorro-antd/form";
@@ -11,19 +11,22 @@ import { NzInputModule } from "ng-zorro-antd/input";
 import { NzCustomSelectModule } from "../../../../../shared/component/nz-select/nz-custom-select.module";
 import { NzButtonModule } from "ng-zorro-antd/button";
 import { NzDividerModule } from "ng-zorro-antd/divider";
+import { AuthorizationSchemaDeleteModalComponent } from './authorization-schema-delete-modal/authorization-schema-delete-modal.component';
+import { AngularSvgIconModule } from "angular-svg-icon";
 
 export const routes: Routes = [
   {
     path: '',
-    component: SchemeCrudComponent
+    component: SchemaCrudComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    SchemeCrudComponent,
-    SchemeCreateComponent,
-    SchemeListComponent
+    SchemaCrudComponent,
+    SchemaCreateComponent,
+    SchemaListComponent,
+    AuthorizationSchemaDeleteModalComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,8 @@ export const routes: Routes = [
     NzInputModule,
     NzCustomSelectModule,
     NzButtonModule,
-    NzDividerModule
+    NzDividerModule,
+    AngularSvgIconModule
   ]
 })
-export class SchemeCrudModule { }
+export class SchemaCrudModule { }
