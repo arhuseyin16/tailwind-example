@@ -1,0 +1,162 @@
+[
+  {
+    "username":"omer.arslan",
+    "type":"INDIVIDUAL",
+    "pageInformations":[
+      {
+        "title":"Nakit Akışı Genel",
+        "authorities":[
+          {
+            "id":1,
+            "name":"Yetki 1"
+          },
+          {
+            "id":2,
+            "name":"Yetki 2"
+          }
+        ]
+      },
+      {
+        "title":"Çek Raporları",
+        "authorities":[
+          {
+            "id":1,
+            "name":"Yetki 1"
+          },
+          {
+            "id":2,
+            "name":"Yetki 2"
+          },
+          {
+            "id":3,
+            "name":"Yetki 3"
+          },
+          {
+            "id":4,
+            "name":"Yetki 4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username":"busra.cetinkaya",
+    "type":"INDIVIDUAL",
+    "pageInformations":[
+      {
+        "title":"Nakit Akışı Genel",
+        "authorities":[
+          {
+            "id":1,
+            "name":"Yetki 1"
+          },
+          {
+            "id":2,
+            "name":"Yetki 2"
+          }
+        ]
+      },
+      {
+        "title":"Çek Raporları",
+        "authorities":[
+          {
+            "id":1,
+            "name":"Yetki 1"
+          },
+          {
+            "id":2,
+            "name":"Yetki 2"
+          },
+          {
+            "id":3,
+            "name":"Yetki 3"
+          },
+          {
+            "id":4,
+            "name":"Yetki 4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username":"analiz",
+    "type":"GROUP",
+    "pageInformations":[
+      {
+        "title":"Nakit Akışı Genel",
+        "authorities":[
+          {
+            "id":1,
+            "name":"Yetki 1"
+          },
+          {
+            "id":2,
+            "name":"Yetki 2"
+          }
+        ]
+      },
+      {
+        "title":"Çek Raporları",
+        "authorities":[
+          {
+            "id":1,
+            "name":"Yetki 1"
+          },
+          {
+            "id":2,
+            "name":"Yetki 2"
+          },
+          {
+            "id":3,
+            "name":"Yetki 3"
+          },
+          {
+            "id":4,
+            "name":"Yetki 4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "username":"IT",
+    "type":"INDIVIDUAL",
+    "pageInformations":[
+      {
+        "title":"Nakit Akışı Genel",
+        "authorities":[
+          {
+            "id":1,
+            "name":"Yetki 1"
+          },
+          {
+            "id":2,
+            "name":"Yetki 2"
+          }
+        ]
+      },
+      {
+        "title":"Çek Raporları",
+        "authorities":[
+          {
+            "id":1,
+            "name":"Yetki 1"
+          },
+          {
+            "id":2,
+            "name":"Yetki 2"
+          },
+          {
+            "id":3,
+            "name":"Yetki 3"
+          },
+          {
+            "id":4,
+            "name":"Yetki 4"
+          }
+        ]
+      }
+    ]
+  }
+]

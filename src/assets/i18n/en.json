@@ -406,6 +406,10 @@
     },
     "no-scheme": "No Schema",
     "delete-authority-schema": "Delete Authority Scheme",
-    "delete-authority-schema-question": "The authorization scheme will be deleted. Do you confirm?"
+    "delete-authority-schema-question": "The authorization scheme will be deleted. Do you confirm?",
+    "bank-transactions": "Bank Transactions",
+    "pos-transactions": "POS Transactions",
+    "e-payment": "E Payment",
+    "online-dbs": "Online DBS"
   }
 }

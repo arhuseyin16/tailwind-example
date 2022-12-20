@@ -14,10 +14,10 @@
     <nz-divider class="col-span-4"></nz-divider>
 
     <ng-container *ngIf="!editCache[scheme.id].edit; else editTemplate">
-      <div><label class="text-16">{{scheme.name}}</label></div>
+      <div><label class="text-16">{{scheme.id}}</label></div>
       <div class="pl-[26px]">
         <div *ngFor="let module of scheme.modules">
-          <label class="mt-1.5 text-16">{{module.name}}</label>
+          <label class="mt-1.5 text-16">{{module}}</label>
         </div>
       </div>
       <div></div>
@@ -42,7 +42,7 @@
               [fg]="schemaUpdateFormGroup"
               [controlName]="schemaUpdateFormGroup.value.modules"
               [formControlName]="'modules'"
-              [optionList]="editCache[scheme.id].data.modules"
+              [optionList]="modules"
               [label]=""
               [labelClass]="'text-size-18'"
               ngDefaultControl

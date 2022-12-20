@@ -1,0 +1,29 @@
+.bank-transactions {
+  ::ng-deep .ant-checkbox-inner {
+    @apply border-spanish-gray rounded-5px w-[18px] h-[18px] border-solid border-0.5 #{!important};
+  }
+
+  ::ng-deep .ant-checkbox-inner::after {
+    left: 34.5%;
+  }
+}
+
+.page-information-list {
+  ::ng-deep .ant-divider-horizontal {
+    @apply my-[7px] mx-0 w-99% #{!important};
+  }
+}
+
+ul {
+  @apply list-none p-0 m-0;
+}
+
+li {
+  @apply pl-2.5 pt-[7px];
+  text-indent: -.7em;
+}
+
+li::before {
+  content: "• ";
+  @apply text-black;
+}

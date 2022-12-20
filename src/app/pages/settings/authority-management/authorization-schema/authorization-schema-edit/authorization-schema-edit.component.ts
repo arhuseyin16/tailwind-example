@@ -5,6 +5,7 @@ import { Store } from "@ngxs/store";
 import { Router } from "@angular/router";
 import { HeaderConfigModel } from "../../../../../models/header-config-model";
 import { FavoriteStateModel } from "../../../../../models/favorite-state.model";
+import { AuthorityModuleEnum } from "../authority-module.enum";
 
 @Component({
   selector: 'app-authorization-schema-edit',
@@ -18,7 +19,29 @@ export class AuthorizationSchemaEditComponent implements OnInit {
 
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
-
+  AuthorityModuleEnum = AuthorityModuleEnum;
+  tabs = [
+    {
+      name: 'auth-scheme.bank-transactions',
+      key: AuthorityModuleEnum.BANK_TRANSACTIONS,
+      order: 1
+    },
+    {
+      name: 'auth-scheme.pos-transactions',
+      key: AuthorityModuleEnum.POS_TRANSACTIONS,
+      order: 2
+    },
+    {
+      name: 'auth-scheme.e-payment',
+      key: AuthorityModuleEnum.E_PAYMENT,
+      order: 3
+    },
+    {
+      name: 'auth-scheme.online-dbs',
+      key: AuthorityModuleEnum.ONLINE_DBS,
+      order: 4
+    }
+  ];
   constructor() {
     const dataObj = {
       title: 'İşlem Yetkilendirme',

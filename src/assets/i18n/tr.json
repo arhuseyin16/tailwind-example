@@ -408,6 +408,10 @@
     },
     "no-schema": "Şema Bulunmamaktadır",
     "delete-authority-schema": "Yetki Şeması Sil",
-    "delete-authority-schema-question": "Yetki şeması silinecek. Onaylıyor musunuz?"
+    "delete-authority-schema-question": "Yetki şeması silinecek. Onaylıyor musunuz?",
+    "bank-transactions": "Banka İşlemleri",
+    "pos-transactions": "POS İşlemleri",
+    "e-payment": "E Ödeme",
+    "online-dbs": "Online DBS"
   }
 }

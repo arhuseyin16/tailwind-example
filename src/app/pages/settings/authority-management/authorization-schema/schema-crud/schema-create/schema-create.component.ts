@@ -10,6 +10,7 @@ export class SchemaCreateComponent implements OnInit {
 
   schemaCreateFormGroup = new FormGroup({
     name: new FormControl('', {initialValueIsDefault: true, nonNullable: true, validators: Validators.required}),
+    id: new FormControl(0, {initialValueIsDefault: true, nonNullable: true, validators: Validators.required}),
     modules: new FormControl([], {initialValueIsDefault: true, nonNullable: true, validators: Validators.required}),
   });
 
@@ -43,7 +44,11 @@ export class SchemaCreateComponent implements OnInit {
 
   createSchema() {
     if (this.schemaCreateFormGroup.valid) {
+      this.schemaCreateFormGroup.patchValue({
+        id: Math.random()
+      })
       this.createSchemaEvent.emit(this.schemaCreateFormGroup.value);
+      this.schemaCreateFormGroup.reset();
     } else {
       Object.values(this.schemaCreateFormGroup.controls).forEach(control => {
         if (control.invalid) {

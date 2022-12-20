@@ -1,0 +1,21 @@
+<div class="bank-transactions">
+  <label nz-checkbox [(ngModel)]="adminChecked">
+    <span class="font-bold text-16">Admin</span><br>
+    <span class="text-14">Tüm Yetki Erişimi</span>
+  </label>
+</div>
+
+<div class="pt-7 page-information-list" *ngIf="pageAuthorities.length > 0">
+  <div *ngFor="let page of pageAuthorities">
+    <div><span class="text-16 text-lapis-lazuli">{{page.title}}</span></div>
+    <div *ngFor="let information of page.pageInformations">
+      <div class="pt-[7px]"><span class="text-16 font-bold">{{information.title}}</span></div>
+        <ul *ngFor="let authority of information.authorities">
+          <li><a>{{authority.name}}</a></li>
+        </ul>
+      <nz-divider></nz-divider>
+    </div>
+
+  </div>
+</div>
+
