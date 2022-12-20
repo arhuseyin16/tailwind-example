@@ -8,16 +8,23 @@ import {FormBuilder, FormControl} from "@angular/forms";
 })
 export class PosComponent implements OnInit {
   posForm = this.fb.group({
-    currencyUnit: new FormControl(''),
-    companies: new FormControl(''),
-    banks: new FormControl(''),
-    branches: new FormControl(''),
-    accountTypes: new FormControl(''),
-    accounts: new FormControl(''),
-    willBorrow: new FormControl(''),
+    currencyUnit: new FormControl<any>([]),
+    companies: new FormControl<any>([]),
+    banks: new FormControl<any>([]),
+    branches: new FormControl<any>([]),
+    accountTypes: new FormControl<any>([]),
+    accounts: new FormControl<any>([]),
+    willBorrow: new FormControl<any>([]),
   });
 
   @Input() saveButtonClickEvent = new EventEmitter();
+  @Input() currencyUnitOptions: any[] = [];
+  @Input() companiesOptions: any[] = [];
+  @Input() banksOptions: any[] = [];
+  @Input() branchesOptions: any[] = [];
+  @Input() accountTypesOptions: any[] = [];
+  @Input() accountOptions: any[] = [];
+  @Input() willBorrowOptions: any[] = [];
   @Output() posFormEvent = new EventEmitter()
   constructor(private fb: FormBuilder) { }
 

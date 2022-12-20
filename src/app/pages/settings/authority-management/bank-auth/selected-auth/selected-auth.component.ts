@@ -8,12 +8,14 @@ import {FormBuilder, FormControl, Validators} from "@angular/forms";
 })
 export class SelectedAuthComponent implements OnInit {
   authForm = this.fb.group({
-    user: new FormControl('', Validators.required),
-    group: new FormControl('', Validators.required)
+    user: new FormControl<any>([], Validators.required),
+    group: new FormControl<any>([], Validators.required)
   });
 
   @Input() saveButtonClickEvent = new EventEmitter();
-  @Output() authFormEvent = new EventEmitter()
+  @Output() authFormEvent = new EventEmitter();
+  @Input() userOptions: any[] = [];
+  @Input() groupOptions: any[] = [];
 
   constructor(private fb: FormBuilder) { }
 
