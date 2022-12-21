@@ -20,7 +20,7 @@
           </ul>
         </div>
         <div class="pl-50%">
-          <div *ngIf="information.groups.length > 0" class="pt-[7px]"><span class="text-16 font-bold">Grup</span></div>
+          <div *ngIf="information.groups.length > 0" class="pt-[7px]"><span class="text-16 font-bold">{{'auth-scheme.group' | translate}}</span></div>
           <div *ngFor="let group of information.groups">
             <ul>
               <li><a [ngStyle]="{'color': group.color}"
@@ -28,7 +28,7 @@
             </ul>
           </div>
           <div *ngIf="information.individuals.length > 0" class="pt-[7px]"><span
-            class="text-16 font-bold">Kullanıcı</span></div>
+            class="text-16 font-bold">{{'auth-scheme.user' | translate}}</span></div>
           <div *ngFor="let individual of information.individuals">
             <ul>
               <li><a [ngStyle]="{'color': individual.color}"
