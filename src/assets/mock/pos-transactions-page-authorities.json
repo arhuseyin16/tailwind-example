@@ -1,0 +1,912 @@
+[
+  {
+    "id": 11,
+    "title": "POS Durumu",
+    "pageInformations": [
+      {
+        "id": 1111,
+        "title": "Pos Durumu",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Pos Raporlar",
+    "pageInformations": [
+      {
+        "id": 1211,
+        "title": "Pos Genel Rapor",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      },
+      {
+        "id": 1212,
+        "title": "Pos Detay Rapor",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      },
+      {
+        "id": 1213,
+        "title": "Pos Taksit Bazlı Rapor",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      },
+      {
+        "id": 1214,
+        "title": "Pos Terminal Bazlı Rapor",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      },
+      {
+        "id": 1215,
+        "title": "Dinamik Rapor",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Pos Hareketleri",
+    "pageInformations": [
+      {
+        "id": 1311,
+        "title": "Pos Durumu",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      },
+      {
+        "id": 1312,
+        "title": "Pos Hareketleri (Banka)",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Bakım Ekranları",
+    "pageInformations": [
+      {
+        "id": 1411,
+        "title": "Banka Kart Kategori Eşleştrime",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      },
+      {
+        "id": 1412,
+        "title": "Banka Pos Anlaşmaları",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      },
+      {
+        "id": 1413,
+        "title": "Banka Bin Kodları",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Pos Mutabakat Sistemi",
+    "pageInformations": [
+      {
+        "id": 1511,
+        "title": "Pos Mutabakat",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Uyarlama İşlemleri",
+    "pageInformations": [
+      {
+        "id": 1611,
+        "title": "Banka İşyeri Tanımları",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      },
+      {
+        "id": 1612,
+        "title": "Firma Tanımları",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Entegrasyon Yönetimi",
+    "pageInformations": [
+      {
+        "id": 1711,
+        "title": "Banka İş Yeri FTP Tanımları",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Senkronizasyon Yönetimi",
+    "pageInformations": [
+      {
+        "id": 1811,
+        "title": "Pos FTP Banka Senkronizasyonu Planlama",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      },
+      {
+        "id": 1812,
+        "title": "Pos FTP Banka Senkronizasyonu Plan İşlemcisi",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -37,6 +37,10 @@ const routes: Routes = [
     component: BankAuthComponent
   },
   {
+    path: 'authorization-schema',
+    loadChildren: () => import('./authorization-schema/authorization-schema.module').then(m => m.AuthorizationSchemaModule)
+  },
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: ''
@@ -45,19 +49,19 @@ const routes: Routes = [
 
 
 @NgModule({
-    declarations: [
-        UserGroupComponent,
-        UserGroupTableComponent,
-        UserGroupNewRecordModalComponent,
-        UserGroupDeleteModalComponent,
-        UserGroupEditModalComponent,
-        BankAuthComponent,
-        AccountActivitiesComponent,
-        PosComponent,
-        DbsComponent,
-        EPaymentComponent,
-        SelectedAuthComponent
-    ],
+  declarations: [
+    UserGroupComponent,
+    UserGroupTableComponent,
+    UserGroupNewRecordModalComponent,
+    UserGroupDeleteModalComponent,
+    UserGroupEditModalComponent,
+    BankAuthComponent,
+    AccountActivitiesComponent,
+    PosComponent,
+    DbsComponent,
+    EPaymentComponent,
+    SelectedAuthComponent
+  ],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
@@ -76,11 +80,11 @@ const routes: Routes = [
     exports: [
         EPaymentComponent
     ],
-    providers: [
-        ModalService,
-        NzModalService,
-        NotificationService,
-        NzNotificationService
-    ]
+  providers: [
+    ModalService,
+    NzModalService,
+    NotificationService,
+    NzNotificationService
+  ]
 })
 export class AuthorityManagementModule { }

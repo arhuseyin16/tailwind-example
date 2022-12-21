@@ -31,7 +31,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
       {
         title: 'sidebar.settings',
         menuItemClass: 'mt20',
-        icon: 'assets/img/sidebar/dashboard-icon.svg',
+        icon: 'assets/img/sidebar/three-dots.svg',
         iconSpanClass: 'w-[22px] block',
         titleClass: 'sidebar-menu-title uppercase font-bold',
         isCollapseClass: 'pl-50',
@@ -65,7 +65,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
         children: [
           {
             title: 'sidebar.authScheme',
-            routerLink: '/ui/setting/exchange',
+            routerLink: '/ui/setting/auth-management/authorization-schema',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {

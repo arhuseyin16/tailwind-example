@@ -1,0 +1,13 @@
+.scheme-list {
+  ::ng-deep .ant-divider-horizontal {
+    @apply my-[7px] mx-0 #{!important};
+  }
+}
+
+.button-label {
+  ::ng-deep label {
+    &:after {
+      content: '';
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.card-container ::ng-deep p {
+  @apply m-0 #{!important};
+}
+.card-container ::ng-deep .ant-tabs {
+  @apply rounded-tl-10px rounded-tr-10px rounded-bl-0 rounded-br-0 #{!important};
+}
+.card-container ::ng-deep > .ant-tabs-card .ant-tabs-content {
+  @apply -mt-4 #{!important};
+}
+.card-container ::ng-deep > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
+  @apply bg-white p-4;
+}
+.card-container ::ng-deep > .ant-tabs-card > .ant-tabs-nav::before {
+  @apply hidden;
+}
+.card-container ::ng-deep .ant-tabs-tab {
+  @apply p-5 rounded-tl-10px rounded-tr-10px rounded-bl-0 rounded-br-0 border-0 #{!important};
+}
+.card-container ::ng-deep > .ant-tabs-card > .ant-tabs-nav {
+  background-image: linear-gradient(to right, #2d639f, #87bfad);;
+}
+.card-container ::ng-deep .ant-tabs-tab > .ant-tabs-tab-btn {
+  @apply text-white text-18;
+
+  &:active {
+    @apply text-white;
+  }
+  &:focus {
+    @apply text-white;
+  }
+  &:hover {
+    @apply text-white;
+  }
+}
+.card-container ::ng-deep .ant-tabs-tab-active > .ant-tabs-tab-btn {
+  @apply text-lapis-lazuli text-18;
+
+  &:active {
+    @apply text-lapis-lazuli;
+  }
+  &:focus {
+    @apply text-lapis-lazuli;
+  }
+  &:hover {
+    @apply text-lapis-lazuli;
+  }
+}
+.card-container ::ng-deep > .ant-tabs-card .ant-tabs-tab {
+  background: transparent;
+}
+.card-container ::ng-deep > .ant-tabs-card .ant-tabs-tab-active {
+  border-color: #fff;
+  background: #fff;
+}

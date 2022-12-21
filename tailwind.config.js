@@ -29,7 +29,8 @@ module.exports = {
       '20px': '20px',
       '10px': '10px',
       '15px': '10px',
-      "50%": '50%'
+      "50%": '50%',
+       "0": "0"
     },
     screens: {
       'sm': '640px',
@@ -55,6 +56,12 @@ module.exports = {
     },
     minWidth: {
       '98%': '98%',
+      '99%': '99%',
+      '97%': '97%'
+    },
+    maxWidth: {
+      '98%': '98%',
+      '99%': '99%',
       '97%': '97%'
     },
     extend: {
@@ -74,7 +81,12 @@ module.exports = {
         'dark-charcoal': '#ABABAB',
         'boston-university-red': '#CE0000',
         'toupe-gray': '#898989',
-        'sonic-silver': '#757373'
+        'sonic-silver': '#757373',
+        'light-silver': '#d9d9d9',
+        'azure': '#0079ff',
+        'permanent-geranium-lake': '#e53030',
+        'silver-foil': '#afafaf',
+        'spanish-gray': '#959595'
       },
       gridTemplateRows: {
         '10': 'repeat(10, minmax(0, 1fr))',
@@ -86,6 +98,7 @@ module.exports = {
       },
       padding: {
         '30px': '30px',
+        '50%': '50%'
       },
       margin: {
         '25px': '25px',
@@ -100,6 +113,7 @@ module.exports = {
       },
       width: {
         '98%': '98%',
+        '99%': '99%',
         '97%': '97%'
       }
     },

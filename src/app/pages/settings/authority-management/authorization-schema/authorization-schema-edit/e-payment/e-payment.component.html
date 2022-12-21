@@ -1,0 +1,51 @@
+<div class="bank-transactions">
+  <label nz-checkbox [(ngModel)]="adminChecked">
+    <span class="font-bold text-16">{{'auth-scheme.admin' | translate}}</span><br>
+    <span class="text-14">{{'auth-scheme.all-authority-access' | translate}}</span>
+  </label>
+</div>
+
+<div class="pt-7 page-information-list" *ngIf="ePaymentPageAuthorities.length > 0">
+  <div *ngFor="let page of ePaymentPageAuthorities">
+    <div><span class="text-16 text-lapis-lazuli">{{page.title}}</span></div>
+    <div *ngFor="let information of page.pageInformations">
+      <div class="grid grid-cols-3 gap-x-12">
+        <div>
+          <div class="pt-[7px]"><span class="text-16 font-bold">{{information.title}}</span></div>
+          <ul *ngFor="let authority of information.authorities">
+            <div>
+              <li><a [ngStyle]="{'color': authority.color}"
+                     (click)="authorityClick(authority, information.id)">{{authority.name}}</a></li>
+            </div>
+          </ul>
+        </div>
+        <div class="pl-50%">
+          <div *ngIf="information.groups.length > 0" class="pt-[7px]"><span class="text-16 font-bold">{{'auth-scheme.group' | translate}}</span></div>
+          <div *ngFor="let group of information.groups">
+            <ul>
+              <li><a [ngStyle]="{'color': group.color}"
+                     (click)="userClick(group, information.id)">{{group.username}}</a></li>
+            </ul>
+          </div>
+          <div *ngIf="information.individuals.length > 0" class="pt-[7px]"><span
+            class="text-16 font-bold">{{'auth-scheme.user' | translate}}</span></div>
+          <div *ngFor="let individual of information.individuals">
+            <ul>
+              <li><a [ngStyle]="{'color': individual.color}"
+                     (click)="userClick(individual, information.id)">{{individual.username}}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pt-[7px] text-right pr-5">
+          <a class="text-azure" (click)="openAuthorizationModal(information)">{{'auth-scheme.authorization' | translate}}</a>
+        </div>
+      </div>
+
+      <nz-divider></nz-divider>
+
+    </div>
+
+  </div>
+
+</div>
+

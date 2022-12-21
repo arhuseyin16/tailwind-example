@@ -1,0 +1,267 @@
+[
+  {
+    "id": 11,
+    "title": "Nakit Durumu",
+    "pageInformations": [
+      {
+        "id": 1111,
+        "title": "Nakit Durumu Detay",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+
+        "groups": [
+          {
+            "id": 112,
+            "username": "IT",
+            "type": "GROUP",
+            "authorities": [3,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 2]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [1, 3]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Fiili Nakit Akışı Raporları",
+    "pageInformations": [
+      {
+        "id": 1211,
+        "title": "Nakit Akışı Genel",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      },
+      {
+        "id": 1212,
+        "title": "Nakit Akışı Detay",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      },
+      {
+        "id": 1213,
+        "title": "Nakit Akışı Özet",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      },
+      {
+        "id": 1214,
+        "title": "Nakit Akışı Diğer",
+        "authorities": [
+          {
+            "id": 1,
+            "name": "Yetki 1"
+          },
+          {
+            "id": 2,
+            "name": "Yetki 2"
+          },
+          {
+            "id": 3,
+            "name": "Yetki 3"
+          },
+          {
+            "id": 4,
+            "name": "Yetki 4"
+          }
+        ],
+        "groups": [
+          {
+            "id": 118,
+            "username": "Tasarım Grubu",
+            "type": "GROUP",
+            "authorities": [2,4]
+          },
+          {
+            "id": 113,
+            "username": "Analiz Grubu",
+            "type": "GROUP",
+            "authorities": [1,4]
+          }
+        ],
+        "individuals": [
+          {
+            "id": 111,
+            "username": "omer.arslan",
+            "type": "INDIVIDUAL",
+            "authorities": [2, 3]
+          },
+          {
+            "id": 114,
+            "username": "busra.cetinkaya",
+            "type": "INDIVIDUAL",
+            "authorities": [4]
+          }
+        ]
+      }
+    ]
+
+  }
+]

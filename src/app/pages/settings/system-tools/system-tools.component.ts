@@ -29,7 +29,7 @@ export class SystemToolsComponent implements OnInit {
     });
     this.store.dispatch(new HeaderConfigAction(this.headerConfig));
     this.favoriteModel = {
-      name: 'sidebar.exchange',
+      name: 'sidebar.system-tools',
       url: this.router.url
     }
     this.store.dispatch(new FavoriteAction(this.favoriteModel));

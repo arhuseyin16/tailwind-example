@@ -1,0 +1,7 @@
+.button-label {
+  ::ng-deep label {
+    &:after {
+      content: '';
+    }
+  }
+}

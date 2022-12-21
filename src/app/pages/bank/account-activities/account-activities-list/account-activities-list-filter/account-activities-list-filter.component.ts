@@ -11,9 +11,9 @@ import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import {
   AccountActivitiesFilterShareComponent
 } from "../account-activities-filter-share/account-activities-filter-share.component";
-import { ModalService } from "../../../../../service/modal/modal.service";
 import { Subject } from "rxjs";
 import { DrawerService } from "../../../../../service/drawer/drawer.service";
+import { ModalService } from "../../../../../service/modal-service/modal.service";
 
 @Component({
   selector: 'app-account-activities-list-filter',

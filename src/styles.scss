@@ -34,6 +34,10 @@
   @apply p-0 #{!important};
 }
 
+.padding-b-1 {
+  @apply pb-1 #{!important};
+}
+
 .width-\[230px\] {
   @apply w-[230px] #{!important};
 }
@@ -58,8 +62,12 @@
   @apply text-14 #{!important};
 }
 
+.text-size-18 {
+  @apply text-18 #{!important};
+}
+
 .text-size-20 {
-  @apply text-20 #{!important};
+  @apply text-20-normal #{!important};
 }
 
 .ant-pagination-item {
@@ -188,4 +196,20 @@
 
 .ant-pagination-item-active a {
   @apply text-lapis-lazuli;
+}
+
+.basic-input {
+ @apply rounded-5px border-light-silver border-solid border-0.5 #{!important}
+}
+
+.ant-btn {
+  @apply rounded-10px #{!important};
+}
+
+.ant-divider {
+  @apply border-t-silver-foil border-t-0.5 border-solid #{!important};
+}
+
+.ant-divider-horizontal {
+  @apply w-98% min-w-98% #{!important};
 }
