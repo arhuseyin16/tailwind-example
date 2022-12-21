@@ -14,6 +14,7 @@ import {
   AuthorityManagementService
 } from "../../../../../service/settings/authority-management/authority-management.service";
 import { NzDividerModule } from "ng-zorro-antd/divider";
+import { NzListModule } from "ng-zorro-antd/list";
 
 export const routes: Routes = [
   {
@@ -37,7 +38,8 @@ export const routes: Routes = [
     TranslateModule,
     NzCheckboxModule,
     FormsModule,
-    NzDividerModule
+    NzDividerModule,
+    NzListModule
   ],
   providers: [AuthorityManagementService]
 })

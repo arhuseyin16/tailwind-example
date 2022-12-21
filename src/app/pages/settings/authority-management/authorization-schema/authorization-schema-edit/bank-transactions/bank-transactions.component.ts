@@ -5,6 +5,7 @@ import {
 import { PageAuthorityType } from "../../../../../../models/settings/authority-management/page-authority.type";
 import { UntilDestroy } from "@ngneat/until-destroy";
 import { UserInformationType } from "../../../../../../models/settings/authority-management/user-information.type";
+import { UserAuthorityType } from "../../../../../../models/settings/authority-management/user-authority.type";
 
 @UntilDestroy({checkProperties: true})
 @Component({
@@ -16,11 +17,48 @@ export class BankTransactionsComponent implements OnInit {
   authorityManagement = inject(AuthorityManagementService);
   adminChecked = false;
   pageAuthorities = new Array<PageAuthorityType>();
-  userInformations = new Array<UserInformationType>();
+  pageAuthoritiesCache = new Array<PageAuthorityType>();
 
   ngOnInit(): void {
-    this.authorityManagement.getPageAuthorities().subscribe(pageAuthorities => this.pageAuthorities = pageAuthorities);
-    this.authorityManagement.getUserInformation().subscribe(userInformations => this.userInformations = userInformations);
+    this.authorityManagement.getBankTransactionsPageAuthorities().subscribe(pageAuthorities => {
+      this.pageAuthorities = pageAuthorities;
+      this.pageAuthoritiesCache = pageAuthorities;
+    });
   }
 
+  userClick(user: UserInformationType, informationId: number) {
+    this.pageAuthoritiesCache.forEach(pageAuthority => {
+      pageAuthority.pageInformations.forEach(pageInformation => {
+        if (pageInformation.id === informationId) {
+          pageInformation.authorities.forEach(auth => {
+            auth.color = user.authorities.includes(auth.id) ? '#0079ff' : '#000';
+          });
+          pageInformation.individuals.forEach(individual => {
+            individual.color = individual.id === user.id ? '#0079ff' : '#000';
+          });
+          pageInformation.groups.forEach(group => {
+            group.color = group.id === user.id ? '#0079ff' : '#000';
+          });
+        }
+      });
+    });
+  }
+
+  authorityClick(authority: UserAuthorityType, informationId: number) {
+    this.pageAuthoritiesCache.forEach(pageAuthority => {
+      pageAuthority.pageInformations.forEach(pageInformation => {
+        if (pageInformation.id === informationId) {
+          pageInformation.authorities.forEach(auth => {
+            auth.color = auth.id === authority.id ? '#0079ff': '#000';
+          });
+          pageInformation.individuals.forEach(individual => {
+            individual.color = individual.authorities.includes(authority.id) ? '#0079ff' : '#000';
+          });
+          pageInformation.groups.forEach(group => {
+            group.color = group.authorities.includes(authority.id) ? '#0079ff' : '#000';
+          });
+        }
+      });
+    });
+  }
 }

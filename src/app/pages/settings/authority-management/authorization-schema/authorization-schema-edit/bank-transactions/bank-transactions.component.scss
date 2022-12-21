@@ -19,7 +19,7 @@ ul {
 }
 
 li {
-  @apply pl-2.5 pt-[7px];
+  @apply pl-2.5 pt-[7px] overflow-hidden text-ellipsis whitespace-nowrap;
   text-indent: -.7em;
 }
 
