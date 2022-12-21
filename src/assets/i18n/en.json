@@ -410,6 +410,8 @@
     "bank-transactions": "Bank Transactions",
     "pos-transactions": "POS Transactions",
     "e-payment": "E Payment",
-    "online-dbs": "Online DBS"
+    "online-dbs": "Online DBS",
+    "admin": "Admin",
+    "all-authority-access": "Tüm Yetki Erişimi"
   }
 }

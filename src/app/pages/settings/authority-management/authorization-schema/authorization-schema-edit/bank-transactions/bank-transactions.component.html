@@ -1,7 +1,7 @@
 <div class="bank-transactions">
   <label nz-checkbox [(ngModel)]="adminChecked">
-    <span class="font-bold text-16">Admin</span><br>
-    <span class="text-14">Tüm Yetki Erişimi</span>
+    <span class="font-bold text-16">{{'auth-scheme.admin' | translate}}</span><br>
+    <span class="text-14">{{'auth-scheme.all-authority-access' | translate}}</span>
   </label>
 </div>
 
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="text-right pr-5">
-          <a class="text-azure">Yetkilendirme</a>
+          <a class="text-azure">{{'auth-scheme.authorization' | translate}}</a>
         </div>
       </div>
 

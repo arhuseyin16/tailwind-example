@@ -412,6 +412,8 @@
     "bank-transactions": "Banka İşlemleri",
     "pos-transactions": "POS İşlemleri",
     "e-payment": "E Ödeme",
-    "online-dbs": "Online DBS"
+    "online-dbs": "Online DBS",
+    "admin": "Admin",
+    "all-authority-access": "All Authority Access"
   }
 }
