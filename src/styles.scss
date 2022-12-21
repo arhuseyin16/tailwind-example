@@ -66,6 +66,10 @@
   @apply text-18 #{!important};
 }
 
+.text-size-20 {
+  @apply text-20-normal #{!important};
+}
+
 .ant-pagination-item {
   @apply rounded-50% h-[25px] min-w-[25px] leading-25px border-0 bg-transparent;
   :hover {

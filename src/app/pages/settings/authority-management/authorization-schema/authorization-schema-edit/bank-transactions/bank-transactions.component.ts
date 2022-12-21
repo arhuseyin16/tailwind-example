@@ -6,6 +6,9 @@ import { PageAuthorityType } from "../../../../../../models/settings/authority-m
 import { UntilDestroy } from "@ngneat/until-destroy";
 import { UserInformationType } from "../../../../../../models/settings/authority-management/user-information.type";
 import { UserAuthorityType } from "../../../../../../models/settings/authority-management/user-authority.type";
+import { PageInformationType } from "../../../../../../models/settings/authority-management/page-information.type";
+import { AuthorizationModalComponent } from "../authorization-modal/authorization-modal.component";
+import { ModalService } from "../../../../../../service/modal-service/modal.service";
 
 @UntilDestroy({checkProperties: true})
 @Component({
@@ -15,6 +18,7 @@ import { UserAuthorityType } from "../../../../../../models/settings/authority-m
 })
 export class BankTransactionsComponent implements OnInit {
   authorityManagement = inject(AuthorityManagementService);
+  modalService = inject(ModalService);
   adminChecked = false;
   pageAuthorities = new Array<PageAuthorityType>();
   pageAuthoritiesCache = new Array<PageAuthorityType>();
@@ -60,5 +64,18 @@ export class BankTransactionsComponent implements OnInit {
         }
       });
     });
+  }
+
+  openAuthorizationModal(information: PageInformationType) {
+    const modalRef = this.modalService.create({
+      nzContent: AuthorizationModalComponent,
+      nzClosable: false,
+      nzFooter: null,
+      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
+      nzWidth: '650px',
+    });
+
+    modalRef.afterClose.subscribe(result => console.log(result));
+
   }
 }

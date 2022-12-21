@@ -5,6 +5,9 @@ import {
 import { PageAuthorityType } from "../../../../../../models/settings/authority-management/page-authority.type";
 import { UserInformationType } from "../../../../../../models/settings/authority-management/user-information.type";
 import { UserAuthorityType } from "../../../../../../models/settings/authority-management/user-authority.type";
+import { ModalService } from "../../../../../../service/modal-service/modal.service";
+import { AuthorizationModalComponent } from "../authorization-modal/authorization-modal.component";
+import { PageInformationType } from "../../../../../../models/settings/authority-management/page-information.type";
 
 @Component({
   selector: 'app-online-dbs',
@@ -13,6 +16,7 @@ import { UserAuthorityType } from "../../../../../../models/settings/authority-m
 })
 export class OnlineDbsComponent implements OnInit {
   authorityManagement = inject(AuthorityManagementService);
+  modalService = inject(ModalService);
   adminChecked = false;
   onlineDBSPageAuthorities = new Array<PageAuthorityType>();
   onlineDBSPageAuthoritiesCache = new Array<PageAuthorityType>();
@@ -58,5 +62,18 @@ export class OnlineDbsComponent implements OnInit {
         }
       });
     });
+  }
+
+  openAuthorizationModal(information: PageInformationType) {
+    const modalRef = this.modalService.create({
+      nzContent: AuthorizationModalComponent,
+      nzClosable: false,
+      nzFooter: null,
+      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
+      nzWidth: '650px',
+    });
+
+    modalRef.afterClose.subscribe(result => console.log(result));
+
   }
 }

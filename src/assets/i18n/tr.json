@@ -414,6 +414,9 @@
     "e-payment": "E Ödeme",
     "online-dbs": "Online DBS",
     "admin": "Admin",
-    "all-authority-access": "All Authority Access"
+    "all-authority-access": "Tüm yetki erişimi",
+    "group": "Grup",
+    "user": "Kullanıcı",
+    "authority": "Yetki"
   }
 }

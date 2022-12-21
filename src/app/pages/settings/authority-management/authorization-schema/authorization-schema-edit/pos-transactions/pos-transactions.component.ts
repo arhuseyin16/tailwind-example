@@ -5,6 +5,9 @@ import {
 import { PageAuthorityType } from "../../../../../../models/settings/authority-management/page-authority.type";
 import { UserInformationType } from "../../../../../../models/settings/authority-management/user-information.type";
 import { UserAuthorityType } from "../../../../../../models/settings/authority-management/user-authority.type";
+import { PageInformationType } from "../../../../../../models/settings/authority-management/page-information.type";
+import { AuthorizationModalComponent } from "../authorization-modal/authorization-modal.component";
+import { ModalService } from "../../../../../../service/modal-service/modal.service";
 
 @Component({
   selector: 'app-pos-transactions',
@@ -14,6 +17,7 @@ import { UserAuthorityType } from "../../../../../../models/settings/authority-m
 export class PosTransactionsComponent implements OnInit {
 
   authorityManagement = inject(AuthorityManagementService);
+  modalService = inject(ModalService);
   adminChecked = false;
   posTransactionsPageAuthorities = new Array<PageAuthorityType>();
   posTransactionsPageAuthoritiesCache = new Array<PageAuthorityType>();
@@ -63,4 +67,16 @@ export class PosTransactionsComponent implements OnInit {
     });
   }
 
+  openAuthorizationModal(information: PageInformationType) {
+    const modalRef = this.modalService.create({
+      nzContent: AuthorizationModalComponent,
+      nzClosable: false,
+      nzFooter: null,
+      nzBodyStyle: {'padding': '0', 'border-radius': '10px', 'background': '#fff'},
+      nzWidth: '650px',
+    });
+
+    modalRef.afterClose.subscribe(result => console.log(result));
+
+  }
 }

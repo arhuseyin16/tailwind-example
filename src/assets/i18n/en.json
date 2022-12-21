@@ -412,6 +412,9 @@
     "e-payment": "E Payment",
     "online-dbs": "Online DBS",
     "admin": "Admin",
-    "all-authority-access": "Tüm Yetki Erişimi"
+    "all-authority-access": "All authority access",
+    "group": "Group",
+    "user": "User",
+    "authority": "Authority"
   }
 }

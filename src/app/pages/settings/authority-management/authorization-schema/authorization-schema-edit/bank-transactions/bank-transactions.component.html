@@ -19,7 +19,7 @@
             </div>
           </ul>
         </div>
-        <div>
+        <div class="pl-50%">
           <div *ngIf="information.groups.length > 0" class="pt-[7px]"><span class="text-16 font-bold">Grup</span></div>
           <div *ngFor="let group of information.groups">
             <ul>
@@ -36,8 +36,8 @@
             </ul>
           </div>
         </div>
-        <div class="text-right pr-5">
-          <a class="text-azure">{{'auth-scheme.authorization' | translate}}</a>
+        <div class="pt-[7px] text-right pr-5">
+          <a class="text-azure" (click)="openAuthorizationModal(information)">{{'auth-scheme.authorization' | translate}}</a>
         </div>
       </div>
 

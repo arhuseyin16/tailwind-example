@@ -9,12 +9,16 @@ import { EPaymentComponent } from './e-payment/e-payment.component';
 import { OnlineDbsComponent } from './online-dbs/online-dbs.component';
 import { TranslateModule } from "@ngx-translate/core";
 import { NzCheckboxModule } from "ng-zorro-antd/checkbox";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {
   AuthorityManagementService
 } from "../../../../../service/settings/authority-management/authority-management.service";
 import { NzDividerModule } from "ng-zorro-antd/divider";
 import { NzListModule } from "ng-zorro-antd/list";
+import { AuthorizationModalComponent } from './authorization-modal/authorization-modal.component';
+import { AngularSvgIconModule } from "angular-svg-icon";
+import { NzInputModule } from "ng-zorro-antd/input";
+import { NzCustomSelectModule } from "../../../../../shared/component/nz-select/nz-custom-select.module";
 
 export const routes: Routes = [
   {
@@ -29,7 +33,8 @@ export const routes: Routes = [
     BankTransactionsComponent,
     PosTransactionsComponent,
     EPaymentComponent,
-    OnlineDbsComponent
+    OnlineDbsComponent,
+    AuthorizationModalComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +44,11 @@ export const routes: Routes = [
     NzCheckboxModule,
     FormsModule,
     NzDividerModule,
-    NzListModule
+    NzListModule,
+    AngularSvgIconModule,
+    NzInputModule,
+    NzCustomSelectModule,
+    ReactiveFormsModule
   ],
   providers: [AuthorityManagementService]
 })
