@@ -22,10 +22,15 @@
     </nz-select>
   </div>
   <div class="form-control">
-    <label>{{'auth-management.auth' | translate}}</label>
-    <nz-select formControlName="auth" [nzSize]="'large'" nzAllowClear>
-      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-    </nz-select>
+    <app-nz-select
+      [fg]="createdForm"
+      [controlName]="createdForm.value.auth"
+      [formControlName]="'auth'"
+      [optionList]="authList"
+      [label]="'auth-management.auth'"
+      [labelClass]="'text-size-20'"
+      ngDefaultControl
+    ></app-nz-select>
   </div>
 </div>
 <div class="main-footer">

@@ -13,8 +13,14 @@ export class UserGroupEditModalComponent implements OnInit {
     authScheme: new FormControl('', Validators.required),
     modules: new FormControl('', Validators.required),
     screen: new FormControl('', Validators.required),
-    auth: new FormControl('', Validators.required),
+    auth: new FormControl([], Validators.required),
   });
+
+  authList = [
+    {id: 1, name: 'yetki 1'},
+    {id: 2, name: 'yetki 2'},
+    {id: 3, name: 'yetkii 3'},
+  ]
 
   constructor(private modalService: ModalService,
               private fb: FormBuilder) { }

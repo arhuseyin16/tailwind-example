@@ -22,6 +22,7 @@ import { AuthEditModalComponent } from './auth-edit-modal/auth-edit-modal.compon
 import {NzModalService} from "ng-zorro-antd/modal";
 import {ModalService} from "../../service/modal-service/modal.service";
 import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzCustomSelectModule} from "../../shared/component/nz-select/nz-custom-select.module";
 
 const routes: Routes = [
   {
@@ -43,19 +44,20 @@ const routes: Routes = [
     EPaymentComponent,
     AuthEditModalComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    PdfModule,
-    FavoriteModule,
-    TranslatePageModule,
-    ProfileModule,
-    TranslateModule,
-    NzInputModule,
-    ReactiveFormsModule,
-    FormsModule,
-    NzSelectModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        PdfModule,
+        FavoriteModule,
+        TranslatePageModule,
+        ProfileModule,
+        TranslateModule,
+        NzInputModule,
+        ReactiveFormsModule,
+        FormsModule,
+        NzSelectModule,
+        NzCustomSelectModule
+    ],
   providers: [
     NotificationService,
     NzNotificationService,

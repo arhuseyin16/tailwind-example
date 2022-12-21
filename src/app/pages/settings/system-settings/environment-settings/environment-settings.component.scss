@@ -24,7 +24,7 @@
         }
 
         input {
-          border-radius: 10px;
+          border-radius: 5px;
           border: solid 0.5px #ABABAB;
           background-color: #fff;
           margin-top: 10px;
@@ -42,7 +42,7 @@
           ::ng-deep .ant-select-selector {
             //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
             border: solid 0.5px #ABABAB;
-            border-radius: 10px;
+            border-radius: 5px;
             background-color: #fff;
             font-size: 14px;
           }
@@ -72,10 +72,10 @@
         }
 
         nz-input-number {
-          border-radius: 10px;
+          border-radius: 5px;
 
           ::ng-deep .ant-input-number-handler-wrap {
-            border-radius: 10px;
+            border-radius: 5px;
           }
         }
       }
