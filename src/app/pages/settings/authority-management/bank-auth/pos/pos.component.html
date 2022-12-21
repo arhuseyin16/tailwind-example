@@ -1,48 +1,83 @@
 <div [formGroup]="posForm">
-  <div class="flex">
+  <div class="pos-flex">
     <div class="form-control">
-      <label>{{'auth-management.currencyUnit' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="currencyUnit" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="posForm"
+        [controlName]="posForm.value.currencyUnit"
+        [formControlName]="'currencyUnit'"
+        [optionList]="currencyUnitOptions"
+        [label]="'auth-management.currencyUnit'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
     <div class="form-control">
-      <label>{{'auth-management.companies' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="companies" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="posForm"
+        [controlName]="posForm.value.companies"
+        [formControlName]="'companies'"
+        [optionList]="companiesOptions"
+        [label]="'auth-management.companies'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
     <div class="form-control">
-      <label>{{'auth-management.banks' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="banks" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="posForm"
+        [controlName]="posForm.value.banks"
+        [formControlName]="'banks'"
+        [optionList]="banksOptions"
+        [label]="'auth-management.banks'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
     <div class="form-control">
-      <label>{{'auth-management.branches' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="branches" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="posForm"
+        [controlName]="posForm.value.branches"
+        [formControlName]="'branches'"
+        [optionList]="branchesOptions"
+        [label]="'auth-management.branches'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
     <div class="form-control">
-      <label>{{'auth-management.accountTypes' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="accountTypes" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="posForm"
+        [controlName]="posForm.value.accountTypes"
+        [formControlName]="'accountTypes'"
+        [optionList]="accountTypesOptions"
+        [label]="'auth-management.accountTypes'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
   </div>
-  <div class="flex">
+  <div class="pos-flex">
     <div class="form-control">
-      <label>{{'auth-management.accounts' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="accounts" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="posForm"
+        [controlName]="posForm.value.accounts"
+        [formControlName]="'accounts'"
+        [optionList]="accountOptions"
+        [label]="'auth-management.accounts'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
     <div class="form-control">
-      <label>{{'auth-management.willBorrow' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="willBorrow" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="posForm"
+        [controlName]="posForm.value.willBorrow"
+        [formControlName]="'willBorrow'"
+        [optionList]="willBorrowOptions"
+        [label]="'auth-management.willBorrow'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
   </div>
 </div>

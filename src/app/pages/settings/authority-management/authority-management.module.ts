@@ -25,6 +25,7 @@ import { PosComponent } from './bank-auth/pos/pos.component';
 import { DbsComponent } from './bank-auth/dbs/dbs.component';
 import { EPaymentComponent } from './bank-auth/e-payment/e-payment.component';
 import { SelectedAuthComponent } from './bank-auth/selected-auth/selected-auth.component';
+import {NzCustomSelectModule} from "../../../shared/component/nz-select/nz-custom-select.module";
 
 const routes: Routes = [
   {
@@ -48,19 +49,19 @@ const routes: Routes = [
 
 
 @NgModule({
-    declarations: [
-        UserGroupComponent,
-        UserGroupTableComponent,
-        UserGroupNewRecordModalComponent,
-        UserGroupDeleteModalComponent,
-        UserGroupEditModalComponent,
-        BankAuthComponent,
-        AccountActivitiesComponent,
-        PosComponent,
-        DbsComponent,
-        EPaymentComponent,
-        SelectedAuthComponent
-    ],
+  declarations: [
+    UserGroupComponent,
+    UserGroupTableComponent,
+    UserGroupNewRecordModalComponent,
+    UserGroupDeleteModalComponent,
+    UserGroupEditModalComponent,
+    BankAuthComponent,
+    AccountActivitiesComponent,
+    PosComponent,
+    DbsComponent,
+    EPaymentComponent,
+    SelectedAuthComponent
+  ],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
@@ -73,17 +74,17 @@ const routes: Routes = [
         NzDropDownModule,
         NzTableModule,
         FormsModule,
-        NzRadioModule
+        NzRadioModule,
+        NzCustomSelectModule
     ],
     exports: [
         EPaymentComponent
     ],
-    providers: [
-        ModalService,
-        ModalService,
-        NzModalService,
-        NotificationService,
-        NzNotificationService
-    ]
+  providers: [
+    ModalService,
+    NzModalService,
+    NotificationService,
+    NzNotificationService
+  ]
 })
 export class AuthorityManagementModule { }

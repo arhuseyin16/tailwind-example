@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-group',
+  templateUrl: './group.component.html',
+  styleUrls: ['./group.component.scss']
+})
+export class GroupComponent implements OnInit {
+  data = [
+    'Grup1',
+    'Grup2',
+    'Grup3',
+    'Grup4',
+  ]
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

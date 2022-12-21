@@ -8,12 +8,15 @@ import {FormBuilder, FormControl} from "@angular/forms";
 })
 export class EPaymentComponent implements OnInit {
   paymentForm = this.fb.group({
-    currencyUnit: new FormControl(''),
-    companies: new FormControl(''),
-    banks: new FormControl('')
+    currencyUnit: new FormControl<any>([]),
+    companies: new FormControl<any>([]),
+    banks: new FormControl<any>([]),
   });
 
   @Input() saveButtonClickEvent = new EventEmitter();
+  @Input() currencyUnitOptions: any[] = [];
+  @Input() companiesOptions: any[] = [];
+  @Input() banksOptions: any[] = [];
   @Output() paymentFormEvent = new EventEmitter()
   constructor(private fb: FormBuilder) { }
 

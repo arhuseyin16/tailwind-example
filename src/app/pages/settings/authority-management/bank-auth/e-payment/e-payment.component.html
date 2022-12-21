@@ -1,22 +1,37 @@
 <div [formGroup]="paymentForm">
-  <div class="flex">
+  <div class="payment-flex">
     <div class="form-control">
-      <label>{{'auth-management.currencyUnit' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="currencyUnit" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="paymentForm"
+        [controlName]="paymentForm.value.currencyUnit"
+        [formControlName]="'currencyUnit'"
+        [optionList]="currencyUnitOptions"
+        [label]="'auth-management.currencyUnit'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
     <div class="form-control">
-      <label>{{'auth-management.companies' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="companies" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="paymentForm"
+        [controlName]="paymentForm.value.companies"
+        [formControlName]="'companies'"
+        [optionList]="companiesOptions"
+        [label]="'auth-management.companies'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
     <div class="form-control">
-      <label>{{'auth-management.banks' | translate}}</label>
-      <nz-select [nzSize]="'large'" formControlName="banks" nzAllowClear>
-        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-      </nz-select>
+      <app-nz-select
+        [fg]="paymentForm"
+        [controlName]="paymentForm.value.banks"
+        [formControlName]="'banks'"
+        [optionList]="banksOptions"
+        [label]="'auth-management.banks'"
+        [labelClass]="'text-size-20'"
+        ngDefaultControl
+      ></app-nz-select>
     </div>
   </div>
 </div>

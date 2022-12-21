@@ -27,6 +27,7 @@ import {
 import {
   UserGroupEditModalComponent
 } from "../../pages/settings/authority-management/user-group/user-group-edit-modal/user-group-edit-modal.component";
+import {AuthEditModalComponent} from "../../pages/profile-settings/auth-edit-modal/auth-edit-modal.component";
 
 @Injectable()
 export class ModalService {
@@ -39,6 +40,7 @@ export class ModalService {
   userGroupNewRecordRef?: NzModalRef
   userGroupDeleteRef?: NzModalRef;
   userGroupEditRef?: NzModalRef;
+  bankAuthEditRef?: NzModalRef;
 
   private nzModalService = inject(NzModalService);
   private modalRef?: NzModalRef;
@@ -170,5 +172,18 @@ export class ModalService {
       nzWidth: '586px',
     });
     return this.userGroupEditRef;
+  }
+
+  bankAuthEditModal(): NzModalRef {
+    this.bankAuthEditRef = this.nzModalService.create({
+      nzContent: AuthEditModalComponent,
+      nzComponentParams: {},
+      nzClosable: false,
+      nzFooter: null,
+      nzKeyboard: false,
+      nzMaskClosable: false,
+      nzWidth: '586px',
+    });
+    return this.bankAuthEditRef;
   }
 }

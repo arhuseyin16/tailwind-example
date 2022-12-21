@@ -91,6 +91,7 @@
 .sidebar-logo img {
   height: 106px;
   width: 106px;
+  cursor: pointer;
 }
 
 :host ::ng-deep .ant-menu-submenu-open ul::before {

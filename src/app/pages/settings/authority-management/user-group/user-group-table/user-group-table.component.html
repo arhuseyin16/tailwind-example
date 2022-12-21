@@ -1,4 +1,4 @@
-<div class="user-group-table">
+<div class="base-table user-group-table">
   <nz-table
     #rowSelectionTable
     nzShowSizeChanger
@@ -6,6 +6,8 @@
     [nzPageSize]="10"
     [nzShowSizeChanger]="true"
     [nzPageSizeOptions]="pageSize"
+    [nzItemRender]="paginationItemRender"
+    [nzShowTotal]="rangeTemplate"
     (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
   >
     <thead>
@@ -159,7 +161,7 @@
               <td>
                 <div class="flex" style="justify-content: space-between">
                   <div class="name">{{x.authName}}</div>
-                  <div *ngIf="x.authName" class="edit" style=" color: #0079ff; cursor: pointer">Düzenle</div>
+                  <div *ngIf="x.authName" class="edit" style=" color: #0079ff; cursor: pointer" (click)="authEditModalClick()">Düzenle</div>
                 </div>
               </td>
               <td style="width: 200px"></td>
@@ -171,5 +173,19 @@
         <!--auth&&UserChild table end-->
     </ng-template>
     </tbody>
+  <ng-template #rangeTemplate let-range="range" let-total>
+    <div class="absolute left-0 text-16">
+      {{ total | number: '2.0' }} Kayıttan {{ range[0] }}-{{ range[1] }} arası
+    </div>
+  </ng-template>
+  <ng-template #paginationItemRender let-type let-page="page">
+    <ng-container [ngSwitch]="type">
+      <a *ngSwitchCase="'page'">{{ page }}</a>
+      <a *ngSwitchCase="'prev'"><img src="assets/svg/left-single-arrow.svg"/></a>
+      <a *ngSwitchCase="'next'"><img src="assets/svg/right-single-arrow.svg"/></a>
+      <a *ngSwitchCase="'prev_5'"><img src="assets/svg/left-double-arrow.svg"/></a>
+      <a *ngSwitchCase="'next_5'"><img src="assets/svg/right-double-arrow.svg"/></a>
+    </ng-container>
+  </ng-template>
   </nz-table>
 </div>

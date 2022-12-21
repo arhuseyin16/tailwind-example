@@ -8,10 +8,15 @@
     <input nz-input formControlName="groupName"  type="text" />
   </div>
   <div class="form-control">
-    <label>{{'auth-management.userAssignment' | translate}}</label>
-    <nz-select formControlName="userAssignment" [nzSize]="'large'" nzAllowClear>
-      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-    </nz-select>
+    <app-nz-select
+      [fg]="createdForm"
+      [controlName]="createdForm.value.userAssignment"
+      [formControlName]="'userAssignment'"
+      [optionList]="userList"
+      [label]="'auth-management.userAssignment'"
+      [labelClass]="'text-size-20'"
+      ngDefaultControl
+    ></app-nz-select>
   </div>
 </div>
 <div class="main-footer">

@@ -8,12 +8,15 @@ import {FormBuilder, FormControl} from "@angular/forms";
 })
 export class DbsComponent implements OnInit {
   dbsForm = this.fb.group({
-    currencyUnit: new FormControl(''),
-    companies: new FormControl(''),
-    banks: new FormControl('')
+    currencyUnit: new FormControl<any>([]),
+    companies: new FormControl<any>([]),
+    banks: new FormControl<any>([]),
   });
 
   @Input() saveButtonClickEvent = new EventEmitter();
+  @Input() currencyUnitOptions: any[] = [];
+  @Input() companiesOptions: any[] = [];
+  @Input() banksOptions: any[] = [];
   @Output() dbsFormEvent = new EventEmitter()
   constructor(private fb: FormBuilder) { }
 

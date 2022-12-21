@@ -1,0 +1,33 @@
+<div class="main-title">
+  <div class="title">{{'auth-management.authEdit' | translate}}</div>
+  <div class="close-icon" (click)="close()">X</div>
+</div>
+<div class="main-body" [formGroup]="editForm">
+  <div class="form-control">
+    <label>{{'auth-management.authScheme' | translate}}</label>
+    <nz-select formControlName="authScheme" [nzSize]="'large'" nzAllowClear>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    </nz-select>
+  </div>
+  <div class="form-control">
+    <label>{{'auth-management.screen' | translate}}</label>
+    <nz-select formControlName="screen" [nzSize]="'large'" nzAllowClear>
+      <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    </nz-select>
+  </div>
+  <div class="form-control">
+    <app-nz-select
+      [fg]="editForm"
+      [controlName]="editForm.value.auth"
+      [formControlName]="'auth'"
+      [optionList]="authOption"
+      [label]="'auth-management.auth'"
+      [labelClass]="'text-size-20'"
+      ngDefaultControl
+    ></app-nz-select>
+  </div>
+</div>
+<div class="main-footer">
+  <button class="cancel" (click)="close()">{{'settings-exchange.cancel' | translate}}</button>
+  <button class="save" (click)="save()">{{'settings-exchange.approve' | translate}}</button>
+</div>

@@ -11,8 +11,15 @@ export class UserGroupNewRecordModalComponent implements OnInit {
 
   createdForm = this.fb.group({
     groupName: new FormControl('', Validators.required),
-    userAssignment: new FormControl('', Validators.required),
+    userAssignment: new FormControl([], Validators.required),
   });
+
+  userList = [
+    {id: 1, name: 'Hüseyin'},
+    {id: 2, name: 'Ömer'},
+    {id: 3, name: 'Büşra'},
+    {id: 4, name: 'İbrahim'},
+  ]
 
   constructor(private modalService: ModalService,
               private fb: FormBuilder) { }

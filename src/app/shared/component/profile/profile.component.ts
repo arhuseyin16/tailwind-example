@@ -31,4 +31,8 @@ export class ProfileComponent implements OnInit {
   goToSetting() {
     this.router.navigate(['ui/setting/exchange']);
   }
+
+  goToProfile() {
+    this.router.navigate(['profile']);
+  }
 }

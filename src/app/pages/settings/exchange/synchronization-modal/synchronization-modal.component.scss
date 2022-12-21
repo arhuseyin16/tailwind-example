@@ -43,7 +43,7 @@
     }
 
     input {
-      border-radius: 10px;
+      border-radius: 5px;
       border: solid 0.5px #ABABAB;
       background-color: #fff;
       margin-top: 10px;
@@ -57,11 +57,11 @@
 
     ::ng-deep .ant-picker {
       display: block;
-      border-radius: 10px;
+      border-radius: 5px;
       border: solid 0.5px #ABABAB;
       background-color: #fff;
       margin-top: 10px;
-      height: 45px;
+      height: 40px;
 
       &:focus {
         box-shadow: none;
@@ -69,27 +69,11 @@
       }
 
       .ant-picker-input > input {
-        height: 35px;
+        height: 30px;
       }
 
       .ant-picker-suffix {
         color: black;
-      }
-    }
-
-    .ant-select {
-      width: 100%;
-      margin-top: 10px;
-      ::ng-deep .ant-select-selector {
-        //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
-        border: solid 0.5px #ABABAB;
-        border-radius: 10px;
-        background-color: #fff;
-        font-size: 14px;
-      }
-
-      ::ng-deep .ant-select-arrow {
-        color: #000000;
       }
     }
   }

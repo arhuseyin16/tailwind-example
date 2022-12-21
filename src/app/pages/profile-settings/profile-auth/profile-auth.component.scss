@@ -1,0 +1,66 @@
+.profile-auth {
+  padding: 15px 30px 10px 25px;
+
+  .page-shadow {
+    border-radius: 15px;
+    box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
+    background-color: #fff;
+
+    .header {
+      background-image: linear-gradient(to right, #2d639f, #87bfad);
+      border-radius: 15px 15px 0 0;
+      display: flex;
+
+      .group-flex {
+        font-size: 15px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #fff;
+        padding: 18px 25px;
+        cursor: pointer;
+      }
+
+      .flex-active {
+        font-size: 15px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #2e649f;
+        padding: 18px 25px;
+        cursor: pointer;
+        border-radius: 13px 13px 0 0;
+        background-color: #fff;
+      }
+    }
+
+    .body {
+      margin-top: 27px;
+      padding-bottom: 20px;
+      position: relative;
+      height: 850px;
+
+      .auth-request {
+        position: absolute;
+        font-size: 15px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 2.33;
+        letter-spacing: normal;
+        text-align: left;
+        color: #0079ff;
+        right: 30px;
+        top: 10px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -13,27 +13,49 @@
     <div class="body">
       <app-selected-auth *ngIf="!type && !headerName"
         [saveButtonClickEvent]="saveAuthClickEvent"
+        [userOptions]="userList"
+        [groupOptions]="groupList"
         (authFormEvent)="selectedAuthForm = $event">
       </app-selected-auth>
       <app-account-activities
         *ngIf="head1"
         [saveButtonClickEvent]="saveAccountClickEvent"
+        [currencyUnitOptions]="currencyUnitList"
+        [companiesOptions]="companiesList"
+        [banksOptions]="banksList"
+        [branchesOptions]="branchesList"
+        [accountTypesOptions]="accountTypesList"
+        [accountOptions]="accountList"
+        [willBorrowOptions]="willBorrowList"
         (accountFormEvent)="selectedAccountForm = $event">
       </app-account-activities>
       <app-pos
         *ngIf="head2"
         [saveButtonClickEvent]="savePosClickEvent"
+        [currencyUnitOptions]="currencyUnitList"
+        [companiesOptions]="companiesList"
+        [banksOptions]="banksList"
+        [branchesOptions]="branchesList"
+        [accountTypesOptions]="accountTypesList"
+        [accountOptions]="accountList"
+        [willBorrowOptions]="willBorrowList"
         (posFormEvent)="selectedPosForm = $event"
       >
       </app-pos>
       <app-dbs
         *ngIf="head3"
         [saveButtonClickEvent]="saveDbsClickEvent"
+        [currencyUnitOptions]="currencyUnitList"
+        [companiesOptions]="companiesList"
+        [banksOptions]="banksList"
         (dbsFormEvent)="selectedDbsForm = $event">
       </app-dbs>
       <app-e-payment
         *ngIf="head4"
         [saveButtonClickEvent]="savePaymentClickEvent"
+        [currencyUnitOptions]="currencyUnitList"
+        [companiesOptions]="companiesList"
+        [banksOptions]="banksList"
         (paymentFormEvent)="selectedPaymentForm = $event">
       </app-e-payment>
     </div>

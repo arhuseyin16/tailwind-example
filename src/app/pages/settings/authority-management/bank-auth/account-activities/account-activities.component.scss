@@ -1,45 +1,98 @@
-.form-control {
-  flex: 0 0 17%;
-  max-width: 17%;
-  margin: 20px 0 24px 23px;
+.account-activities {
+  display: flex;
+  flex-wrap: wrap;
 
-  label {
-    font-size: 20px;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000;
-  }
+  .form-control {
+    flex: 0 0 17%;
+    max-width: 17%;
+    margin: 20px 0 24px 23px;
 
-  input {
-    border-radius: 10px;
-    border: solid 0.5px #ABABAB;
-    background-color: #fff;
-    margin-top: 10px;
-    height: 45px;
-
-    &:focus {
-      box-shadow: none;
-      outline: none;
+    label {
+      font-size: 20px;
+      font-weight: 300;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000;
     }
-  }
 
-  .ant-select {
-    width: 100%;
-    margin-top: 10px;
-    ::ng-deep .ant-select-selector {
-      height: 44px;
+    input {
+      border-radius: 5px;
       border: solid 0.5px #ABABAB;
-      border-radius: 10px;
       background-color: #fff;
-      font-size: 14px;
+      margin-top: 10px;
+      height: 45px;
+
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
     }
 
-    ::ng-deep .ant-select-arrow {
-      color: #000000;
+    .ant-select {
+      width: 100%;
+      margin-top: 10px;
+      ::ng-deep .ant-select-selector {
+        height: 44px;
+        border: solid 0.5px #ABABAB;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 14px;
+      }
+
+      ::ng-deep .ant-select-arrow {
+        color: #000000;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .form-control {
+    flex: 0 0 30% !important;
+    max-width: 30% !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .form-control {
+    flex: 0 0 33% !important;
+    max-width: 33% !important;
+
+    label {
+      font-size: 18px !important;
+    }
+
+    .ant-select {
+      ::ng-deep .ant-select-selector {
+        height: 40px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .form-control {
+    flex: 0 0 42% !important;
+    max-width: 42% !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-control {
+    flex: 0 0 80% !important;
+    max-width: 80% !important;
+
+    label {
+      font-size: 15px !important;
+    }
+
+    .ant-select {
+      ::ng-deep .ant-select-selector {
+        height: 38px !important;
+      }
     }
   }
 }
