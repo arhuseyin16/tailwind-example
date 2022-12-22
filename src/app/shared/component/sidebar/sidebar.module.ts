@@ -4,7 +4,9 @@ import { SidebarComponent } from './sidebar.component';
 import { NzMenuModule } from "ng-zorro-antd/menu";
 import { RouterLink } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
-
+import { AngularSvgIconModule } from "angular-svg-icon";
+import { DrawerService } from "../../../service/drawer/drawer.service";
+import { NzDrawerService } from "ng-zorro-antd/drawer";
 
 
 @NgModule({
@@ -18,7 +20,13 @@ import { TranslateModule } from "@ngx-translate/core";
     CommonModule,
     NzMenuModule,
     RouterLink,
-    TranslateModule
+    TranslateModule,
+    AngularSvgIconModule
+  ],
+  providers: [
+    DrawerService,
+    NzDrawerService
   ]
 })
-export class SidebarModule { }
+export class SidebarModule {
+}

@@ -80,11 +80,7 @@
 }
 
 .sidebar-logo {
-  position: relative;
-  height: 130px;
-  overflow: hidden;
-  padding-top: 40px;
-  background: #fff;
+  @apply relative bg-white overflow-hidden;
   border-top-right-radius: 100px !important;
 }
 
