@@ -2,7 +2,7 @@
   <app-currency-flow-bar></app-currency-flow-bar>
   <div class="w-100 pl-7 pr-30px">
 
-    <div class="grid pt-11 gap-30 grid-cols-1 md:grid-cols-3">
+    <div class="grid pt-[11px] gap-x-0 gap-y-2.5 xl:pt-8 xl:gap-30 grid-cols-1 xl:grid-cols-3">
       <div *ngFor="let money of moneyList">
         <app-balance-summary-column [summary]="money"></app-balance-summary-column>
       </div>
@@ -10,7 +10,7 @@
 
     <div class="grid pt-[31px] gap-30 grid-cols-1 xl:grid-cols-3">
 
-      <div class="currency-type xl:col-span-2 h-[300px]">
+      <div class="currency-type xl:col-span-2">
         <app-balance-type [segmentBarConfig]="segmentBarConfigForBalanceType" [chartsOption]="balanceTypeConfig"
                           [title]="'transactions-dashboard.balance-types'"
                           (currencyChange)="balanceTypeCurrencyChange($event)"></app-balance-type>
@@ -26,7 +26,7 @@
         <app-bank-accounts></app-bank-accounts>
       </div>
 
-      <div *ngIf="currencyTotals">
+      <div class="mt-104 xl:mt-0" *ngIf="currencyTotals">
         <app-currencies-summaries [currencyTotals]="currencyTotals"></app-currencies-summaries>
       </div>
 

@@ -103,6 +103,7 @@ module.exports = {
       margin: {
         '25px': '25px',
         '88px': '88px',
+        '104': '415px'
       },
       boxShadow: {
         'silver-halice-lg': '0 0 14px 0 rgba(173, 173, 173, 0.2);'

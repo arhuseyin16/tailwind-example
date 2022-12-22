@@ -70,6 +70,14 @@
   @apply text-20-normal #{!important};
 }
 
+.text-align-right {
+  @apply text-right #{!important};
+}
+
+.text-align-center {
+  @apply text-center #{!important};
+}
+
 .ant-pagination-item {
   @apply rounded-50% h-[25px] min-w-[25px] leading-25px border-0 bg-transparent;
   :hover {
