@@ -43,6 +43,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       nzContent: SidebarComponent,
       nzPlacement: "left",
       nzClosable: false,
+      nzContentParams: {drawerIsCollapse:false},
+      nzWrapClassName: 'sidebar-drawer',
       nzBodyStyle: {'padding': '0'}
     });
 

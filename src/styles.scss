@@ -78,6 +78,58 @@
   @apply text-center #{!important};
 }
 
+.ml9-minus {
+  @apply -ml-[9px] #{!important};
+}
+
+.ml4-minus {
+  @apply -ml-[4px] #{!important};
+}
+
+.m0 {
+  @apply m-0 #{!important}
+}
+
+.mt16 {
+  @apply mt-4 #{!important};
+}
+
+.pl-15 {
+  @apply pl-[15px] #{!important};
+}
+
+.pl-50 {
+  @apply pl-[50px] #{!important};
+}
+
+.mb0 {
+  @apply mb-0 #{!important};
+}
+
+.mt20 {
+  @apply mt-5 #{!important};
+}
+
+.align-items-baseline {
+  @apply items-baseline #{!important};
+}
+
+.w-100 {
+  @apply w-full #{!important};
+}
+
+@media only screen and (max-width: 640px) {
+  .sidebar-drawer {
+    @apply w-full #{!important};
+  }
+}
+
+.sidebar-drawer {
+  @apply w-auto ;
+}
+
+
+
 .ant-pagination-item {
   @apply rounded-50% h-[25px] min-w-[25px] leading-25px border-0 bg-transparent;
   :hover {

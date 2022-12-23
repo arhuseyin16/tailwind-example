@@ -1,4 +1,4 @@
-<div class="flex xl:block">
+<div class="flex justify-between items-center xl:block">
   <div class="sidebar-logo pt-5 h-auto xl:pt-10 xl:h-[130px]">
     <img [routerLink]="['/dashboard']" src="assets/icon/logo.png" alt="logo">
   </div>
@@ -16,12 +16,11 @@
 
       </span>
   </div>
-  <div class="cursor-pointer block xl:hidden">
+  <div class="cursor-pointer pr-30px md:pr-[36px] block xl:hidden">
     <svg-icon src="assets/svg/menu-close-icon.svg" [svgClass]="'filter-white'"
               (click)="closeMenu()"></svg-icon>
   </div>
 </div>
-
 
 <ul nz-menu nzTheme="light" nzMode="inline" class="w-full pt-[23px]" [nzInlineCollapsed]="isCollapsed" *ngIf="sidebarItems.length > 0">
   <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: sidebarItems }"></ng-container>

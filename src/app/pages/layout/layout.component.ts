@@ -32,8 +32,4 @@ export class LayoutComponent implements OnInit {
   collapseChange(isCollapse: boolean) {
     this.store.dispatch(new SetIsCollapseAction(isCollapse));
   }
-
-  openComponent(): void {
-
-  }
 }
