@@ -1,136 +1,204 @@
+@import "~swiper/css";
+@import "~swiper/css/free-mode";
+@import "~swiper/css/navigation";
+@import "~swiper/css/thumbs";
+
 .swiper {
-  width: 100%;
-  height: 100%;
+  @apply w-full h-full;
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
+  @apply text-center text-18 bg-white flex justify-center items-center;
 
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
-  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
-  align-items: center;
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply block w-full h-full object-cover;
 }
 
 .swiper {
-  width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
+  @apply w-full h-[300px] ml-auto mr-auto;
 }
 
 .swiper-slide {
-  background-size: cover;
-  background-position: center;
+  @apply bg-cover bg-center;
 }
 
 .mySwiper2 {
-  height: auto;
-  width: 100%;
+  @apply h-auto w-full;
 }
 
 .mySwiper {
-  height: auto;
-  box-sizing: border-box;
-  padding: 10px 55px;
+  @apply h-auto box-border px-[55px] py-2.5;
 }
 
 .mySwiper .swiper-slide {
-  width: 25%;
-  height: 100%;
-  opacity: 1;
-}
-.mySwiper2 .swiper-button-prev {
-  top: 0;
-  background: white;
-  width: 55px;
-  height: 100%;
-  align-items: start;
-  justify-content: start;
-  padding-top: 85px;
-  padding-left: 19px;
-  left: 0;
-  &::after {
-    font-size: 21px;
-    font-weight: bold;
-  }
-}
-
-.mySwiper2 .swiper-button-next {
-  top: 0;
-  background: white;
-  width: 55px;
-  height: 100%;
-  align-items: start;
-  justify-content: end;
-  padding-top: 85px;
-  padding-right: 19px;
-  right: 0;
-  &::after {
-    font-size: 21px;
-    font-weight: bold;
-  }
-}
-
-.mySwiper .swiper-slide-thumb-active {
-  opacity: 1;
-
-  .swiper-slide-box {
-    box-shadow: 0 3px 14px 0 rgba(123, 123, 123, 0.16);
-    border: solid 2px #87bfad;
-  }
-}
-
-.mySwiper2 .swiper-slide {
-  align-items: start;
-  margin-top: 30px;
-  padding: 0 45px;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  @apply w-1/4 h-full opacity-100;
 }
 
 .swiper-slide-box {
-  border-radius: 5px;
+  @apply rounded-5px w-[116px] h-[116px] p-[1px] cursor-pointer;
   box-shadow: 0 3px 14px 0 rgba(173, 173, 173, 0.2);
-  width: 116px!important;
-  height: 116px !important;
-  padding: 1px;
-}
-
-.bank-accounts-table {
-  nz-table {
-    border-radius: 5px;
-    box-shadow: 0 3px 14px 0 rgba(126, 126, 126, 0.16);
-  }
-
-  .bank-accounts-hover {
-    cursor: pointer;
-  }
 }
 
 .currency-total-table-td {
   @apply border-0 border-transparent text-18 px-7 #{!important};
 }
+
+.swiper-button-prev {
+  @apply top-0 bg-white w-[55px] h-full items-start justify-start pt-[85px] pl-[19px] left-0 text-black;
+
+  &::after {
+    @apply font-bold;
+  }
+}
+
+.swiper-button-next {
+  @apply top-0 bg-white w-[55px] h-full items-start justify-end pt-[85px] pr-[19px] right-0 text-black;
+
+  &::after {
+    @apply font-bold;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .swiper-slide-box {
+    @apply w-[61px] h-[61px] p-0;
+  }
+
+  .swiper-button-next {
+    @apply pt-[54px] #{!important};
+    &::after {
+      @apply text-20-normal;
+    }
+  }
+
+  .swiper-button-prev {
+    @apply pt-[54px] #{!important};
+    &::after {
+      @apply text-20-normal;
+    }
+  }
+
+  .mySwiper {
+    @apply pl-2.5 pr-[5px] #{!important};
+  }
+
+}
+
+@media only screen and (max-width: 1024px) {
+  .swiper-button-next {
+    @apply pt-[80px];
+    &::after {
+      @apply text-25;
+    }
+  }
+
+  .swiper-button-prev {
+    @apply pt-[80px];
+    &::after {
+      @apply text-25;
+    }
+  }
+
+  .mySwiper {
+    @apply pl-5 pr-[21px] #{!important};
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .swiper-button-next {
+    @apply pt-[80px];
+    &::after {
+      @apply text-25;
+    }
+  }
+
+  .swiper-button-prev {
+    @apply pt-[80px];
+    &::after {
+      @apply text-25;
+    }
+  }
+
+  .mySwiper {
+    @apply pl-2 pr-2 #{!important};
+  }
+}
+
+@media only screen and (max-width: 1640px) {
+  .swiper-button-next {
+    @apply pt-[80px];
+    &::after {
+      @apply text-25;
+    }
+  }
+
+  .swiper-button-prev {
+    @apply pt-[80px];
+    &::after {
+      @apply text-25;
+    }
+  }
+
+  .mySwiper {
+    @apply pl-3 pr-2 #{!important};
+  }
+}
+@media only screen and (min-width: 1641px) {
+  .swiper-button-next {
+    @apply pt-[80px];
+    &::after {
+      @apply text-25;
+    }
+  }
+
+  .swiper-button-prev {
+    @apply pt-[80px];
+    &::after {
+      @apply text-25;
+    }
+  }
+
+  .mySwiper {
+    @apply pl-[35px] pr-[35px] #{!important};
+  }
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  @apply opacity-100;
+
+  .swiper-slide-box {
+    @apply border-solid border-2 border-eton-blue;
+    box-shadow: 0 3px 14px 0 rgba(123, 123, 123, 0.16);
+  }
+}
+
+.swiper-slide img {
+  @apply block w-full h-full object-contain;
+}
+
+
+
+.bank-accounts-table {
+  @apply pt-5;
+  nz-table {
+    @apply rounded-5px;
+    box-shadow: 0 3px 14px 0 rgba(126, 126, 126, 0.16);
+  }
+
+  .bank-accounts-hover {
+    @apply cursor-pointer;
+  }
+}
+

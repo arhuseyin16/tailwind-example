@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     fontSize: {
       '18': ['18px', 'normal'],
+      '9': ['9px', 'normal'],
       '15': ['15px', 'normal'],
       '16': ['16px', 'normal'],
       '14': ['14px', 'normal'],
@@ -86,7 +87,8 @@ module.exports = {
         'azure': '#0079ff',
         'permanent-geranium-lake': '#e53030',
         'silver-foil': '#afafaf',
-        'spanish-gray': '#959595'
+        'spanish-gray': '#959595',
+        'light-gray': '#d3d3d3'
       },
       gridTemplateRows: {
         '10': 'repeat(10, minmax(0, 1fr))',
