@@ -40,11 +40,20 @@ module.exports = {
       'md': '768px',
       // => @media (min-width: 768px) { ... }
 
+      'min-lg': '1023px',
+      // => @media (min-width: 1023px) { ... }
+
       'lg': '1024px',
       // => @media (min-width: 1024px) { ... }
 
+      'max-lg': '1025px',
+      // => @media (min-width: 1025px) { ... }
+
       'xl': '1280px',
       // => @media (min-width: 1280px) { ... }
+
+      'maxXl': '1281px',
+      // => @media (min-width: 1281px) { ... }
 
       '2xl': '1440px',
       // => @media (min-width: 1280px) { ... }
@@ -58,12 +67,26 @@ module.exports = {
     minWidth: {
       '98%': '98%',
       '99%': '99%',
-      '97%': '97%'
+      '97%': '97%',
+      'auto': 'auto'
     },
     maxWidth: {
       '98%': '98%',
       '99%': '99%',
-      '97%': '97%'
+      '97%': '97%',
+      'auto': 'auto'
+    },
+    maxHeight: {
+      '98%': '98%',
+      '99%': '99%',
+      '97%': '97%',
+      'auto': 'auto'
+    },
+    minHeight: {
+      '98%': '98%',
+      '99%': '99%',
+      '97%': '97%',
+      'auto': 'auto'
     },
     extend: {
       colors: {

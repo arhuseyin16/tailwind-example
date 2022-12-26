@@ -156,53 +156,317 @@ export class TransactionsDashboardComponent implements OnInit {
       tooltip: {
         trigger: 'item'
       },
-      legend: {
-        orient: 'vertical',
-        left: 'auto',
-        right: 50,
-        top: 60,
-        selectedMode: `multiple`,
-        itemGap: 12,
-        data: [...chartLegendList],
-        icon: 'circle',
-        height: '75%',
-        textStyle: {
-          fontSize: 16,
-          fontFamily: 'Poppins',
-          padding: 8
-        },
-      },
-      series: [
+      media: [
         {
-          type: 'pie',
-          selectedMode: 'single',
-          radius: [0, '36%'],
-          right: '50%',
-          label: {
-            position: 'center',
-            fontSize: 18,
-            fontWeight: 'bold'
+          query: {
+            maxWidth: 640
           },
-          labelLine: {
-            show: false
-          },
-          tooltip: {
-            show: false
-          },
-          data: [...centerChartDataList]
+          option:{
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'center',
+              width: '100%',
+              height: '270px',
+              top: 400,
+              selectedMode: `multiple`,
+              itemGap: 12,
+              data: [...chartLegendList],
+              icon: 'circle',
+              textStyle: {
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                padding: 8
+              },
+            },
+            series: [
+              {
+                type: 'pie',
+                id: 'chart-1',
+                selectedMode: 'single',
+                radius: [0, '36%'],
+                width: '100%',
+                top: '-300px',
+                label: {
+                  position: 'center',
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                },
+                labelLine: {
+                  show: false
+                },
+                tooltip: {
+                  show: false
+                },
+                data: [...centerChartDataList]
+              },
+              {
+                type: `pie`,
+                id: 'chart-2',
+                width: '100%',
+                top: '-300px',
+                radius: ['43%', '55%'],
+                label: {
+                  show: false,
+                },
+                data: [
+                  ...chartDataList
+                ],
+              }
+            ]
+          }
         },
         {
-          type: `pie`,
-          id: 'chart-2',
-          radius: ['56%', '72%'],
-          right: '50%',
-          label: {
-            show: false,
+          query: {
+            minWidth: 641,
+            maxWidth: 768
           },
-          data: [
-            ...chartDataList
-          ],
-        }
+          option:{
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'center',
+              width: '100%',
+              height: '270px',
+              top: 450,
+              selectedMode: `multiple`,
+              itemGap: 12,
+              data: [...chartLegendList],
+              icon: 'circle',
+              textStyle: {
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                padding: 8
+              },
+            },
+            series: [
+              {
+                type: 'pie',
+                id: 'chart-1',
+                selectedMode: 'single',
+                radius: [0, '36%'],
+                width: '100%',
+                top: '-300px',
+                label: {
+                  position: 'center',
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                },
+                labelLine: {
+                  show: false
+                },
+                tooltip: {
+                  show: false
+                },
+                data: [...centerChartDataList]
+              },
+              {
+                type: `pie`,
+                id: 'chart-2',
+                width: '100%',
+                top: '-300px',
+                radius: ['38%', '50%'],
+                label: {
+                  show: false,
+                },
+                data: [
+                  ...chartDataList
+                ],
+              }
+            ]
+          }
+        },
+        {
+          query: {
+            minWidth: 769,
+            maxWidth: 1023,
+          },
+          option:{
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'center',
+              width: '100%',
+              height: '270px',
+              top: 460,
+              selectedMode: `multiple`,
+              itemGap: 12,
+              data: [...chartLegendList],
+              icon: 'circle',
+              textStyle: {
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                padding: 8
+              },
+            },
+            series: [
+              {
+                type: 'pie',
+                id: 'chart-1',
+                selectedMode: 'single',
+                radius: [0, '25%'],
+                width: '100%',
+                top: '-280px',
+                label: {
+                  position: 'center',
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                },
+                labelLine: {
+                  show: false
+                },
+                tooltip: {
+                  show: false
+                },
+                data: [...centerChartDataList]
+              },
+              {
+                type: `pie`,
+                id: 'chart-2',
+                width: '100%',
+                top: '-280px',
+                radius: ['30%', '40%'],
+                label: {
+                  show: false,
+                },
+                data: [
+                  ...chartDataList
+                ],
+              }
+            ]
+          }
+        },
+        {
+          query: {
+            minWidth: 1024,
+            maxWidth: 1279,
+          },
+          option:{
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'center',
+              width: '100%',
+              height: '270px',
+              top: 460,
+              selectedMode: `multiple`,
+              itemGap: 12,
+              data: [...chartLegendList],
+              icon: 'circle',
+              textStyle: {
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                padding: 8
+              },
+            },
+            series: [
+              {
+                type: 'pie',
+                id: 'chart-1',
+                selectedMode: 'single',
+                radius: [0, '25%'],
+                width: '100%',
+                top: '-280px',
+                label: {
+                  position: 'center',
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                },
+                labelLine: {
+                  show: false
+                },
+                tooltip: {
+                  show: false
+                },
+                data: [...centerChartDataList]
+              },
+              {
+                type: `pie`,
+                id: 'chart-2',
+                width: '100%',
+                top: '-280px',
+                radius: ['30%', '40%'],
+                label: {
+                  show: false,
+                },
+                data: [
+                  ...chartDataList
+                ],
+              }
+            ]
+          }
+        },
+        {
+          query: {
+            minWidth: 1280
+          },
+          option:{
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'auto',
+              right: '50',
+              top: '60',
+              selectedMode: `multiple`,
+              width: 'auto',
+              itemGap: 12,
+              data: [...chartLegendList],
+              icon: 'circle',
+              height: 'auto',
+              textStyle: {
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                padding: 8
+              },
+            },
+            series: [
+              {
+                type: 'pie',
+                selectedMode: 'single',
+                radius: [0, '10%'],
+                left: '-200px',
+                width: 'auto',
+                height: 'auto',
+                label: {
+                  position: 'center',
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                },
+                labelLine: {
+                  show: false
+                },
+                tooltip: {
+                  show: false
+                },
+                data: [...centerChartDataList]
+              },
+              {
+                type: `pie`,
+                id: 'chart-2',
+                radius: ['10%', '20%'],
+                left: '-200px',
+                width: 'auto',
+                height: 'auto',
+                label: {
+                  show: false,
+                },
+                data: [
+                  ...chartDataList
+                ],
+              }
+            ]
+          }
+        },
       ]
     };
   }
