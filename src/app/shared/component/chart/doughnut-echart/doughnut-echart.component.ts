@@ -4,7 +4,7 @@ import { EChartsOption } from "echarts";
 @Component({
   selector: 'app-doughnut-echart',
   templateUrl: './doughnut-echart.component.html',
-  styleUrls: ['./doughnut-echart.component.scss']
+  styleUrls: ['./doughnut-echart.component.scss'],
 })
 export class DoughnutEchartComponent {
 

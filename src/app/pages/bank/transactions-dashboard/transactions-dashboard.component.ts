@@ -345,7 +345,7 @@ export class TransactionsDashboardComponent implements OnInit {
         {
           query: {
             minWidth: 1024,
-            maxWidth: 1279,
+            maxWidth: 1280,
           },
           option:{
             tooltip: {
@@ -353,14 +353,14 @@ export class TransactionsDashboardComponent implements OnInit {
             },
             legend: {
               orient: 'vertical',
-              left: 'center',
-              width: '100%',
-              height: '270px',
-              top: 460,
+              left: 'auto',
+              right: 50,
+              top: 60,
               selectedMode: `multiple`,
               itemGap: 12,
               data: [...chartLegendList],
               icon: 'circle',
+              height: '75%',
               textStyle: {
                 fontSize: 16,
                 fontFamily: 'Poppins',
@@ -372,69 +372,8 @@ export class TransactionsDashboardComponent implements OnInit {
                 type: 'pie',
                 id: 'chart-1',
                 selectedMode: 'single',
-                radius: [0, '25%'],
-                width: '100%',
-                top: '-280px',
-                label: {
-                  position: 'center',
-                  fontSize: 18,
-                  fontWeight: 'bold'
-                },
-                labelLine: {
-                  show: false
-                },
-                tooltip: {
-                  show: false
-                },
-                data: [...centerChartDataList]
-              },
-              {
-                type: `pie`,
-                id: 'chart-2',
-                width: '100%',
-                top: '-280px',
                 radius: ['30%', '40%'],
-                label: {
-                  show: false,
-                },
-                data: [
-                  ...chartDataList
-                ],
-              }
-            ]
-          }
-        },
-        {
-          query: {
-            minWidth: 1280
-          },
-          option:{
-            tooltip: {
-              trigger: 'item'
-            },
-            legend: {
-              orient: 'vertical',
-              left: 'auto',
-              right: '50',
-              top: '60',
-              selectedMode: `multiple`,
-              width: 'auto',
-              itemGap: 12,
-              data: [...chartLegendList],
-              icon: 'circle',
-              height: 'auto',
-              textStyle: {
-                fontSize: 16,
-                fontFamily: 'Poppins',
-                padding: 8
-              },
-            },
-            series: [
-              {
-                type: 'pie',
-                selectedMode: 'single',
-                radius: [0, '10%'],
-                left: '-200px',
+                right: '50%',
                 width: 'auto',
                 height: 'auto',
                 label: {
@@ -453,8 +392,7 @@ export class TransactionsDashboardComponent implements OnInit {
               {
                 type: `pie`,
                 id: 'chart-2',
-                radius: ['10%', '20%'],
-                left: '-200px',
+                radius: ['30%', '40%'],
                 width: 'auto',
                 height: 'auto',
                 label: {
@@ -466,7 +404,7 @@ export class TransactionsDashboardComponent implements OnInit {
               }
             ]
           }
-        },
+        }
       ]
     };
   }
@@ -579,17 +517,13 @@ export class TransactionsDashboardComponent implements OnInit {
 
   segmentBarConfigInitializeForBalanceType() {
     this.segmentBarConfigForBalanceType.data = this.currencies;
-    this.segmentBarConfigForBalanceType.position = SegmentPositionEnum.START;
-    this.segmentBarConfigForBalanceType.paddingLeft = 79;
+    this.segmentBarConfigForBalanceType.paddingLeft = 27;
+    this.segmentBarConfigForBalanceType.paddingRight = 27;
+
   }
 
   segmentBarConfigInitializeForAccountType() {
     this.segmentBarConfigForAccountType.data = this.currencies;
-    this.segmentBarConfigForAccountType.position = SegmentPositionEnum.CENTER;
-    this.segmentBarConfigForAccountType.block = true;
-    this.segmentBarConfigForAccountType.paddingLeft = 27;
-    this.segmentBarConfigForAccountType.paddingRight = 27;
-    this.segmentBarConfigForAccountType.width = '100%'
   }
 
   balanceTypeCurrencyChange(currency: CurrencyEnum) {
