@@ -7,24 +7,23 @@
 }
 
 .search-box {
-  padding: 8px;
+  @apply p-2;
 }
 
 .search-box button {
-  width: 90px;
+  @apply w-[90px];
 }
 
 .search-button {
-  margin-right: 8px;
+  @apply mr-2;
 }
 
 .filter-infinite-container {
-  height: 110px;
+  @apply h-[110px];
 }
 
 .add-column-infinite-container {
-  height: 290px;
-  width: 200px;
+  @apply h-[290px] w-[200px];
 }
 
 .add-column-container {
@@ -36,11 +35,11 @@
 }
 
 ::ng-deep .cdk-drag-preview {
-  display: table;
+  @apply table;
 }
 
 ::ng-deep .cdk-drag-placeholder {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .ant-list-split .ant-list-item {
@@ -76,17 +75,7 @@ nz-list {
 }
 
 .cdk-drag-preview {
-  box-sizing: border-box;
-
-  min-width: 100px;
-  padding: 15px;
-
-  text-align: center;
-  font-weight: bold;
-
-  background-color: #fff;
-
-  border-radius: 4px;
+  @apply p-[15px] text-center font-bold bg-white box-border rounded-5px min-w-[100px];
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
   0 8px 10px 1px rgba(0, 0, 0, 0.14),
   0 3px 14px 2px rgba(0, 0, 0, 0.12);
@@ -99,8 +88,6 @@ nz-list {
 
 :host ::ng-deep .ant-table-filter-icon,
 :host ::ng-deep .anticon-filter {
-  right: auto !important;
-  top: -2px;
-  height: 50px;
+  @apply right-auto top-[-2px] h-[50px] #{!important};
 }
 

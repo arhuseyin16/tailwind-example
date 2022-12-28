@@ -23,7 +23,7 @@
 
         .normal-excel {
           @apply w-[17px] h-[17px] object-contain;
-          object-fit: contain;
+          display: inherit;
         }
 
         .hover-excel {

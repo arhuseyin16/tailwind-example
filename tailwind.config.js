@@ -7,7 +7,7 @@ module.exports = {
     fontSize: {
       '18': ['clamp(0.75rem, 0.938vw, 1.125rem)', 'normal'],
       '9': ['9px', 'normal'],
-      '15': ['15px', 'normal'],
+      '15': ['clamp(0.75rem, 0.781vw, 0.938rem)', 'normal'],
       '16': ['clamp(0.688rem, 0.833vw, 1rem)', 'normal'],
       '14': ['clamp(0.688rem, 0.729vw, 0.875rem)', 'normal'],
       '25': ['clamp(0.75rem, 1.302vw, 1.563rem)', 'normal'],
