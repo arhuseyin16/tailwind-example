@@ -115,7 +115,8 @@ module.exports = {
         'permanent-geranium-lake': '#e53030',
         'silver-foil': '#afafaf',
         'spanish-gray': '#959595',
-        'light-gray': '#d3d3d3'
+        'light-gray': '#d3d3d3',
+        'water': '#dbecff'
       },
       gridTemplateRows: {
         '10': 'repeat(10, minmax(0, 1fr))',
