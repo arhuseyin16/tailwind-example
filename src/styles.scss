@@ -169,7 +169,7 @@
   }
 
   .ant-table-container table > thead > tr > th:first-child {
-    @apply rounded-tr-15px rounded-tl-15px rounded-br-0 rounded-bl-0;
+    @apply rounded-tl-15px rounded-br-0 rounded-bl-0;
   }
 
   .ant-table-container table > thead > tr > th:last-child {
@@ -201,10 +201,7 @@
   }
 
   .ant-table-tbody > tr > td {
-    @apply text-15 text-black font-normal border-b-0.5 border-r-0.5 border-solid border-light-gray;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
+    @apply text-15 text-black font-normal tracking-normal border-b-0.5 border-r-0.5 border-solid border-light-gray;
   }
 
   .ant-table-tbody > tr > td:first-child {
