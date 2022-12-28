@@ -98,12 +98,32 @@ export class TransactionsDashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  generateLegendConfig(currency?: CurrencyEnum, fontSize = 16): Array<any> {
+    let chartLegendList: {name: any; itemStyle: {color: any, fontSize: any;};}[] = [];
+    if(this.balanceTypes) {
+      this.balanceTypes.forEach(balanceType => {
+        balanceType.accounts.forEach((account: any) => {
+          if (currency && account.name === currency) {
+            chartLegendList.push({
+              name: balanceType.label,
+              itemStyle: {
+                color: balanceType.color,
+                fontSize
+              }
+            });
+          }
+        });
+      });
+    }
+      return chartLegendList;
+  }
+
   generateBalanceTypeConfig(currency?: CurrencyEnum) {
     // @ts-ignore
     currency = !currency ? this.currencies[0].label : currency;
     let chartDataList: {name: any; value: any; itemStyle: {color: any;}; label: {}; tooltip: {formatter: any, textStyle: {}}}[] = [];
     let centerChartDataList: {name: string; value: number, itemStyle: {color: any;};}[] = [];
-    let chartLegendList: {name: any; itemStyle: {color: any;};}[] = [];
+    let chartLegendList: {name: any; itemStyle: {color: any, fontSize: any;};}[] = [];
     let totalValue = 0;
     if (this.balanceTypes) {
       this.balanceTypes.forEach(balanceType => {
@@ -132,12 +152,6 @@ export class TransactionsDashboardComponent implements OnInit {
                 }
               }
             });
-            chartLegendList.push({
-              name: balanceType.label,
-              itemStyle: {
-                color: balanceType.color
-              }
-            });
             totalValue += account.value;
           }
         });
@@ -159,7 +173,69 @@ export class TransactionsDashboardComponent implements OnInit {
       media: [
         {
           query: {
-            maxWidth: 640
+            maxWidth: 579
+          },
+          option:{
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'center',
+              width: '100%',
+              height: '270px',
+              top: 250,
+              selectedMode: `multiple`,
+              itemGap: 12,
+              data: this.generateLegendConfig(currency, 11),
+              icon: 'circle',
+              textStyle: {
+                fontFamily: 'Poppins',
+                padding: 8
+              },
+            },
+            series: [
+              {
+                type: 'pie',
+                id: 'chart-1',
+                selectedMode: 'single',
+                radius: [0, '36%'],
+                width: '100%',
+                top: '-450px',
+                label: {
+                  position: 'center',
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                },
+                labelLine: {
+                  show: false
+                },
+                tooltip: {
+                  show: false
+                },
+                data: [...centerChartDataList]
+              },
+              {
+                type: `pie`,
+                id: 'chart-2',
+                width: '100%',
+                top: '-450px',
+                radius: ['43%', '55%'],
+                label: {
+                  show: false,
+                },
+                data: [
+                  ...chartDataList
+                ],
+              }
+            ]
+          }
+        },
+        {
+          query: {
+            minWidth: 580,
+            maxWidth: 640,
+            maxAspectRatio: 1
           },
           option:{
             tooltip: {
@@ -173,10 +249,9 @@ export class TransactionsDashboardComponent implements OnInit {
               top: 400,
               selectedMode: `multiple`,
               itemGap: 12,
-              data: [...chartLegendList],
+              data: this.generateLegendConfig(currency, 11),
               icon: 'circle',
               textStyle: {
-                fontSize: 16,
                 fontFamily: 'Poppins',
                 padding: 8
               },
@@ -235,7 +310,7 @@ export class TransactionsDashboardComponent implements OnInit {
               top: 450,
               selectedMode: `multiple`,
               itemGap: 12,
-              data: [...chartLegendList],
+              data: this.generateLegendConfig(currency),
               icon: 'circle',
               textStyle: {
                 fontSize: 16,
@@ -297,7 +372,7 @@ export class TransactionsDashboardComponent implements OnInit {
               top: 460,
               selectedMode: `multiple`,
               itemGap: 12,
-              data: [...chartLegendList],
+              data: this.generateLegendConfig(currency),
               icon: 'circle',
               textStyle: {
                 fontSize: 16,
@@ -358,7 +433,70 @@ export class TransactionsDashboardComponent implements OnInit {
               top: 60,
               selectedMode: `multiple`,
               itemGap: 12,
-              data: [...chartLegendList],
+              data: this.generateLegendConfig(currency),
+              icon: 'circle',
+              height: '75%',
+              textStyle: {
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                padding: 8
+              },
+            },
+            series: [
+              {
+                type: 'pie',
+                id: 'chart-1',
+                selectedMode: 'single',
+                radius: ['30%', '40%'],
+                right: '50%',
+                width: 'auto',
+                height: 'auto',
+                label: {
+                  position: 'center',
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                },
+                labelLine: {
+                  show: false
+                },
+                tooltip: {
+                  show: false
+                },
+                data: [...centerChartDataList]
+              },
+              {
+                type: `pie`,
+                id: 'chart-2',
+                radius: ['30%', '40%'],
+                width: 'auto',
+                height: 'auto',
+                label: {
+                  show: false,
+                },
+                data: [
+                  ...chartDataList
+                ],
+              }
+            ]
+          }
+        },
+        {
+          query:{
+            minWidth: 1281,
+            maxWidth: 1440
+          },
+          option:{
+            tooltip: {
+              trigger: 'item'
+            },
+            legend: {
+              orient: 'vertical',
+              left: 'auto',
+              right: 50,
+              top: 60,
+              selectedMode: `multiple`,
+              itemGap: 12,
+              data: this.generateLegendConfig(currency),
               icon: 'circle',
               height: '75%',
               textStyle: {

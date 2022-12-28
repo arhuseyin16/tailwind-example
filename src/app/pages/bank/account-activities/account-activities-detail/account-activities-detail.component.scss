@@ -1,249 +1,144 @@
 .account-activities-detail {
-  margin: 20px 30px 0 30px;
+  @apply mt-5 mb-0 mx-[30px];
   .account-excel-right {
-    position: relative;
-    padding: 0 0 50px 0;
+    @apply relative p-0 pb-[50px];
 
     .excel-export {
-      width: 40px;
-      position: absolute;
-      right: 0;
-      top: -9px;
+      @apply w-[40px] absolute right-0 top-[-9px];
 
       button {
-        width: 100%;
-        height: 40px;
-        border-radius: 5px;
-        background-color: #ffffff;
-
+        @apply w-full h-[40px] rounded-5px bg-white;
 
         &:hover {
-          background-color: #2d639f;
+          @apply bg-sapphire;
           .hover-excel {
-            width: 17px;
-            height: 17px;
+            @apply w-[17px] h-[17px] object-contain;
             display: inherit;
-            object-fit: contain;
           }
 
           .normal-excel {
-            width: 17px;
-            height: 17px;
-            display: none;
-            object-fit: contain;
+            @apply w-[17px] h-[17px] hidden object-contain;
           }
         }
 
         .normal-excel {
-          width: 17px;
-          height: 17px;
-          display: inherit;
+          @apply w-[17px] h-[17px] object-contain;
           object-fit: contain;
         }
 
         .hover-excel {
-          width: 17px;
-          height: 17px;
-          display: none;
-          object-fit: contain;
+          @apply w-[17px] h-[17px] hidden object-contain;
         }
       }
 
 
     }
   }
+
   .account-detail {
-    border-radius: 15px;
+    @apply rounded-15px bg-white;
     box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
-    background-color: #fff;
 
     .account-header {
-      display: flex;
+      @apply flex;
 
       .bank-image {
-        padding: 0 0 0 24px;
+        @apply p-0 pl-6;
 
         img {
-          width: 129px;
-          height: 65px;
-          object-fit: contain;
+          @apply w-[129px] h-[65px] object-contain;
         }
       }
 
       .bank-color {
-        width: 100%;
-        border-radius: 15px 15px 0 15px;
-        padding: 17px 0 0 19px;
-        height: 60px;
+        @apply w-full rounded-tr-15px rounded-tl-15px p-0 pt-[17px] pl-[19px] h-[60px];
 
         span {
-          font-size: 18px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #fff;
+          @apply text-18 font-semibold tracking-normal text-left text-white;
         }
       }
     }
 
     .account-first-body {
-      display: flex;
-      margin: 33px 25px 0 30px;
+      @apply flex mt-[33px] mr-[25px] mb-0 ml-[30px];
 
       .left-card {
-        border-radius: 10px;
+        @apply rounded-10px bg-white max-w-49% m-0 mr-[12px] px-0 py-2.5;
         box-shadow: 0 0 14px 0 rgba(108, 108, 108, 0.16);
-        background-color: #fff;
         flex: 0 0 50%;
-        max-width: 49%;
-        margin: 0 12px 0 0;
-        padding: 5px 0 5px 0;
       }
 
       .right-card {
-        border-radius: 10px;
+        @apply rounded-10px bg-white max-w-49% m-0 ml-3 px-0 py-2.5;
         box-shadow: 0 0 14px 0 rgba(108, 108, 108, 0.16);
-        background-color: #fff;
         flex: 0 0 50%;
-        max-width: 49%;
-        margin: 0 0 0 12px;
-        padding: 5px 0 5px 0;
       }
 
       .row-one {
-        background-color: #fff;
-        padding: 8px 0 8px 27px;
-        display: flex;
+        @apply flex bg-white py-2 pr-0 pl-[27px];
       }
 
       .row-two {
-        background-color: #f2f2f2;
-        padding: 8px 0 8px 27px;
-        display: flex;
+        @apply flex bg-anti-flash-white py-2 pr-0 pl-[27px];
       }
 
       .detail-label {
-        font-size: 18px;
-        font-weight: 600;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
+        @apply text-18 font-semibold tracking-normal text-left text-black max-w-25%;
         flex: 0 0 25%;
-        max-width: 25%;
       }
+
       .detail-value {
-        font-size: 18px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
+        @apply text-18 font-normal tracking-normal text-left text-black max-w-75%;
         flex: 0 0 75%;
-        max-width: 75%;
       }
     }
 
     .account-second-body {
-      margin: 33px 25px 0 30px;
+      @apply mt-[33px] mr-[25px] mb-0 ml-[30px];
 
       .center-card {
-        border-radius: 10px;
+        @apply rounded-10px bg-white;
         box-shadow: 0 0 14px 0 rgba(108, 108, 108, 0.16);
-        background-color: #fff;
 
         .row-three {
-          background-color: #fff;
-          padding: 8px 0 8px 27px;
-          display: flex;
+          @apply flex bg-white py-2 pr-0 pl-[27px];
         }
 
         .row-four {
-          background-color: #f2f2f2;
-          padding: 8px 0 8px 27px;
-          display: flex;
+          @apply flex bg-anti-flash-white py-2 pr-0 pl-[27px];
         }
 
         .detail-label-three {
-          font-size: 18px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #000;
+          @apply text-18 font-semibold tracking-normal text-left text-black max-w-25%;
           flex: 0 0 25%;
-          max-width: 25%;
         }
+
         .detail-value-three {
-          font-size: 18px;
-          font-weight: normal;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #000;
+          @apply text-18 font-normal tracking-normal text-left text-black max-w-75%;
           flex: 0 0 75%;
-          max-width: 75%;
         }
       }
     }
 
     .account-footer {
-      display: flex;
-      margin: 50px 25px 0 30px;
-      padding-bottom: 35px;
+      @apply flex mt-[50px] mr-[25px] mb-0 ml-[30px] pb-[35px];
 
       .account-footer-balance {
-        border-radius: 10px;
-        box-shadow: 0 0 14px 0 rgba(95, 95, 95, 0.16);
-        background-color: #fff;
+        @apply rounded-10px bg-white max-w-49% m-0 mr-[30px] py-[10px] pr-[10px] pl-[25px];
         flex: 0 0 50%;
-        max-width: 49%;
-        margin: 0 30px 0 0;
-        padding: 10px 10px 10px 25px;;
       }
 
       .account-footer-amount {
-        border-radius: 10px;
-        box-shadow: 0 0 14px 0 rgba(95, 95, 95, 0.16);
-        background-color: #fff;
+        @apply rounded-10px bg-white max-w-49% m-0 mr-3  py-[10px] pr-[10px] pl-[25px];
         flex: 0 0 50%;
-        max-width: 49%;
-        margin: 0 12px 0 0;
-        padding: 10px 10px 10px 25px;;
       }
 
       .footer-label {
-        font-size: 25px;
-        font-weight: 600;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
+        @apply text-25 font-semibold tracking-normal text-left text-black;
       }
 
       .footer-value {
-        font-size: 25px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
-        padding-left: 20px;
+        @apply text-25 font-normal tracking-normal text-left text-black pl-5;
       }
 
     }
@@ -252,33 +147,30 @@
 
 @media (max-width: 1200px) {
   .account-first-body {
-    display: block !important;
+    @apply block #{!important};
 
     .left-card {
+      @apply max-w-full #{!important};
       flex: 0 0 100% !important;
-      max-width: 100% !important;
     }
 
     .right-card {
+      @apply max-w-full m-0 mt-[30px] #{!important};
       flex: 0 0 100% !important;
-      max-width: 100% !important;
-      margin: 30px 0 0 0 !important;
     }
   }
 
   .account-footer {
-    display: block !important;
+    @apply block #{!important};
 
     .account-footer-balance {
+      @apply max-w-full m-0 #{!important};
       flex: 0 0 100% !important;
-      max-width: 100% !important;
-      margin: 0 !important;
     }
 
     .account-footer-amount {
+      @apply max-w-full m-0 mt-5 #{!important};
       flex: 0 0 100% !important;
-      max-width: 100% !important;
-      margin: 20px 0 0 0 !important;
     }
   }
 }
