@@ -5,15 +5,16 @@ module.exports = {
   ],
   theme: {
     fontSize: {
-      '18': ['clamp(0.75rem, 0.938vw, 1.125rem)', 'normal'],
       '9': ['9px', 'normal'],
+      '14': ['clamp(0.688rem, 0.729vw, 0.875rem)', 'normal'],
       '15': ['clamp(0.75rem, 0.781vw, 0.938rem)', 'normal'],
       '16': ['clamp(0.688rem, 0.833vw, 1rem)', 'normal'],
-      '14': ['clamp(0.688rem, 0.729vw, 0.875rem)', 'normal'],
-      '25': ['clamp(0.75rem, 1.302vw, 1.563rem)', 'normal'],
-      '20-normal': ['clamp(0.75rem, 1.042vw, 1.25rem)', 'normal'],
+      '18': ['clamp(0.75rem, 0.938vw, 1.125rem)', 'normal'],
       '20': ['clamp(0.75rem, 1.042vw, 1.25rem)', '1.5rem'],
+      '20-normal': ['clamp(0.75rem, 1.042vw, 1.25rem)', 'normal'],
       '22': ['clamp(0.75rem, 1.146vw, 1.25rem)', '1.5rem'],
+      '25': ['clamp(0.75rem, 1.302vw, 1.563rem)', 'normal'],
+      '30': ['clamp(0.938rem,1.563vw, 1.875rem)', 'normal'],
     },
     borderWidth: {
       '1': '1px',

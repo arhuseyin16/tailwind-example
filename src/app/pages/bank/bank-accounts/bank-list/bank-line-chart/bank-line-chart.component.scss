@@ -1,38 +1,18 @@
 .general-line {
-  width: 100%;
-  display: flex;
-  padding: 0 64px 35px 0;
+  @apply w-full flex pt-0 pr-16 pb-[35px] pl-0;
 
   .styles-line {
-    color: transparent;
-    position: relative;
-    height: 17px;
+    @apply text-transparent relative h-[17px];
 
     .rate-view {
-      position: absolute;
-      left: 0;
-      padding-top: 28px;
+      @apply absolute left-0 pt-7;
 
       .price {
-        font-size: 16px;
-        font-weight: 600;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.44;
-        letter-spacing: normal;
-        text-align: left;
-        color: #313131;
+        @apply text-16 font-semibold tracking-normal text-left text-dark-charcoal;
       }
 
       .rate {
-        font-size: 16px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.38;
-        letter-spacing: normal;
-        text-align: left;
-        padding-top: 3px;
+        @apply text-16 font-bold tracking-normal text-left pt-[3px];
       }
     }
   }
