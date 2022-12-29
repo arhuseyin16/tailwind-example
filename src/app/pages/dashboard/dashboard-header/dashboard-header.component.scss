@@ -14,7 +14,7 @@
     @apply mt-2.5 mr-[30px] mb-0 ml-0;
 
     .input-position {
-      @apply relative;
+      @apply relative #{!important};
 
       .icon-input {
         @apply absolute z-10 top-[15px];
@@ -77,8 +77,7 @@
               }
 
               .switch-flex {
-                display: flex;
-                justify-content: end;
+                @apply flex justify-end;
               }
 
               nz-switch {
@@ -87,7 +86,7 @@
                 }
 
                 ::ng-deep .ant-switch-checked {
-                  background: #2d64a0;
+                  @apply bg-sapphire;
                 }
               }
             }
@@ -98,89 +97,50 @@
   }
 
   .favorite-img {
-    margin: 27px 20px 0 0;
-    position: relative;
+    @apply mt-[27px] mr-5 mb-0 ml-0 relative;
 
     .hover-favorite {
 
       &:hover {
-        background-color: #dbecff;
-        padding: 6px;
-        margin: -6px;
+        @apply bg-water p-[6px] m-[-6px];
       }
     }
 
     img {
-      width: 30px;
-      object-fit: contain;
-      cursor: pointer;
+      @apply w-[30px] object-contain cursor-pointer;
     }
 
     .dropdown-favorite {
-      position: absolute;
-      top: 35px;
-      right: 10px;
-      z-index: 999;
-      padding: 12px 14px 12px 12px;
-      border-radius: 5px;
+      @apply absolute top-[35px] right-[10px] z-[999] py-3 pr-[14px] pl-3 rounded-5px bg-white w-[230px] h-auto;
       box-shadow: 0 0 14px 0 rgba(167, 167, 167, 0.16);
-      background-color: #fff;
-      width: 230px;
-      height: auto;
 
       li {
-        font-size: 15px;
-        font-weight: 400;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
-        padding: 3px;
-        cursor: pointer;
+        @apply text-15 font-normal tracking-normal text-left text-black p-[3px] cursor-pointer;
 
         &:hover {
-          background-color: #2d639f !important;
-          color: #ffffff !important;
+          @apply bg-lapis-lazuli text-white #{!important};
         }
       }
     }
   }
 
   .up-line {
-    border: solid 1px #d0d0d0;
-    height: 36px;
-    margin: 19px 20px 0 0;
+    @apply border-solid border-1 border-american-silver h-[36px] mt-[19px] mr-5 mb-0 ml-0;
   }
 
   .language-selector {
-    margin: 21px 20px 0 0;
+    @apply mt-[21px] mr-5 mb-0 ml-0;
   }
 
   .avatar {
-    margin: 12px 20px 0 0;
+    @apply mt-3 mr-5 mb-0 ml-0;
 
     p {
-      border-radius: 30px;
-      background-color: #2d639f;
-      padding: 8px;
-      font-size: 20px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      text-align: left;
-      color: #fff;
-      cursor: pointer;
+      @apply rounded-[30px] bg-lapis-lazuli p-2 text-20 font-semibold text-left text-white cursor-pointer;
     }
   }
-
 }
 
 .back-image {
-  background-color: #dbecff;
-  padding: 6px;
-  margin: -6px;
+  @apply bg-water p-[6px] m-[-6px];
 }
