@@ -1,47 +1,19 @@
 .dbs-process {
-  padding: 15px 30px 10px 25px;
+  @apply pt-15px pr-30px pb-2.5 pl-25px;
 
   .title {
-    font-size: 15px;
-    font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.53;
-    letter-spacing: normal;
-    text-align: left;
-    color: #356ba1;
+    @apply text-15 font-semibold tracking-normal text-left text-queen-blue;
   }
 
   .line {
-    margin-top: 10px;
-    width: 100%;
-    border: solid 1px #2d639f;
+    @apply mt-2.5 w-full border-solid border-1 border-lapis-lazuli;
   }
 
   .auth-name {
-    font-size: 15px;
-    font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.53;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000;
-    padding-top: 20px;
-    width: 560px;
-    justify-content: left;
-    display: flex;
+    @apply font-semibold text-15 tracking-normal text-left text-black pt-5 w-560px justify-start flex;
   }
 
   .auth-status {
-    font-size: 15px;
-    font-weight: 600;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.53;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000;
-    padding-top: 20px;
+    @apply text-15 font-semibold tracking-normal text-left text-black pt-5;
   }
 }

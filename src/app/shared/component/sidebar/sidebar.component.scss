@@ -2,10 +2,6 @@
   @apply text-18 ml-[9px] font-medium
 }
 
-.sidebar-base-menu-label {
-  @apply text-18 font-medium #{!important}
-}
-
 :host ::ng-deep .ant-menu-item:hover {
   @apply text-sapphire #{!important}
 }
@@ -15,7 +11,7 @@
 }
 
 .sidebar-menu-title {
-  @apply text-15
+  @apply text-15;
 }
 
 :host ::ng-deep .ant-menu-submenu-title:hover {

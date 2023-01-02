@@ -1,28 +1,23 @@
 .profile-settings-header {
-  display: flex;
-  padding: 20px 30px 5px 20px;
+  @apply flex pt-5 pr-30px pb-5px pl-5 flex;
 
   .action-leftSide {
-    display: flex;
-    justify-content: left;
+    @apply flex justify-start;
 
     .eho-img {
-      cursor: pointer;
+      @apply cursor-pointer;
 
        img {
-         width: 106px;
-         height: 106px;
-         object-fit: contain;
+         @apply h-106px w-106px object-contain;
        }
     }
   }
 
   .action-rightSide {
-    display: flex;
-    justify-content: end;
-    padding-top: 20px;
+    @apply flex justify-end pt-5;
 
     .pdf {
+      @apply mt-14px mr-15px mb-0 ml-0;
       margin: 14px 15px 0 0;
     }
 
@@ -31,22 +26,20 @@
     }
 
     .translate {
+      @apply mt-14px mr-15px mb-0 ml-0
       margin: 14px 15px 0 0;
     }
 
     .profile {
-      margin: 6px 0 0 0;
+      @apply mt-1.5 mx-0 mb-0;
     }
 
     .up-line {
-      border: solid 1px #d0d0d0;
-      height: 36px;
-      margin: 12px 15px 0 0;
+      @apply border-solid border-1 border-american-silver h-9 mt-3 mr-15px mb-0 ml-0;
     }
   }
 }
 
 .long-line {
-  border: solid 1px #2d639f;
-  width: 100%;
+  @apply border-solid border-1 border-lapis-lazuli w-full;
 }
