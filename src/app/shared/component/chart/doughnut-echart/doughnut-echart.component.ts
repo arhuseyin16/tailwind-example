@@ -53,5 +53,12 @@ export class DoughnutEchartComponent {
 
   chartInitialized(chartRef: any) {
     this.chartRef = chartRef;
+    console.log(this.chartRef);
+  }
+
+  resizeChart() {
+    if (this.chartRef) {
+      this.chartRef.resize();
+    }
   }
 }

@@ -235,7 +235,6 @@ export class TransactionsDashboardComponent implements OnInit {
           query: {
             minWidth: 580,
             maxWidth: 640,
-            maxAspectRatio: 1
           },
           option:{
             tooltip: {
@@ -358,7 +357,7 @@ export class TransactionsDashboardComponent implements OnInit {
         {
           query: {
             minWidth: 769,
-            maxWidth: 1023,
+            maxWidth: 1024,
           },
           option:{
             tooltip: {
@@ -366,7 +365,7 @@ export class TransactionsDashboardComponent implements OnInit {
             },
             legend: {
               orient: 'vertical',
-              left: 'center',
+              left: 'right',
               width: '100%',
               height: '270px',
               top: 460,
@@ -419,7 +418,7 @@ export class TransactionsDashboardComponent implements OnInit {
         },
         {
           query: {
-            minWidth: 1024,
+            minWidth: 1025,
             maxWidth: 1280,
           },
           option:{
@@ -428,7 +427,7 @@ export class TransactionsDashboardComponent implements OnInit {
             },
             legend: {
               orient: 'vertical',
-              left: 'auto',
+              left: 'right',
               right: 50,
               top: 60,
               selectedMode: `multiple`,
@@ -483,7 +482,7 @@ export class TransactionsDashboardComponent implements OnInit {
         {
           query:{
             minWidth: 1281,
-            maxWidth: 1440
+            maxWidth: 3000
           },
           option:{
             tooltip: {
@@ -491,14 +490,15 @@ export class TransactionsDashboardComponent implements OnInit {
             },
             legend: {
               orient: 'vertical',
-              left: 'auto',
-              right: 50,
-              top: 60,
+              left: 'right',
+              right: 10,
+              top: 20,
+              bottom: 20,
               selectedMode: `multiple`,
               itemGap: 12,
               data: this.generateLegendConfig(currency),
               icon: 'circle',
-              height: '75%',
+              height: 'auto',
               textStyle: {
                 fontSize: 16,
                 fontFamily: 'Poppins',
@@ -511,7 +511,7 @@ export class TransactionsDashboardComponent implements OnInit {
                 id: 'chart-1',
                 selectedMode: 'single',
                 radius: ['30%', '40%'],
-                right: '50%',
+                right: 'auto',
                 width: 'auto',
                 height: 'auto',
                 label: {
@@ -530,7 +530,7 @@ export class TransactionsDashboardComponent implements OnInit {
               {
                 type: `pie`,
                 id: 'chart-2',
-                radius: ['30%', '40%'],
+                radius: ['10%', '20%'],
                 width: 'auto',
                 height: 'auto',
                 label: {
