@@ -1,8 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { SetIsCollapseAction } from "../../../store/sidebar/sidebar.action";
 import { Store } from "@ngxs/store";
 import { SidebarDataModel } from "../../../models/shared/sidebar/sidebar-data.model";
 import { SidebarState } from "../../../store/sidebar/sidebar.state";
+import { DrawerService } from "../../../service/drawer/drawer.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -13,6 +14,8 @@ export class SidebarComponent implements OnInit {
 
   isCollapsed = false;
   store = inject(Store);
+  @Input() drawerIsCollapse = false;
+  drawerService = inject(DrawerService);
   sidebarItems: Array<SidebarDataModel> = new Array<SidebarDataModel>();
 
   constructor() { }
@@ -22,6 +25,7 @@ export class SidebarComponent implements OnInit {
       this.sidebarItems = state.data;
       this.isCollapsed = state.isCollapse;
     });
+    this.isCollapsed = this.drawerIsCollapse;
   }
 
   changeCollapse() {
@@ -29,4 +33,7 @@ export class SidebarComponent implements OnInit {
     this.store.dispatch(new SetIsCollapseAction(this.isCollapsed));
   }
 
+  closeMenu() {
+    this.drawerService.getDrawerRef()?.close();
+  }
 }

@@ -1,132 +1,92 @@
 .dashboard-header {
-  max-height: 132px;
-  padding: 11px 10px 10px 20px;
-  border-bottom: solid 1px #2d639f;
-  background-color: #fff;
+  @apply max-h-[132px] pt-[11px] pr-2.5 pb-2.5 pl-5 border-solid border-b-1 border-lapis-lazuli bg-white;
 
   .eho-img {
-    margin: 0 55.6% 0 0;
+    @apply my-0 ml-0;
+    margin-right: 55.6%;
 
     img {
-      width: 80px;
-      object-fit: contain;
+      @apply w-[80px] object-contain;
     }
   }
 
   .search-input {
-    margin: 10px 30px 0 0;
+    @apply mt-2.5 mr-[30px] mb-0 ml-0;
 
     .input-position {
-      position: relative;
+      @apply relative #{!important};
 
       .icon-input {
-        position: absolute;
-        z-index: 9;
-        top: 15px;
+        @apply absolute z-10 top-[15px];
 
         img {
-          width: 20px;
-          height: 20px;
-          object-fit: contain;
+          @apply w-5 h-5 object-contain;
         }
       }
 
       input {
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-radius: 0;
-        border-bottom:  solid 1px #2d64a0;;
-        margin-top: 5px;
-        padding-left: 25px;
-        font-size: 18px;
-        font-weight: 600;
+        @apply border-t-0 border-r-0 border-l-0 border-b-1 border-solid border-sapphire rounded-0 mt-[5px] pl-[25px] text-18 font-semibold;
 
         &:focus {
-          box-shadow: none;
-          outline: none;
+          @apply shadow-none outline-0;
         }
+
         &.ant-input-affix-wrapper:focus,
         &.ant-input-affix-wrapper-focused {
-          box-shadow: none;
-          outline: none;
+          @apply shadow-none outline-0;
         }
       }
     }
   }
 
   .filter-img {
-    margin: 27px 20px 0 0;
-    position: relative;
+    @apply mt-[27px] mr-5 mb-0 ml-0 relative;
 
     .hover-filter {
       &:hover {
-        background-color: #dbecff;
-        padding: 6px;
-        margin: -6px;
+        @apply bg-water p-[6px] m-[-6px];
       }
     }
 
     img {
-      width: 25px;
-      object-fit: contain;
-      cursor: pointer;
+      @apply w-1/4 object-contain cursor-pointer;
     }
 
-
     .card {
-      position: absolute;
-      width: 320px;
-      top: 34px;
-      right: 0;
-      border-radius: 5px;
+      @apply absolute w-80 top-[34px] right-0 rounded-5px bg-white z-[9999];
       box-shadow: 0 3px 14px 0 rgba(110, 110, 110, 0.16);
-      background-color: #fff;
-      z-index: 9999;
 
       .card-title {
-        border-radius: 5px 5px 0 0;
-        background-color: #2d639f;
-        padding: 11px 0 12px 12px;
-        position: relative;
+        @apply rounded-tl-5px rounded-tr-5px rounded-bl-0 rounded-br-0 bg-lapis-lazuli pt-[11px] pr-0 pb-3 pl-3 relative;
 
         p {
-          font-size: 20px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #fff;
+          @apply text-20-normal font-semibold tracking-normal text-left text-white;
         }
       }
 
       .card-body {
-        padding: 5px 0 0 0;
+        @apply pt-[5px] px-0 pb-0;
+
         ul {
           li {
-            padding: 11px 12px 12px 12px;
+            @apply pt-[11px] px-3 pb-3;
+
             span {
               p {
-                font-size: 18px;
-                font-weight: 400;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: normal;
-                letter-spacing: normal;
-                text-align: left;
+                @apply text-18 font-normal tracking-normal text-left;
               }
+
               .switch-flex {
-                display: flex;
-                justify-content: end;
+                @apply flex justify-end;
               }
+
               nz-switch {
                 ::ng-deep .ant-switch {
                   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(to right, #fff, #fff);
                 }
+
                 ::ng-deep .ant-switch-checked {
-                  background:  #2d64a0;
+                  @apply bg-sapphire;
                 }
               }
             }
@@ -137,88 +97,50 @@
   }
 
   .favorite-img {
-    margin: 27px 20px 0 0;
-    position: relative;
+    @apply mt-[27px] mr-5 mb-0 ml-0 relative;
 
     .hover-favorite {
 
       &:hover {
-        background-color: #dbecff;
-        padding: 6px;
-        margin: -6px;
+        @apply bg-water p-[6px] m-[-6px];
       }
     }
 
     img {
-      width: 30px;
-      object-fit: contain;
-      cursor: pointer;
+      @apply w-[30px] object-contain cursor-pointer;
     }
 
     .dropdown-favorite {
-      position: absolute;
-      top: 35px;
-      right: 10px;
-      z-index: 999;
-      padding: 12px 14px 12px 12px;
-      border-radius: 5px;
+      @apply absolute top-[35px] right-[10px] z-[999] py-3 pr-[14px] pl-3 rounded-5px bg-white w-[230px] h-auto;
       box-shadow: 0 0 14px 0 rgba(167, 167, 167, 0.16);
-      background-color: #fff;
-      width: 230px;
-      height: auto;
 
       li {
-        font-size: 15px;
-        font-weight: 400;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
-        padding: 3px;
-        cursor: pointer;
+        @apply text-15 font-normal tracking-normal text-left text-black p-[3px] cursor-pointer;
 
         &:hover {
-          background-color: #2d639f !important;
-          color: #ffffff !important;
+          @apply bg-lapis-lazuli text-white #{!important};
         }
       }
     }
   }
 
   .up-line {
-    border: solid 1px #d0d0d0;
-    height: 36px;
-    margin: 19px 20px 0 0;
+    @apply border-solid border-1 border-american-silver h-[36px] mt-[19px] mr-5 mb-0 ml-0;
   }
 
   .language-selector {
-    margin: 21px 20px 0 0;
+    @apply mt-[21px] mr-5 mb-0 ml-0;
   }
 
   .avatar {
-    margin: 12px 20px 0 0;
+    @apply mt-3 mr-5 mb-0 ml-0;
+
     p {
-      border-radius: 30px;
-      background-color: #2d639f;
-      padding: 8px;
-      font-size: 20px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.5;
-      letter-spacing: normal;
-      text-align: left;
-      color: #fff;
-      cursor: pointer;
+      @apply rounded-[30px] bg-lapis-lazuli p-2 text-20 font-semibold text-left text-white cursor-pointer;
     }
   }
-
 }
 
 .back-image {
-  background-color: #dbecff;
-  padding: 6px;
-  margin: -6px;
+  @apply bg-water p-[6px] m-[-6px];
 }

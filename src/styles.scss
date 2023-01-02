@@ -5,15 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Swiper js*/
-@import "swiper/scss";
-@import "swiper/scss/free-mode";
-@import "swiper/scss/navigation";
-@import "swiper/scss/thumbs";
-
 /* Ng zorro global styles*/
 @import "~ng-zorro-antd/ng-zorro-antd.css";
-
 .display-flex {
   @apply flex #{!important};
 }
@@ -70,6 +63,66 @@
   @apply text-20-normal #{!important};
 }
 
+.text-align-right {
+  @apply text-right #{!important};
+}
+
+.text-align-center {
+  @apply text-center #{!important};
+}
+
+.ml9-minus {
+  @apply -ml-[9px] #{!important};
+}
+
+.ml4-minus {
+  @apply -ml-[4px] #{!important};
+}
+
+.m0 {
+  @apply m-0 #{!important}
+}
+
+.mt16 {
+  @apply mt-4 #{!important};
+}
+
+.pl-15 {
+  @apply pl-[15px] #{!important};
+}
+
+.pl-50 {
+  @apply pl-[50px] #{!important};
+}
+
+.mb0 {
+  @apply mb-0 #{!important};
+}
+
+.mt20 {
+  @apply mt-5 #{!important};
+}
+
+.align-items-baseline {
+  @apply items-baseline #{!important};
+}
+
+.w-100 {
+  @apply w-full #{!important};
+}
+
+@media only screen and (max-width: 640px) {
+  .sidebar-drawer {
+    @apply w-full #{!important};
+  }
+}
+
+.sidebar-drawer {
+  @apply w-auto ;
+}
+
+
+
 .ant-pagination-item {
   @apply rounded-50% h-[25px] min-w-[25px] leading-25px border-0 bg-transparent;
   :hover {
@@ -115,11 +168,11 @@
   }
 
   .ant-table-container table > thead > tr > th:first-child {
-    border-radius: 15px 0 0 0;
+    @apply rounded-tl-15px rounded-br-0 rounded-bl-0;
   }
 
   .ant-table-container table > thead > tr > th:last-child {
-    border-radius: 0 15px 0 0;
+    @apply rounded-tl-0 rounded-tr-15px rounded-br-15px rounded-bl-0;
   }
 
   .ant-table-thead > tr > th {
@@ -147,37 +200,27 @@
   }
 
   .ant-table-tbody > tr > td {
-    font-size: 15px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #000;
-    border-bottom: solid 0.5px #d3d3d3 !important;
-    border-right: solid 0.5px #d3d3d3 !important;
+    @apply text-15 text-black font-normal tracking-normal border-b-0.5 border-r-0.5 border-solid border-light-gray;
   }
 
   .ant-table-tbody > tr > td:first-child {
-    border-right: 0 !important;
+    @apply border-r-0 #{!important};
   }
 
   .ant-table-tbody > tr > td:last-child {
-    border-right: 0 !important;
+    @apply border-r-0 #{!important};
   }
 
   .ant-table-tbody > tr > td:nth-last-child(2) {
-    border-right: 0 !important;
+    @apply border-r-0 #{!important};
   }
 
   .ant-table-column-sorter {
-    color: #fff;
+    @apply text-white;
   }
 
   .ant-checkbox-inner {
-    border-radius: 5px;
-    width: 25px;
-    height: 25px;
+    @apply rounded-5px w-[25px] h-[25px];
   }
 
   .ant-checkbox-inner::after {
@@ -185,7 +228,7 @@
   }
 
   .ant-checkbox-indeterminate .ant-checkbox-inner::after {
-    display: none;
+    @apply hidden;
   }
 
 }

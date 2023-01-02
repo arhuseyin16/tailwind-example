@@ -1,7 +1,8 @@
-<div class="sidebar-logo">
-  <img [routerLink]="['/dashboard']" src="assets/icon/logo.png" alt="logo">
-</div>
-<div>
+<div class="flex justify-between items-center xl:block">
+  <div class="sidebar-logo pt-5 h-auto xl:pt-10 xl:h-[130px]">
+    <img [routerLink]="['/dashboard']" src="assets/icon/logo.png" alt="logo">
+  </div>
+  <div class="hidden xl:block">
         <span class="cursor-pointer" (click)="changeCollapse()">
           <div *ngIf="isCollapsed" class="absolute top-[71px] left-[92px] w-max">
                  <img class="w-[50px] h-[50px]" src="assets/img/sidebar/sidebar-open-3x.png"
@@ -14,7 +15,13 @@
           </div>
 
       </span>
+  </div>
+  <div class="cursor-pointer pr-30px md:pr-[36px] block xl:hidden">
+    <svg-icon src="assets/svg/menu-close-icon.svg" [svgClass]="'filter-white'"
+              (click)="closeMenu()"></svg-icon>
+  </div>
 </div>
+
 <ul nz-menu nzTheme="light" nzMode="inline" class="w-full pt-[23px]" [nzInlineCollapsed]="isCollapsed" *ngIf="sidebarItems.length > 0">
   <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: sidebarItems }"></ng-container>
   <ng-template #menuTpl let-menus>

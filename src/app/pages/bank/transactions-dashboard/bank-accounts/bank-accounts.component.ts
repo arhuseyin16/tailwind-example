@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewEncapsulation, } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation, } from '@angular/core';
 import SwiperCore, { FreeMode, Navigation, Thumbs } from "swiper";
 import { SwiperOptions } from "swiper/types";
 import { Store } from "@ngxs/store";
 import { SidebarState } from "../../../../store/sidebar/sidebar.state";
 import Swiper from "swiper";
 import {Router} from "@angular/router";
+import { SwiperComponent, SwiperSlideDirective } from "swiper/angular";
 
 // install Swiper modules
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
@@ -15,9 +16,11 @@ SwiperCore.use([FreeMode, Navigation, Thumbs]);
   styleUrls: ['./bank-accounts.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
+export class BankAccountsComponent implements OnInit {
   thumbsSwiper: any;
   swiperChangeId?: number;
+  @ViewChild(SwiperSlideDirective) directiveRef?: SwiperSlideDirective;
+  @ViewChild('mySwiper2', { static: false }) compRef?:SwiperComponent;
 
   bankAccounts = [
     {
@@ -433,25 +436,22 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
   swiperConfig: SwiperOptions = {
     slidesPerView: 'auto',
     spaceBetween: 30,
-    freeMode: true,
-    loop: true,
-    watchSlidesProgress: true,
     breakpoints: {
       1: {
         spaceBetween: 1,
-        slidesPerView: 1
+        slidesPerView: 4
       },
       640: {
         spaceBetween: 1,
-        slidesPerView: 2
+        slidesPerView: 4
       },
       768: {
         spaceBetween: 1,
-        slidesPerView: 3
+        slidesPerView: 4
       },
       1024: {
         spaceBetween: 1,
-        slidesPerView: 5
+        slidesPerView: 4
       },
       1280: {
         spaceBetween: 1,
@@ -479,13 +479,39 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+
+/*  nextSlide() {
+    this.directiveRef?.;
+  }
+  previousSlide() {
+    this.directiveRef.prevSlide();
+  }*/
+  nextSlideComp() {
+    this.compRef?.swiperRef.slideNext();
+  }
+  previousSlideComp() {
+    this.compRef?.swiperRef.slidePrev();
+  }
+
   swiperConfigChange(isCollapse: boolean) {
     if (isCollapse) {
       this.swiperConfig = {
         ...this.swiperConfig,
         breakpoints: {
           ...this.swiperConfig.breakpoints,
+          1280: {
+            spaceBetween: 1,
+            slidesPerView: 4
+          },
+          1440: {
+            spaceBetween: 1,
+            slidesPerView: 5
+          },
           1640: {
+            spaceBetween: 30,
+            slidesPerView: 6
+          },
+          1920: {
             spaceBetween: 30,
             slidesPerView: 7
           }
@@ -496,20 +522,25 @@ export class BankAccountsComponent implements OnInit, AfterViewInit, OnDestroy {
         ...this.swiperConfig,
         breakpoints: {
           ...this.swiperConfig.breakpoints,
+          1280: {
+            spaceBetween: 1,
+            slidesPerView: 3
+          },
+          1440: {
+            spaceBetween: 1,
+            slidesPerView: 4
+          },
           1640: {
+            spaceBetween: 30,
+            slidesPerView: 5
+          },
+          1920: {
             spaceBetween: 30,
             slidesPerView: 6
           }
         }
       }
     }
-  }
-
-
-  ngAfterViewInit() {
-  }
-
-  ngOnDestroy() {
   }
 
   bankAccountDetail(id: number) {

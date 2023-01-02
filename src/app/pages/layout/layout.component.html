@@ -1,13 +1,13 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-            nzWidth="332px"
-            [nzCollapsedWidth]="121"
-            nzBreakpoint="lg"
-            [(nzCollapsed)]="isCollapsed"
-            (nzCollapsedChange)="collapseChange($event)"
-            [nzTrigger]="null">
-  <app-sidebar></app-sidebar>
-  </nz-sider>
+    <nz-sider class="menu-sidebar hidden xl:block"
+              nzWidth="332px"
+              [nzCollapsedWidth]="121"
+              nzBreakpoint="lg"
+              [(nzCollapsed)]="isCollapsed"
+              (nzCollapsedChange)="collapseChange($event)"
+              [nzTrigger]="null">
+      <app-sidebar></app-sidebar>
+    </nz-sider>
 
 
   <nz-layout class="mb-[116px] height-100vh">

@@ -2,10 +2,6 @@
   @apply text-18 ml-[9px] font-medium
 }
 
-.sidebar-base-menu-label {
-  @apply text-18 font-medium #{!important}
-}
-
 :host ::ng-deep .ant-menu-item:hover {
   @apply text-sapphire #{!important}
 }
@@ -15,7 +11,7 @@
 }
 
 .sidebar-menu-title {
-  @apply text-15
+  @apply text-15;
 }
 
 :host ::ng-deep .ant-menu-submenu-title:hover {
@@ -25,14 +21,10 @@
   }
 }
 
-:host ::ng-deep .ant-menu-submenu:hover > .ant-menu-submenu-title{
+:host ::ng-deep .ant-menu-submenu:hover > .ant-menu-submenu-title {
   .ant-menu-submenu-arrow .ant-menu-submenu-arrow::before .ant-menu-submenu-arrow::after {
     @apply ml-0.5 border-1 w-[9px] bg-sapphire border-sapphire text-sapphire border-solid #{!important}
   }
-}
-
-:host ::ng-deep .ant-menu-submenu-arrow {
-  @apply right-[19px] #{!important};
 }
 
 :host ::ng-deep .ant-menu-submenu-arrow::before {
@@ -43,48 +35,9 @@
   @apply border-1 w-[9px] border-solid border-black #{!important}
 }
 
-.ml9-minus {
-  @apply -ml-[9px] #{!important};
-}
-
-.ml4-minus {
-  @apply -ml-[4px] #{!important};
-}
-
-.m0 {
-  @apply m-0 #{!important}
-}
-
-.mt16 {
-  @apply mt-4 #{!important};
-}
-
-.pl-15 {
-  @apply pl-[15px] #{!important};
-}
-
-.pl-50 {
-  @apply pl-[50px] #{!important};
-}
-
-.mb0 {
-  @apply mb-0 #{!important};
-}
-
-.mt20 {
-  @apply mt-5 #{!important};
-}
-
-.align-items-baseline {
-  @apply items-baseline #{!important};
-}
 
 .sidebar-logo {
-  position: relative;
-  height: 130px;
-  overflow: hidden;
-  padding-top: 40px;
-  background: #fff;
+  @apply relative bg-white overflow-hidden;
   border-top-right-radius: 100px !important;
 }
 
@@ -107,3 +60,20 @@
 .ant-menu ol {
   @apply relative #{!important};
 }
+
+:host ::ng-deep .ant-menu-submenu-arrow {
+  @apply right-[19px] #{!important};
+}
+
+@media only screen and (max-width: 640px) {
+  :host ::ng-deep .ant-menu-submenu-arrow {
+    @apply right-[35px] #{!important};
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  :host ::ng-deep .ant-menu-submenu-arrow {
+    @apply right-[41px] #{!important};
+  }
+}
+

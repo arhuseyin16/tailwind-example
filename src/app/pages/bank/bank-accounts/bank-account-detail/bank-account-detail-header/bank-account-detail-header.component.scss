@@ -2,25 +2,14 @@
   //padding: 0 0 0 18px;
 
   .header-img {
-    display: flex;
-    align-items: center;
+    @apply flex items-center;
 
     img {
-      width: 113px;
-      height: 63px;
-      object-fit: contain;
+      @apply w-[113px] h-[63px] object-contain;
     }
 
     .header-money-type {
-      font-size: 25px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #000;
-      margin-left: 23px;
+      @apply text-25 font-semibold tracking-normal text-left text-black ml-[23px];
     }
   }
   //

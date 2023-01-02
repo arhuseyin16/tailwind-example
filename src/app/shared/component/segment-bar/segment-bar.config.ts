@@ -3,10 +3,10 @@ import { NzSegmentedOption, NzSegmentedOptions } from "ng-zorro-antd/segmented/t
 
 export class SegmentBarConfig {
   position: SegmentPositionEnum = SegmentPositionEnum.CENTER;
-  block: boolean = false;
+  block: boolean = true;
   paddingLeft: number = 0;
   paddingRight: number = 0;
-  width: string = 'auto';
+  width: string = '100%';
   data: NzSegmentedOptions = new Array<NzSegmentedOption | string | number>();
   className: string = '';
 }

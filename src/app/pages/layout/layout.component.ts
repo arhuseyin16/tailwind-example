@@ -4,6 +4,8 @@ import { SetIsCollapseAction } from "../../store/sidebar/sidebar.action";
 import { SidebarState } from "../../store/sidebar/sidebar.state";
 import { Observable } from "rxjs";
 import {HeaderDropdownActionClear} from "../../store/header-dropdown-valid/header-dropdown.action";
+import { NzDrawerService } from "ng-zorro-antd/drawer";
+import { SidebarComponent } from "../../shared/component/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-layout',
@@ -14,6 +16,8 @@ import {HeaderDropdownActionClear} from "../../store/header-dropdown-valid/heade
 export class LayoutComponent implements OnInit {
   isCollapsed = false;
   store = inject(Store);
+  drawerService = inject(NzDrawerService);
+
   constructor() {
     this.store.select(SidebarState.getIsCollapse).subscribe(isCollapse => this.isCollapsed = isCollapse);
   }

@@ -4,18 +4,19 @@
   </div>
   <div>
     <a [routerLink]="['/ui/bank/bank-account']"
-       class="text-new-car text-20-normal">{{'transactions-dashboard.detail' | translate}}</a>
+       class="text-20-normal">{{'transactions-dashboard.detail' | translate}}</a>
   </div>
 </div>
 <div class="rounded-20px bg-white shadow-silver-halice-lg mt-4 pt-[21px] h-full">
 
   <div class="px-[26px] max-w-full min-width-full relative">
-
     <swiper
-      [config]="swiperConfig"
-      class="mySwiper"
-      style="position: absolute; left: 0"
       (swiper)="thumbsSwiper = $event"
+      [loop]="true"
+      [config]="swiperConfig"
+      [freeMode]="true"
+      [watchSlidesProgress]="true"
+      class="mySwiper"
     >
       <ng-template swiperSlide *ngFor="let accounts of bankAccounts">
         <div class="swiper-slide-box">
@@ -27,17 +28,14 @@
         </div>
 
       </ng-template>
-
     </swiper>
 
     <swiper
-      [spaceBetween]="10"
-      style="--swiper-navigation-color: #000;--swiper-pagination-color: #000; position: absolute; left: 0; padding-top: 130px;"
-      [navigation]="true"
       [loop]="true"
-      class="mySwiper2"
-      (slideChangeTransitionStart)="slideChange($event)"
+      [spaceBetween]="10"
+      #mySwiper2
       [thumbs]="{ swiper: thumbsSwiper }"
+      class="mySwiper2"
     >
       <ng-template swiperSlide class="bank-accounts-table" *ngFor="let accounts of bankAccounts; let i = index">
         <nz-table class="w-[95%] h-[300px]" nzSize="small" #accountTable [nzData]="accounts.information"
@@ -56,8 +54,13 @@
       </ng-template>
 
     </swiper>
+    <div class="swiper-button-next" (click)="nextSlideComp()"></div>
+    <div class="swiper-button-prev" (click)="previousSlideComp()"></div>
   </div>
 
+  <ng-template #leftArrow>
+    <div>Left</div>
+  </ng-template>
 
 </div>
 
