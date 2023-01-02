@@ -6,7 +6,7 @@
     box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
 
     .header {
-      @apply pt-15px pr-15 pb-0 pl-0 flex;
+      @apply pt-15px pr-15px pb-0 pl-0 flex;
       background-image: linear-gradient(to right, #2d639f, #87bfad);
 
       .group-flex {
