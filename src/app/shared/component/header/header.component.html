@@ -1,7 +1,11 @@
 <div class="flex">
   <div class="basis-1/2 action-leftSide pl-[5px]">
-    <div class="flex">
+    <div class="flex hidden xl:block">
       <ng-container #container></ng-container>
+    </div>
+    <div class="cursor-pointer block xl:hidden">
+      <svg-icon src="assets/svg/hamburger-icon.svg" [svgClass]="'filter-white'"
+                (click)="changeMenu()"></svg-icon>
     </div>
   </div>
   <div class="basis-1/2 action-rightSide">

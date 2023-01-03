@@ -1,7 +1,9 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import {Observable} from "rxjs";
 import {Select} from "@ngxs/store";
 import {HeaderConfigState} from "../../../store/header-config/header-config.state";
+import { SidebarComponent } from "../sidebar/sidebar.component";
+import { DrawerService } from "../../../service/drawer/drawer.service";
 
 @Component({
   selector: 'app-header',
@@ -11,6 +13,7 @@ import {HeaderConfigState} from "../../../store/header-config/header-config.stat
 export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('container', {read: ViewContainerRef}) container!: ViewContainerRef;
   @Select(HeaderConfigState.getHeaderConfig) headerConfig$?: Observable<any>;
+  drawerService = inject(DrawerService);
 
   constructor() {}
 
@@ -32,6 +35,25 @@ export class HeaderComponent implements OnInit, AfterViewInit {
           }
         }));
       }
+    });
+  }
+
+  changeMenu() {
+    const drawerRef = this.drawerService.create({
+      nzContent: SidebarComponent,
+      nzPlacement: "left",
+      nzClosable: false,
+      nzContentParams: {drawerIsCollapse:false},
+      nzWrapClassName: 'sidebar-drawer',
+      nzBodyStyle: {'padding': '0'}
+    });
+
+    drawerRef.afterOpen.subscribe(() => {
+      console.log('Drawer(Component) open');
+    });
+
+    drawerRef.afterClose.subscribe(data => {
+      console.log(data);
     });
   }
 }

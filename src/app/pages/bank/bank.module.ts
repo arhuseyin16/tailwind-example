@@ -14,6 +14,9 @@ import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {FormsModule} from "@angular/forms";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { SidebarModule } from "../../shared/component/sidebar/sidebar.module";
+import { AngularSvgIconModule } from "angular-svg-icon";
+import { NzDrawerService } from "ng-zorro-antd/drawer";
+import { DrawerService } from "../../service/drawer/drawer.service";
 
 const routes: Routes = [
   {
@@ -42,22 +45,24 @@ const routes: Routes = [
   exports: [
     HeaderComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    NzLayoutModule,
-    TranslatePageModule,
-    NzMenuModule,
-    NzIconModule,
-    TranslateModule,
-    ProfileModule,
-    PdfModule,
-    FavoriteModule,
-    NzInputNumberModule,
-    FormsModule,
-    NzSwitchModule,
-    SidebarModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        NzLayoutModule,
+        TranslatePageModule,
+        NzMenuModule,
+        NzIconModule,
+        TranslateModule,
+        ProfileModule,
+        PdfModule,
+        FavoriteModule,
+        NzInputNumberModule,
+        FormsModule,
+        NzSwitchModule,
+        SidebarModule,
+        AngularSvgIconModule
+    ],
+  providers: [NzDrawerService, DrawerService]
 })
 export class BankModule {
 }

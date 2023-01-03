@@ -6,9 +6,8 @@
      [ngStyle]="{
      'padding-left': segmentBarConfig.paddingLeft + 'px',
      'padding-right': segmentBarConfig.paddingRight + 'px'}"
-     style="overflow-x: auto"
+     class="pl-[27px] pr-[27px] overflow-x-auto"
 >
-
   <nz-segmented class="rounded-5px bg-ghost-white p-0 h-[41px]" *ngIf="segmentBarConfig"
                 [ngStyle]="{'width': segmentBarConfig.width}"
                 nzSize="large" [nzOptions]="segmentBarConfig.data"

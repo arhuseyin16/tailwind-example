@@ -1,98 +1,51 @@
 .form-otp {
 
   .form-header {
-    text-align: center;
-    margin-bottom: 45px;
-    background-color: #87bfad;
+    @apply text-center mb-[45px] bg-eton-blue;
 
     .header-title {
-      font-size: 22px;
-      color: #fff;
-      font-weight: bold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      padding: 35px 20px;
+      @apply text-22 text-white font-bold tracking-normal py-[35px] px-5;
     }
   }
 
   .otp-img {
-    display: flex;
-    justify-content: center;
-    padding-top: 55px;
+    @apply flex justify-center pt-[55px];
 
     img {
-      width: 114px;
-      object-fit: contain;
+      @apply w-[114px] object-contain;
     }
   }
 
   .otp-body-title {
-    font-size: 18px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    text-align: left;
-    color: #2d64a0;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
+    @apply text-18 font-bold tracking-normal text-left text-sapphire flex justify-center pt-5;
   }
 
   .form-group {
-    position: relative;
-    padding: 0 90px 15px;
+    @apply relative pt-0 px-[90px] pr-[15px];
 
     .form-position {
-      display: flex;
-      justify-content: center;
+      @apply flex justify-center;
 
       input {
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-radius: 0;
-        border-bottom: solid 0.5px #8b8b8b;
-        margin-top: 5px;
-        padding-left: 25px;
-        font-size: 18px;
-        font-weight: 600;
-        width: 70%;
-        text-align: center;
+        @apply border-t-0 border-r-0 border-l-0 rounded-0 border-b-0.5 border-solid border-philippine-gray mt-[5px] pl-[25px] text-18 font-semibold text-center w-70%;
 
         &:focus {
-          box-shadow: none;
-          outline: none;
+          @apply shadow-none outline-0;
         }
+
         &.ant-input-affix-wrapper:focus,
         &.ant-input-affix-wrapper-focused {
-          box-shadow: none;
-          outline: none;
+          @apply shadow-none outline-0;
         }
       }
     }
 
     .loginBtn {
-      width: 100%;
-      height: 50px;
-      padding: 0 0;
-      color: #fff;
-      border-radius: 5px;
-      background-color: #87bfad;
-      outline: 0;
-      font-size: 18px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
+      @apply w-full h-[50px] p-0 text-white rounded-5px bg-eton-blue outline-0 text-18 font-semibold tracking-normal;
     }
   }
 
   .form-group.btn-submit {
-    margin: 50px 0 55px 0;
+    @apply mt-[50px] mx-0 mb-[55px]
   }
 }

@@ -1,1 +1,6 @@
-<div echarts [options]="chartOption" class="chart" (chartLegendSelectChanged)="legendSelected($event)" (chartInit)="chartInitialized($event)"></div>
+<div class="h-[700px] max-h-[700px] min-h-[700px]
+            md:h-[750px] md:max-h-[750px] md:min-h-[750px]
+            lg:h-auto lg:max-h-auto lg:min-h-auto
+            xl:h-auto xl:max-h-auto xl:min-h-auto
+"
+  echarts [options]="chartOption"  (chartLegendSelectChanged)="legendSelected($event)" (chartInit)="chartInitialized($event)" ></div>

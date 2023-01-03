@@ -1,71 +1,50 @@
 .bank-table {
-  padding: 0 10px 0 4px;
+  @apply pt-0 pr-2.5 pb-0 pl-1;
 
   .banks {
-    display: flex;
-    flex-wrap: wrap;
+    @apply flex flex-wrap;
 
     .bank-list {
+      @apply max-w-25% py-0 px-[15px] mb-[30px];
       flex: 0 0 25%;
-      max-width: 25%;
-      padding: 0 15px;
-      margin-bottom: 30px;
 
       .bank-card {
-        border-radius: 5px;
+        @apply rounded-5px bg-white w-full;
         box-shadow: 0 3px 14px 0 rgba(126, 126, 126, 0.16);
-        background-color: #fff;
-        width: 100%;
 
         .bank-header {
-          display: flex;
-          padding-left: 10px;
+          @apply flex pl-2.5;
 
           .bank-image {
 
             img {
-              width: 97px;
-              height: 37px;
-              object-fit: contain;
+              @apply w-[97px] h-[37px] object-contain;
             }
           }
 
           .bank-color {
-            width: 100%;
-            border-radius: 5px 5px 0 5px;
+            @apply w-full rounded-tl-5px rounded-tr-5px rounded-br-0 rounded-bl-5px;
           }
         }
 
         .bank-card-body {
 
           .data-table {
-            position: relative;
-            padding: 4px 4px 4px 14px;
-            cursor: pointer;
+            @apply relative py-1 pr-1 pl-[14px] cursor-pointer;
 
             span {
-              font-size: 16px;
-              font-weight: normal;
-              font-stretch: normal;
-              font-style: normal;
-              line-height: 1.75;
-              letter-spacing: normal;
-              text-align: right;
-              color: #000;
+              @apply text-16 font-normal tracking-normal text-right text-black;
             }
             .account {
 
             }
 
             .price {
-              position: absolute;
-              right: 63px;
+              @apply absolute right-[63px];
             }
 
             .money-type {
-              position: absolute;
-              right: 17px;
-              font-weight: bold;
+              @apply absolute right-[17px] font-bold;
             }
           }
         }

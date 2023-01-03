@@ -7,6 +7,7 @@ import {LayoutComponent} from "./layout/layout.component";
 import {NzLayoutModule} from "ng-zorro-antd/layout";
 import {SidebarModule} from "../shared/component/sidebar/sidebar.module";
 import {BankModule} from "./bank/bank.module";
+import { NzDrawerService } from "ng-zorro-antd/drawer";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {BankModule} from "./bank/bank.module";
     NzLayoutModule,
     SidebarModule,
     BankModule,
-  ]
+  ],
+  providers:[NzDrawerService]
 })
 export class PagesModule {
 }

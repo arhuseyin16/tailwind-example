@@ -4,7 +4,7 @@ import { EChartsOption } from "echarts";
 @Component({
   selector: 'app-doughnut-echart',
   templateUrl: './doughnut-echart.component.html',
-  styleUrls: ['./doughnut-echart.component.scss']
+  styleUrls: ['./doughnut-echart.component.scss'],
 })
 export class DoughnutEchartComponent {
 
@@ -53,5 +53,12 @@ export class DoughnutEchartComponent {
 
   chartInitialized(chartRef: any) {
     this.chartRef = chartRef;
+    console.log(this.chartRef);
+  }
+
+  resizeChart() {
+    if (this.chartRef) {
+      this.chartRef.resize();
+    }
   }
 }

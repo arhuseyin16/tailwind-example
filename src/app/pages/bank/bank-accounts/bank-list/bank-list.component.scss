@@ -1,111 +1,66 @@
 .bank-list {
-  padding: 0 28px 0 20px;
+  @apply pr-7 pl-5;
 
   .line-chart {
-    margin-bottom: 90px;
-    position: relative;
+    @apply mb-[90px] relative;
 
     .change-img {
-      position: absolute;
-      right: 0;
-      top: -7px;
+      @apply absolute right-0 top-[-7px];
 
       img {
-        width: 55px;
-        height: 30px;
-        object-fit: contain;
-        cursor: pointer;
+        @apply w-[55px] h-[30px] object-contain cursor-pointer;
       }
     }
   }
 
   .detail-list {
-    border-radius: 10px;
+    @apply rounded-10px bg-white w-full mb-[30px];
     box-shadow: 0 3px 14px 0 rgba(121, 121, 121, 0.16);
-    background-color: #fff;
-    width: 100%;
-    margin-bottom: 30px;
 
     .list-image {
-      padding: 6px 0 0 19px;
+      @apply pt-[6px] pl-[19px];
 
       img {
-        width: 129px;
-        height: 50px;
-        object-fit: contain;
+        @apply w-[129px] h-[50px] object-contain;
       }
     }
 
     .account {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 30px 0 10px 13px;
+      @apply flex flex-wrap pt-[30px] pb-2.5 pl-[13px];
 
       .account-list {
+        @apply max-w-25% py-0 px-[15px] mb-[30px];
         flex: 0 0 25%;
-        max-width: 25%;
-        padding: 0 15px;
-        margin-bottom: 30px;
-        //border-right: solid 1px #b4b4b4;
 
         .total-price {
-          font-size: 30px;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.17;
-          letter-spacing: normal;
-          text-align: left;
+          @apply text-30 tracking-normal text-left;
 
           .total {
-            font-weight: 600;
-            color: #000;
+            @apply font-semibold text-black;
           }
           .money-type {
-            font-weight: bold;
-            color: #2d64a0;
-            padding: 0 0 0 10px;
+            @apply font-bold text-sapphire py-0 pr-0 pl-2.5;
           }
         }
 
         .total-account {
-          padding: 10px 0 0 0;
-          position: relative;
+          @apply pt-2.5 pb-0 px-0 relative;
 
           .title {
-            font-size: 18px;
-            font-weight: normal;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.94;
-            letter-spacing: normal;
-            text-align: left;
-            color: #000;
+            @apply text-18 tracking-normal text-left text-black;
           }
 
           .error {
-            position: absolute;
-            right: 35px;
-            top: 16px;
+            @apply absolute right-[35px] top-4;
 
              img {
-               width: 24px;
-               height: 24px;
-               object-fit: contain;
+               @apply w-6 h-6 object-contain;
              }
           }
         }
 
         .detail-process {
-          font-size: 18px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.94;
-          letter-spacing: normal;
-          text-align: left;
-          color: #2d64a0;
-          padding: 15px 0 0 0;
-          cursor: pointer;
+          @apply text-18 font-semibold text-left text-sapphire cursor-pointer pt-[15px] pb-0 px-0;
         }
       }
     }
