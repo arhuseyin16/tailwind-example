@@ -1,40 +1,18 @@
 .profile {
-  border-radius: 30px;
-  background-color: #2d639f;
-  padding: 8px;
-  font-size: 20px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  text-align: left;
-  color: #fff;
-  cursor: pointer;
-  position: relative;
+  @apply rounded-30px bg-lapis-lazuli p-2 text-20 font-semibold tracking-normal text-left text-white cursor-pointer relative;
 }
 ::ng-deep .profile-dropdown.ant-dropdown {
-  margin-top: 12px;
+  @apply mt-3;
 }
 
 ::ng-deep .profile-ul.ant-dropdown-menu {
-  padding: 8px 0 8px 0;
-  border-radius: 5px;
-  width: 230px;
+  @apply py-2 px-0 rounded-5px w-230px;
 }
 ::ng-deep .profile-li.ant-dropdown-menu-item {
-  font-size: 15px;
-  font-weight: 400;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000;
+  @apply text-15 font-normal tracking-normal text-left text-black;
   //padding: 0 0 10px 14px;
 
   &:hover {
-    background-color: #2d639f !important;
-    color: #ffffff !important;
+    @apply bg-lapis-lazuli text-white #{!important};
   }
 }

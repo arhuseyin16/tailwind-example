@@ -1,14 +1,11 @@
 .language {
   a {
     img {
-      width: 33px;
-      height: 33px;
-      object-fit: contain;
+      @apply w-33px h-33px object-contain;
     }
   }
 }
 
 ::ng-deep .ant-dropdown {
-  margin-top: 12px;
-  left: -10px;
+  @apply mt-3 -left-2.5;
 }

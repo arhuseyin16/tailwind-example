@@ -1,54 +1,37 @@
 .environment-settings {
-  padding: 20px 30px 0 20px;
+  @apply pt-5 pr-30px pb-0 pl-5;
 
   .page-shadow {
-    border-radius: 15px;
+    @apply rounded-15px bg-white;
     box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
-    background-color: #fff;
 
     .first {
       .first-form-control {
         flex: 0 0 25%;
         max-width: 21%;
-        margin: 20px 0 24px 23px;
+        @apply mt-5 mr-0 mb-6 ml-23px;
 
         label {
-          font-size: 16px;
-          font-weight: 300;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #000;
+          @apply text-16 font-light tracking-normal text-left text-black;
         }
 
         input {
-          border-radius: 5px;
-          border: solid 0.5px #ABABAB;
-          background-color: #fff;
-          margin-top: 10px;
-          height: 40px;
+          @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-10;
 
           &:focus {
-            box-shadow: none;
-            outline: none;
+            @apply shadow-none outline-none;
           }
         }
 
         .ant-select {
-          width: 100%;
-          margin-top: 10px;
+          @apply w-full mt-2.5;
           ::ng-deep .ant-select-selector {
             //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
-            border: solid 0.5px #ABABAB;
-            border-radius: 5px;
-            background-color: #fff;
-            font-size: 14px;
+            @apply border-solid border-0.5 border-dark-charcoal rounded-5px bg-white text-14;
           }
 
           ::ng-deep .ant-select-arrow {
-            color: #000000;
+            @apply text-black;
           }
         }
       }
@@ -58,135 +41,72 @@
       .second-form-control {
         flex: 0 0 25%;
         max-width: 17%;
-        margin: 20px 0 24px 23px;
+        @apply mt-5 mr-0 mb-6 ml-23px;
 
         label {
-          font-size: 16px;
-          font-weight: 300;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #000;
+          @apply text-16 font-light tracking-normal text-left text-black;
         }
 
         nz-input-number {
-          border-radius: 5px;
+          @apply rounded-5px;
 
           ::ng-deep .ant-input-number-handler-wrap {
-            border-radius: 5px;
+            @apply rounded-5px;
           }
         }
       }
     }
 
     .third {
-      margin: 30px 0 30px 23px;
+      @apply my-30px mr-0 ml-23px;
 
       .third-title {
-        font-size: 16px;
-        font-weight: 300;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
-        padding-bottom: 10px;
+        @apply text-16 font-light tracking-normal text-black pb-2.5;
       }
 
       label {
-        font-size: 16px;
-        font-weight: 300;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
+        @apply text-16 font-light tracking-normal text-left text-black;
       }
     }
 
     .fourth {
-      margin: 30px 0 30px 23px;
+      @apply my-30px mr-0 ml-23px;
 
       .fourth-title {
-        font-size: 16px;
-        font-weight: 300;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
-        padding-bottom: 10px;
+        @apply text-16 font-light tracking-normal text-left text-black pb-2.5;
       }
 
       label {
-        font-size: 16px;
-        font-weight: 300;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
+        @apply text-16 text-16 tracking-normal text-left text-black;
       }
     }
 
     .fifth {
-      margin: 30px 0 30px 23px;
-      padding-bottom: 30px;
+      @apply my-30px mr-0 ml-23px pb-30px;
 
       .fifth-title {
-        font-size: 16px;
-        font-weight: 300;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
-        padding-bottom: 10px;
+        @apply text-16 font-light tracking-normal text-left text-black pb-2.5;
       }
 
       label {
-        font-size: 16px;
-        font-weight: 300;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
+        @apply text-16 font-light tracking-normal text-left text-black;
       }
     }
   }
   .environment-settings-submit {
-    margin-top: 30px;
+    @apply mt-30px;
 
     button {
-      width: 241px;
-      height: 50px;
-      border-radius: 10px;
-      background-color: #87bfad;
-      font-size: 20px;
-      font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #fff;
+      @apply w-241px h-50px rounded-10px bg-eton-blue text-20-normal font-medium tracking-normal text-white;
     }
   }
 
   nz-radio-group {
     ::ng-deep .ant-radio-checked .ant-radio-inner {
-      border-color: #87bfad;
+      @apply border-eton-blue;
 
       &:after {
-        background-color: #87bfad;
+        @apply bg-eton-blue;
       }
     }
   }

@@ -172,11 +172,11 @@
   }
 
   .ant-table-container table > thead > tr > th:last-child {
-    @apply rounded-tl-0 rounded-tr-15px rounded-br-15px rounded-bl-0;
+    @apply rounded-tl-0 rounded-tr-15px rounded-br-0 rounded-bl-0;
   }
 
   .ant-table-thead > tr > th {
-    @apply bg-lapis-lazuli text-white text-15;
+    @apply bg-lapis-lazuli text-white border-solid border-r-0.5 border-l-0 border-b-0 border-r-light-gray text-15 #{!important};
   }
 
   .ant-table-column-has-sorters:hover {
@@ -200,7 +200,7 @@
   }
 
   .ant-table-tbody > tr > td {
-    @apply text-15 text-black font-normal tracking-normal border-b-0.5 border-r-0.5 border-solid border-light-gray;
+    @apply text-15 text-black font-normal tracking-normal border-b-0.5 border-r-0.5 border-solid border-light-gray #{!important};
   }
 
   .ant-table-tbody > tr > td:first-child {
