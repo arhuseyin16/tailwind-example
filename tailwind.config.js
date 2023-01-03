@@ -138,6 +138,7 @@ module.exports = {
         '25px': '1.563rem',
         '30px': '1.875rem',
         '35px': '2.188rem',
+        '50px': '3.125rem',
         '50%': '50%'
       },
       margin: {
@@ -170,6 +171,8 @@ module.exports = {
       },
       height: {
         '31px': '1.938rem',
+        '35px': '2.188rem',
+        '45px': '2.813rem',
         '50px': '3.125rem',
         '106px': '6.625rem',
         '850px': '53.125rem',
@@ -180,6 +183,7 @@ module.exports = {
       },
       spacing: {
         '3px': '0.188rem',
+        '15px': '0.938rem',
         '30px': '1.875rem'
       }
     },

@@ -1,24 +1,18 @@
 .table-exchange {
 
   .ant-select {
-    width: 100%;
+    @apply w-full;
     ::ng-deep .ant-select-selector {
       //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
-      border: solid 0.5px #ABABAB;
-      border-radius: 5px;
-      background-color: #fff;
-      font-size: 14px;
+      @apply border-solid border-0.5 border-dark-charcoal rounded-5px bg-white text-14;
     }
 
     ::ng-deep .ant-select-arrow {
-      color: #000000;
+      @apply text-black;
     }
   }
 
   input {
-    border: solid 0.5px #ABABAB;
-    border-radius: 5px;
-    background-color: #fff;
-    font-size: 14px;
+    @apply border-solid border-0.5 border-dark-charcoal rounded-5px bg-white text-14;
   }
 }

@@ -1,77 +1,27 @@
 ::ng-deep .ant-modal-body {
-  padding: 0;
+  @apply p-0;
 }
 
 .main-title {
-  display: flex;
-  background-color: #87bfad;
-  padding: 15px;
-  font-size: 20px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #fff;
-  border-radius: 10px 10px 0 0;
+  @apply flex  bg-eton-blue p-15px text-20-normal font-medium tracking-normal text-left text-white rounded-tl-10px rounded-tr-10px rounded-br-0 rounded-bl-0;
 
   .close-icon {
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    font-size: 25px;
-    cursor: pointer;
+  @apply absolute right-15px top-3 text-25 cursor-pointer;
   }
 }
 
 .main-body  {
-  padding: 50px 0 50px 0;
-  font-size: 20px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #000;
+  @apply py-50px px-0 text-20 font-light tracking-normal text-center text-black;
 }
 
 .main-footer {
-  justify-content: center;
-  display: flex;
-  padding-bottom: 40px;
+  @apply flex justify-center pb-10;
 
   .cancel {
-    width: 240px;
-    height: 50px;
-    border-radius: 10px;
-    border: solid 2px #87bfad !important;
-    background-color: #fff;
-    font-size: 20px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #87bfad;
-    margin-right: 10px;
+    @apply w-60 h-50px rounded-10px border-solid border-2 border-eton-blue bg-white text-20-normal font-medium tracking-normal text-center text-eton-blue mr-2.5;
   }
 
   .save {
-    width: 240px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #87bfad;
-    font-size: 20px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #fff;
-    margin-left: 10px;
+    @apply w-60 h-50px rounded-10px border-solid border-2 border-eton-blue bg-white text-20-normal font-medium tracking-normal text-center text-eton-blue mr-2.5;
   }
 }
