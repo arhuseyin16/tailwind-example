@@ -23,7 +23,7 @@ export class ExchangeTableComponent implements OnInit {
     {
       title:'settings-exchange.currencyHistory',
       compare: (a: any, b: any) => a.currencyHistory - b.currencyHistory,
-      sort: true,
+      sort: false,
       sortOrder: null,
       // width: "200px"
     },
@@ -51,7 +51,7 @@ export class ExchangeTableComponent implements OnInit {
     {
       title:'settings-exchange.rate',
       compare: (a: any, b: any) => a.rate - b.rate,
-      sort: true,
+      sort: false,
       sortOrder: null,
       // width: "150px"
     },
@@ -65,17 +65,23 @@ export class ExchangeTableComponent implements OnInit {
     {
       title:'settings-exchange.creating',
       compare: (a: any, b: any) => a.creating - b.creating,
-      sort: true,
+      sort: false,
       sortOrder: null,
        width: "180px"
     },
-
     {
       title:'settings-exchange.update',
       compare: (a: any, b: any) => a.update - b.update,
-      sort: true,
+      sort: false,
       sortOrder: null,
-      width: "230px"
+      width: "170px"
+    },
+    {
+      title:'',
+      compare: null,
+      sort: false,
+      sortOrder: null,
+      // width: "150px"
     },
   ]
   listOfSelection = [

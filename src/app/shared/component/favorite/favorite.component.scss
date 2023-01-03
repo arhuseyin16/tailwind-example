@@ -1,77 +1,42 @@
 .favorite-img {
-  margin: 20px 15px 0 0;
-  position: relative;
+  @apply mt-5 mr-15px mb-0 ml-0 relative;
 
   .hover-favorite {
     &:hover {
-      background-color: #dbecff;
-      padding: 6px;
-      margin: -6px;
+      @apply bg-water p-1.5 -m-1.5;
     }
     img {
-      width: 30px;
-      object-fit: contain;
-      cursor: pointer;
+      @apply w-30px object-contain cursor-pointer;
     }
   }
 
   .dropdown-favorite {
-    position: absolute;
-    top: 35px;
-    right: 10px;
-    z-index: 999;
-    padding: 12px 14px 12px 12px;
-    border-radius: 5px;
-    box-shadow: 0 0 14px 0 rgba(167, 167, 167, 0.16);
-    background-color: #fff;
-    width: 275px;
-    height: auto;
+    @apply absolute top-3 top-35px right-2.5 z-[9999] py-3 pr-14px pl-3 rounded-5px bg-white h-auto w-275px;
 
     span {
       //padding-left: 10px;
-      position: absolute;
-      right: 12px;
-      top: 13px;
+      @apply absolute right-3 top-13px;
     }
 
     .favorite {
-      font-size: 15px;
-      font-weight: 400;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #000;
-      padding: 3px;
-      border-bottom: solid 0.5px #d5d5d5;
+      @apply text-15 font-normal tracking-normal text-left text-black p-3px border-solid border-b-0.5 border-b-light-gray;
       nz-switch {
         ::ng-deep .ant-switch {
           background-image: linear-gradient(to right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(to right, #fff, #fff);
         }
         ::ng-deep .ant-switch-checked {
-          background:  #2d64a0;
+          @apply bg-sapphire;
         }
       }
     }
 
     .option-ul {
-      padding-top: 8px;
+      @apply pt-2;
       .option {
-        font-size: 15px;
-        font-weight: 400;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
-        padding: 3px;
-        cursor: pointer;
+        @apply text-15 font-normal tracking-normal text-left p-3px cursor-pointer;
 
         &:hover {
-          background-color: #2d639f !important;
-          color: #ffffff !important;
+          @apply bg-lapis-lazuli text-white #{!important};
         }
       }
     }
@@ -79,7 +44,5 @@
 }
 
 .back-image {
-  background-color: #dbecff;
-  padding: 6px;
-  margin: -6px;
+  @apply  bg-water p-1.5 -m-1.5;
 }

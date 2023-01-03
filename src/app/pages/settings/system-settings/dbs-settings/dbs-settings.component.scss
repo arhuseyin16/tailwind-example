@@ -1,174 +1,100 @@
 .dbs {
-  padding: 10px 30px 18px 20px;
+  @apply pt-2.5 pr-30px pb-18px pl-5;
 
   .dbs-table {
-    padding-top: 20px;
+    @apply pt-5;
 
     .ant-select {
-      width: 100%;
+      @apply w-full;
       ::ng-deep .ant-select-selector {
         //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
-        border: solid 0.5px #ABABAB;
-        border-radius: 5px;
-        background-color: #fff;
-        font-size: 14px;
+        @apply border-solid border-0.5 border-dark-charcoal rounded-5px bg-white text-14;
       }
 
       ::ng-deep .ant-select-arrow {
-        color: #000000;
+        @apply text-black;
       }
     }
 
     input {
-      border: solid 0.5px #ABABAB;
-      border-radius: 5px;
-      background-color: #fff;
-      font-size: 14px;
+      @apply border-solid border-0.5 border-dark-charcoal rounded-5px bg-white text-14;
     }
 
     .action-tab {
-      position: relative;
+      @apply relative;
 
       .other {
-        position: absolute;
-        top: 14px;
-        left: -20px;
-        cursor: pointer;
+        @apply absolute top-14px -left-5 cursor-pointer;
 
         img {
-          width: 6px;
-          height: 20px;
-          object-fit: contain;
+          @apply w-1.5 h-5 object-contain;
         }
       }
 
       .other-process {
-        position: absolute;
-        top: 14px;
-        display: grid;
-        right: 10px;
+        @apply absolute top-14px grid right-2.5;
 
         .save {
-          font-size: 15px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #0079ff;
+          @apply text-15 font-semibold tracking-normal text-left text-azure;
         }
 
         .delete {
-          font-size: 15px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #e53030;
+          @apply text-15 font-semibold tracking-normal text-left text-permanent-geranium-lake;
         }
       }
     }
   }
 
   .page-shadow {
-    margin-top: 35px;
-    border-radius: 15px;
+    @apply mt-35px rounded-15px  bg-white;
     box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
-    background-color: #fff;
 
     .first {
+      @apply max-w-50% rounded-tl-15px rounded-tr-0 rounded-br-0 rounded-bl-0;
       flex: 0 0 50%;
-      max-width: 50%;
-      border-radius: 15px 0 0 0;
 
       .first-header {
-        font-size: 20px;
-        font-weight: 500;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #fff;
-        background-color: #2d639f;
-        padding: 18px 0 18px 22px;
-        border-radius: 15px 0 0 0;
+        @apply text-20-normal font-medium tracking-normal text-white text-left bg-lapis-lazuli py-18px pr-0 pl-22px;
       }
     }
 
     .second {
+      @apply max-w-50%;
       flex: 0 0 50%;
-      max-width: 50%;
 
       .second-header {
-        font-size: 20px;
-        font-weight: 500;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #fff;
-        padding: 18px 0 18px 22px;
-        background-color: #2d639f;
-        border-left: solid 1px #e5e5e5;;
-        border-radius: 0 15px 0 0;
+        @apply text-20-normal font-medium tracking-normal text-left text-white  py-18px pr-0 pl-22px bg-lapis-lazuli border-solid border-1 border-platinum rounded-tl-0 rounded-tr-15px rounded-bl-0 rounded-br-0;
       }
 
       .second-content {
-        border-left: solid 1px #e5e5e5;;
+        @apply border-l-1 border-solid border-l-platinum;
       }
     }
 
     .form-control {
       //flex: 0 0 33%;
       //max-width: 33%;
-      margin: 20px 0 24px 23px;
+      @apply mt-5 mr-0 mb-6 ml-23px;
 
       label {
-        font-size: 20px;
-        font-weight: 300;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
+        @apply text-20-normal font-light tracking-normal text-left text-black;
       }
 
       input {
-        border-radius: 5px;
-        border: solid 0.5px #ABABAB;
-        background-color: #fff;
-        margin-top: 10px;
-        height: 45px;
+        @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-45px;
 
         &:focus {
-          box-shadow: none;
-          outline: none;
+          @apply outline-none shadow-none;
         }
       }
     }
   }
 
   .eho-signer-submit {
-    margin-top: 30px;
+    @apply mt-30px;
 
     button {
-      width: 241px;
-      height: 50px;
-      border-radius: 10px;
-      background-color: #87bfad;
-      font-size: 20px;
-      font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #fff;
+      @apply w-241px h-50px rounded-5px bg-eton-blue text-20-normal font-medium tracking-normal text-white;
     }
   }
 }

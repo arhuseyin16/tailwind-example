@@ -1,20 +1,14 @@
 .pdf-page {
 
   &:hover {
-    background-color: #dbecff;
-    padding: 6px;
-    margin: -6px;
+    @apply bg-water p-1.5 -m-1.5;
   }
 
   img {
-    width: 30px;
-    object-fit: contain;
-    cursor: pointer;
+    @apply w-30px object-contain cursor-pointer;
   }
 }
 
 .back-image {
-  background-color: #dbecff;
-  padding: 6px;
-  margin: -6px;
+  @apply bg-water p-1.5 -m-1.5;
 }

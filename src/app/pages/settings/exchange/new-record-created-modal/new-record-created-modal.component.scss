@@ -1,150 +1,81 @@
 ::ng-deep .ant-modal-body {
-  padding: 0;
+  @apply p-0;
 }
 
 .main-title {
-  display: flex;
-  background-color: #87bfad;
-  padding: 15px 30px 10px 28px;
-  font-size: 20px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #fff;
-  border-radius: 10px 10px 0 0;
+  @apply flex bg-eton-blue pt-15px pr-30px pb-2.5 pl-7 text-20 font-medium tracking-normal text-left text-white rounded-tl-10px rounded-tr-10px rounded-br-0 rounded-bl-0;
 
   .close-icon {
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    font-size: 25px;
-    cursor: pointer;
+    @apply absolute right-15px top-3 text-25 cursor-pointer;
   }
 }
 
 .main-body  {
-  padding: 10px 35px 25px 35px;
+  @apply pt-2.5 px-35px pb-25px;
 
   .form-control {
-    padding-top: 15px;
+    @apply pt-15px;
 
     label {
-      font-size: 20px;
-      font-weight: 300;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #000;
+      @apply text-20 font-light tracking-normal text-left text-black;
     }
 
     input {
-      border-radius: 5px;
-      border: solid 0.5px #ABABAB;
-      background-color: #fff;
-      margin-top: 10px;
-      height: 45px;
+      @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-45px;
 
       &:focus {
-        box-shadow: none;
-        outline: none;
+        @apply shadow-none outline-none;
       }
     }
 
     ::ng-deep .ant-picker {
-      display: block;
-      border-radius: 5px;
-      border: solid 0.5px #ABABAB;
-      background-color: #fff;
-      margin-top: 10px;
-      height: 45px;
+      @apply block rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-45px;
 
       &:focus {
-        box-shadow: none;
-        outline: none;
+        @apply shadow-none outline-none;
       }
 
       .ant-picker-input > input {
-        height: 35px;
+        @apply h-35px;
       }
 
       .ant-picker-suffix {
-        color: black;
+        @apply text-black;
       }
     }
 
     .ant-select {
-      width: 100%;
-      margin-top: 10px;
+      @apply w-full mt-2.5;
       ::ng-deep .ant-select-selector {
         //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
-        border: solid 0.5px #ABABAB;
-        border-radius: 5px;
-        height: 45px;
-        align-items: center;
-        background-color: #fff;
-        font-size: 14px;
+        @apply border-solid border-0.5 border-dark-charcoal rounded-5px h-45px items-center bg-white text-14;
       }
 
       ::ng-deep .ant-select-arrow {
-        color: #000000;
+        @apply text-black;
       }
     }
   }
 
   .form-row-1 {
-    padding: 15px 5px 0 0;
     flex: 0 0 50%;
-    max-width: 50%;
+    @apply pt-15px pr-5px pb-0 pr-0 max-w-50%;
   }
 
   .form-row-2 {
-    padding: 15px 0 0 5px;
+    @apply pt-15px pr-0 pb-0 pl-5px max-w-50%;
     flex: 0 0 50%;
-    max-width: 50%;
   }
 }
 
 .main-footer {
-  justify-content: center;
-  display: flex;
-  padding-bottom: 40px;
-  padding-top: 10px;
+  @apply justify-center flex pb-10 pt-2.5;
 
   .cancel {
-    width: 250px;
-    height: 50px;
-    border-radius: 10px;
-    border: solid 2px #87bfad !important;
-    background-color: #fff;
-    font-size: 20px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #87bfad;
-    margin-right: 8px;
+    @apply w-250px h-50px rounded-10px border-solid border-2  border-eton-blue bg-white text-20-normal font-medium tracking-normal text-center text-eton-blue mr-2 #{!important};
   }
 
   .save {
-    width: 250px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #87bfad;
-    font-size: 20px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #fff;
-    margin-left: 8px;
+    @apply w-250px h-50px rounded-10px bg-eton-blue text-20-normal font-medium tracking-normal text-center text-white ml-2;
   }
 }

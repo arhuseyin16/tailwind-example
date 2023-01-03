@@ -1,31 +1,22 @@
 .form-element-select {
   label {
-    font-size: 16px;
-    font-weight: 300;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000;
+    @apply text-16 font-light tracking-normal text-left text-black;
   }
   .ant-select {
-    width: 100%;
+    @apply w-full;
     ::ng-deep .ant-select-selector {
       //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
       //border: none;
       //border: solid 0.5px #707070;
-      border-radius: 5px;
-      background-color: #fff;
-      font-size: 14px;
+      @apply rounded-5px bg-white text-14;
 
       &:hover {
-        border-color: #d9d9d9;
+        @apply border-light-silver;
       }
     }
 
     ::ng-deep .ant-select-arrow {
-      color: #000000;
+      @apply text-black;
     }
   }
 }

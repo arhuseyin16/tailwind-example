@@ -1,88 +1,88 @@
 <app-profile-settings-header></app-profile-settings-header>
-<div class="profile-settings-page">
-  <div class="page-shadow">
-    <div class="header">
+<div class="pt-15px pr-30px pb-2.5 pl-8">
+  <div class="rounded-15px bg-white page-shadow">
+    <div class="header rounded-tl-15px rounded-tr-15px rounded-br-0 rounded-bl-0 flex items-center">
       <div class="basis-1/2 title">
         {{'profile.userInfo' | translate}}
       </div>
       <div class="basis-1/2">
-        <div class="edit-img" *ngIf="!editingHidden">
-          <img src="assets/img/profile/profile-settings.svg" (click)="editingHidden = !editingHidden">
+        <div class="flex justify-end py-18px px-25px" *ngIf="!editingHidden">
+          <img class="h-31px w-31px cursor-pointer object-contain" src="assets/img/profile/profile-settings.svg" (click)="editingHidden = !editingHidden">
         </div>
-        <div class="action-btn" *ngIf="editingHidden">
-          <div class="cancel-btn">
-            <button (click)="editingCancel()">{{'profile.cancel' | translate}}</button>
+        <div class="justify-end flex py-18px px-25px" *ngIf="editingHidden">
+          <div class="w-150px">
+            <button class="w-full h-10 rounded-10px border-solid border-2 border-white text-15 tracking-normal text-center text-white" (click)="editingCancel()">{{'profile.cancel' | translate}}</button>
           </div>
-          <div class="save-btn pl-4">
-            <button>{{'profile.save' | translate}}</button>
+          <div class="w-150px pl-4">
+            <button class="bg-white w-full h-10 rounded-10px border-solid border-2 border-white text-15 font-medium text-center text-lapis-lazuli">{{'profile.save' | translate}}</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="body">
+    <div class="mt-2.5 pb-5px">
       <div class="flex">
-        <div class="form-control">
-          <div class="label">{{'profile.companyCode' | translate}}:</div>
-          <div class="data">
-            <span>{{profileForm.companyCode}}</span>
+        <div class="max-w-14% mt-5 mr-0 mb-6 ml-23px flex form-control">
+          <div class="text-15 font-medium tracking-normal text-left text-black">{{'profile.companyCode' | translate}}:</div>
+          <div class="pl-2.5">
+            <span class="text-15 font-normal tracking-normal text-left text-black">{{profileForm.companyCode}}</span>
           </div>
         </div>
-        <div class="form-control">
-          <div class="label">{{'profile.userName' | translate}}:</div>
-          <div class="data">
+        <div class="max-w-14% mt-5 mr-0 mb-6 ml-23px flex form-control">
+          <div class="text-15 font-medium tracking-normal text-left text-black">{{'profile.userName' | translate}}:</div>
+          <div class="pl-2.5">
             <span>{{profileForm.userName}}</span>
           </div>
         </div>
-        <div class="form-control" [ngClass]="editingHidden ? 'editing': ''">
-          <div class="label">{{'profile.title' | translate}}:</div>
-          <div class="data">
+        <div class="max-w-14% mt-5 mr-0 mb-6 ml-23px flex form-control" [ngClass]="editingHidden ? 'editing': ''">
+          <div class="text-15 font-medium tracking-normal text-left text-black">{{'profile.title' | translate}}:</div>
+          <div class="pl-2.5">
             <span *ngIf="!editingHidden">{{profileForm.title}}</span>
             <input *ngIf="editingHidden" [(ngModel)]="profileForm.title" nz-input type="text" />
           </div>
         </div>
-        <div class="form-control" [ngClass]="editingHidden ? 'editing': ''">
-          <div class="label">{{'profile.gsmNo' | translate}}:</div>
-          <div class="data">
+        <div class="max-w-14% mt-5 mr-0 mb-6 ml-23px flex form-control" [ngClass]="editingHidden ? 'editing': ''">
+          <div class="text-15 font-medium tracking-normal text-left text-black">{{'profile.gsmNo' | translate}}:</div>
+          <div class="pl-2.5">
             <span *ngIf="!editingHidden">{{profileForm.gsmNo}}</span>
             <input *ngIf="editingHidden" [(ngModel)]="profileForm.gsmNo" nz-input type="text" />
           </div>
         </div>
-        <div class="form-control" [ngClass]="editingHidden ? 'editing': ''">
-          <div class="label">{{'profile.email' | translate}}:</div>
-          <div class="data">
+        <div class="max-w-14% mt-5 mr-0 mb-6 ml-23px flex form-control" [ngClass]="editingHidden ? 'editing': ''">
+          <div class="text-15 font-medium tracking-normal text-left text-black">{{'profile.email' | translate}}:</div>
+          <div class="pl-2.5">
             <span *ngIf="!editingHidden">{{profileForm.email}}</span>
             <input *ngIf="editingHidden" [(ngModel)]="profileForm.email" nz-input type="text" />
           </div>
         </div>
-        <div class="form-control">
-          <div class="label">{{'profile.lastEntry' | translate}}:</div>
-          <div class="data">
+        <div class="max-w-14% mt-5 mr-0 mb-6 ml-23px flex form-control">
+          <div class="text-15 font-medium tracking-normal text-left text-black">{{'profile.lastEntry' | translate}}:</div>
+          <div class="pl-2.5">
             <span>{{profileForm.lastEntry}}</span>
           </div>
         </div>
       </div>
-      <div class="password" [formGroup]="passwordForm">
-        <div class="label">{{'profile.password' | translate}}:
-          <span class="pl-3" *ngIf="!passwordEditing">**********</span>
+      <div class="flex mt-2.5 mr-0 mb-6 ml-23px items-center" [formGroup]="passwordForm">
+        <div class="text-15 font-medium tracking-normal text-left text-black">{{'profile.password' | translate}}:
+          <span class="pl-3 text-15 font-normal tracking-normal text-left text-black" *ngIf="!passwordEditing">**********</span>
         </div>
-        <div class="icon-edit pl-4" *ngIf="!passwordEditing">
-          <img src="assets/img/profile/profile-password.svg" (click)="passwordEditing = !passwordEditing">
+        <div class="pl-4" *ngIf="!passwordEditing">
+          <img class="w-10 h-10 cursor-pointer object-contain" src="assets/img/profile/profile-password.svg" (click)="passwordEditing = !passwordEditing">
         </div>
-        <div class="password-editing" *ngIf="passwordEditing">
-          <div class="dataCreated">
+        <div class="flex w-full" *ngIf="passwordEditing">
+          <div class="dataCreated max-w-25% my-0 mx-2.5">
             <input nz-input formControlName="oldPassword" placeholder="{{'profile.oldPass' | translate}}" type="text" />
           </div>
-          <div class="dataCreated">
+          <div class="dataCreated max-w-25% my-0 mx-2.5">
             <input nz-input formControlName="newPassword" placeholder="{{'profile.newPass' | translate}}" type="text" />
           </div>
-          <div class="dataCreated">
+          <div class="dataCreated max-w-25% my-0 mx-2.5">
             <input nz-input formControlName="repeatNewPassword" placeholder="{{'profile.repeatPass' | translate}}" type="text" />
           </div>
-          <div class="passwordSaveBtn">
-            <button>{{'profile.save' | translate}}</button>
+          <div class="w-150px">
+            <button class="w-full h-10 rounded-10px text-15 bg-eton-blue font-semibold tracking-normal text-center text-white">{{'profile.save' | translate}}</button>
           </div>
-          <div class="passwordCancelBtn pl-4">
-            <button (click)="PasswordEditingCancel()">{{'profile.cancel' | translate}}</button>
+          <div class="w-150px pl-4">
+            <button class="w-150px h-10 rounded-10px bg-white text-15 font-semibold tracking-normal text-center text-eton-blue border-solid border-1 border-eton-blue" (click)="PasswordEditingCancel()">{{'profile.cancel' | translate}}</button>
           </div>
         </div>
       </div>

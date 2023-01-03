@@ -22,24 +22,30 @@ export class UserGroupTableComponent implements OnInit {
     },
     {
       title:'auth-management.userName',
-      compare: (a: any, b: any) => a.userName - b.userName,
+      compare: null,
       sort: false,
       sortOrder: null,
       width: "540px"
     },
     {
       title:'auth-management.authScheme',
-      compare: (a: any, b: any) => a.authScheme - b.authScheme,
+      compare: null,
       sort: false,
       sortOrder: null,
       width: "auto"
     },
     {
       title:'auth-management.created',
-      compare: (a: any, b: any) => a.created - b.created,
+      compare: null,
       sort: false,
       sortOrder: null,
       width: "200px"
+    },
+    {
+      title:'',
+      compare: null,
+      sort: false,
+      sortOrder: null,
     }
   ]
   listOfSelection = [

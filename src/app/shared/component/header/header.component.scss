@@ -1,14 +1,12 @@
 .action-leftSide {
-  display: flex;
-  justify-content: left;
+  @apply flex justify-start;
 }
 
 .action-rightSide {
-  display: flex;
-  justify-content: end;
+  @apply flex justify-end;
 
   .pdf {
-    margin: 14px 15px 0 0;
+    @apply mt-14px mr-15px mb-0 ml-0;
   }
 
   .favorite {
@@ -16,16 +14,14 @@
   }
 
   .translate {
-    margin: 14px 15px 0 0;
+    @apply mt-14px mr-15px mb-0 ml-0;
   }
 
   .profile {
-    margin: 6px 0 0 0;
+    @apply mt-1.5 mx-0 mb-0;
   }
 
   .up-line {
-    border: solid 1px #d0d0d0;
-    height: 36px;
-    margin: 12px 15px 0 0;
+    @apply border-solid border-1 border-american-silver h-9 mt-3 mr-15px mb-0 ml-0;
   }
 }

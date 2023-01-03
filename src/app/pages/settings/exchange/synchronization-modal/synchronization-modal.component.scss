@@ -1,120 +1,59 @@
 ::ng-deep .ant-modal-body {
-  padding: 0;
+  @apply p-0;
 }
 
 .main-title {
-  display: flex;
-  background-color: #87bfad;
-  padding: 15px 30px 10px 28px;
-  font-size: 20px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #fff;
-  border-radius: 10px 10px 0 0;
+  @apply flex bg-eton-blue pt-15px pr-30px pb-2.5 pl-7 text-20-normal font-medium text-left text-white rounded-tr-10px rounded-tl-10px rounded-bl-0 rounded-br-0;
 
   .close-icon {
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    font-size: 25px;
-    cursor: pointer;
+    @apply absolute right-15px top-3 text-25 cursor-pointer;
   }
 }
 
 .main-body  {
-  padding: 10px 35px 25px 35px;
+  @apply pt-2.5 pr-35px pb-25px pl-35px;
 
   .form-control {
-    padding-top: 15px;
+    @apply pt-15px;
 
     label {
-      font-size: 20px;
-      font-weight: 300;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #000;
+      @apply text-20-normal font-light text-left text-black;
     }
 
     input {
-      border-radius: 5px;
-      border: solid 0.5px #ABABAB;
-      background-color: #fff;
-      margin-top: 10px;
-      height: 45px;
+      @apply rounded-5px border-solid border-0.5 border-dark-charcoal text-white mt-2.5 h-45px;
 
       &:focus {
-        box-shadow: none;
-        outline: none;
+        @apply shadow-none outline-none;
       }
     }
 
     ::ng-deep .ant-picker {
-      display: block;
-      border-radius: 5px;
-      border: solid 0.5px #ABABAB;
-      background-color: #fff;
-      margin-top: 10px;
-      height: 40px;
+      @apply block rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-10;
 
       &:focus {
-        box-shadow: none;
-        outline: none;
+        @apply shadow-none outline-none;
       }
 
       .ant-picker-input > input {
-        height: 30px;
+        @apply h-30px;
       }
 
       .ant-picker-suffix {
-        color: black;
+        @apply text-black;
       }
     }
   }
 }
 
 .main-footer {
-  justify-content: center;
-  display: flex;
-  padding-bottom: 40px;
-  padding-top: 10px;
+  @apply flex justify-center pb-10 pt-2.5;
 
   .cancel {
-    width: 250px;
-    height: 50px;
-    border-radius: 10px;
-    border: solid 2px #87bfad !important;
-    background-color: #fff;
-    font-size: 20px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #87bfad;
-    margin-right: 8px;
+    @apply w-250px h-50px rounded-10px border-solid border-2 border-eton-blue bg-white font-medium tracking-normal text-center text-eton-blue mr-2;
   }
 
   .save {
-    width: 250px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #87bfad;
-    font-size: 20px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #fff;
-    margin-left: 8px;
+    @apply w-250px h-50px rounded-10px bg-eton-blue text-20-normal font-medium text-center text-white ml-2;
   }
 }

@@ -1,29 +1,15 @@
-.profile-auth {
-  @apply pt-15px pr-30px pb-2.5 pl-25px;
+.page-shadow {
+  box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
 
-  .page-shadow {
-    @apply rounded-15px bg-white;
-    box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
-
-    .header {
-      @apply pt-15px pr-15px pb-0 pl-0 flex;
-      background-image: linear-gradient(to right, #2d639f, #87bfad);
-
-      .group-flex {
-        @apply text-15 font-semibold tracking-normal text-left cursor-pointer py-18px px-25px;
-      }
-
-      .flex-active {
-        @apply text-15 font-semibold tracking-normal text-left text-lapis-lazuli py-18px px-25px cursor-pointer bg-white rounded-tl-13px rounded-tr-13px;
-      }
-    }
-
-    .body {
-      @apply mt-27px pb-5 relative h-850px;
-
-      .auth-request {
-        @apply absolute text-15 font-semibold tracking-normal text-left text-azure right-30px top-2.5 underline cursor-pointer;
-      }
-    }
+  .header {
+    background-image: linear-gradient(to right, #2d639f, #87bfad);
   }
+}
+
+.group-flex {
+  @apply text-15 font-semibold tracking-normal text-left cursor-pointer text-white py-18px px-25px;
+}
+
+.flex-active {
+  @apply text-15 font-semibold tracking-normal text-left text-lapis-lazuli py-18px px-25px cursor-pointer bg-white rounded-tl-13px rounded-tr-13px;
 }

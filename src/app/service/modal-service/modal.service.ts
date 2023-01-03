@@ -10,15 +10,6 @@ import {
   SynchronizationModalComponent
 } from "../../pages/settings/exchange/synchronization-modal/synchronization-modal.component";
 import {
-  HolidayDeleteModalComponent
-} from "../../pages/settings/system-settings/holiday-definition/holiday-delete-modal/holiday-delete-modal.component";
-import {
-  TagDeleteModalComponent
-} from "../../pages/settings/system-settings/tag-management/tag-delete-modal/tag-delete-modal.component";
-import {
-  NewTagModalComponent
-} from "../../pages/settings/system-settings/tag-management/new-tag-modal/new-tag-modal.component";
-import {
   UserGroupNewRecordModalComponent
 } from "../../pages/settings/authority-management/user-group/user-group-new-record-modal/user-group-new-record-modal.component";
 import {
@@ -34,9 +25,6 @@ export class ModalService {
   exchangeTableDeleteReference?: NzModalRef;
   exchangeNewRecordCreatedRef?: NzModalRef;
   exchangeSynchronizationRef?: NzModalRef;
-  holidayDeleteReference?: NzModalRef;
-  tagTableDeleteReference?: NzModalRef;
-  tagNewRecordCreatedRef?: NzModalRef;
   userGroupNewRecordRef?: NzModalRef
   userGroupDeleteRef?: NzModalRef;
   userGroupEditRef?: NzModalRef;
@@ -94,45 +82,6 @@ export class ModalService {
       nzWidth: '586px',
     });
     return this.exchangeSynchronizationRef;
-  }
-
-  holidayTableDeleteModal(id: any): NzModalRef {
-    this.holidayDeleteReference = this.nzModalService.create({
-      nzContent: HolidayDeleteModalComponent,
-      nzComponentParams: {id},
-      nzClosable: false,
-      nzFooter: null,
-      nzKeyboard: false,
-      nzMaskClosable: false,
-      nzWidth: '586px',
-    });
-    return this.holidayDeleteReference;
-  }
-
-  tagTableDeleteModal(ids: any): NzModalRef {
-    this.tagTableDeleteReference = this.nzModalService.create({
-      nzContent: TagDeleteModalComponent,
-      nzComponentParams: {ids},
-      nzClosable: false,
-      nzFooter: null,
-      nzKeyboard: false,
-      nzMaskClosable: false,
-      nzWidth: '586px',
-    });
-    return this.tagTableDeleteReference;
-  }
-
-  tagNewRecordCreatedModal(): NzModalRef {
-    this.tagNewRecordCreatedRef = this.nzModalService.create({
-      nzContent: NewTagModalComponent,
-      nzComponentParams: {},
-      nzClosable: false,
-      nzFooter: null,
-      nzKeyboard: false,
-      nzMaskClosable: false,
-      nzWidth: '586px',
-    });
-    return this.tagNewRecordCreatedRef;
   }
 
   userGroupNewRecordCreatedModal(): NzModalRef {

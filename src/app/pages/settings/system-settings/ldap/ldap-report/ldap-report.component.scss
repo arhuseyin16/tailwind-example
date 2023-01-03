@@ -1,73 +1,38 @@
 .ldap-report {
-  padding-top: 40px;
+  @apply pt-10;
   .form-control {
     flex: 0 0 50%;
-    max-width: 50%;
+    @apply max-w-50%;
 
     .title {
-      font-size: 18px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #000;
+      @apply text-18 font-semibold tracking-normal text-left text-black;
     }
 
     .filter {
-      display: flex;
-      justify-content: end;
+      @apply flex justify-end;
 
       button {
-        display: flex;
-        align-items: center;
-        height: 40px;
-        border-radius: 5px;
-        background-color: #fff;
-        font-size: 15px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-        color: #000;
-        padding: 0 17px 0 17px;
+        @apply flex items-center h-10 rounded-5px bg-white text-15 tracking-normal text-left text-black py-0 px-17px;
 
         &:hover {
-          background-color: #2d639f !important;
-          color: #fff !important;
+          @apply bg-lapis-lazuli text-white #{!important};
           .hover-filter {
-            width: 19px;
-            height: 20px;
-            object-fit: contain;
-            margin-right: 5px;
+            @apply w-19px h-5 object-contain mr-5px;
             display: inherit !important;
           }
 
           .normal-filter {
-            width: 19px;
-            height: 20px;
-            object-fit: contain;
-            margin-right: 5px;
-            display: none !important;
+            @apply w-19px h-5 object-contain mr-5px hidden #{!important};
           }
         }
 
         .hover-filter {
-          width: 19px;
-          height: 20px;
-          object-fit: contain;
-          margin-right: 5px;
+          @apply w-19px h-5 object-contain mr-5px;
           //display: none;
         }
 
         .normal-filter {
-          width: 19px;
-          height: 20px;
-          object-fit: contain;
-          margin-right: 5px;
+          @apply w-19px h-5 object-contain mr-5px;
           //display: inherit;
         }
       }
@@ -75,105 +40,71 @@
   }
 
   .ldap-report-table {
-    padding-top: 30px;
+    @apply pt-30px;
   }
 }
 
 .filter-popover {
-  width: 330px;
+  @apply w-330px;
 
   .form-filter {
-    padding-top: 12px;
+    @apply pt-3;
 
     label {
-      font-size: 16px;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: left;
-      color: #000;
+      @apply text-16 tracking-normal text-left text-black;
     }
 
     input {
-      border-radius: 5px;
-      border: solid 0.5px #ABABAB;
-      background-color: #fff;
-      margin-top: 10px;
-      height: 40px;
+      @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-10;
 
       &:focus {
-        box-shadow: none;
-        outline: none;
+        @apply shadow-none outline-none;
       }
     }
 
     ::ng-deep .ant-picker {
-      display: block;
-      border-radius: 5px;
-      border: solid 0.5px #ABABAB;
-      background-color: #fff;
-      margin-top: 10px;
-      height: 40px;
+      @apply block rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-10;
 
       &:focus {
-        box-shadow: none;
-        outline: none;
+        @apply shadow-none outline-none;
       }
 
       .ant-picker-input > input {
-        height: 30px;
+        @apply h-30px;
       }
 
       .ant-picker-suffix {
-        color: black;
+        @apply text-black;
       }
     }
 
     .ant-select {
-      width: 100%;
+      @apply w-full;
       ::ng-deep .ant-select-selector {
         //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
-        border: solid 0.5px #ABABAB;
-        border-radius: 5px;
-        background-color: #fff;
-        font-size: 14px;
+        @apply border-solid border-0.5 border-dark-charcoal rounded-5px bg-white text-14;
       }
 
       ::ng-deep .ant-select-arrow {
-        color: #000000;
+        @apply text-black;
       }
     }
 
     .btn-action1 {
       flex: 0 0 50%;
-      max-width: 50%;
-      padding: 0 8px 0 0;
+      @apply max-w-50% py-0 pr-2 pl-0;
 
       .clear-btn {
-        width: 100%;
-        height: 40px;
-        border-radius: 5px;
-        margin-top: 10px;
-        background-color: #fff;
-        font-size: 16px;
-        font-weight: 500;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        border: solid 1px #87bfad;
-        color: #87bfad;
+        @apply w-full h-10 rounded-5px mt-2.5 bg-white text-16 font-medium tracking-normal border-solid border-1 border-eton-blue text-eton-blue;
       }
     }
 
     .btn-action2 {
       flex: 0 0 50%;
-      max-width: 50%;
-      padding: 0 0 0 8px;
+      @apply max-w-50% py-0 pr-0 pl-2;
 
       .save-btn {
+        @apply w-full h-10 rounded-5px  mt-2.5 bg-eton-blue text-16 font-medium tracking-normal text-center text-white;
         width: 100%;
         height: 40px;
         border-radius: 5px;

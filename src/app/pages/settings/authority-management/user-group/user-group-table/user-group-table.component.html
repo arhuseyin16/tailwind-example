@@ -19,7 +19,7 @@
         [nzIndeterminate]="false"
         (nzCheckedChange)="onAllChecked($event)"
       ></th>
-      <th [nzEllipsis]="true" *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortOrder]="column.sortOrder" width="{{column.width}}">
+      <th [nzEllipsis]="true" *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzShowSort]="column.sort" [nzSortOrder]="column.sortOrder" width="{{column.width}}">
         {{column.title | translate}}
       </th>
     </tr>
@@ -49,12 +49,11 @@
         </span>
           </td>
           <td>{{ data.created }}</td>
-          <div class="action-tab">
-            <div class="other" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
-              <img src="assets/img/bank-account/bank-detail-other.png">
-            </div>
-          </div>
-
+          <td>
+            <img class="table-right-icon"
+                 nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu"
+                 src="assets/img/bank-account/bank-detail-other.png">
+          </td>
           <nz-dropdown-menu #menu="nzDropdownMenu">
             <ul nz-menu style="width: 250px">
               <li nz-menu-item (click)="bankAuthClick()">{{'auth-management.bankAuthEdit' | translate}}</li>
@@ -76,12 +75,12 @@
             </nz-select>
           </td>
           <td>{{ data.created }}</td>
-          <div class="action-tab">
+          <td>
             <div class="other-process">
               <a (click)="saveEdit(data.id)" class="save">{{'settings-exchange.save' | translate}}</a>
               <a (click)="cancelEdit(data.id)" class="delete">{{'settings-exchange.cancel' | translate}}</a>
             </div>
-          </div>
+          </td>
         </ng-template>
       </tr>
       <!--userChild table start-->

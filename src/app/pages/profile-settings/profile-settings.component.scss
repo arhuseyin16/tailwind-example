@@ -1,125 +1,38 @@
-.profile-settings-page {
-  @apply pt-15px pr-30px pb-2.5 pl-8;
+page-shadow {
+  box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
+}
 
-  .page-shadow {
-    @apply rounded-15px bg-white;
-    box-shadow: 0 3px 14px 0 rgba(128, 128, 128, 0.1);
+.header {
+  background: linear-gradient(to right, #2d639f, #87bfad) !important;
 
-    .header {
-      @apply rounded-tl-15px rounded-tr-15px rounded-br-0 rounded-bl-0 flex items-center;
-      background-image: linear-gradient(to right, #2d639f, #87bfad);
+  .title {
+    @apply text-15 font-medium tracking-normal text-left text-white py-18px px-25px #{!important};
+  }
+}
 
-      .title {
-        @apply text-15 font-semibold tracking-normal text-left text-white py-18px px-25px;
-      }
 
-      .edit-img {
-        @apply flex justify-end py-18px px-25px;
+.form-control {
+  flex: 0 0 14%;
 
-        img {
-          @apply h-31px w-31px cursor-pointer object-contain;
-        }
-      }
+  input {
+    @apply rounded-5px border-solid border-0.5 border-white h-10;
 
-      .action-btn {
-        @apply justify-end flex py-18px px-25px;
-
-        .cancel-btn {
-          @apply w-150px;
-          button {
-            @apply w-full h-10 rounded-10px border-solid border-2 border-white text-15 tracking-normal text-center text-white;
-          }
-        }
-
-        .save-btn {
-          @apply w-150px;
-
-          button {
-            @apply bg-white w-full h-10 rounded-10px border-solid border-2 border-white text-15 font-medium text-center text-lapis-lazuli;
-          }
-        }
-      }
+    &:focus {
+      @apply shadow-none outline-none;
     }
+  }
 
-    .body {
-      @apply mt-2.5 pb-5px;
 
-      .form-control {
-        @apply max-w-14% mt-5 mr-0 mb-6 ml-23px flex;
-        flex: 0 0 14%;
+  .dataCreated {
+    flex: 0 0 16%;
 
-        .label {
-          @apply text-15 font-semibold tracking-normal text-left text-black;
-        }
+    input {
+      @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white h-10 #{!important};
 
-        .data {
-          @apply pl-2.5;
-          span {
-            @apply text-15 font-normal tracking-normal text-left text-black;
-          }
-          input {
-            @apply rounded-5px border-solid border-0.5 border-white h-10;
-
-            &:focus {
-              @apply shadow-none outline-none;
-            }
-          }
-        }
-      }
-
-      .editing {
-        flex: 0 0 15% !important;
-        @apply max-w-15% items-baseline mt-15px mr-0 mb-6 ml-23px #{!important};
-      }
-
-      .password {
-        @apply flex mt-2.5 mr-0 mb-6 ml-23px items-center;
-
-        .label {
-          @apply text-15 font-semibold tracking-normal text-left text-black;
-
-          span {
-            @apply text-15 font-normal tracking-normal text-left text-black;
-          }
-        }
-
-        .icon-edit {
-          img {
-            @apply w-10 h-10 cursor-pointer object-contain;
-          }
-        }
-
-        .password-editing {
-          @apply flex w-full
-
-          .dataCreated {
-            @apply max-w-25% my-0 mx-2.5;
-            flex: 0 0 16%;
-
-            input {
-              @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white h-10;
-
-              &:focus {
-                @apply shadow-none outline-none;
-              }
-            }
-          }
-
-          .passwordSaveBtn {
-            @apply w-150px
-            button {
-              @apply w-full h-10 rounded-10px text-15 bg-eton-blue font-semibold tracking-normal text-center text-white;
-            }
-          }
-
-          .passwordCancelBtn {
-            @apply w-150px;
-            button {
-              @apply w-150px h-10 rounded-10px bg-white text-15 font-semibold tracking-normal text-center text-eton-blue border-solid border-1 border-eton-blue;
-            }
-          }
-        }
+      &:focus {
+        @apply shadow-none outline-none;
       }
     }
   }
 }
+
