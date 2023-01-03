@@ -1,38 +1,24 @@
 .filter {
   button {
     &:hover {
-      background-color: #2d639f !important;
-      color: #fff !important;
+      @apply bg-lapis-lazuli text-white #{!important};
       .hover-filter {
-        width: 19px;
-        height: 20px;
-        object-fit: contain;
-        margin-right: 5px;
+        @apply w-19px h-5 object-contain mr-5px #{!important};
         display: inherit !important;
       }
 
       .normal-filter {
-        width: 19px;
-        height: 20px;
-        object-fit: contain;
-        margin-right: 5px;
-        display: none !important;
+        @apply w-19px h-5 object-contain mr-5px hidden #{!important};
       }
     }
 
     .hover-filter {
-      width: 19px;
-      height: 20px;
-      object-fit: contain;
-      margin-right: 5px;
+      @apply w-19px h-5 object-contain mr-5px;
       //display: none;
     }
 
     .normal-filter {
-      width: 19px;
-      height: 20px;
-      object-fit: contain;
-      margin-right: 5px;
+      @apply w-19px h-5 object-contain mr-5px;
       //display: inherit;
     }
   }
@@ -41,101 +27,77 @@
 .excel-export {
   button {
     &:hover {
-      background-color: #2d639f;
+      @apply bg-lapis-lazuli;
       .hover-excel {
-        width: 17px;
-        height: 17px;
+        @apply w-17px h-17px object-contain;
         display: inherit;
-        object-fit: contain;
       }
 
       .normal-excel {
-        width: 17px;
-        height: 17px;
-        display: none;
-        object-fit: contain;
+        @apply w-17px h-17px hidden object-contain;
       }
     }
 
     .normal-excel {
-      width: 17px;
-      height: 17px;
+      @apply w-17px h-17px object-contain;
       display: inherit;
-      object-fit: contain;
     }
 
     .hover-excel {
-      width: 17px;
-      height: 17px;
-      display: none;
-      object-fit: contain;
+      @apply w-17px h-17px hidden object-contain;
     }
   }
 }
 
 .filter-popover {
-  width: 330px;
+  @apply w-330px;
 
   .form-control {
     input {
-      border-radius: 5px;
-      border: solid 0.5px #ABABAB;
-      background-color: #fff;
-      margin-top: 10px;
-      height: 40px;
+      @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-10;
 
       &:focus {
-        box-shadow: none;
-        outline: none;
+        @apply shadow-none outline-none;
       }
     }
 
     ::ng-deep .ant-picker {
-      display: block;
-      border-radius: 5px;
-      border: solid 0.5px #ABABAB;
-      background-color: #fff;
-      margin-top: 10px;
-      height: 40px;
+      @apply block rounded-5px border-solid border-0.5 border-dark-charcoal bg-white mt-2.5 h-10;
 
       &:focus {
-        box-shadow: none;
-        outline: none;
+        @apply shadow-none outline-none;
       }
 
       .ant-picker-input > input {
-        height: 30px;
+        @apply h-30px;
       }
 
       .ant-picker-suffix {
-        color: black;
+        @apply text-black;
       }
     }
 
     .ant-select {
-      width: 100%;
-      margin-top: 10px;
+      @apply w-full mt-2.5;
+
       ::ng-deep .ant-select-selector {
         //height: 40px; [nzSize]="'large'" yaptık multiselect'lerde coklu seçimde kaymalar oluyor
-        border: solid 0.5px #ABABAB;
-        border-radius: 5px;
-        background-color: #fff;
-        font-size: 14px;
+        @apply border-solid border-0.5 border-dark-charcoal rounded-5px bg-white text-14;
       }
 
       ::ng-deep .ant-select-arrow {
-        color: #000000;
+        @apply text-black;
       }
     }
   }
 
   .btn-action1 {
+    @apply max-w-50%;
     flex: 0 0 50%;
-    max-width: 50%;
   }
 
   .btn-action2 {
+    @apply max-w-50%;
     flex: 0 0 50%;
-    max-width: 50%;
   }
 }
