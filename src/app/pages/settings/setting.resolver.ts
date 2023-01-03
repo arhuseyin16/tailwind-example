@@ -124,11 +124,6 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {
-            title: 'sidebar.tag-management',
-            routerLink: '/ui/setting/system-settings/tag',
-            menuItemClass: 'mt16 sidebar-base-menu-label mb0'
-          },
-          {
             title: 'sidebar.erp-api-settings',
             routerLink: '/ui/setting/system-settings/erp',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
@@ -136,11 +131,6 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
           {
             title: 'sidebar.environment-settings',
             routerLink: '/ui/setting/system-settings/environment',
-            menuItemClass: 'mt16 sidebar-base-menu-label mb0'
-          },
-          {
-            title: 'sidebar.eho-signer',
-            routerLink: '/ui/setting/system-settings/eho-signer',
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
           {
@@ -154,19 +144,7 @@ export class SettingResolver implements Resolve<Array<SidebarDataModel>> {
             menuItemClass: 'mt16 sidebar-base-menu-label mb0'
           },
         ]
-      },
-      {
-        title: 'sidebar.system-tools',
-        menuItemClass: 'mt16 sidebar-base-menu-label mb0',
-        icon: 'assets/img/sidebar/system-tools.svg',
-        iconSpanClass: 'w-[22px] block',
-        iconClass: 'w-[22px] h-[19px]',
-        isCollapseClass: 'ml4-minus',
-        isNotCollapseClass: 'ml9-minus',
-        routerLink: '/ui/setting/system-tools',
-        titleClass: 'ml-[9px]',
-        isCollapseCheck: false,
-      },
+      }
     ];
     this.store.dispatch(new SetSidebarDataAction(menus));
   }

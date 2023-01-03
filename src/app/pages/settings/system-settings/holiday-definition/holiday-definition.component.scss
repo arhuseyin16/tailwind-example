@@ -5,48 +5,6 @@
     display: flex;
     justify-content: end;
     padding: 0 7px 0 0;
-
-    //.excel-export {
-    //  width: 40px;
-    //
-    //  button {
-    //    width: 100%;
-    //    height: 40px;
-    //    border-radius: 5px;
-    //    background-color: #ffffff;
-    //
-    //    &:hover {
-    //      background-color: #2d639f;
-    //      .hover-excel {
-    //        width: 17px;
-    //        height: 17px;
-    //        display: inherit;
-    //        object-fit: contain;
-    //      }
-    //
-    //      .normal-excel {
-    //        width: 17px;
-    //        height: 17px;
-    //        display: none;
-    //        object-fit: contain;
-    //      }
-    //    }
-    //
-    //    .normal-excel {
-    //      width: 17px;
-    //      height: 17px;
-    //      display: inherit;
-    //      object-fit: contain;
-    //    }
-    //
-    //    .hover-excel {
-    //      width: 17px;
-    //      height: 17px;
-    //      display: none;
-    //      object-fit: contain;
-    //    }
-    //  }
-    //}
   }
 
   .holiday-table {
@@ -69,52 +27,6 @@
       background-color: #fff;
       font-size: 14px;
       height: 40px;
-    }
-
-    .action-tab {
-      position: relative;
-
-      .other {
-        position: absolute;
-        top: 14px;
-        left: -20px;
-        cursor: pointer;
-
-        img {
-          width: 6px;
-          height: 20px;
-          object-fit: contain;
-        }
-      }
-
-      .other-process {
-        position: absolute;
-        top: 14px;
-        display: grid;
-        right: 10px;
-
-        .save {
-          font-size: 15px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #0079ff;
-        }
-
-        .delete {
-          font-size: 15px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: left;
-          color: #e53030;
-        }
-      }
     }
   }
 }

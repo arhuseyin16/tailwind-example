@@ -23,10 +23,6 @@ const routes: Routes = [
   {
     path: 'system-settings',
     loadChildren: () => import('./system-settings/system-settings.module').then(m => m.SystemSettingsModule)
-  },
-  {
-    path: 'system-tools',
-    loadChildren: () => import('./system-tools/system-tools.module').then(m => m.SystemToolsModule)
   }
 ]
 

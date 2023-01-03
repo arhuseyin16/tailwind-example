@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EhoSignerComponent } from './eho-signer/eho-signer.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NzInputModule} from "ng-zorro-antd/input";
@@ -13,7 +12,6 @@ import { MailSettingsComponent } from './mail-settings/mail-settings.component';
 import { HolidayDefinitionComponent } from './holiday-definition/holiday-definition.component';
 import {NzTableModule} from "ng-zorro-antd/table";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
-import { HolidayDeleteModalComponent } from './holiday-definition/holiday-delete-modal/holiday-delete-modal.component';
 import {NzNotificationService} from "ng-zorro-antd/notification";
 import {NotificationService} from "../../../service/notification/notification.service";
 import {NzModalService} from "ng-zorro-antd/modal";
@@ -22,10 +20,6 @@ import { DbsSettingsComponent } from './dbs-settings/dbs-settings.component';
 import { ErpApiSettingsComponent } from './erp-api-settings/erp-api-settings.component';
 import { CurrencyIntegrationComponent } from './currency-integration/currency-integration.component';
 import {NzSwitchModule} from "ng-zorro-antd/switch";
-import { TagManagementComponent } from './tag-management/tag-management.component';
-import { TagTableComponent } from './tag-management/tag-table/tag-table.component';
-import { NewTagModalComponent } from './tag-management/new-tag-modal/new-tag-modal.component';
-import { TagDeleteModalComponent } from './tag-management/tag-delete-modal/tag-delete-modal.component';
 import { LdapComponent } from './ldap/ldap.component';
 import { LdapReportComponent } from './ldap/ldap-report/ldap-report.component';
 import { LdapUsersComponent } from './ldap/ldap-users/ldap-users.component';
@@ -33,10 +27,6 @@ import {NzPopoverModule} from "ng-zorro-antd/popover";
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 
 const routes: Routes = [
-  {
-    path: 'eho-signer',
-    component: EhoSignerComponent
-  },
   {
     path: 'environment',
     component: EnvironmentSettingsComponent
@@ -62,10 +52,6 @@ const routes: Routes = [
     component: CurrencyIntegrationComponent
   },
   {
-    path: 'tag',
-    component: TagManagementComponent
-  },
-  {
     path: 'ldap',
     component: LdapComponent
   },
@@ -79,18 +65,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    EhoSignerComponent,
     EnvironmentSettingsComponent,
     MailSettingsComponent,
     HolidayDefinitionComponent,
-    HolidayDeleteModalComponent,
     DbsSettingsComponent,
     ErpApiSettingsComponent,
     CurrencyIntegrationComponent,
-    TagManagementComponent,
-    TagTableComponent,
-    NewTagModalComponent,
-    TagDeleteModalComponent,
     LdapComponent,
     LdapReportComponent,
     LdapUsersComponent

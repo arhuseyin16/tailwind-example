@@ -18,7 +18,7 @@
         [nzIndeterminate]="false"
         (nzCheckedChange)="onAllChecked($event)"
       ></th>
-      <th [nzEllipsis]="true" *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortOrder]="column.sortOrder" width="{{column.width}}">
+      <th [nzEllipsis]="true" *ngFor="let column of listOfColumn" [nzShowSort]="column.sort" [nzSortFn]="column.compare" [nzSortOrder]="column.sortOrder" width="{{column.width}}">
         {{column.title | translate}}
       </th>
     </tr>
@@ -36,12 +36,11 @@
         <td>{{ data.priority }}</td>
         <td>{{ data.creating }}</td>
         <td>{{ data.update }}</td>
-        <div class="action-tab">
-          <div class="other" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
-            <img src="assets/img/bank-account/bank-detail-other.png">
-          </div>
-        </div>
-
+        <td>
+          <img class="table-right-icon"
+               nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu"
+               src="assets/img/bank-account/bank-detail-other.png">
+        </td>
         <nz-dropdown-menu #menu="nzDropdownMenu">
           <ul nz-menu style="width: 200px">
             <li (click)="deleted(data.id)" nz-menu-item>{{'settings-exchange.delete' | translate}}</li>
@@ -72,12 +71,12 @@
         <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.priority" /></td>
         <td>{{ data.creating }}</td>
         <td>{{ data.update }}</td>
-        <div class="action-tab">
+        <td>
           <div class="other-process">
             <a (click)="saveEdit(data.id)" class="save">{{'settings-exchange.save' | translate}}</a>
             <a (click)="cancelEdit(data.id)" class="delete">{{'settings-exchange.cancel' | translate}}</a>
           </div>
-        </div>
+        </td>
       </ng-template>
     </tr>
     </tbody>

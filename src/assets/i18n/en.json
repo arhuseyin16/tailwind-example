@@ -83,10 +83,8 @@
     "system-holiday-definitions": "System Holiday Definitions",
     "currency-integration-definition": "Currency Integration Definition",
     "LDAP-user-Sync": "LDAP User Sync",
-    "tag-management": "Tag Management",
     "erp-api-settings": "ERP API Settings",
     "environment-settings": "Environment Settings",
-    "eho-signer": "EHO Signer",
     "system-mail-settings": "System Mail Settings",
     "dbs-settings": "DBS Settings",
     "authScheme": "Auth. Scheme",
@@ -202,11 +200,6 @@
     "clear": "Clear"
   },
   "system-settings": {
-    "cadesSigningTimestampInformation": "Cades Signing Timestamp Information",
-    "ehoSignerApiURLAddress": "Eho Signer Api URL Address",
-    "username": "User Name",
-    "passwordUpdate": "Password Add/Update",
-    "apiUrl": "Api URL",
     "save": "Save",
     "applicationBaseAddress": "Application Base Address",
     "environment": "Environment",
@@ -238,12 +231,6 @@
     "servicePassword": "Service Password",
     "serviceControlTime": "Service Control Time",
     "autoSync": "Auto Sync",
-    "code": "Code",
-    "tagType": "Tag Type",
-    "createdTime": "Created Time",
-    "updateTime": "Update Time",
-    "constituent": "Constituent",
-    "updater": "Updater",
     "domain": "Domain",
     "server": "Server",
     "useSsl": "UseSSL",
@@ -269,24 +256,6 @@
     "subCategory": "Sub Category",
     "documentName": "Document Name",
     "version": "Version"
-  },
-  "system-tools": {
-    "title": "System Tools",
-    "e-signature-links": {
-      "title": "E-Signature Links",
-      "description": "In order for the E-Signature application to work on your computer, you can install it by following the steps below;",
-      "first-item": "Net Core 5.0 Runtime Package. When we run the application, it will direct you to this page and perform the installation process.",
-      "first-item-link": "Click for application.",
-      "second-item": "Java Runtime Environment-JRE. The library needs to be downloaded and installed.",
-      "second-item-link": "Click for the library.",
-      "third-item": "It is necessary to install the appropriate drivers for your e-signature usb device. (For example: \"Aladdin 64 Bit\" must be installed for the e-trust signature device.)",
-      "four-item": "The EhoSigner exe application must be downloaded.",
-      "four-item-link": "Click to download Signature Application."
-    },
-    "api-information": {
-      "title": "EhoSigner Api Information",
-      "first-item": "In order to be able to sign, you need to copy and save the following address for once in the Api Url field in the application."
-    }
   },
   "auth-management": {
     "user": "User",

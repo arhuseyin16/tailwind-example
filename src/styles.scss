@@ -188,6 +188,22 @@
     display: none;
   }
 
+  .table-right-icon {
+    @apply w-1.5 h-5 object-contain cursor-pointer;
+  }
+
+  .other-process {
+    @apply grid;
+
+    .save {
+      @apply  text-15 font-semibold tracking-normal text-left text-azure;
+    }
+
+    .delete {
+      @apply text-15 font-semibold tracking-normal text-left text-permanent-geranium-lake
+    }
+  }
+
 }
 
 .ant-pagination-item-active {
@@ -212,4 +228,16 @@
 
 .ant-divider-horizontal {
   @apply w-98% min-w-98% #{!important};
+}
+
+.default-btn {
+  @apply bg-lapis-lazuli text-white;
+}
+
+.active-btn {
+  @apply bg-white text-black;
+}
+
+.form-label {
+  @apply text-16 font-medium tracking-normal text-left;
 }

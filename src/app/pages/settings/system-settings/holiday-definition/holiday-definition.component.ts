@@ -16,7 +16,6 @@ import {ModalService} from "../../../../service/modal-service/modal.service";
 export class HolidayDefinitionComponent implements OnInit {
   listOfData: readonly any[] = [];
   listOfCurrentPageData: readonly any[] = [];
-  editCache: { [key: string]: { edit: boolean; data: any } } = {};
   headerConfig: Array<HeaderConfigModel> = new Array<HeaderConfigModel>();
   favoriteModel: FavoriteStateModel = new FavoriteStateModel();
   pageSize = PAGE_SIZE;
@@ -37,10 +36,16 @@ export class HolidayDefinitionComponent implements OnInit {
     },
     {
       title:'system-settings.date',
-      compare: (a: any, b: any) => a.date - b.date,
-      sort: true,
+      compare: null,
+      sort: false,
       sortOrder: null,
       width: "200px"
+    },
+    {
+      title:'',
+      compare: null,
+      sort: false,
+      sortOrder: null,
     }
   ]
 
@@ -69,44 +74,9 @@ export class HolidayDefinitionComponent implements OnInit {
       description: `açıklama${index + 1}`,
       date: '12.10.2022 17:50',
     }));
-    this.updateEditCache();
-  }
-
-  updateEditCache(): void {
-    this.listOfData.forEach(item => {
-      this.editCache[item.id] = {
-        edit: false,
-        data: { ...item }
-      };
-    });
   }
 
   onCurrentPageDataChange($event: readonly any[]): void {
     this.listOfCurrentPageData = $event;
   }
-
-  deleted(id: number) {
-    this.modalService.holidayTableDeleteModal(id).afterClose.subscribe(res => {
-      console.log(res);
-    })
-  }
-
-  startEdit(id: string): void {
-    this.editCache[id].edit = true;
-  }
-
-  cancelEdit(id: string): void {
-    const index = this.listOfData.findIndex(item => item.id === id);
-    this.editCache[id] = {
-      data: { ...this.listOfData[index] },
-      edit: false
-    };
-  }
-
-  saveEdit(id: string): void {
-    const index = this.listOfData.findIndex(item => item.id === id);
-    Object.assign(this.listOfData[index], this.editCache[id].data);
-    this.editCache[id].edit = false;
-  }
-
 }
