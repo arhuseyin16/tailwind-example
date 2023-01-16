@@ -12,7 +12,7 @@ page-shadow {
 
 
 .form-control {
-  flex: 0 0 14%;
+  flex: 0 0 15%;
 
   input {
     @apply rounded-5px border-solid border-0.5 border-white h-10;
@@ -21,18 +21,23 @@ page-shadow {
       @apply shadow-none outline-none;
     }
   }
+}
 
+.dataCreated {
+  flex: 0 0 16%;
 
-  .dataCreated {
-    flex: 0 0 16%;
+  input {
+    @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white h-10 #{!important};
 
-    input {
-      @apply rounded-5px border-solid border-0.5 border-dark-charcoal bg-white h-10 #{!important};
-
-      &:focus {
-        @apply shadow-none outline-none;
-      }
+    &:focus {
+      @apply shadow-none outline-none;
     }
   }
 }
 
+.editing {
+  input {
+    @apply rounded-5px h-10;
+    border: solid 0.5px #707070;
+  }
+}

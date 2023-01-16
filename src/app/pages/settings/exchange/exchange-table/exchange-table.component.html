@@ -18,7 +18,9 @@
         [nzIndeterminate]="false"
         (nzCheckedChange)="onAllChecked($event)"
       ></th>
-      <th [nzEllipsis]="true" *ngFor="let column of listOfColumn" [nzShowSort]="column.sort" [nzSortFn]="column.compare" [nzSortOrder]="column.sortOrder" width="{{column.width}}">
+      <th [nzEllipsis]="true" *ngFor="let column of listOfColumn"
+          [nzShowSort]="column.sort" [nzSortFn]="column.compare"
+          [nzSortOrder]="column.sortOrder" width="{{column.width}}">
         {{column.title | translate}}
       </th>
     </tr>

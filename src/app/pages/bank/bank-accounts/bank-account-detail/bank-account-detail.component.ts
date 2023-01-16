@@ -259,46 +259,67 @@ export class BankAccountDetailComponent implements OnInit {
   listOfColumn = [
     {
       title: 'bank-account.date',
-      compare: (a: any, b: any) => a.date - b.date,
-      sort: true,
-      sortOrder: null
+      compare: null,
+      sort: false,
+      sortOrder: null,
+      width: "150px"
     },
     {
       title: 'bank-account.definition',
       compare: (a: any, b: any) => a.definition - b.definition,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      width: "160px"
     },
     {
       title: 'bank-account.company',
       compare: (a: any, b: any) => a.company.localeCompare(b.company),
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      width: "160px"
     },
     {
       title: 'bank-account.branch',
       compare: (a: any, b: any) => a.branch.localeCompare(b.branch),
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      width: "230px"
     },
     {
       title: 'bank-account.accountType',
       compare: (a: any, b: any) => a.accountType - b.accountType,
       sort: true,
-      sortOrder: null
+      sortOrder: null,
+      width: "150px"
     },
     {
       title: 'bank-account.accountNo',
-      compare: (a: any, b: any) => a.accountNo - b.accountNo,
-      sort: true,
-      sortOrder: null
+      compare: null,
+      sort: false,
+      sortOrder: null,
+      width: "250px"
     },
     {
       title: 'bank-account.balance',
       compare: null,
       sort: false,
-      sortOrder: null
+      sortOrder: null,
+      width: "150px"
     },
+    {
+      title:'',
+      compare: null,
+      sort: false,
+      sortOrder: null,
+      width: "130px"
+    },
+    {
+      title:'',
+      compare: null,
+      sort: false,
+      sortOrder: null,
+      width: "auto"
+    }
   ];
   listChildDetailColumn = [
     { title: 'bank-account.creditLimit'},
